@@ -1,0 +1,949 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Yasmin Caetano | Portfólio UGC Creator</title>
+  <meta name="description" content="Yasmin Caetano, UGC Creator em Natal RN. Vídeos de storytelling para marcas de beleza, moda, casa e gastronomia que querem vender mais.">
+  <meta name="theme-color" content="#f3eee9">
+
+  <!-- Fontes: Fraunces (títulos) e Plus Jakarta Sans (texto). Única coisa que vem de fora. -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..600;1,9..144,300..600&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    /* ============ CORES E MEDIDAS ============ */
+    :root {
+      --creme: #f3eee9;
+      --creme-2: #ebe3da;
+      --papel: #fbf8f4;
+      --tinta: #14110d;
+      --tinta-suave: #4b443c;
+      --linha: rgba(20, 17, 13, .14);
+      --azul: #0049a4;
+      --azul-escuro: #00377d;
+      --laranja: #df7900;
+      --laranja-texto: #9a5300; /* laranja mais escuro para texto pequeno com bom contraste */
+      --serif: "Fraunces", Georgia, "Times New Roman", serif;
+      --sans: "Plus Jakarta Sans", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+      --raio: 6px;
+      --raio-g: 14px;
+      --sombra: 0 1px 2px rgba(20, 17, 13, .05), 0 12px 32px -14px rgba(20, 17, 13, .22);
+      --largura: 1200px;
+      --gutter: clamp(16px, 4vw, 40px);
+      --topo: 72px;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; }
+    html { scroll-behavior: smooth; scroll-padding-top: var(--topo); -webkit-text-size-adjust: 100%; }
+    body {
+      margin: 0;
+      background: var(--creme);
+      color: var(--tinta);
+      font-family: var(--sans);
+      font-size: 1.0625rem;
+      line-height: 1.65;
+      overflow-x: hidden;
+      overflow-x: clip;
+      -webkit-font-smoothing: antialiased;
+    }
+    img { max-width: 100%; display: block; }
+    a { color: inherit; }
+    h1, h2, h3 { font-family: var(--serif); font-weight: 400; line-height: 1.05; margin: 0; letter-spacing: -.01em; font-optical-sizing: auto; }
+    h2 em, h1 em, h3 em { font-style: italic; color: var(--azul); }
+    p { margin: 0 0 1em; }
+
+    :focus-visible { outline: 2px solid var(--azul); outline-offset: 3px; border-radius: 3px; }
+
+    .pular { position: absolute; left: 12px; top: -60px; background: var(--tinta); color: var(--creme); padding: 10px 16px; border-radius: var(--raio); z-index: 200; text-decoration: none; }
+    .pular:focus { top: 12px; }
+
+    .container { width: 100%; max-width: var(--largura); margin: 0 auto; padding: 0 var(--gutter); }
+    section { padding: clamp(80px, 11vw, 140px) 0; }
+
+    .rotulo {
+      display: inline-flex; align-items: center; gap: 10px;
+      font-size: .75rem; font-weight: 600; letter-spacing: .18em; text-transform: uppercase;
+      color: var(--laranja-texto); margin-bottom: 20px;
+    }
+    .rotulo::before { content: ""; width: 28px; height: 1px; background: var(--laranja); }
+
+    .titulo-secao { font-size: clamp(2.3rem, 5.5vw, 4.2rem); max-width: 16ch; }
+    .cabeca-secao { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: flex-end; gap: 24px; margin-bottom: clamp(40px, 6vw, 72px); }
+    .cabeca-secao .apoio { max-width: 42ch; color: var(--tinta-suave); margin: 0; }
+
+    /* ============ BOTÕES ============ */
+    .botao {
+      display: inline-flex; align-items: center; justify-content: center; gap: 10px;
+      font: 600 .95rem/1 var(--sans); text-decoration: none; cursor: pointer;
+      padding: 16px 26px; border-radius: 999px; border: 1px solid var(--tinta);
+      transition: background .3s ease, color .3s ease, transform .3s ease, border-color .3s ease;
+    }
+    .botao-primario { background: var(--azul); border-color: var(--azul); color: #fff; }
+    .botao-primario:hover { background: var(--azul-escuro); border-color: var(--azul-escuro); transform: translateY(-2px); }
+    .botao-secundario { background: transparent; color: var(--tinta); }
+    .botao-secundario:hover { background: var(--tinta); color: var(--creme); transform: translateY(-2px); }
+
+    /* ============ MÍDIA PROVISÓRIA (degradê no lugar de foto e vídeo) ============ */
+    .midia {
+      position: relative; overflow: hidden; border-radius: var(--raio-g);
+      background: linear-gradient(150deg, #d9cfc3 0%, #b9c6dc 55%, #0049a4 130%);
+      box-shadow: var(--sombra);
+    }
+    .midia img, .midia video { width: 100%; height: 100%; object-fit: cover; }
+    .midia .legenda-midia {
+      position: absolute; left: 14px; bottom: 14px;
+      font-size: .72rem; font-weight: 600; letter-spacing: .12em; text-transform: uppercase;
+      background: rgba(251, 248, 244, .92); color: var(--tinta); padding: 6px 10px; border-radius: 4px;
+    }
+    .g1 { background: linear-gradient(160deg, #f0dccb 0%, #e3a565 60%, #df7900 120%); }
+    .g2 { background: linear-gradient(160deg, #dfe6f2 0%, #7f9fd0 55%, #0049a4 115%); }
+    .g3 { background: linear-gradient(160deg, #efe6dc 0%, #c8b39c 60%, #14110d 140%); }
+    .g4 { background: linear-gradient(160deg, #f6e7d6 0%, #b8c4dc 60%, #df7900 135%); }
+    .g5 { background: linear-gradient(160deg, #e8ded3 0%, #0049a4 120%); }
+    .g6 { background: linear-gradient(160deg, #f3eee9 0%, #d9b48c 70%, #6b4a2b 130%); }
+
+    /* ============ MENU FIXO ============ */
+    .menu {
+      position: fixed; inset: 0 0 auto 0; z-index: 100; height: var(--topo);
+      background: rgba(243, 238, 233, .86);
+      -webkit-backdrop-filter: blur(12px); backdrop-filter: blur(12px);
+      border-bottom: 1px solid transparent; transition: border-color .3s ease;
+    }
+    .menu.rolou { border-bottom-color: var(--linha); }
+    .menu .container { height: 100%; display: flex; align-items: center; justify-content: space-between; gap: 20px; }
+    .logo { font-family: var(--serif); font-size: 1.35rem; text-decoration: none; white-space: nowrap; }
+    .logo em { color: var(--azul); }
+    .menu nav ul { list-style: none; display: flex; gap: clamp(16px, 2.4vw, 34px); margin: 0; padding: 0; }
+    .menu nav a { text-decoration: none; font-size: .9rem; font-weight: 500; position: relative; padding: 6px 0; }
+    .menu nav a::after { content: ""; position: absolute; left: 0; right: 0; bottom: 0; height: 1px; background: var(--azul); transform: scaleX(0); transform-origin: left; transition: transform .35s ease; }
+    .menu nav a:hover::after { transform: scaleX(1); }
+    .sanduiche { display: none; width: 44px; height: 44px; border: 1px solid var(--linha); background: transparent; border-radius: 50%; cursor: pointer; position: relative; }
+    .sanduiche span { position: absolute; left: 13px; right: 13px; height: 1.5px; background: var(--tinta); transition: transform .3s ease, opacity .3s ease; }
+    .sanduiche span:nth-child(1) { top: 16px; }
+    .sanduiche span:nth-child(2) { top: 21px; }
+    .sanduiche span:nth-child(3) { top: 26px; }
+    .sanduiche[aria-expanded="true"] span:nth-child(1) { transform: translateY(5px) rotate(45deg); }
+    .sanduiche[aria-expanded="true"] span:nth-child(2) { opacity: 0; }
+    .sanduiche[aria-expanded="true"] span:nth-child(3) { transform: translateY(-5px) rotate(-45deg); }
+
+    /* ============ 1. CAPA ============ */
+    .capa { padding: calc(var(--topo) + clamp(40px, 7vw, 90px)) 0 0; }
+    .capa-grade { display: grid; grid-template-columns: 1.25fr .75fr; gap: clamp(32px, 6vw, 80px); align-items: end; }
+    .capa h1 { font-size: clamp(3.4rem, 11vw, 9.5rem); line-height: .92; letter-spacing: -.03em; font-weight: 300; }
+    .capa h1 em { display: block; font-weight: 400; }
+    .capa .frase { font-size: clamp(1.1rem, 1.6vw, 1.3rem); max-width: 34ch; margin: 32px 0 36px; color: var(--tinta-suave); }
+    .capa .acoes { display: flex; flex-wrap: wrap; gap: 12px; }
+    .capa-foto { aspect-ratio: 4 / 5; width: 100%; }
+    .capa-foto::after {
+      content: ""; position: absolute; top: 18px; right: 18px; width: 54px; height: 54px; border-radius: 50%;
+      border: 1px solid rgba(251, 248, 244, .8);
+    }
+    .numeros-capa { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0; margin-top: clamp(48px, 7vw, 80px); border-top: 1px solid var(--linha); }
+    .numeros-capa div { padding: 22px 20px 22px 0; }
+    .numeros-capa div + div { padding-left: 20px; border-left: 1px solid var(--linha); }
+    .numeros-capa strong { display: block; font-family: var(--serif); font-weight: 400; font-size: clamp(1.8rem, 3.6vw, 2.8rem); line-height: 1; color: var(--azul); }
+    .numeros-capa span { font-size: .85rem; color: var(--tinta-suave); }
+
+    .faixa-marcas { margin-top: clamp(56px, 8vw, 96px); border-top: 1px solid var(--tinta); border-bottom: 1px solid var(--tinta); padding: 16px 0; overflow: hidden; }
+    .trilho { display: flex; width: max-content; animation: desliza 40s linear infinite; }
+    .trilho ul { display: flex; list-style: none; margin: 0; padding: 0; }
+    .trilho li { font-family: var(--serif); font-style: italic; font-size: 1.15rem; padding: 0 28px; white-space: nowrap; display: flex; align-items: center; gap: 56px; }
+    .trilho li::after { content: ""; width: 6px; height: 6px; border-radius: 50%; background: var(--laranja); margin-right: -28px; }
+    .faixa-marcas:hover .trilho { animation-play-state: paused; }
+    @keyframes desliza { to { transform: translateX(-50%); } }
+
+    /* ============ 2. SOBRE ============ */
+    .sobre-grade { display: grid; grid-template-columns: .85fr 1.15fr; gap: clamp(36px, 7vw, 100px); align-items: center; }
+    .sobre-foto { aspect-ratio: 4 / 5; }
+    .sobre-texto h2 { font-size: clamp(2.2rem, 4.6vw, 3.6rem); margin-bottom: 28px; }
+    .sobre-texto p { color: var(--tinta-suave); max-width: 52ch; }
+    .promessas { list-style: none; padding: 0; margin: 36px 0; border-top: 1px solid var(--linha); }
+    .promessas li { display: grid; grid-template-columns: 44px 1fr; gap: 12px; align-items: baseline; padding: 18px 0; border-bottom: 1px solid var(--linha); }
+    .promessas b { font-family: var(--serif); font-style: italic; font-weight: 400; color: var(--azul); font-size: 1.2rem; }
+    .promessas span { font-weight: 500; }
+    .assinatura { font-family: var(--serif); font-style: italic; font-size: 2rem; color: var(--azul); margin: 0; }
+    .assinatura small { display: block; font-family: var(--sans); font-style: normal; font-size: .8rem; letter-spacing: .14em; text-transform: uppercase; color: var(--tinta-suave); margin-top: 4px; }
+
+    /* ============ 3. DESTAQUES ============ */
+    .destaques { background: var(--papel); }
+    .destaques-grade { display: grid; grid-template-columns: repeat(3, 1fr); gap: clamp(18px, 2.5vw, 32px); }
+    .card-video { display: block; text-decoration: none; color: inherit; }
+    .card-video .midia { aspect-ratio: 9 / 16; transition: transform .5s ease, box-shadow .5s ease; }
+    .card-video:hover .midia { transform: translateY(-6px); box-shadow: 0 2px 4px rgba(20,17,13,.06), 0 28px 50px -20px rgba(20,17,13,.35); }
+    .play {
+      position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);
+      width: 78px; height: 78px; border-radius: 50%; background: rgba(251, 248, 244, .94);
+      display: grid; place-items: center; transition: transform .4s ease, background .4s ease;
+    }
+    .play svg { width: 24px; height: 24px; margin-left: 4px; fill: var(--azul); transition: fill .4s ease; }
+    .card-video:hover .play { transform: translate(-50%, -50%) scale(1.08); background: var(--laranja); }
+    .card-video:hover .play svg { fill: #fff; }
+    .card-video .numero-forte { font-family: var(--serif); font-size: clamp(2.6rem, 4.2vw, 3.4rem); line-height: 1; margin: 26px 0 6px; color: var(--azul); }
+    .card-video .rotulo-numero { font-size: .78rem; font-weight: 600; letter-spacing: .14em; text-transform: uppercase; color: var(--laranja-texto); margin: 0 0 14px; }
+    .card-video h3 { font-size: 1.45rem; margin-bottom: 6px; }
+    .card-video .contexto { font-size: .93rem; color: var(--tinta-suave); margin: 0; }
+
+    /* ============ 4. TRABALHOS ============ */
+    .filtros { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 40px; }
+    .filtro {
+      font: 500 .9rem/1 var(--sans); padding: 12px 20px; border-radius: 999px; cursor: pointer;
+      border: 1px solid var(--linha); background: transparent; color: var(--tinta);
+      transition: background .3s ease, color .3s ease, border-color .3s ease;
+    }
+    .filtro:hover { border-color: var(--tinta); }
+    .filtro[aria-pressed="true"] { background: var(--tinta); color: var(--creme); border-color: var(--tinta); }
+    .galeria { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 250px), 1fr)); gap: clamp(16px, 2vw, 26px); list-style: none; margin: 0; padding: 0; }
+    .trabalho { animation: surge .5s ease both; }
+    .trabalho[hidden] { display: none; }
+    .trabalho a { text-decoration: none; display: block; }
+    .trabalho .midia { aspect-ratio: 4 / 5; transition: transform .5s ease; }
+    .trabalho a:hover .midia { transform: scale(.98); }
+    .trabalho .info { display: flex; justify-content: space-between; align-items: baseline; gap: 10px; margin-top: 14px; }
+    .trabalho h3 { font-size: 1.2rem; }
+    .trabalho .nicho { font-size: .72rem; letter-spacing: .12em; text-transform: uppercase; color: var(--azul); font-weight: 600; white-space: nowrap; }
+    .trabalho .marca { font-size: .88rem; color: var(--tinta-suave); margin: 2px 0 0; }
+    @keyframes surge { from { opacity: 0; transform: translateY(12px); } to { opacity: 1; transform: none; } }
+
+    /* ============ 5. SERVIÇOS ============ */
+    .servicos { background: var(--tinta); color: var(--creme); }
+    .servicos .titulo-secao em { color: #8fb4ea; }
+    .servicos .rotulo { color: #f0a54d; }
+    .servicos .cabeca-secao .apoio { color: rgba(243, 238, 233, .72); }
+    .servicos-grade { display: grid; grid-template-columns: repeat(3, 1fr); list-style: none; margin: 0; padding: 0; border-top: 1px solid rgba(243, 238, 233, .2); }
+    .servico { padding: 40px 32px 44px 0; border-bottom: 1px solid rgba(243, 238, 233, .2); }
+    .servico:not(:nth-child(3n + 1)) { padding-left: 32px; border-left: 1px solid rgba(243, 238, 233, .2); }
+    .servico .num { font-family: var(--serif); font-style: italic; color: #f0a54d; font-size: 1.1rem; display: block; margin-bottom: 26px; }
+    .servico h3 { font-size: 1.7rem; margin-bottom: 14px; }
+    .servico p { color: rgba(243, 238, 233, .74); margin: 0; font-size: .97rem; }
+
+    /* ============ 6. NÚMEROS E DEPOIMENTOS ============ */
+    .subrotulo { font-size: .78rem; font-weight: 600; letter-spacing: .16em; text-transform: uppercase; color: var(--tinta-suave); margin: 0 0 22px; }
+    .metricas { display: grid; grid-template-columns: repeat(4, 1fr); list-style: none; margin: 0 0 clamp(64px, 9vw, 110px); padding: 0; border-top: 1px solid var(--tinta); }
+    .metricas li { padding: 30px 20px 10px 0; }
+    .metricas li + li { padding-left: 20px; border-left: 1px solid var(--linha); }
+    .metricas strong { display: block; font-family: var(--serif); font-weight: 300; font-size: clamp(2.8rem, 6vw, 5rem); line-height: 1; color: var(--azul); font-variant-numeric: tabular-nums; }
+    .metricas span { display: block; margin-top: 12px; color: var(--tinta-suave); font-size: .95rem; }
+
+    .resultados { display: grid; grid-template-columns: repeat(3, 1fr); gap: clamp(16px, 2vw, 26px); list-style: none; margin: 0 0 clamp(64px, 9vw, 110px); padding: 0; }
+    .resultado { background: var(--papel); border-radius: var(--raio-g); padding: 32px 28px; box-shadow: var(--sombra); border-top: 3px solid var(--laranja); }
+    .resultado strong { display: block; font-family: var(--serif); font-size: clamp(2.2rem, 4vw, 3rem); line-height: 1; margin-bottom: 12px; }
+    .resultado p { margin: 0 0 18px; color: var(--tinta-suave); }
+    .resultado small { font-size: .78rem; letter-spacing: .12em; text-transform: uppercase; font-weight: 600; color: var(--azul); }
+
+    .depoimentos { display: grid; grid-template-columns: repeat(2, 1fr); gap: clamp(16px, 2vw, 26px); list-style: none; margin: 0; padding: 0; }
+    .depoimento { margin: 0; padding: clamp(28px, 3.5vw, 44px); border: 1px solid var(--linha); border-radius: var(--raio-g); background: transparent; }
+    .depoimento blockquote { margin: 0 0 24px; font-family: var(--serif); font-size: clamp(1.15rem, 1.8vw, 1.4rem); line-height: 1.4; font-weight: 300; }
+    .depoimento blockquote::before { content: "\201C"; display: block; font-size: 3.2rem; line-height: .6; color: var(--laranja); margin-bottom: 10px; font-style: italic; }
+    .depoimento figcaption { display: flex; align-items: center; gap: 14px; font-size: .92rem; }
+    .depoimento .avatar { width: 44px; height: 44px; border-radius: 50%; flex: none; background: linear-gradient(140deg, var(--creme-2), var(--azul)); }
+    .depoimento figcaption b { display: block; font-weight: 600; }
+    .depoimento figcaption span { color: var(--tinta-suave); }
+
+    /* ============ 7. CONTATO ============ */
+    .contato { background: var(--azul); color: #fff; }
+    .contato .rotulo { color: #ffd2a0; }
+    .contato .rotulo::before { background: #ffd2a0; }
+    .contato h2 em { color: #ffd2a0; }
+    .contato-grade { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(40px, 7vw, 100px); align-items: start; }
+    .contato .titulo-secao { margin-bottom: 24px; }
+    .contato-texto p { color: rgba(255, 255, 255, .85); max-width: 40ch; }
+    .canais { display: flex; flex-direction: column; gap: 12px; margin-top: 36px; max-width: 380px; }
+    .canal {
+      display: flex; justify-content: space-between; align-items: center; gap: 12px; text-decoration: none;
+      padding: 18px 22px; border: 1px solid rgba(255, 255, 255, .35); border-radius: var(--raio);
+      transition: background .3s ease, color .3s ease;
+    }
+    .canal:hover { background: #fff; color: var(--azul); }
+    .canal span { font-size: .78rem; letter-spacing: .12em; text-transform: uppercase; opacity: .8; }
+    .canal b { font-weight: 600; overflow-wrap: anywhere; text-align: right; }
+    .contato :focus-visible { outline-color: #fff; }
+
+    .formulario { background: var(--papel); color: var(--tinta); border-radius: var(--raio-g); padding: clamp(28px, 4vw, 48px); box-shadow: 0 30px 60px -30px rgba(0, 0, 0, .45); }
+    .formulario :focus-visible { outline-color: var(--azul); }
+    .campo { margin-bottom: 20px; }
+    .campo label { display: block; font-size: .8rem; font-weight: 600; letter-spacing: .1em; text-transform: uppercase; margin-bottom: 8px; }
+    .campo input, .campo textarea {
+      width: 100%; font: inherit; font-size: 1rem; color: var(--tinta);
+      background: var(--creme); border: 1px solid var(--linha); border-radius: var(--raio);
+      padding: 14px 16px; transition: border-color .3s ease, background .3s ease;
+    }
+    .campo input:focus, .campo textarea:focus { outline: none; border-color: var(--azul); background: #fff; box-shadow: 0 0 0 3px rgba(0, 73, 164, .15); }
+    .campo textarea { min-height: 140px; resize: vertical; }
+    .formulario .botao { width: 100%; }
+    .confirmacao { display: none; text-align: center; padding: 20px 0; }
+    .confirmacao.ativa { display: block; }
+    .confirmacao .selo { width: 64px; height: 64px; border-radius: 50%; background: var(--azul); color: #fff; display: grid; place-items: center; margin: 0 auto 20px; font-size: 1.6rem; }
+    .confirmacao h3 { font-size: 2rem; margin-bottom: 12px; }
+    .confirmacao p { color: var(--tinta-suave); }
+
+    /* ============ 8. RODAPÉ ============ */
+    .rodape { padding: 56px 0 40px; }
+    .rodape .container { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 24px; }
+    .rodape .logo { font-size: 1.8rem; }
+    .redes { display: flex; flex-wrap: wrap; gap: 22px; list-style: none; margin: 0; padding: 0; }
+    .redes a { text-decoration: none; font-size: .92rem; font-weight: 500; }
+    .redes a:hover { color: var(--azul); }
+    .rodape .copia { width: 100%; padding-top: 24px; border-top: 1px solid var(--linha); font-size: .85rem; color: var(--tinta-suave); margin: 0; }
+
+    /* ============ CARD DE CAPTURA (mídia kit) ============ */
+    .fundo-modal {
+      position: fixed; inset: 0; z-index: 300; background: rgba(20, 17, 13, .62);
+      display: grid; place-items: center; padding: 16px;
+      opacity: 0; visibility: hidden; transition: opacity .4s ease, visibility .4s ease;
+    }
+    .fundo-modal.aberto { opacity: 1; visibility: visible; }
+    .card-captura {
+      position: relative; width: 100%; max-width: 440px; max-height: calc(100vh - 32px); overflow-y: auto;
+      background: var(--papel); border-radius: var(--raio-g); padding: clamp(28px, 5vw, 44px);
+      box-shadow: 0 40px 80px -30px rgba(0, 0, 0, .5);
+      transform: translateY(16px); transition: transform .4s ease;
+    }
+    .fundo-modal.aberto .card-captura { transform: none; }
+    .card-captura h2 { font-size: clamp(1.9rem, 5vw, 2.4rem); margin-bottom: 12px; padding-right: 30px; }
+    .card-captura > p { color: var(--tinta-suave); margin-bottom: 26px; }
+    .fechar { position: absolute; top: 14px; right: 14px; width: 40px; height: 40px; border-radius: 50%; border: 1px solid var(--linha); background: transparent; cursor: pointer; font-size: 1.3rem; line-height: 1; color: var(--tinta); }
+    .fechar:hover { background: var(--tinta); color: var(--creme); }
+    .card-captura .botao { width: 100%; }
+
+    /* ============ ANIMAÇÃO DE ENTRADA ============ */
+    .js .revelar { opacity: 0; transform: translateY(28px); transition: opacity .9s ease, transform .9s ease; }
+    .js .revelar.visivel { opacity: 1; transform: none; }
+
+    /* ============ RESPONSIVO ============ */
+    @media (max-width: 980px) {
+      .capa-grade, .sobre-grade, .contato-grade { grid-template-columns: 1fr; }
+      .capa-foto { max-width: 460px; }
+      .sobre-foto { max-width: 460px; }
+      .servicos-grade { grid-template-columns: repeat(2, 1fr); }
+      .servico, .servico:not(:nth-child(3n + 1)) { padding: 36px 24px 40px 0; border-left: 0; }
+      .servico:nth-child(even) { padding-left: 24px; border-left: 1px solid rgba(243, 238, 233, .2); }
+      .metricas { grid-template-columns: repeat(2, 1fr); }
+      .metricas li:nth-child(3) { padding-left: 0; border-left: 0; }
+      .resultados { grid-template-columns: 1fr; }
+    }
+
+    @media (max-width: 860px) {
+      .sanduiche { display: block; }
+      .menu nav {
+        position: fixed; top: var(--topo); left: 0; right: 0; bottom: 0;
+        background: var(--creme); padding: 32px var(--gutter);
+        opacity: 0; visibility: hidden; transform: translateY(-8px);
+        transition: opacity .3s ease, transform .3s ease, visibility .3s ease;
+        overflow-y: auto;
+      }
+      .menu nav.aberto { opacity: 1; visibility: visible; transform: none; }
+      .menu nav ul { flex-direction: column; gap: 0; }
+      .menu nav li { border-bottom: 1px solid var(--linha); }
+      .menu nav a { display: block; font-family: var(--serif); font-size: 2rem; padding: 16px 0; }
+      .menu nav a::after { display: none; }
+      .destaques-grade { grid-template-columns: 1fr; max-width: 420px; margin: 0 auto; gap: 56px; }
+    }
+
+    @media (max-width: 640px) {
+      body { font-size: 1rem; }
+      .numeros-capa div { padding: 18px 10px 18px 0; }
+      .numeros-capa div + div { padding-left: 12px; }
+      .numeros-capa span { font-size: .75rem; display: block; line-height: 1.3; margin-top: 4px; }
+      .capa .acoes .botao { flex: 1 1 100%; }
+      .servicos-grade { grid-template-columns: 1fr; }
+      .servico, .servico:nth-child(even), .servico:not(:nth-child(3n + 1)) { padding: 32px 0; border-left: 0; }
+      .metricas li, .metricas li + li { padding: 24px 12px 8px 0; }
+      .metricas li:nth-child(even) { padding-left: 14px; border-left: 1px solid var(--linha); }
+      .depoimentos { grid-template-columns: 1fr; }
+      .rodape .container { flex-direction: column; align-items: flex-start; }
+    }
+
+    /* ============ MENOS MOVIMENTO ============ */
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; }
+      .trilho { animation: none; flex-wrap: wrap; width: auto; }
+      .trilho ul[aria-hidden="true"] { display: none; }
+      .trilho ul { flex-wrap: wrap; justify-content: center; row-gap: 8px; }
+      .js .revelar { opacity: 1; transform: none; }
+    }
+  </style>
+</head>
+<body>
+  <a class="pular" href="#conteudo">Pular para o conteúdo</a>
+
+  <!-- ============ MENU FIXO ============ -->
+  <header class="menu" id="menu">
+    <div class="container">
+      <a class="logo" href="#topo">Yasmin <em>Caetano</em></a>
+      <button class="sanduiche" id="botaoMenu" aria-expanded="false" aria-controls="navegacao" aria-label="Abrir menu">
+        <span></span><span></span><span></span>
+      </button>
+      <nav id="navegacao" aria-label="Navegação principal">
+        <ul>
+          <li><a href="#sobre">Sobre</a></li>
+          <li><a href="#destaques">Destaques</a></li>
+          <li><a href="#trabalhos">Trabalhos</a></li>
+          <li><a href="#servicos">Serviços</a></li>
+          <li><a href="#numeros">Números</a></li>
+          <li><a href="#contato">Contato</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="conteudo">
+
+    <!-- ============ 1. CAPA ============ -->
+    <section class="capa" id="topo" aria-labelledby="titulo-capa">
+      <div class="container">
+        <div class="capa-grade">
+          <div class="revelar">
+            <p class="rotulo">UGC Creator · Natal RN</p>
+            <h1 id="titulo-capa">Yasmin <em>Caetano</em></h1>
+            <p class="frase">Vídeos de storytelling que transformam o seu produto em conceito visual e mostram a sua marca além da embalagem.</p>
+            <div class="acoes">
+              <a class="botao botao-primario" href="#contato">Falar comigo</a>
+              <a class="botao botao-secundario" href="#trabalhos">Ver os trabalhos</a>
+            </div>
+          </div>
+
+          <!-- FOTO DA CAPA: para trocar, apague o <span> e coloque dentro do div:
+               <img src="fotos/capa.jpg" alt="Yasmin Caetano gravando um vídeo"> -->
+          <div class="midia capa-foto g4 revelar" role="img" aria-label="Espaço para foto da Yasmin Caetano">
+            <span class="legenda-midia">foto da creator 4:5</span>
+          </div>
+        </div>
+
+        <!-- Os três números da capa vêm do array "numerosCapa" no script -->
+        <div class="numeros-capa revelar" id="numerosCapa"></div>
+      </div>
+
+      <!-- Faixa de marcas: os nomes vêm do array "marcas" no script -->
+      <div class="faixa-marcas" aria-label="Marcas atendidas">
+        <div class="trilho" id="trilhoMarcas"></div>
+      </div>
+    </section>
+
+    <!-- ============ 2. SOBRE MIM ============ -->
+    <section id="sobre" aria-labelledby="titulo-sobre">
+      <div class="container sobre-grade">
+        <!-- FOTO DO SOBRE: para trocar, apague o <span> e coloque dentro do div:
+             <img src="fotos/sobre.jpg" alt="Yasmin Caetano em seu estúdio em Natal"> -->
+        <div class="midia sobre-foto g6 revelar" role="img" aria-label="Espaço para foto da Yasmin Caetano no estúdio">
+          <span class="legenda-midia">foto da creator 4:5</span>
+        </div>
+
+        <div class="sobre-texto revelar">
+          <p class="rotulo">Sobre mim</p>
+          <h2 id="titulo-sobre">Produto bom merece uma <em>história</em> à altura.</h2>
+          <p>Prazer, aqui é a Yasmin. Eu crio vídeos de storytelling pra marcas de beleza, moda, casa e gastronomia que querem vender mais na Black Friday.</p>
+          <p>Meu jeito de trabalhar é transformar cada produto em um conceito visual: junto cenário, referência e narrativa pra despertar o interesse do público e mostrar o que existe além da embalagem. Gravo de Natal RN para marcas do Brasil inteiro.</p>
+
+          <ul class="promessas">
+            <li><b>01</b><span>Roteiro aprovado por você antes de gravar</span></li>
+            <li><b>02</b><span>Uma rodada de ajuste inclusa</span></li>
+            <li><b>03</b><span>Entrega em até 72 horas úteis</span></li>
+          </ul>
+
+          <p class="assinatura">Yasmin Caetano<small>UGC Creator</small></p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ 3. CONTEÚDOS DE DESTAQUE ============ -->
+    <section class="destaques" id="destaques" aria-labelledby="titulo-destaques">
+      <div class="container">
+        <div class="cabeca-secao revelar">
+          <div>
+            <p class="rotulo">Conteúdos de destaque</p>
+            <h2 class="titulo-secao" id="titulo-destaques">Vídeos que <em>pararam</em> o feed.</h2>
+          </div>
+          <p class="apoio">Três trabalhos que mostram como uma boa narrativa transforma um produto em desejo.</p>
+        </div>
+
+        <div class="destaques-grade">
+
+          <!-- DESTAQUE 01
+               LINK DO VÍDEO: troque o "#" do href pelo link do vídeo (Reels, TikTok, Drive ou YouTube).
+               CAPA DO VÍDEO: apague o <span class="legenda-midia"> e coloque dentro do div.midia:
+               <img src="capas/destaque-01.jpg" alt="Capa do vídeo para a Marca 01"> (formato vertical 9:16) -->
+          <a class="card-video revelar" href="#" target="_blank" rel="noopener" aria-label="Assistir: Título do conteúdo 01 (abre em nova aba)">
+            <div class="midia g1">
+              <span class="play" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M6 4l14 8-14 8z"/></svg></span>
+              <span class="legenda-midia">capa do vídeo 9:16</span>
+            </div>
+            <p class="numero-forte">+00K</p>
+            <p class="rotulo-numero">views no reels</p>
+            <h3>Título do conteúdo 01</h3>
+            <p class="contexto">Marca 01 · Beleza · escreva aqui o contexto em uma linha.</p>
+          </a>
+
+          <!-- DESTAQUE 02
+               LINK DO VÍDEO: troque o "#" do href pelo link do vídeo.
+               CAPA DO VÍDEO: troque o <span class="legenda-midia"> por <img src="capas/destaque-02.jpg" alt="..."> -->
+          <a class="card-video revelar" href="#" target="_blank" rel="noopener" aria-label="Assistir: Título do conteúdo 02 (abre em nova aba)">
+            <div class="midia g2">
+              <span class="play" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M6 4l14 8-14 8z"/></svg></span>
+              <span class="legenda-midia">capa do vídeo 9:16</span>
+            </div>
+            <p class="numero-forte">+00%</p>
+            <p class="rotulo-numero">de engajamento</p>
+            <h3>Título do conteúdo 02</h3>
+            <p class="contexto">Marca 02 · Moda · escreva aqui o contexto em uma linha.</p>
+          </a>
+
+          <!-- DESTAQUE 03
+               LINK DO VÍDEO: troque o "#" do href pelo link do vídeo.
+               CAPA DO VÍDEO: troque o <span class="legenda-midia"> por <img src="capas/destaque-03.jpg" alt="..."> -->
+          <a class="card-video revelar" href="#" target="_blank" rel="noopener" aria-label="Assistir: Título do conteúdo 03 (abre em nova aba)">
+            <div class="midia g3">
+              <span class="play" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M6 4l14 8-14 8z"/></svg></span>
+              <span class="legenda-midia">capa do vídeo 9:16</span>
+            </div>
+            <p class="numero-forte">+00K</p>
+            <p class="rotulo-numero">salvamentos</p>
+            <h3>Título do conteúdo 03</h3>
+            <p class="contexto">Marca 03 · Casa e decoração · escreva aqui o contexto em uma linha.</p>
+          </a>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ 4. TRABALHOS POR NICHO ============ -->
+    <section id="trabalhos" aria-labelledby="titulo-trabalhos">
+      <div class="container">
+        <div class="cabeca-secao revelar">
+          <div>
+            <p class="rotulo">Trabalhos por nicho</p>
+            <h2 class="titulo-secao" id="titulo-trabalhos">Cada nicho, uma <em>linguagem</em>.</h2>
+          </div>
+          <p class="apoio">Escolha um nicho para ver só os trabalhos dele. Os itens vêm do array "trabalhos" no script.</p>
+        </div>
+
+        <div class="filtros revelar" id="filtros" role="group" aria-label="Filtrar trabalhos por nicho"></div>
+        <ul class="galeria" id="galeria" aria-live="polite"></ul>
+      </div>
+    </section>
+
+    <!-- ============ 5. COMO EU TE AJUDO ============ -->
+    <section class="servicos" id="servicos" aria-labelledby="titulo-servicos">
+      <div class="container">
+        <div class="cabeca-secao revelar">
+          <div>
+            <p class="rotulo">Como eu te ajudo</p>
+            <h2 class="titulo-secao" id="titulo-servicos">Do roteiro ao <em>anúncio</em> pronto.</h2>
+          </div>
+          <p class="apoio">Formatos pensados pra campanha, pra anúncio e pra presença constante da sua marca.</p>
+        </div>
+        <ul class="servicos-grade" id="listaServicos"></ul>
+      </div>
+    </section>
+
+    <!-- ============ 6. NÚMEROS E DEPOIMENTOS ============ -->
+    <section id="numeros" aria-labelledby="titulo-numeros">
+      <div class="container">
+        <div class="cabeca-secao revelar">
+          <div>
+            <p class="rotulo">Números e depoimentos</p>
+            <h2 class="titulo-secao" id="titulo-numeros">Resultados que <em>falam</em> por mim.</h2>
+          </div>
+        </div>
+
+        <p class="subrotulo revelar">Em números</p>
+        <ul class="metricas revelar" id="listaMetricas"></ul>
+
+        <p class="subrotulo revelar">Resultados de campanha</p>
+        <ul class="resultados" id="listaResultados"></ul>
+
+        <p class="subrotulo revelar">Quem já trabalhou comigo</p>
+        <ul class="depoimentos" id="listaDepoimentos"></ul>
+      </div>
+    </section>
+
+    <!-- ============ 7. BORA CRIAR JUNTOS ============ -->
+    <section class="contato" id="contato" aria-labelledby="titulo-contato">
+      <div class="container contato-grade">
+        <div class="contato-texto revelar">
+          <p class="rotulo">Contato</p>
+          <h2 class="titulo-secao" id="titulo-contato">Bora criar <em>juntos</em>?</h2>
+          <p>Me conta sobre a sua marca, o produto e a campanha. Eu respondo com uma ideia de roteiro e o orçamento.</p>
+
+          <div class="canais">
+            <a class="canal" href="https://wa.me/5581989857308" target="_blank" rel="noopener"><span>WhatsApp</span><b>(81) 98985-7308</b></a>
+            <a class="canal" href="mailto:vityasbusiness@gmail.com"><span>E-mail</span><b>vityasbusiness@gmail.com</b></a>
+            <a class="canal" href="https://instagram.com/caetyas_" target="_blank" rel="noopener"><span>Instagram</span><b>@caetyas_</b></a>
+          </div>
+        </div>
+
+        <!-- FORMULÁRIO: hoje ele só mostra a confirmação na tela.
+             Para receber as mensagens no seu e-mail, crie um formulário grátis no Formspree
+             e coloque o endereço que ele te der na constante ENDERECO_FORMULARIO no script. -->
+        <div class="formulario revelar">
+          <form id="formContato" novalidate>
+            <div class="campo">
+              <label for="nome">Nome</label>
+              <input id="nome" name="nome" type="text" autocomplete="name" required>
+            </div>
+            <div class="campo">
+              <label for="email">E-mail</label>
+              <input id="email" name="email" type="email" autocomplete="email" required>
+            </div>
+            <div class="campo">
+              <label for="mensagem">Mensagem</label>
+              <textarea id="mensagem" name="mensagem" required placeholder="Marca, produto, prazo e o que você imagina pra campanha"></textarea>
+            </div>
+            <button class="botao botao-primario" type="submit">Enviar mensagem</button>
+            <p class="aviso-form" id="avisoForm" role="alert" style="margin:14px 0 0;font-size:.9rem;color:#a32b00"></p>
+          </form>
+
+          <div class="confirmacao" id="confirmacao" role="status" tabindex="-1">
+            <div class="selo" aria-hidden="true">✓</div>
+            <h3>Mensagem recebida!</h3>
+            <p>Valeu pelo contato! Eu te respondo em breve. Se preferir agilizar, me chama também no WhatsApp.</p>
+            <a class="botao botao-primario" id="linkZapConfirmacao" href="https://wa.me/5581989857308" target="_blank" rel="noopener">Continuar no WhatsApp</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ============ 8. RODAPÉ ============ -->
+  <footer class="rodape">
+    <div class="container">
+      <a class="logo" href="#topo">Yasmin <em>Caetano</em></a>
+      <ul class="redes">
+        <li><a href="https://instagram.com/caetyas_" target="_blank" rel="noopener">Instagram</a></li>
+        <!-- TikTok: troque @seuusuario pelo seu usuário, ou apague esta linha -->
+        <li><a href="https://www.tiktok.com/@seuusuario" target="_blank" rel="noopener">TikTok</a></li>
+        <li><a href="https://wa.me/5581989857308" target="_blank" rel="noopener">WhatsApp</a></li>
+        <li><a href="mailto:vityasbusiness@gmail.com">E-mail</a></li>
+      </ul>
+      <p class="copia">© <span id="ano"></span> Yasmin Caetano · UGC Creator · Natal RN</p>
+    </div>
+  </footer>
+
+  <!-- ============ CARD DE CAPTURA (aparece após 7 segundos, uma vez por visita) ============ -->
+  <div class="fundo-modal" id="fundoModal" aria-hidden="true">
+    <div class="card-captura" role="dialog" aria-modal="true" aria-labelledby="tituloCaptura">
+      <button class="fechar" id="fecharModal" type="button" aria-label="Fechar">×</button>
+      <div id="conteudoCaptura">
+        <h2 id="tituloCaptura">Quer meu mídia kit <em>completo</em>?</h2>
+        <p>Deixe seu nome e e-mail que eu te envio os formatos, os números e os valores.</p>
+        <form id="formCaptura" novalidate>
+          <div class="campo">
+            <label for="capNome">Nome</label>
+            <input id="capNome" name="nome" type="text" autocomplete="name" required>
+          </div>
+          <div class="campo">
+            <label for="capEmail">E-mail</label>
+            <input id="capEmail" name="email" type="email" autocomplete="email" required>
+          </div>
+          <button class="botao botao-primario" type="submit">Quero receber</button>
+          <p id="avisoCaptura" role="alert" style="margin:12px 0 0;font-size:.9rem;color:#a32b00"></p>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    /* =====================================================================
+       SEUS DADOS: edite aqui, sem mexer no HTML.
+       ===================================================================== */
+
+    // Números curtos da capa. Troque "00" pelos seus números reais.
+    const numerosCapa = [
+      { numero: "00+", rotulo: "vídeos entregues" },
+      { numero: "00", rotulo: "marcas atendidas" },
+      { numero: "0M", rotulo: "views somadas" }
+    ];
+
+    // Marcas da faixa da capa. Troque pelos nomes reais.
+    const marcas = [
+      "Marca 01", "Marca 02", "Marca 03", "Marca 04", "Marca 05", "Marca 06",
+      "Marca 07", "Marca 08", "Marca 09", "Marca 10", "Marca 11", "Marca 12"
+    ];
+
+    // Nichos dos filtros. O "id" precisa ser igual ao campo "nicho" dos trabalhos.
+    const nichos = [
+      { id: "beleza", nome: "Beleza" },
+      { id: "skincare", nome: "Skincare" },
+      { id: "moda", nome: "Moda" },
+      { id: "comida", nome: "Comida" },
+      { id: "casa", nome: "Casa e decoração" }
+    ];
+
+    // Trabalhos da galeria.
+    // capa: deixe "" para usar o degradê, ou coloque o caminho da imagem, ex: "trabalhos/batom.jpg"
+    // link: endereço do vídeo ou post. Deixe "" se não tiver.
+    const trabalhos = [
+      { titulo: "Storytelling de lançamento", nicho: "beleza", marca: "Marca 01", formato: "vídeo 9:16", capa: "", link: "" },
+      { titulo: "Maquiagem em cenário", nicho: "beleza", marca: "Marca 02", formato: "vídeo 9:16", capa: "", link: "" },
+      { titulo: "Rotina de cuidado", nicho: "skincare", marca: "Marca 03", formato: "vídeo 9:16", capa: "", link: "" },
+      { titulo: "Textura em close", nicho: "skincare", marca: "Marca 04", formato: "foto 4:5", capa: "", link: "" },
+      { titulo: "Look com narrativa", nicho: "moda", marca: "Marca 05", formato: "vídeo 9:16", capa: "", link: "" },
+      { titulo: "Unboxing de coleção", nicho: "moda", marca: "Marca 06", formato: "vídeo 9:16", capa: "", link: "" },
+      { titulo: "Receita com o produto", nicho: "comida", marca: "Marca 07", formato: "vídeo 9:16", capa: "", link: "" },
+      { titulo: "Mesa posta de fim de ano", nicho: "comida", marca: "Marca 08", formato: "foto 4:5", capa: "", link: "" },
+      { titulo: "Cantinho transformado", nicho: "casa", marca: "Marca 09", formato: "vídeo 9:16", capa: "", link: "" },
+      { titulo: "Antes e depois da sala", nicho: "casa", marca: "Marca 10", formato: "vídeo 9:16", capa: "", link: "" }
+    ];
+
+    // Serviços da seção "Como eu te ajudo".
+    const servicos = [
+      { titulo: "Vídeo UGC", descricao: "Vídeo vertical com roteiro de storytelling, cenário pensado e gancho forte nos primeiros segundos." },
+      { titulo: "Corte para anúncio", descricao: "Versões curtas do mesmo vídeo, com ganchos diferentes, prontas pra testar no tráfego pago." },
+      { titulo: "Fotos do produto", descricao: "Fotos em cenário com a estética da sua marca, para site, catálogo e redes sociais." },
+      { titulo: "Unboxing", descricao: "A experiência de abrir o produto contada com detalhe, expectativa e reação verdadeira." },
+      { titulo: "Publicação no meu perfil", descricao: "O conteúdo vai ao ar no meu Instagram, em parceria com a sua marca, para o meu público." },
+      { titulo: "Pacote mensal", descricao: "Uma quantidade fixa de vídeos por mês, com calendário combinado e prioridade na agenda." }
+    ];
+
+    // Métricas com contador animado.
+    // valor: o número final (ex: 120). Deixe null enquanto não tiver o número real: aparece "00".
+    const metricas = [
+      { valor: null, prefixo: "+", sufixo: "", rotulo: "vídeos entregues" },
+      { valor: null, prefixo: "", sufixo: "", rotulo: "marcas atendidas" },
+      { valor: null, prefixo: "+", sufixo: "M", rotulo: "views somadas" },
+      { valor: null, prefixo: "", sufixo: "%", rotulo: "taxa média de engajamento" }
+    ];
+
+    // Resultados de campanha. Troque pelos números reais de cada campanha.
+    const resultados = [
+      { numero: "+00%", texto: "em vendas na semana da Black Friday.", marca: "Marca 01 · Beleza" },
+      { numero: "+00K", texto: "views orgânicas em um único vídeo.", marca: "Marca 05 · Moda" },
+      { numero: "0,0x", texto: "de retorno sobre o investimento em anúncio.", marca: "Marca 09 · Casa e decoração" }
+    ];
+
+    // Depoimentos. Troque pelo texto real que o cliente te mandou.
+    const depoimentos = [
+      { texto: "Espaço para o depoimento real do Cliente 01, contando como foi o processo e qual resultado o vídeo trouxe.", nome: "Cliente 01", empresa: "Marca 01" },
+      { texto: "Espaço para o depoimento real do Cliente 02, de preferência citando prazo, roteiro ou vendas.", nome: "Cliente 02", empresa: "Marca 02" },
+      { texto: "Espaço para o depoimento real do Cliente 03. Frases curtas e específicas passam mais confiança.", nome: "Cliente 03", empresa: "Marca 03" },
+      { texto: "Espaço para o depoimento real do Cliente 04. Peça autorização para usar nome e empresa.", nome: "Cliente 04", empresa: "Marca 04" }
+    ];
+
+    // Endereço do Formspree (ou serviço parecido) para receber o formulário por e-mail.
+    // Deixe "" para só mostrar a confirmação na tela.
+    const ENDERECO_FORMULARIO = "";
+    const WHATSAPP = "5581989857308";
+
+    /* =====================================================================
+       DAQUI PRA BAIXO É O FUNCIONAMENTO. Não precisa mexer.
+       ===================================================================== */
+    document.documentElement.classList.add("js");
+    const menosMovimento = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    const degradeS = ["g1", "g2", "g3", "g4", "g5", "g6"];
+
+    function esc(texto) {
+      return String(texto).replace(/[&<>"']/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
+    }
+
+    // Capa: números e faixa de marcas
+    document.getElementById("numerosCapa").innerHTML = numerosCapa
+      .map(n => `<div><strong>${esc(n.numero)}</strong><span>${esc(n.rotulo)}</span></div>`).join("");
+
+    const listaMarcas = marcas.map(m => `<li>${esc(m)}</li>`).join("");
+    document.getElementById("trilhoMarcas").innerHTML =
+      `<ul>${listaMarcas}</ul><ul aria-hidden="true">${listaMarcas}</ul>`;
+
+    // Trabalhos e filtros
+    const galeria = document.getElementById("galeria");
+    const nomeNicho = id => (nichos.find(n => n.id === id) || { nome: id }).nome;
+
+    galeria.innerHTML = trabalhos.map((t, i) => {
+      const midia = t.capa
+        ? `<div class="midia"><img src="${esc(t.capa)}" alt="${esc(t.titulo)} para ${esc(t.marca)}" loading="lazy"></div>`
+        : `<div class="midia ${degradeS[i % degradeS.length]}" role="img" aria-label="Espaço para a capa de ${esc(t.titulo)}"><span class="legenda-midia">${esc(t.formato)}</span></div>`;
+      const info = `<div class="info"><h3>${esc(t.titulo)}</h3><span class="nicho">${esc(nomeNicho(t.nicho))}</span></div><p class="marca">${esc(t.marca)}</p>`;
+      const corpo = t.link
+        ? `<a href="${esc(t.link)}" target="_blank" rel="noopener">${midia}${info}</a>`
+        : `${midia}${info}`;
+      return `<li class="trabalho" data-nicho="${esc(t.nicho)}">${corpo}</li>`;
+    }).join("");
+
+    const filtros = document.getElementById("filtros");
+    filtros.innerHTML = [{ id: "todos", nome: "Todos" }].concat(nichos)
+      .map(n => `<button type="button" class="filtro" data-filtro="${esc(n.id)}" aria-pressed="${n.id === "todos"}">${esc(n.nome)}</button>`).join("");
+
+    filtros.addEventListener("click", e => {
+      const botao = e.target.closest(".filtro");
+      if (!botao) return;
+      const escolhido = botao.dataset.filtro;
+      filtros.querySelectorAll(".filtro").forEach(b => b.setAttribute("aria-pressed", b === botao));
+      galeria.querySelectorAll(".trabalho").forEach(item => {
+        const mostra = escolhido === "todos" || item.dataset.nicho === escolhido;
+        item.hidden = !mostra;
+        if (mostra) { item.style.animation = "none"; void item.offsetWidth; item.style.animation = ""; }
+      });
+    });
+
+    // Serviços
+    document.getElementById("listaServicos").innerHTML = servicos.map((s, i) =>
+      `<li class="servico revelar"><span class="num">${String(i + 1).padStart(2, "0")}</span><h3>${esc(s.titulo)}</h3><p>${esc(s.descricao)}</p></li>`
+    ).join("");
+
+    // Métricas
+    document.getElementById("listaMetricas").innerHTML = metricas.map(m =>
+      `<li><strong data-valor="${m.valor === null ? "" : m.valor}" data-prefixo="${esc(m.prefixo)}" data-sufixo="${esc(m.sufixo)}">${esc(m.prefixo)}${m.valor === null ? "00" : "0"}${esc(m.sufixo)}</strong><span>${esc(m.rotulo)}</span></li>`
+    ).join("");
+
+    // Resultados
+    document.getElementById("listaResultados").innerHTML = resultados.map(r =>
+      `<li class="resultado revelar"><strong>${esc(r.numero)}</strong><p>${esc(r.texto)}</p><small>${esc(r.marca)}</small></li>`
+    ).join("");
+
+    // Depoimentos
+    document.getElementById("listaDepoimentos").innerHTML = depoimentos.map(d =>
+      `<li class="revelar"><figure class="depoimento"><blockquote>${esc(d.texto)}</blockquote><figcaption><span class="avatar" aria-hidden="true"></span><div><b>${esc(d.nome)}</b><span>${esc(d.empresa)}</span></div></figcaption></figure></li>`
+    ).join("");
+
+    // Ano automático
+    document.getElementById("ano").textContent = new Date().getFullYear();
+
+    // Animação de entrada ao rolar
+    const revelaveis = document.querySelectorAll(".revelar");
+    if ("IntersectionObserver" in window && !menosMovimento) {
+      const obsRevelar = new IntersectionObserver(entradas => {
+        entradas.forEach(en => {
+          if (en.isIntersecting) { en.target.classList.add("visivel"); obsRevelar.unobserve(en.target); }
+        });
+      }, { threshold: 0.12, rootMargin: "0px 0px -40px 0px" });
+      revelaveis.forEach(el => obsRevelar.observe(el));
+    } else {
+      revelaveis.forEach(el => el.classList.add("visivel"));
+    }
+
+    // Contador animado das métricas
+    function formata(valor, casas) {
+      return valor.toLocaleString("pt-BR", { minimumFractionDigits: casas, maximumFractionDigits: casas });
+    }
+    function anima(el) {
+      if (el.dataset.valor === "") return;
+      const alvo = parseFloat(el.dataset.valor);
+      const casas = (el.dataset.valor.split(".")[1] || "").length;
+      const pre = el.dataset.prefixo, suf = el.dataset.sufixo;
+      if (menosMovimento) { el.textContent = pre + formata(alvo, casas) + suf; return; }
+      const duracao = 1800, inicio = performance.now();
+      (function passo(agora) {
+        const p = Math.min((agora - inicio) / duracao, 1);
+        const suave = 1 - Math.pow(1 - p, 3);
+        el.textContent = pre + formata(alvo * suave, casas) + suf;
+        if (p < 1) requestAnimationFrame(passo);
+      })(inicio);
+    }
+    const contadores = document.querySelectorAll("#listaMetricas strong");
+    if ("IntersectionObserver" in window) {
+      const obsContador = new IntersectionObserver(entradas => {
+        entradas.forEach(en => {
+          if (en.isIntersecting) { anima(en.target); obsContador.unobserve(en.target); }
+        });
+      }, { threshold: 0.5 });
+      contadores.forEach(el => obsContador.observe(el));
+    } else {
+      contadores.forEach(anima);
+    }
+
+    // Menu: borda ao rolar e menu-sanduíche
+    const menu = document.getElementById("menu");
+    const botaoMenu = document.getElementById("botaoMenu");
+    const navegacao = document.getElementById("navegacao");
+    window.addEventListener("scroll", () => menu.classList.toggle("rolou", window.scrollY > 10), { passive: true });
+
+    function alternaMenu(abrir) {
+      botaoMenu.setAttribute("aria-expanded", abrir);
+      botaoMenu.setAttribute("aria-label", abrir ? "Fechar menu" : "Abrir menu");
+      navegacao.classList.toggle("aberto", abrir);
+      document.body.style.overflow = abrir ? "hidden" : "";
+    }
+    botaoMenu.addEventListener("click", () => alternaMenu(botaoMenu.getAttribute("aria-expanded") !== "true"));
+    navegacao.addEventListener("click", e => { if (e.target.closest("a")) alternaMenu(false); });
+    window.addEventListener("resize", () => { if (window.innerWidth > 860) alternaMenu(false); });
+
+    // Validação simples dos formulários
+    function valida(form, aviso) {
+      const invalido = Array.from(form.elements).find(c => c.willValidate && !c.checkValidity());
+      if (invalido) {
+        aviso.textContent = invalido.type === "email" && invalido.value
+          ? "Confira o e-mail, parece que falta alguma coisa."
+          : "Preencha todos os campos, por favor.";
+        invalido.focus();
+        return false;
+      }
+      aviso.textContent = "";
+      return true;
+    }
+    function envia(dados) {
+      if (!ENDERECO_FORMULARIO) return;
+      fetch(ENDERECO_FORMULARIO, { method: "POST", headers: { Accept: "application/json" }, body: dados }).catch(() => {});
+    }
+
+    // Formulário de contato
+    const formContato = document.getElementById("formContato");
+    formContato.addEventListener("submit", e => {
+      e.preventDefault();
+      if (!valida(formContato, document.getElementById("avisoForm"))) return;
+      const dados = new FormData(formContato);
+      envia(dados);
+      const texto = `Oi, Yasmin! Aqui é ${dados.get("nome")}. ${dados.get("mensagem")}`;
+      document.getElementById("linkZapConfirmacao").href = `https://wa.me/${WHATSAPP}?text=${encodeURIComponent(texto)}`;
+      formContato.reset();
+      formContato.style.display = "none";
+      const conf = document.getElementById("confirmacao");
+      conf.classList.add("ativa");
+      conf.focus();
+    });
+
+    // Card de captura do mídia kit
+    const fundoModal = document.getElementById("fundoModal");
+    const fecharModal = document.getElementById("fecharModal");
+    let focoAnterior = null;
+
+    function lerSessao(chave) { try { return sessionStorage.getItem(chave); } catch (e) { return null; } }
+    function gravarSessao(chave, valor) { try { sessionStorage.setItem(chave, valor); } catch (e) {} }
+
+    function abreModal() {
+      if (fundoModal.classList.contains("aberto")) return;
+      focoAnterior = document.activeElement;
+      fundoModal.classList.add("aberto");
+      fundoModal.setAttribute("aria-hidden", "false");
+      gravarSessao("midiaKitVisto", "1");
+      setTimeout(() => document.getElementById("capNome").focus(), 60);
+    }
+    function fechaModal() {
+      fundoModal.classList.remove("aberto");
+      fundoModal.setAttribute("aria-hidden", "true");
+      if (focoAnterior && focoAnterior.focus) focoAnterior.focus();
+    }
+
+    if (!lerSessao("midiaKitVisto")) setTimeout(abreModal, 7000);
+
+    fecharModal.addEventListener("click", fechaModal);
+    fundoModal.addEventListener("click", e => { if (e.target === fundoModal) fechaModal(); });
+    document.addEventListener("keydown", e => {
+      if (e.key === "Escape") {
+        if (fundoModal.classList.contains("aberto")) fechaModal();
+        else if (botaoMenu.getAttribute("aria-expanded") === "true") { alternaMenu(false); botaoMenu.focus(); }
+      }
+      // Mantém o foco do teclado dentro do card enquanto ele está aberto
+      if (e.key === "Tab" && fundoModal.classList.contains("aberto")) {
+        const focaveis = fundoModal.querySelectorAll("button, input, a[href]");
+        const primeiro = focaveis[0], ultimo = focaveis[focaveis.length - 1];
+        if (e.shiftKey && document.activeElement === primeiro) { e.preventDefault(); ultimo.focus(); }
+        else if (!e.shiftKey && document.activeElement === ultimo) { e.preventDefault(); primeiro.focus(); }
+      }
+    });
+
+    const formCaptura = document.getElementById("formCaptura");
+    formCaptura.addEventListener("submit", e => {
+      e.preventDefault();
+      if (!valida(formCaptura, document.getElementById("avisoCaptura"))) return;
+      envia(new FormData(formCaptura));
+      const nome = esc(formCaptura.elements.nome.value.trim().split(" ")[0]);
+      document.getElementById("conteudoCaptura").innerHTML =
+        `<h2 id="tituloCaptura">Prontinho, <em>${nome}</em>!</h2><p>Seu pedido chegou. Vou te mandar o mídia kit completo no e-mail que você deixou.</p><button class="botao botao-primario" type="button" id="okCaptura">Continuar navegando</button>`;
+      const ok = document.getElementById("okCaptura");
+      ok.addEventListener("click", fechaModal);
+      ok.focus();
+    });
+  </script>
+</body>
+</html>
