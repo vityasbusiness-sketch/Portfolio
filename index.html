@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Yasmin Caetano | Portfólio UGC Creator</title>
-  <meta name="description" content="Yasmin Caetano, UGC Creator em Natal RN. Vídeos de storytelling para marcas de beleza, moda, casa e gastronomia que querem vender mais.">
+  <meta name="description" content="Yasmin Caetano, UGC Creator em Natal RN. UGC que soma estratégia e sensibilidade: vídeos de storytelling para beleza, skincare, moda, gastronomia e casa.">
   <meta name="theme-color" content="#f3eee9">
 
   <!-- Fontes: Fraunces (títulos) e Plus Jakarta Sans (texto). Única coisa que vem de fora. -->
@@ -194,6 +194,7 @@
     }
     .filtro:hover { border-color: var(--tinta); }
     .filtro[aria-pressed="true"] { background: var(--tinta); color: var(--creme); border-color: var(--tinta); }
+    .pilar { max-width: 60ch; margin: -16px 0 36px; padding-left: 18px; border-left: 2px solid var(--laranja); font-family: var(--serif); font-style: italic; font-size: 1.15rem; line-height: 1.5; }
     .galeria { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 250px), 1fr)); gap: clamp(16px, 2vw, 26px); list-style: none; margin: 0; padding: 0; }
     .trabalho { animation: surge .5s ease both; }
     .trabalho[hidden] { display: none; }
@@ -398,7 +399,7 @@
           <div class="revelar">
             <p class="rotulo">UGC Creator · Natal RN</p>
             <h1 id="titulo-capa">Yasmin <em>Caetano</em></h1>
-            <p class="frase">Vídeos de storytelling que transformam o seu produto em conceito visual e mostram a sua marca além da embalagem.</p>
+            <p class="frase"><strong style="font-weight:600;color:var(--tinta)">UGC que soma estratégia e sensibilidade.</strong> Transformo experiências reais em vídeos que geram identificação e influenciam a decisão de compra.</p>
             <div class="acoes">
               <a class="botao botao-primario" href="#contato">Falar comigo</a>
               <a class="botao botao-secundario" href="#trabalhos">Ver os trabalhos</a>
@@ -434,8 +435,9 @@
         <div class="sobre-texto revelar">
           <p class="rotulo">Sobre mim</p>
           <h2 id="titulo-sobre">Produto bom merece uma <em>história</em> à altura.</h2>
-          <p>Prazer, aqui é a Yasmin. Eu crio vídeos de storytelling pra marcas de beleza, moda, casa e gastronomia que querem vender mais na Black Friday.</p>
-          <p>Meu jeito de trabalhar é transformar cada produto em um conceito visual: junto cenário, referência e narrativa pra despertar o interesse do público e mostrar o que existe além da embalagem. Gravo de Natal RN para marcas do Brasil inteiro.</p>
+          <p>Prazer, aqui é a Yasmin. Eu crio conteúdo UGC transformando experiências reais em vídeos que geram identificação e influenciam a decisão de compra.</p>
+          <p>Minha base vem da maquiagem artística: o olhar treinado pra luz, textura e composição entra em cada roteiro que escrevo. É assim que transformo um produto em conceito visual, com cenário, referência e narrativa, e mostro o que existe além da embalagem.</p>
+          <p>Moro perto do mar, em Natal RN, e estudo nutrição. São detalhes que entram nos meus roteiros como conexão real, não como enfeite.</p>
 
           <ul class="promessas">
             <li><b>01</b><span>Roteiro aprovado por você antes de gravar</span></li>
@@ -465,15 +467,16 @@
                LINK DO VÍDEO: troque o "#" do href pelo link do vídeo (Reels, TikTok, Drive ou YouTube).
                CAPA DO VÍDEO: apague o <span class="legenda-midia"> e coloque dentro do div.midia:
                <img src="capas/destaque-01.jpg" alt="Capa do vídeo para a Marca 01"> (formato vertical 9:16) -->
-          <a class="card-video revelar" href="#" target="_blank" rel="noopener" aria-label="Assistir: Título do conteúdo 01 (abre em nova aba)">
+          <a class="card-video revelar" href="#" target="_blank" rel="noopener" aria-label="Assistir: case Bombado (abre em nova aba)">
             <div class="midia g1">
               <span class="play" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M6 4l14 8-14 8z"/></svg></span>
               <span class="legenda-midia">capa do vídeo 9:16</span>
             </div>
+            <!-- Troque +00K pelo alcance real do vídeo (Instagram da marca ou gerenciador de anúncios) -->
             <p class="numero-forte">+00K</p>
-            <p class="rotulo-numero">views no reels</p>
-            <h3>Título do conteúdo 01</h3>
-            <p class="contexto">Marca 01 · Beleza · escreva aqui o contexto em uma linha.</p>
+            <p class="rotulo-numero">pessoas alcançadas</p>
+            <h3>Experiência gastronômica que virou alcance</h3>
+            <p class="contexto">Bombado · Gastronomia · vídeo usado em tráfego pago.</p>
           </a>
 
           <!-- DESTAQUE 02
@@ -516,10 +519,11 @@
             <p class="rotulo">Trabalhos por nicho</p>
             <h2 class="titulo-secao" id="titulo-trabalhos">Cada nicho, uma <em>linguagem</em>.</h2>
           </div>
-          <p class="apoio">Escolha um nicho para ver só os trabalhos dele. Os itens vêm do array "trabalhos" no script.</p>
+          <p class="apoio">Trabalho em vários nichos por escolha: cada um exercita uma forma diferente de gerar desejo, sem abrir mão da qualidade em nenhum deles.</p>
         </div>
 
         <div class="filtros revelar" id="filtros" role="group" aria-label="Filtrar trabalhos por nicho"></div>
+        <p class="pilar" id="pilar" aria-live="polite" hidden></p>
         <ul class="galeria" id="galeria" aria-live="polite"></ul>
       </div>
     </section>
@@ -649,26 +653,40 @@
        SEUS DADOS: edite aqui, sem mexer no HTML.
        ===================================================================== */
 
+    // Marcas da faixa da capa, na ordem em que aparecem.
+    // Estratégia: as mais conhecidas abrem a faixa (é o que a marca vê primeiro),
+    // depois os blocos de beleza e skincare reforçam o seu nicho mais forte.
+    // A quantidade de marcas aqui alimenta sozinha o número "marcas atendidas".
+    const marcas = [
+      // Gigantes do varejo
+      "Shein", "Shopee", "Mercado Livre",
+      // Grandes marcas de beleza e cabelo
+      "Dove", "Pantene", "Garnier", "Tresemmé", "Lux",
+      // Skincare
+      "Sallve", "Principia", "Bepantol Derma", "CBSkin",
+      // Maquiagem, perfumaria e lentes
+      "Sheglam", "Dermacol", "Sace Lady", "Dossier", "TTDeye",
+      // Tecnologia e acessórios
+      "Acer", "Gocase",
+      // Gastronomia e outras
+      "Bombado", "Néctar", "Eizz", "Domidona", "Revien", "Ollie"
+    ];
+
     // Números curtos da capa. Troque "00" pelos seus números reais.
     const numerosCapa = [
       { numero: "00+", rotulo: "vídeos entregues" },
-      { numero: "00", rotulo: "marcas atendidas" },
+      { numero: String(marcas.length), rotulo: "marcas atendidas" },
       { numero: "0M", rotulo: "views somadas" }
     ];
 
-    // Marcas da faixa da capa. Troque pelos nomes reais.
-    const marcas = [
-      "Marca 01", "Marca 02", "Marca 03", "Marca 04", "Marca 05", "Marca 06",
-      "Marca 07", "Marca 08", "Marca 09", "Marca 10", "Marca 11", "Marca 12"
-    ];
-
     // Nichos dos filtros. O "id" precisa ser igual ao campo "nicho" dos trabalhos.
+    // pilar: frase que aparece quando o nicho é escolhido. Deixe "" para não mostrar nada.
     const nichos = [
-      { id: "beleza", nome: "Beleza" },
-      { id: "skincare", nome: "Skincare" },
-      { id: "moda", nome: "Moda" },
-      { id: "comida", nome: "Comida" },
-      { id: "casa", nome: "Casa e decoração" }
+      { id: "beleza", nome: "Beleza", pilar: "Estética cinematográfica limpa: luz natural, close macro, textura e narrativa visual suave. Meu maior diferencial, direto da bagagem com maquiagem artística: sensorialidade, textura e brilho real em cada frame." },
+      { id: "skincare", nome: "Skincare", pilar: "Estética cinematográfica limpa: luz natural, close macro, textura e narrativa visual suave. Meu maior diferencial, direto da bagagem com maquiagem artística: sensorialidade, textura e brilho real em cada frame." },
+      { id: "moda", nome: "Moda", pilar: "" },
+      { id: "comida", nome: "Comida", pilar: "" },
+      { id: "casa", nome: "Casa e decoração", pilar: "" }
     ];
 
     // Trabalhos da galeria.
@@ -689,9 +707,9 @@
 
     // Serviços da seção "Como eu te ajudo".
     const servicos = [
-      { titulo: "Vídeo UGC", descricao: "Vídeo vertical com roteiro de storytelling, cenário pensado e gancho forte nos primeiros segundos." },
-      { titulo: "Corte para anúncio", descricao: "Versões curtas do mesmo vídeo, com ganchos diferentes, prontas pra testar no tráfego pago." },
-      { titulo: "Fotos do produto", descricao: "Fotos em cenário com a estética da sua marca, para site, catálogo e redes sociais." },
+      { titulo: "Vídeo UGC", descricao: "Storytelling para vídeo curto, com roteiro estratégico, ganchos visuais e falados nos primeiros segundos e estética cinematográfica." },
+      { titulo: "Corte para anúncio", descricao: "Versões do mesmo vídeo com ganchos diferentes, pensadas para desejo e conversão no tráfego pago." },
+      { titulo: "Fotos do produto", descricao: "Direção criativa com luz natural, close e textura, na estética da sua marca, para site, catálogo e redes sociais." },
       { titulo: "Unboxing", descricao: "A experiência de abrir o produto contada com detalhe, expectativa e reação verdadeira." },
       { titulo: "Publicação no meu perfil", descricao: "O conteúdo vai ao ar no meu Instagram, em parceria com a sua marca, para o meu público." },
       { titulo: "Pacote mensal", descricao: "Uma quantidade fixa de vídeos por mês, com calendário combinado e prioridade na agenda." }
@@ -701,14 +719,15 @@
     // valor: o número final (ex: 120). Deixe null enquanto não tiver o número real: aparece "00".
     const metricas = [
       { valor: null, prefixo: "+", sufixo: "", rotulo: "vídeos entregues" },
-      { valor: null, prefixo: "", sufixo: "", rotulo: "marcas atendidas" },
+      { valor: marcas.length, prefixo: "", sufixo: "", rotulo: "marcas atendidas" },
       { valor: null, prefixo: "+", sufixo: "M", rotulo: "views somadas" },
       { valor: null, prefixo: "", sufixo: "%", rotulo: "taxa média de engajamento" }
     ];
 
     // Resultados de campanha. Troque pelos números reais de cada campanha.
     const resultados = [
-      { numero: "+00%", texto: "em vendas na semana da Black Friday.", marca: "Marca 01 · Beleza" },
+      // Case Bombado: troque +00K pelo alcance real.
+      { numero: "+00K", texto: "pessoas alcançadas com um vídeo usado em tráfego pago, gerando visitas ao perfil, compartilhamentos e novos seguidores.", marca: "Bombado · Gastronomia" },
       { numero: "+00K", texto: "views orgânicas em um único vídeo.", marca: "Marca 05 · Moda" },
       { numero: "0,0x", texto: "de retorno sobre o investimento em anúncio.", marca: "Marca 09 · Casa e decoração" }
     ];
@@ -769,6 +788,10 @@
       if (!botao) return;
       const escolhido = botao.dataset.filtro;
       filtros.querySelectorAll(".filtro").forEach(b => b.setAttribute("aria-pressed", b === botao));
+      const pilar = document.getElementById("pilar");
+      const texto = (nichos.find(n => n.id === escolhido) || {}).pilar || "";
+      pilar.textContent = texto;
+      pilar.hidden = !texto;
       galeria.querySelectorAll(".trabalho").forEach(item => {
         const mostra = escolhido === "todos" || item.dataset.nicho === escolhido;
         item.hidden = !mostra;
