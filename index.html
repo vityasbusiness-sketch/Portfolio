@@ -168,7 +168,17 @@
 
     /* ============ 3. DESTAQUES ============ */
     .destaques { background: var(--papel); }
-    .destaques-grade { display: grid; grid-template-columns: repeat(3, 1fr); gap: clamp(18px, 2.5vw, 32px); }
+    .case { display: grid; grid-template-columns: minmax(0, 380px) 1fr; gap: clamp(36px, 6vw, 96px); align-items: center; }
+    .case-marca { font-size: .78rem; font-weight: 600; letter-spacing: .14em; text-transform: uppercase; color: var(--azul); margin-bottom: 16px; }
+    .case-texto h3 { font-size: clamp(1.8rem, 3.4vw, 2.6rem); line-height: 1.12; margin-bottom: 22px; }
+    .case-texto > p { color: var(--tinta-suave); max-width: 56ch; }
+    .case-numeros { display: grid; grid-template-columns: repeat(3, 1fr); margin: 36px 0; border-top: 1px solid var(--tinta); }
+    .case-numeros div { display: flex; flex-direction: column-reverse; justify-content: flex-end; padding: 22px 16px 22px 0; border-bottom: 1px solid var(--linha); }
+    .case-numeros div:not(:nth-child(3n + 1)) { padding-left: 16px; border-left: 1px solid var(--linha); }
+    .case-numeros dd { margin: 0; font-family: var(--serif); font-size: clamp(1.7rem, 2.8vw, 2.4rem); line-height: 1.05; color: var(--azul); white-space: nowrap; }
+    .case-numeros dt { margin-top: 6px; font-size: .85rem; color: var(--tinta-suave); }
+    .case-conclusao { margin: 0; padding: 20px 22px; background: var(--creme); border-left: 3px solid var(--laranja); border-radius: 0 var(--raio) var(--raio) 0; }
+    .case-conclusao b { color: var(--tinta); }
     .card-video { display: block; text-decoration: none; color: inherit; }
     .card-video .midia { aspect-ratio: 9 / 16; transition: transform .5s ease, box-shadow .5s ease; }
     .card-video:hover .midia { transform: translateY(-6px); box-shadow: 0 2px 4px rgba(20,17,13,.06), 0 28px 50px -20px rgba(20,17,13,.35); }
@@ -233,7 +243,22 @@
     .resultado p { margin: 0 0 18px; color: var(--tinta-suave); }
     .resultado small { font-size: .78rem; letter-spacing: .12em; text-transform: uppercase; font-weight: 600; color: var(--azul); }
 
-    .depoimentos { display: grid; grid-template-columns: repeat(2, 1fr); gap: clamp(16px, 2vw, 26px); list-style: none; margin: 0; padding: 0; }
+    .carrossel-topo { display: flex; justify-content: space-between; align-items: center; gap: 16px; margin-bottom: 22px; }
+    .carrossel-topo .subrotulo { margin: 0; }
+    .setas { display: flex; gap: 10px; }
+    .setas[hidden] { display: none; }
+    .seta { width: 48px; height: 48px; border-radius: 50%; border: 1px solid var(--tinta); background: transparent; color: var(--tinta); font-size: 1.2rem; cursor: pointer; transition: background .3s ease, color .3s ease, opacity .3s ease; }
+    .seta:hover:not(:disabled) { background: var(--tinta); color: var(--creme); }
+    .seta:disabled { opacity: .3; cursor: default; }
+    .depoimentos {
+      display: grid; grid-auto-flow: column; grid-auto-columns: calc((100% - clamp(16px, 2vw, 26px)) / 2);
+      gap: clamp(16px, 2vw, 26px); list-style: none; margin: 0; padding: 0 0 4px;
+      overflow-x: auto; scroll-snap-type: x mandatory; scrollbar-width: none; overscroll-behavior-x: contain;
+    }
+    .depoimentos::-webkit-scrollbar { display: none; }
+    .depoimentos li { display: flex; scroll-snap-align: start; }
+    .depoimento { flex: 1; display: flex; flex-direction: column; }
+    .depoimento blockquote { flex: 1; }
     .depoimento { margin: 0; padding: clamp(28px, 3.5vw, 44px); border: 1px solid var(--linha); border-radius: var(--raio-g); background: transparent; }
     .depoimento blockquote { margin: 0 0 24px; font-family: var(--serif); font-size: clamp(1.15rem, 1.8vw, 1.4rem); line-height: 1.4; font-weight: 300; }
     .depoimento blockquote::before { content: "\201C"; display: block; font-size: 3.2rem; line-height: .6; color: var(--laranja); margin-bottom: 10px; font-style: italic; }
@@ -339,7 +364,11 @@
       .menu nav li { border-bottom: 1px solid var(--linha); }
       .menu nav a { display: block; font-family: var(--serif); font-size: 2rem; padding: 16px 0; }
       .menu nav a::after { display: none; }
-      .destaques-grade { grid-template-columns: 1fr; max-width: 420px; margin: 0 auto; gap: 56px; }
+      .case { grid-template-columns: 1fr; }
+      .case-video { width: 100%; max-width: 380px; margin: 0 auto; }
+      .case-numeros { grid-template-columns: repeat(2, 1fr); }
+      .case-numeros div:not(:nth-child(3n + 1)) { padding-left: 0; border-left: 0; }
+      .case-numeros div:nth-child(even) { padding-left: 16px; border-left: 1px solid var(--linha); }
     }
 
     @media (max-width: 640px) {
@@ -352,7 +381,7 @@
       .servico, .servico:nth-child(even), .servico:not(:nth-child(3n + 1)) { padding: 32px 0; border-left: 0; }
       .metricas li, .metricas li + li { padding: 24px 12px 8px 0; }
       .metricas li:nth-child(even) { padding-left: 14px; border-left: 1px solid var(--linha); }
-      .depoimentos { grid-template-columns: 1fr; }
+      .depoimentos { grid-auto-columns: 88%; }
       .rodape .container { flex-direction: column; align-items: flex-start; }
     }
 
@@ -435,7 +464,7 @@
         <div class="sobre-texto revelar">
           <p class="rotulo">Sobre mim</p>
           <h2 id="titulo-sobre">Produto bom merece uma <em>história</em> à altura.</h2>
-          <p>Prazer, aqui é a Yasmin. Eu crio conteúdo UGC transformando experiências reais em vídeos que geram identificação e influenciam a decisão de compra.</p>
+          <p>Prazer, me chamo Yasmin Caetano, sou criadora de conteúdo UGC e influenciadora. Crio conteúdos transformando experiências reais em vídeos que geram identificação e influenciam a decisão de compra.</p>
           <p>Minha base vem da maquiagem artística: o olhar treinado pra luz, textura e composição entra em cada roteiro que escrevo. É assim que transformo um produto em conceito visual, com cenário, referência e narrativa, e mostro o que existe além da embalagem.</p>
           <p>Moro perto do mar, em Natal RN, e estudo nutrição. São detalhes que entram nos meus roteiros como conexão real, não como enfeite.</p>
 
@@ -450,63 +479,45 @@
       </div>
     </section>
 
-    <!-- ============ 3. CONTEÚDOS DE DESTAQUE ============ -->
+    <!-- ============ 3. CONTEÚDO DE DESTAQUE (case Bombado) ============ -->
     <section class="destaques" id="destaques" aria-labelledby="titulo-destaques">
       <div class="container">
         <div class="cabeca-secao revelar">
           <div>
-            <p class="rotulo">Conteúdos de destaque</p>
-            <h2 class="titulo-secao" id="titulo-destaques">Vídeos que <em>pararam</em> o feed.</h2>
+            <p class="rotulo">Conteúdo de destaque</p>
+            <h2 class="titulo-secao" id="titulo-destaques">Por trás de um vídeo que <em>performou</em>.</h2>
           </div>
-          <p class="apoio">Três trabalhos que mostram como uma boa narrativa transforma um produto em desejo.</p>
+          <p class="apoio">Um case real, com os números do tráfego pago, pra você ver o que um roteiro bem pensado entrega.</p>
         </div>
 
-        <div class="destaques-grade">
-
-          <!-- DESTAQUE 01
-               LINK DO VÍDEO: troque o "#" do href pelo link do vídeo (Reels, TikTok, Drive ou YouTube).
+        <div class="case">
+          <!-- LINK DO VÍDEO: troque o "#" do href pelo link do vídeo do Bombado (Reels, TikTok, Drive ou YouTube).
                CAPA DO VÍDEO: apague o <span class="legenda-midia"> e coloque dentro do div.midia:
-               <img src="capas/destaque-01.jpg" alt="Capa do vídeo para a Marca 01"> (formato vertical 9:16) -->
-          <a class="card-video revelar" href="#" target="_blank" rel="noopener" aria-label="Assistir: case Bombado (abre em nova aba)">
+               <img src="capas/bombado.jpg" alt="Capa do vídeo feito para o Bombado"> (formato vertical 9:16) -->
+          <a class="card-video case-video revelar" href="#" target="_blank" rel="noopener" aria-label="Assistir ao vídeo feito para o Bombado (abre em nova aba)">
             <div class="midia g1">
               <span class="play" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M6 4l14 8-14 8z"/></svg></span>
               <span class="legenda-midia">capa do vídeo 9:16</span>
             </div>
-            <!-- Troque +00K pelo alcance real do vídeo (Instagram da marca ou gerenciador de anúncios) -->
-            <p class="numero-forte">+00K</p>
-            <p class="rotulo-numero">pessoas alcançadas</p>
-            <h3>Experiência gastronômica que virou alcance</h3>
-            <p class="contexto">Bombado · Gastronomia · vídeo usado em tráfego pago.</p>
           </a>
 
-          <!-- DESTAQUE 02
-               LINK DO VÍDEO: troque o "#" do href pelo link do vídeo.
-               CAPA DO VÍDEO: troque o <span class="legenda-midia"> por <img src="capas/destaque-02.jpg" alt="..."> -->
-          <a class="card-video revelar" href="#" target="_blank" rel="noopener" aria-label="Assistir: Título do conteúdo 02 (abre em nova aba)">
-            <div class="midia g2">
-              <span class="play" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M6 4l14 8-14 8z"/></svg></span>
-              <span class="legenda-midia">capa do vídeo 9:16</span>
-            </div>
-            <p class="numero-forte">+00%</p>
-            <p class="rotulo-numero">de engajamento</p>
-            <h3>Título do conteúdo 02</h3>
-            <p class="contexto">Marca 02 · Moda · escreva aqui o contexto em uma linha.</p>
-          </a>
+          <div class="case-texto revelar">
+            <p class="case-marca">Bombado · Gastronomia · Tráfego pago</p>
+            <h3>Uma experiência gastronômica que virou <em>alcance</em>, interação e crescimento.</h3>
+            <p>O vídeo foi produzido para o Bombado, explorando o ambiente, a comida e a experiência de forma espontânea e envolvente. A marca usou o conteúdo no tráfego pago, e ele gerou muito mais do que visualizações: gerou novas conexões com a marca.</p>
 
-          <!-- DESTAQUE 03
-               LINK DO VÍDEO: troque o "#" do href pelo link do vídeo.
-               CAPA DO VÍDEO: troque o <span class="legenda-midia"> por <img src="capas/destaque-03.jpg" alt="..."> -->
-          <a class="card-video revelar" href="#" target="_blank" rel="noopener" aria-label="Assistir: Título do conteúdo 03 (abre em nova aba)">
-            <div class="midia g3">
-              <span class="play" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M6 4l14 8-14 8z"/></svg></span>
-              <span class="legenda-midia">capa do vídeo 9:16</span>
-            </div>
-            <p class="numero-forte">+00K</p>
-            <p class="rotulo-numero">salvamentos</p>
-            <h3>Título do conteúdo 03</h3>
-            <p class="contexto">Marca 03 · Casa e decoração · escreva aqui o contexto em uma linha.</p>
-          </a>
+            <!-- Números do case. Para mudar, edite só o texto dentro de <dd> (número) e <dt> (rótulo). -->
+            <dl class="case-numeros">
+              <div><dt>visualizações</dt><dd>70.900</dd></div>
+              <div><dt>pessoas alcançadas</dt><dd>33.505</dd></div>
+              <div><dt>interações</dt><dd>2.281</dd></div>
+              <div><dt>novos seguidores</dt><dd>1.891</dd></div>
+              <div><dt>por visita ao perfil</dt><dd>R$ 0,10</dd></div>
+              <div><dt>de investimento total</dt><dd>R$ 359,27</dd></div>
+            </dl>
 
+            <p class="case-conclusao"><b>O que esse case mostra:</b> além de apresentar o estabelecimento de maneira natural, o vídeo despertou interesse suficiente pra gerar visitas ao perfil, compartilhamentos e crescimento da audiência da marca.</p>
+          </div>
         </div>
       </div>
     </section>
@@ -555,11 +566,21 @@
         <p class="subrotulo revelar">Em números</p>
         <ul class="metricas revelar" id="listaMetricas"></ul>
 
-        <p class="subrotulo revelar">Resultados de campanha</p>
-        <ul class="resultados" id="listaResultados"></ul>
+        <div id="blocoResultados">
+          <p class="subrotulo revelar">Resultados de campanha</p>
+          <ul class="resultados" id="listaResultados"></ul>
+        </div>
 
-        <p class="subrotulo revelar">Quem já trabalhou comigo</p>
-        <ul class="depoimentos" id="listaDepoimentos"></ul>
+        <div class="carrossel revelar">
+          <div class="carrossel-topo">
+            <p class="subrotulo">Quem já trabalhou comigo</p>
+            <div class="setas" id="setas">
+              <button class="seta" id="depAnterior" type="button" aria-label="Ver depoimentos anteriores">←</button>
+              <button class="seta" id="depProximo" type="button" aria-label="Ver mais depoimentos">→</button>
+            </div>
+          </div>
+          <ul class="depoimentos" id="listaDepoimentos" tabindex="0" aria-label="Depoimentos de clientes, role para o lado para ver mais"></ul>
+        </div>
       </div>
     </section>
 
@@ -658,25 +679,29 @@
     // depois os blocos de beleza e skincare reforçam o seu nicho mais forte.
     // A quantidade de marcas aqui alimenta sozinha o número "marcas atendidas".
     const marcas = [
-      // Gigantes do varejo
-      "Shein", "Shopee", "Mercado Livre",
+      // Gigantes do varejo e marcas de alcance nacional
+      "Shein", "Amazon", "Shopee", "Mercado Livre", "Conmebol",
       // Grandes marcas de beleza e cabelo
       "Dove", "Pantene", "Garnier", "Tresemmé", "Lux",
       // Skincare
       "Sallve", "Principia", "Bepantol Derma", "CBSkin",
       // Maquiagem, perfumaria e lentes
-      "Sheglam", "Dermacol", "Sace Lady", "Dossier", "TTDeye",
+      "Sheglam", "Dermacol", "Sace Lady", "Dossier", "TTDeye", "Honey Color", "Pinky Paradise",
+      // Alimentos
+      "Farinha Láctea", "Kind",
+      // Gastronomia
+      "Bombado", "Camarão na Telha", "Maná", "Matutos", "Nicks Burger", "Espetaria Premium", "Cookitos", "DeliCookies",
       // Tecnologia e acessórios
       "Acer", "Gocase",
-      // Gastronomia e outras
-      "Bombado", "Néctar", "Eizz", "Domidona", "Revien", "Ollie"
+      // Outras
+      "Domidona", "Néctar", "Eizz", "Revien", "Ollie", "Hydratta"
     ];
 
     // Números curtos da capa. Troque "00" pelos seus números reais.
     const numerosCapa = [
       { numero: "00+", rotulo: "vídeos entregues" },
       { numero: String(marcas.length), rotulo: "marcas atendidas" },
-      { numero: "0M", rotulo: "views somadas" }
+      { numero: "4,6M", rotulo: "curtidas no TikTok" }
     ];
 
     // Nichos dos filtros. O "id" precisa ser igual ao campo "nicho" dos trabalhos.
@@ -720,24 +745,25 @@
     const metricas = [
       { valor: null, prefixo: "+", sufixo: "", rotulo: "vídeos entregues" },
       { valor: marcas.length, prefixo: "", sufixo: "", rotulo: "marcas atendidas" },
-      { valor: null, prefixo: "+", sufixo: "M", rotulo: "views somadas" },
-      { valor: null, prefixo: "", sufixo: "%", rotulo: "taxa média de engajamento" }
+      { valor: 4.6, prefixo: "", sufixo: "M", rotulo: "curtidas no TikTok" },
+      { valor: null, prefixo: "+", sufixo: "M", rotulo: "views somadas" }
     ];
 
-    // Resultados de campanha. Troque pelos números reais de cada campanha.
-    const resultados = [
-      // Case Bombado: troque +00K pelo alcance real.
-      { numero: "+00K", texto: "pessoas alcançadas com um vídeo usado em tráfego pago, gerando visitas ao perfil, compartilhamentos e novos seguidores.", marca: "Bombado · Gastronomia" },
-      { numero: "+00K", texto: "views orgânicas em um único vídeo.", marca: "Marca 05 · Moda" },
-      { numero: "0,0x", texto: "de retorno sobre o investimento em anúncio.", marca: "Marca 09 · Casa e decoração" }
-    ];
+    // Resultados de campanha. Hoje está vazio porque o case do Bombado já aparece completo nos destaques.
+    // Quando tiver números de outras campanhas, adicione aqui e o bloco aparece sozinho. Exemplo:
+    // { numero: "+40%", texto: "em vendas no mês da campanha.", marca: "Nome da marca · Nicho" },
+    const resultados = [];
 
-    // Depoimentos. Troque pelo texto real que o cliente te mandou.
+    // Depoimentos, na ordem em que aparecem. Os dois primeiros ficam visíveis no computador;
+    // o resto aparece pelas setas. Os mais estratégicos (roteiro, briefing, resultado) vêm primeiro.
     const depoimentos = [
-      { texto: "Espaço para o depoimento real do Cliente 01, contando como foi o processo e qual resultado o vídeo trouxe.", nome: "Cliente 01", empresa: "Marca 01" },
-      { texto: "Espaço para o depoimento real do Cliente 02, de preferência citando prazo, roteiro ou vendas.", nome: "Cliente 02", empresa: "Marca 02" },
-      { texto: "Espaço para o depoimento real do Cliente 03. Frases curtas e específicas passam mais confiança.", nome: "Cliente 03", empresa: "Marca 03" },
-      { texto: "Espaço para o depoimento real do Cliente 04. Peça autorização para usar nome e empresa.", nome: "Cliente 04", empresa: "Marca 04" }
+      { texto: "Ótima construção do roteiro, com uma abordagem natural e criativa. Adoramos os takes externos! O conteúdo ficou natural, dinâmico e super alinhado ao briefing.", nome: "Domidona", empresa: "Parceria UGC" },
+      { texto: "Era um vídeo desse mesmo que estava imaginando, ficou muito bom de verdade. Até a qualidade do brilho ficou top. Esse vídeo vai ser um dos que vão bombar mesmo no patrocínio.", nome: "Bombado", empresa: "Gastronomia" },
+      { texto: "Foi muito positivo. O vídeo ficou exatamente como eu gostaria. Trazer a pegada família, seu roteiro foi muito bem escrito, apresentou a fachada, mostrou detalhes, falou de pontos positivos.", nome: "Camarão na Telha", empresa: "Restaurante" },
+      { texto: "Oi Yasmin, bom dia. Ficou muito bom, gostei demais. Espero estender nossa parceria com conteúdos futuros. Parabéns pelo seu trabalho!", nome: "DeliCookies", empresa: "Cookies" },
+      { texto: "Passando pra agradecer o trabalho, muito bom, gostei de verdade. Gosto dessas coisas não tão enfeitadas, mas também com um toquezinho de capricho.", nome: "Matutos Burger", empresa: "Hamburgueria" },
+      { texto: "Amei o conteúdo, Yasmin. Sempre achei os vídeos super interessantes, já acompanho tem um tempo e vejo que dão muitos resultados.", nome: "Maná", empresa: "Fábrica de Sushi" },
+      { texto: "Gratidão pelo registro, somos gratos por tanto carinho em mostrar nossa loja e nossos produtos! E parabéns pela estética do vídeo, ficou incrível.", nome: "Cookitos", empresa: "Loja" }
     ];
 
     // Endereço do Formspree (ou serviço parecido) para receber o formulário por e-mail.
@@ -763,6 +789,7 @@
     const listaMarcas = marcas.map(m => `<li>${esc(m)}</li>`).join("");
     document.getElementById("trilhoMarcas").innerHTML =
       `<ul>${listaMarcas}</ul><ul aria-hidden="true">${listaMarcas}</ul>`;
+    document.getElementById("trilhoMarcas").style.animationDuration = (marcas.length * 1.6) + "s";
 
     // Trabalhos e filtros
     const galeria = document.getElementById("galeria");
@@ -809,15 +836,39 @@
       `<li><strong data-valor="${m.valor === null ? "" : m.valor}" data-prefixo="${esc(m.prefixo)}" data-sufixo="${esc(m.sufixo)}">${esc(m.prefixo)}${m.valor === null ? "00" : "0"}${esc(m.sufixo)}</strong><span>${esc(m.rotulo)}</span></li>`
     ).join("");
 
-    // Resultados
+    // Resultados (o bloco some quando o array está vazio)
+    document.getElementById("blocoResultados").hidden = resultados.length === 0;
     document.getElementById("listaResultados").innerHTML = resultados.map(r =>
       `<li class="resultado revelar"><strong>${esc(r.numero)}</strong><p>${esc(r.texto)}</p><small>${esc(r.marca)}</small></li>`
     ).join("");
 
     // Depoimentos
     document.getElementById("listaDepoimentos").innerHTML = depoimentos.map(d =>
-      `<li class="revelar"><figure class="depoimento"><blockquote>${esc(d.texto)}</blockquote><figcaption><span class="avatar" aria-hidden="true"></span><div><b>${esc(d.nome)}</b><span>${esc(d.empresa)}</span></div></figcaption></figure></li>`
+      `<li><figure class="depoimento"><blockquote>${esc(d.texto)}</blockquote><figcaption><span class="avatar" aria-hidden="true"></span><div><b>${esc(d.nome)}</b><span>${esc(d.empresa)}</span></div></figcaption></figure></li>`
     ).join("");
+
+    // Setas do carrossel de depoimentos
+    const listaDep = document.getElementById("listaDepoimentos");
+    const depAnterior = document.getElementById("depAnterior");
+    const depProximo = document.getElementById("depProximo");
+    function atualizaSetas() {
+      const fim = listaDep.scrollWidth - listaDep.clientWidth;
+      document.getElementById("setas").hidden = fim <= 2;
+      depAnterior.disabled = listaDep.scrollLeft <= 2;
+      depProximo.disabled = listaDep.scrollLeft >= fim - 2;
+    }
+    function rolaDep(direcao) {
+      listaDep.scrollBy({ left: direcao * listaDep.clientWidth, behavior: menosMovimento ? "auto" : "smooth" });
+    }
+    depAnterior.addEventListener("click", () => rolaDep(-1));
+    depProximo.addEventListener("click", () => rolaDep(1));
+    listaDep.addEventListener("scroll", atualizaSetas, { passive: true });
+    listaDep.addEventListener("keydown", e => {
+      if (e.key === "ArrowRight") { e.preventDefault(); rolaDep(1); }
+      if (e.key === "ArrowLeft") { e.preventDefault(); rolaDep(-1); }
+    });
+    window.addEventListener("resize", atualizaSetas);
+    atualizaSetas();
 
     // Ano automático
     document.getElementById("ano").textContent = new Date().getFullYear();
