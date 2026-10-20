@@ -139,12 +139,13 @@
 
     /* ============ 1. CAPA ============ */
     .capa { padding: calc(var(--topo) + clamp(40px, 7vw, 90px)) 0 0; }
-    .capa-grade { display: grid; grid-template-columns: 1.25fr .75fr; gap: clamp(32px, 6vw, 80px); align-items: end; }
+    .capa-grade { display: grid; grid-template-columns: 1.25fr .75fr; gap: clamp(32px, 6vw, 80px); align-items: stretch; }
     .capa h1 { font-size: clamp(3.4rem, 11vw, 9.5rem); line-height: .92; letter-spacing: -.03em; font-weight: 300; }
     .capa h1 em { display: block; font-weight: 400; }
     .capa .frase { font-size: clamp(1.1rem, 1.6vw, 1.3rem); max-width: 34ch; margin: 32px 0 36px; color: var(--tinta-suave); }
     .capa .acoes { display: flex; flex-wrap: wrap; gap: 12px; }
-    .capa-foto { aspect-ratio: 4 / 5; width: 100%; }
+    /* A foto acompanha a altura do texto ao lado */
+    .capa-foto { width: 100%; height: 100%; min-height: 380px; }
     .capa-foto::after {
       content: ""; position: absolute; top: 18px; right: 18px; width: 54px; height: 54px; border-radius: 50%;
       border: 1px solid rgba(251, 248, 244, .8);
@@ -164,8 +165,8 @@
     @keyframes desliza { to { transform: translateX(-50%); } }
 
     /* ============ 2. SOBRE ============ */
-    .sobre-grade { display: grid; grid-template-columns: .85fr 1.15fr; gap: clamp(36px, 7vw, 100px); align-items: center; }
-    .sobre-foto { aspect-ratio: 4 / 5; }
+    .sobre-grade { display: grid; grid-template-columns: .85fr 1.15fr; gap: clamp(36px, 7vw, 100px); align-items: stretch; }
+    .sobre-foto { min-height: 420px; }
     .sobre-texto h2 { font-size: clamp(2.2rem, 4.6vw, 3.6rem); margin-bottom: 28px; }
     .sobre-texto p { color: var(--tinta-suave); max-width: 52ch; }
     .promessas { list-style: none; padding: 0; margin: 36px 0; border-top: 1px solid var(--linha); }
@@ -213,8 +214,7 @@
     }
     .filtro:hover { border-color: var(--tinta); }
     .filtro[aria-pressed="true"] { background: var(--tinta); color: var(--creme); border-color: var(--tinta); }
-    .pilar { max-width: 60ch; margin: -16px 0 36px; padding-left: 18px; border-left: 2px solid var(--laranja); font-family: var(--serif); font-style: italic; font-size: 1.15rem; line-height: 1.5; }
-    .galeria { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 200px), 1fr)); gap: clamp(16px, 2vw, 26px); list-style: none; margin: 0; padding: 0; }
+    .galeria { display: grid; grid-template-columns: repeat(4, 1fr); gap: clamp(16px, 2vw, 26px); list-style: none; margin: 0; padding: 0; }
     .trabalho { animation: surge .5s ease both; }
     .trabalho[hidden] { display: none; }
     .trabalho a { text-decoration: none; display: block; }
@@ -488,11 +488,56 @@
     /* Foco visível nas áreas escuras */
     .capa :focus-visible, .destaques :focus-visible, .servicos :focus-visible, .contato :focus-visible, .rodape :focus-visible, .pacote.destaque :focus-visible { outline-color: var(--bege); }
 
+    /* Galeria: cabeçalho de cada nicho em "Todos" */
+    .grupo { grid-column: 1 / -1; display: flex; justify-content: space-between; align-items: baseline; gap: 16px; padding-top: 18px; border-top: 1px solid var(--linha); margin-top: 18px; }
+    .grupo:first-child { margin-top: 0; }
+    .grupo h3 { font-size: clamp(1.5rem, 2.6vw, 2rem); font-style: italic; color: var(--bordo); }
+    .ver-grupo { background: none; border: 0; padding: 6px 0; font: 600 .82rem/1 var(--sans); letter-spacing: .14em; text-transform: uppercase; color: var(--tinta); cursor: pointer; }
+    .ver-grupo:hover { color: var(--bordo); }
+    .trabalho .formato { font-size: .72rem; letter-spacing: .12em; text-transform: uppercase; color: var(--petroleo); font-weight: 600; }
+
+    /* Destaque: mais camadas de cor sobre o verde */
+    .destaques .case-video .midia { outline: 1px solid rgba(232, 220, 201, .55); outline-offset: 10px; }
+    .destaques .case-marca { display: inline-block; padding: 7px 14px; border-radius: 999px; background: var(--bordo); color: var(--bege); }
+    .destaques .case-numeros { border-top: 0; gap: 10px; }
+    .destaques .case-numeros div { background: var(--bege); border: 0 !important; padding: 18px !important; border-radius: var(--raio); }
+    .destaques .case-numeros dd { color: var(--bordo); }
+    .destaques .case-numeros dt { color: var(--tinta-suave); }
+    .destaques .case-numeros div:first-child { background: var(--bordo); }
+    .destaques .case-numeros div:first-child dd, .destaques .case-numeros div:first-child dt { color: var(--bege); }
+    .destaques .case-conclusao { background: transparent; border: 1px solid rgba(232, 220, 201, .3); border-left: 3px solid var(--bege); border-radius: var(--raio); }
+
+    /* Entrega: do sim à pasta no Drive */
+    .entrega { background: var(--petroleo) var(--textura); color: var(--bege); }
+    .entrega .rotulo, .entrega .titulo-secao, .entrega .titulo-secao em { color: var(--bege); }
+    .entrega .cabeca-secao .apoio { color: rgba(232, 220, 201, .82); }
+    .entrega :focus-visible { outline-color: var(--bege); }
+    .etapas { position: relative; display: grid; grid-template-columns: repeat(5, 1fr); gap: 20px; list-style: none; margin: 0 0 clamp(56px, 8vw, 90px); padding: 0; }
+    .etapas::before { content: ""; position: absolute; top: 21px; left: 10%; right: 10%; height: 1px; background: rgba(232, 220, 201, .35); }
+    .etapa { position: relative; text-align: center; }
+    .etapa .bolinha { width: 44px; height: 44px; border-radius: 50%; display: grid; place-items: center; margin: 0 auto 18px; background: var(--bege); color: var(--petroleo); font-family: var(--serif); font-style: italic; font-size: 1.05rem; }
+    .etapa h3 { font-size: 1.35rem; margin-bottom: 6px; }
+    .etapa p { margin: 0; font-size: .92rem; color: rgba(232, 220, 201, .78); }
+    .etapa .prazo { display: inline-block; margin-top: 10px; font-size: .72rem; font-weight: 600; letter-spacing: .14em; text-transform: uppercase; color: var(--bege); }
+    .entrega .subrotulo { color: rgba(232, 220, 201, .8); }
+    .pasta-drive { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; list-style: none; margin: 0; padding: 0; }
+    .pasta-drive li { background: rgba(17, 13, 10, .22); border: 1px solid rgba(232, 220, 201, .22); border-radius: var(--raio-g); padding: 24px 22px; }
+    .pasta-drive .ico-pasta { width: 40px; height: 40px; border-radius: 50%; background: var(--bege); display: grid; place-items: center; margin-bottom: 16px; }
+    .pasta-drive .ico-pasta svg { width: 18px; height: 18px; fill: none; stroke: var(--petroleo); stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round; }
+    .pasta-drive h3 { font-size: 1.25rem; margin-bottom: 6px; }
+    .pasta-drive p { margin: 0; font-size: .92rem; color: rgba(232, 220, 201, .78); }
+
     /* ============ RESPONSIVO ============ */
     @media (max-width: 980px) {
       .capa-grade, .sobre-grade, .contato-grade { grid-template-columns: 1fr; }
-      .capa-foto { max-width: 460px; }
-      .sobre-foto { max-width: 460px; }
+      .capa-foto { max-width: 460px; height: auto; min-height: 0; aspect-ratio: 4 / 5; }
+      .sobre-foto { max-width: 460px; min-height: 0; aspect-ratio: 4 / 5; }
+      .galeria { grid-template-columns: repeat(3, 1fr); }
+      .etapas { grid-template-columns: 1fr; gap: 0; }
+      .etapas::before { left: 21px; right: auto; top: 0; bottom: 0; width: 1px; height: auto; }
+      .etapa { display: grid; grid-template-columns: 44px 1fr; column-gap: 18px; padding: 0 0 26px; text-align: left; }
+      .etapa .bolinha { grid-row: span 2; margin: 0; }
+      .pasta-drive { grid-template-columns: repeat(2, 1fr); }
       .servicos-grade { grid-template-columns: repeat(2, 1fr); }
       .servico, .servico:not(:nth-child(3n + 1)) { padding: 36px 24px 40px 0; border-left: 0; }
       .servico:nth-child(even) { padding-left: 24px; border-left: 1px solid rgba(243, 238, 233, .2); }
@@ -527,6 +572,7 @@
     @media (max-width: 640px) {
       body { font-size: 1rem; }
       .selo-circular { left: auto; right: -6px; bottom: 24px; width: 96px; }
+      .pasta-drive { grid-template-columns: 1fr; }
       .galeria { grid-template-columns: repeat(2, 1fr); gap: 14px; }
       .trabalho h3 { font-size: 1.05rem; }
       .trabalho .play { width: 46px; height: 46px; }
@@ -600,7 +646,7 @@
                <img src="fotos/capa.jpg" alt="Yasmin Caetano gravando um vídeo"> -->
           <div class="capa-visual revelar">
             <div class="midia capa-foto g1" role="img" aria-label="Espaço para foto da Yasmin Caetano">
-              <span class="legenda-midia">foto da creator 4:5</span>
+              <span class="legenda-midia">foto vertical da creator</span>
             </div>
             <!-- Selo do moodboard: UGC CREATOR em cima, NATAL · RN embaixo e a palmeira no centro -->
             <svg class="selo-circular" viewBox="0 0 140 140" aria-hidden="true">
@@ -644,7 +690,7 @@
         <!-- FOTO DO SOBRE: para trocar, apague o <span> e coloque dentro do div:
              <img src="fotos/sobre.jpg" alt="Yasmin Caetano em seu estúdio em Natal"> -->
         <div class="midia sobre-foto g2 revelar" role="img" aria-label="Espaço para foto da Yasmin Caetano no estúdio">
-          <span class="legenda-midia">foto da creator 4:5</span>
+          <span class="legenda-midia">foto vertical da creator</span>
         </div>
 
         <div class="sobre-texto revelar">
@@ -721,7 +767,6 @@
 
         <div class="filtros revelar" id="filtros" role="group" aria-label="Filtrar trabalhos por nicho"></div>
         <div class="subfiltros" id="subfiltros" role="group" aria-label="Filtrar por subnicho" hidden></div>
-        <p class="pilar" id="pilar" aria-live="polite" hidden></p>
         <ul class="galeria" id="galeria" aria-live="polite"></ul>
         <div class="mais-videos"><button type="button" class="botao botao-secundario" id="verMais" hidden>Ver mais vídeos</button></div>
       </div>
@@ -759,6 +804,23 @@
         <p class="pacotes-nota revelar">Pacotes fechados pra facilitar sua decisão. Nichos ou exclusividade sob medida? Só chamar.</p>
         <!-- Os pacotes vêm do array "pacotes" no script -->
         <ul class="pacotes-grade" id="listaPacotes"></ul>
+      </div>
+    </section>
+
+    <!-- ============ ENTREGA: o caminho depois do sim ============ -->
+    <section class="entrega" id="entrega" aria-labelledby="titulo-entrega">
+      <div class="container">
+        <div class="cabeca-secao revelar">
+          <div>
+            <p class="rotulo">Entrega</p>
+            <h2 class="titulo-secao" id="titulo-entrega">O caminho de uma campanha <em>depois do sim</em>.</h2>
+          </div>
+          <p class="apoio">Um processo fixo, pra você saber exatamente o que acontece em cada etapa e o que recebe no final.</p>
+        </div>
+        <!-- As etapas e os itens da pasta vêm dos arrays "etapas" e "pastaDrive" no script -->
+        <ol class="etapas revelar" id="listaEtapas"></ol>
+        <p class="subrotulo revelar">Na pasta do Drive vai</p>
+        <ul class="pasta-drive" id="listaPasta"></ul>
       </div>
     </section>
 
@@ -929,58 +991,58 @@
     ];
 
     // Nichos dos filtros. O "id" precisa ser igual ao campo "nicho" dos vídeos.
-    // pilar: frase que aparece quando o nicho é escolhido. Deixe "" para não mostrar nada.
     // subs: subnichos que viram um segundo filtro quando o nicho é escolhido.
     const nichos = [
-      { id: "beleza", nome: "Beleza", subs: ["Haircare", "Skincare", "Bodycare", "Makeup"], pilar: "Estética cinematográfica limpa: luz natural, close macro, textura e narrativa visual suave. Meu maior diferencial, direto da bagagem com maquiagem artística: sensorialidade, textura e brilho real em cada frame." },
-      { id: "moda", nome: "Moda", subs: ["Calçados", "Bolsas e acessórios"], pilar: "" },
-      { id: "gastronomia", nome: "Gastronomia", subs: [], pilar: "" },
-      { id: "tecnologia", nome: "Tecnologia", subs: [], pilar: "" }
+      { id: "beleza", nome: "Beleza", subs: ["Haircare", "Skincare", "Bodycare", "Makeup"] },
+      { id: "moda", nome: "Moda", subs: ["Calçados", "Bolsas e acessórios"] },
+      { id: "gastronomia", nome: "Gastronomia", subs: [] },
+      { id: "tecnologia", nome: "Tecnologia", subs: [] }
     ];
 
     // Vídeos da galeria (YouTube Shorts). A capa vem sozinha do YouTube.
     // id: o código do vídeo, que fica depois de "shorts/" no link.
-    // marca: escreva o nome da marca pra aparecer no card. Vazio mostra só o subnicho.
+    // marca: nome da marca (primeira linha do card). formato: formato do vídeo (segunda linha).
+    // Enquanto estiverem vazios, o card mostra o subnicho e o nicho.
     // Para adicionar um vídeo, copie uma linha e troque o id.
     const videos = [
-      { id: "mwWG5L3VRW4", nicho: "beleza", sub: "Haircare", marca: "" },
-      { id: "pp8ShpId7lo", nicho: "beleza", sub: "Haircare", marca: "" },
-      { id: "AJQwc90nzIU", nicho: "beleza", sub: "Haircare", marca: "" },
-      { id: "_MeV-KUkeiY", nicho: "beleza", sub: "Haircare", marca: "" },
-      { id: "6c9-RoJucfc", nicho: "beleza", sub: "Haircare", marca: "" },
-      { id: "pvpWG6x2ucA", nicho: "beleza", sub: "Skincare", marca: "" },
-      { id: "ZzVcJfGI3fE", nicho: "beleza", sub: "Skincare", marca: "" },
-      { id: "5MUp_H9r6lk", nicho: "beleza", sub: "Skincare", marca: "" },
-      { id: "s5OEB6FtKxg", nicho: "beleza", sub: "Skincare", marca: "" },
-      { id: "w6-MqP7ZRr4", nicho: "beleza", sub: "Skincare", marca: "" },
-      { id: "mYr7VDvsxYo", nicho: "beleza", sub: "Bodycare", marca: "" },
-      { id: "4-GFwHONjUY", nicho: "beleza", sub: "Bodycare", marca: "" },
-      { id: "7Qa5xWTfAuo", nicho: "beleza", sub: "Bodycare", marca: "" },
-      { id: "-HWZykwyN9c", nicho: "beleza", sub: "Bodycare", marca: "" },
-      { id: "SpHDfJ-BWOk", nicho: "beleza", sub: "Makeup", marca: "" },
-      { id: "BsOCinxvmbw", nicho: "beleza", sub: "Makeup", marca: "" },
-      { id: "S1xfDL7h_Tw", nicho: "beleza", sub: "Makeup", marca: "" },
-      { id: "V66_PzR_T10", nicho: "beleza", sub: "Makeup", marca: "" },
-      { id: "Xj8rqOkqexE", nicho: "beleza", sub: "Makeup", marca: "" },
-      { id: "HPbxUy2ie8Y", nicho: "beleza", sub: "Makeup", marca: "" },
-      { id: "xZuFjGpek0M", nicho: "moda", sub: "Calçados", marca: "" },
-      { id: "6jdHd0K3b_4", nicho: "moda", sub: "Calçados", marca: "" },
-      { id: "3forMuneVmo", nicho: "moda", sub: "Calçados", marca: "" },
-      { id: "hcnZV7lxfaI", nicho: "moda", sub: "Calçados", marca: "" },
-      { id: "eQKGJGUUxA8", nicho: "moda", sub: "Bolsas e acessórios", marca: "" },
-      { id: "54a_MPOI124", nicho: "moda", sub: "Bolsas e acessórios", marca: "" },
-      { id: "I4llRk5BCdw", nicho: "moda", sub: "Bolsas e acessórios", marca: "" },
-      { id: "GMK9yJPUJbk", nicho: "gastronomia", sub: "", marca: "" },
-      { id: "KHrjhYwHz_w", nicho: "gastronomia", sub: "", marca: "" },
-      { id: "fZKi578gXLc", nicho: "gastronomia", sub: "", marca: "" },
-      { id: "RsC91pApMrA", nicho: "gastronomia", sub: "", marca: "" },
-      { id: "Gi5gqFu8oX4", nicho: "gastronomia", sub: "", marca: "" },
-      { id: "5L0vDLj5ubs", nicho: "gastronomia", sub: "", marca: "" },
-      { id: "HNMgo5j_ONY", nicho: "tecnologia", sub: "", marca: "" },
-      { id: "1z5ZKTFDaag", nicho: "tecnologia", sub: "", marca: "" },
-      { id: "_lm4xX2D5RA", nicho: "tecnologia", sub: "", marca: "" },
-      { id: "9MmKGwZTexQ", nicho: "tecnologia", sub: "", marca: "" },
-      { id: "o6m2-1l1U0w", nicho: "tecnologia", sub: "", marca: "" }
+      { id: "mwWG5L3VRW4", nicho: "beleza", sub: "Haircare", marca: "", formato: "" },
+      { id: "pp8ShpId7lo", nicho: "beleza", sub: "Haircare", marca: "", formato: "" },
+      { id: "AJQwc90nzIU", nicho: "beleza", sub: "Haircare", marca: "", formato: "" },
+      { id: "_MeV-KUkeiY", nicho: "beleza", sub: "Haircare", marca: "", formato: "" },
+      { id: "6c9-RoJucfc", nicho: "beleza", sub: "Haircare", marca: "", formato: "" },
+      { id: "pvpWG6x2ucA", nicho: "beleza", sub: "Skincare", marca: "", formato: "" },
+      { id: "ZzVcJfGI3fE", nicho: "beleza", sub: "Skincare", marca: "", formato: "" },
+      { id: "5MUp_H9r6lk", nicho: "beleza", sub: "Skincare", marca: "", formato: "" },
+      { id: "s5OEB6FtKxg", nicho: "beleza", sub: "Skincare", marca: "", formato: "" },
+      { id: "w6-MqP7ZRr4", nicho: "beleza", sub: "Skincare", marca: "", formato: "" },
+      { id: "mYr7VDvsxYo", nicho: "beleza", sub: "Bodycare", marca: "", formato: "" },
+      { id: "4-GFwHONjUY", nicho: "beleza", sub: "Bodycare", marca: "", formato: "" },
+      { id: "7Qa5xWTfAuo", nicho: "beleza", sub: "Bodycare", marca: "", formato: "" },
+      { id: "-HWZykwyN9c", nicho: "beleza", sub: "Bodycare", marca: "", formato: "" },
+      { id: "SpHDfJ-BWOk", nicho: "beleza", sub: "Makeup", marca: "", formato: "" },
+      { id: "BsOCinxvmbw", nicho: "beleza", sub: "Makeup", marca: "", formato: "" },
+      { id: "S1xfDL7h_Tw", nicho: "beleza", sub: "Makeup", marca: "", formato: "" },
+      { id: "V66_PzR_T10", nicho: "beleza", sub: "Makeup", marca: "", formato: "" },
+      { id: "Xj8rqOkqexE", nicho: "beleza", sub: "Makeup", marca: "", formato: "" },
+      { id: "HPbxUy2ie8Y", nicho: "beleza", sub: "Makeup", marca: "", formato: "" },
+      { id: "xZuFjGpek0M", nicho: "moda", sub: "Calçados", marca: "", formato: "" },
+      { id: "6jdHd0K3b_4", nicho: "moda", sub: "Calçados", marca: "", formato: "" },
+      { id: "3forMuneVmo", nicho: "moda", sub: "Calçados", marca: "", formato: "" },
+      { id: "hcnZV7lxfaI", nicho: "moda", sub: "Calçados", marca: "", formato: "" },
+      { id: "eQKGJGUUxA8", nicho: "moda", sub: "Bolsas e acessórios", marca: "", formato: "" },
+      { id: "54a_MPOI124", nicho: "moda", sub: "Bolsas e acessórios", marca: "", formato: "" },
+      { id: "I4llRk5BCdw", nicho: "moda", sub: "Bolsas e acessórios", marca: "", formato: "" },
+      { id: "GMK9yJPUJbk", nicho: "gastronomia", sub: "", marca: "", formato: "" },
+      { id: "KHrjhYwHz_w", nicho: "gastronomia", sub: "", marca: "", formato: "" },
+      { id: "fZKi578gXLc", nicho: "gastronomia", sub: "", marca: "", formato: "" },
+      { id: "RsC91pApMrA", nicho: "gastronomia", sub: "", marca: "", formato: "" },
+      { id: "Gi5gqFu8oX4", nicho: "gastronomia", sub: "", marca: "", formato: "" },
+      { id: "5L0vDLj5ubs", nicho: "gastronomia", sub: "", marca: "", formato: "" },
+      { id: "HNMgo5j_ONY", nicho: "tecnologia", sub: "", marca: "", formato: "" },
+      { id: "1z5ZKTFDaag", nicho: "tecnologia", sub: "", marca: "", formato: "" },
+      { id: "_lm4xX2D5RA", nicho: "tecnologia", sub: "", marca: "", formato: "" },
+      { id: "9MmKGwZTexQ", nicho: "tecnologia", sub: "", marca: "", formato: "" },
+      { id: "o6m2-1l1U0w", nicho: "tecnologia", sub: "", marca: "", formato: "" }
     ];
 
     // Quantos vídeos aparecem antes do botão "Ver mais vídeos"
@@ -1022,6 +1084,23 @@
       { nome: "Validação", paraQuem: "Pra validar o UGC na sua marca.", itens: ["1 vídeo criativo", "2 fotos profissionais", "30 dias de direito de uso em anúncios", "Uso vitalício nas redes sociais", "Entrega em até 7 dias"], preco: "R$ 300", selo: "", destaque: false },
       { nome: "Performance", paraQuem: "Pra rodar anúncio e testar criativos.", itens: ["3 vídeos criativos", "6 fotos profissionais", "90 dias de direito de uso em anúncios", "Uso vitalício nas redes sociais", "Entrega em até 7 dias", "1 rodada de ajustes"], preco: "R$ 790", selo: "Recomendado", destaque: true },
       { nome: "Estratégico", paraQuem: "Pra escalar com volume e consistência.", itens: ["5 vídeos criativos", "10 fotos profissionais", "120 dias de direito de uso em anúncios", "Uso vitalício nas redes sociais", "Entrega em até 7 dias", "2 rodadas de ajustes"], preco: "R$ 1.190", selo: "", destaque: false }
+    ];
+
+    // Etapas da seção "Entrega". prazo: deixe "" para não mostrar, ou escreva ex: "3 dias".
+    const etapas = [
+      { titulo: "Produto chega", texto: "Tudo começa com ele em mãos.", prazo: "" },
+      { titulo: "Roteiro", texto: "Escrito com estratégia pro objetivo da sua marca.", prazo: "" },
+      { titulo: "Aprovação", texto: "Você aprova o roteiro antes de eu gravar.", prazo: "" },
+      { titulo: "Gravação", texto: "Cenário, luz e narrativa no padrão do briefing.", prazo: "" },
+      { titulo: "Entrega", texto: "Pasta no Drive, sempre no mesmo padrão.", prazo: "" }
+    ];
+
+    // O que vai na pasta do Drive
+    const pastaDrive = [
+      { titulo: "Roteiro", texto: "A versão aprovada.", icone: "roteiro" },
+      { titulo: "Capa sugerida", texto: "Pronta pra usar no feed.", icone: "capa" },
+      { titulo: "Vídeo com legenda", texto: "Pronto pra postar.", icone: "legenda" },
+      { titulo: "Vídeo sem legenda", texto: "Pra marca editar e rodar em anúncio.", icone: "video" }
     ];
 
     // Resultados de campanha. Hoje está vazio porque o case do Bombado já aparece completo nos destaques.
@@ -1070,37 +1149,44 @@
     const filtros = document.getElementById("filtros");
     const subfiltros = document.getElementById("subfiltros");
     const botaoMais = document.getElementById("verMais");
-    const pilar = document.getElementById("pilar");
     const nomeNicho = id => (nichos.find(n => n.id === id) || { nome: id }).nome;
     const estado = { nicho: "todos", sub: "todos", limite: VIDEOS_POR_VEZ };
 
-    // Em "Todos", os nichos se alternam pra mostrar variedade logo de cara
-    function misturaNichos(lista) {
-      const grupos = nichos.map(n => lista.filter(v => v.nicho === n.id));
+    // Em "Todos", cada nicho vira uma fileira de 4 vídeos, um de cada subnicho quando houver
+    function vitrineDoNicho(n) {
+      const lista = videos.filter(v => v.nicho === n.id);
+      const grupos = n.subs.length ? n.subs.map(s => lista.filter(v => v.sub === s)) : [lista];
       const saida = [];
-      for (let i = 0; saida.length < lista.length; i++) grupos.forEach(g => { if (g[i]) saida.push(g[i]); });
+      for (let i = 0; saida.length < Math.min(4, lista.length); i++) grupos.forEach(g => { if (g[i] && saida.length < 4) saida.push(g[i]); });
       return saida;
     }
     function videosVisiveis() {
-      if (estado.nicho === "todos") return misturaNichos(videos);
       return videos.filter(v => v.nicho === estado.nicho && (estado.sub === "todos" || v.sub === estado.sub));
     }
     function cardVideo(v) {
       const titulo = v.marca || v.sub || nomeNicho(v.nicho);
-      const rotulo = v.marca ? (v.sub || nomeNicho(v.nicho)) : (v.sub ? nomeNicho(v.nicho) : "Vídeo UGC");
+      const rotulo = v.marca ? (v.formato || v.sub || nomeNicho(v.nicho)) : (v.formato || (v.sub ? nomeNicho(v.nicho) : "Vídeo UGC"));
       return `<li class="trabalho"><button type="button" class="abre-video" data-video="${esc(v.id)}" aria-label="Assistir vídeo de ${esc(titulo)}">
         <div class="midia g6"><img src="https://i.ytimg.com/vi/${esc(v.id)}/oardefault.jpg" alt="" loading="lazy" onerror="if(this.dataset.f){this.remove()}else{this.dataset.f=1;this.src='https://i.ytimg.com/vi/${esc(v.id)}/hqdefault.jpg'}"><span class="play" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M6 4l14 8-14 8z"/></svg></span></div>
-        <div class="info"><h3>${esc(titulo)}</h3><span class="nicho">${esc(rotulo)}</span></div></button></li>`;
+        <div class="info"><h3>${esc(titulo)}</h3><span class="formato">${esc(rotulo)}</span></div></button></li>`;
     }
     function desenhaGaleria() {
+      if (estado.nicho === "todos") {
+        galeria.innerHTML = nichos.filter(n => videos.some(v => v.nicho === n.id)).map(n => {
+          const total = videos.filter(v => v.nicho === n.id).length;
+          return `<li class="grupo"><h3>${esc(n.nome)}</h3><button type="button" class="ver-grupo" data-ir="${esc(n.id)}">Ver os ${total} vídeos →</button></li>` + vitrineDoNicho(n).map(cardVideo).join("");
+        }).join("");
+        botaoMais.hidden = true;
+        subfiltros.hidden = true;
+        subfiltros.innerHTML = "";
+        return;
+      }
       const lista = videosVisiveis();
       galeria.innerHTML = lista.slice(0, estado.limite).map(cardVideo).join("");
       const faltam = lista.length - estado.limite;
       botaoMais.hidden = faltam <= 0;
       botaoMais.textContent = `Ver mais vídeos (${Math.max(faltam, 0)})`;
       const nicho = nichos.find(n => n.id === estado.nicho);
-      pilar.textContent = nicho ? nicho.pilar : "";
-      pilar.hidden = !pilar.textContent;
       const subs = nicho ? nicho.subs : [];
       subfiltros.hidden = subs.length === 0;
       subfiltros.innerHTML = subs.length ? ["todos"].concat(subs).map(s =>
@@ -1123,12 +1209,14 @@
     filtros.innerHTML = [{ id: "todos", nome: "Todos" }].concat(nichos.filter(n => videos.some(v => v.nicho === n.id)))
       .map(n => `<button type="button" class="filtro" data-filtro="${esc(n.id)}" aria-pressed="${n.id === "todos"}">${icone(n.id)}${esc(n.nome)}</button>`).join("");
 
+    function escolheNicho(id) {
+      filtros.querySelectorAll(".filtro").forEach(b => b.setAttribute("aria-pressed", b.dataset.filtro === id));
+      Object.assign(estado, { nicho: id, sub: "todos", limite: VIDEOS_POR_VEZ });
+      desenhaGaleria();
+    }
     filtros.addEventListener("click", e => {
       const botao = e.target.closest(".filtro");
-      if (!botao) return;
-      filtros.querySelectorAll(".filtro").forEach(b => b.setAttribute("aria-pressed", b === botao));
-      Object.assign(estado, { nicho: botao.dataset.filtro, sub: "todos", limite: VIDEOS_POR_VEZ });
-      desenhaGaleria();
+      if (botao) escolheNicho(botao.dataset.filtro);
     });
     subfiltros.addEventListener("click", e => {
       const botao = e.target.closest(".subfiltro");
@@ -1166,6 +1254,12 @@
     }
     const videoAberto = () => fundoVideo.classList.contains("aberto");
     galeria.addEventListener("click", e => {
+      const ir = e.target.closest(".ver-grupo");
+      if (ir) {
+        escolheNicho(ir.dataset.ir);
+        filtros.scrollIntoView({ behavior: menosMovimento ? "auto" : "smooth", block: "start" });
+        return;
+      }
       const botao = e.target.closest(".abre-video");
       if (botao) abreVideo(botao.dataset.video);
     });
@@ -1180,6 +1274,20 @@
     // Métricas
     document.getElementById("listaMetricas").innerHTML = metricas.map(m =>
       `<li><strong data-valor="${m.valor === null ? "" : m.valor}" data-prefixo="${esc(m.prefixo)}" data-sufixo="${esc(m.sufixo)}">${esc(m.prefixo)}${m.valor === null ? "00" : "0"}${esc(m.sufixo)}</strong><span>${esc(m.rotulo)}</span></li>`
+    ).join("");
+
+    // Entrega
+    document.getElementById("listaEtapas").innerHTML = etapas.map((et, i) =>
+      `<li class="etapa"><span class="bolinha" aria-hidden="true">${String(i + 1).padStart(2, "0")}</span><h3>${esc(et.titulo)}</h3><p>${esc(et.texto)}</p>${et.prazo ? `<span class="prazo">${esc(et.prazo)}</span>` : ""}</li>`
+    ).join("");
+    const iconesPasta = {
+      roteiro: ["M7 3h7l4 4v14H7z", "M14 3v4h4", "M10 12h5", "M10 16h5"],
+      capa: ["M4 5h16v14H4z", "M4 15l5-4 4 3 3-2 4 3"],
+      legenda: ["M4 5h16v14H4z", "M7 15h4", "M13 15h4", "M7 11h10"],
+      video: ["M4 6h11v12H4z", "M15 10l5-3v10l-5-3"]
+    };
+    document.getElementById("listaPasta").innerHTML = pastaDrive.map(it =>
+      `<li class="revelar"><span class="ico-pasta" aria-hidden="true"><svg viewBox="0 0 24 24">${(iconesPasta[it.icone] || iconesPasta.roteiro).map(d => `<path d="${d}"/>`).join("")}</svg></span><h3>${esc(it.titulo)}</h3><p>${esc(it.texto)}</p></li>`
     ).join("");
 
     // Fotos UGC
