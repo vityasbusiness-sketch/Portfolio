@@ -214,13 +214,31 @@
     .filtro:hover { border-color: var(--tinta); }
     .filtro[aria-pressed="true"] { background: var(--tinta); color: var(--creme); border-color: var(--tinta); }
     .pilar { max-width: 60ch; margin: -16px 0 36px; padding-left: 18px; border-left: 2px solid var(--laranja); font-family: var(--serif); font-style: italic; font-size: 1.15rem; line-height: 1.5; }
-    .galeria { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 250px), 1fr)); gap: clamp(16px, 2vw, 26px); list-style: none; margin: 0; padding: 0; }
+    .galeria { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 200px), 1fr)); gap: clamp(16px, 2vw, 26px); list-style: none; margin: 0; padding: 0; }
     .trabalho { animation: surge .5s ease both; }
     .trabalho[hidden] { display: none; }
     .trabalho a { text-decoration: none; display: block; }
-    .trabalho .midia { aspect-ratio: 4 / 5; transition: transform .5s ease; }
-    .trabalho a:hover .midia { transform: scale(.98); }
-    .trabalho .info { display: flex; justify-content: space-between; align-items: baseline; gap: 10px; margin-top: 14px; }
+    .trabalho .midia { aspect-ratio: 9 / 16; transition: transform .5s ease; }
+    .trabalho .midia img { position: absolute; inset: 0; }
+    .trabalho .play { width: 58px; height: 58px; opacity: .92; }
+    .trabalho .play svg { width: 18px; height: 18px; fill: var(--bordo); }
+    .abre-video { display: block; width: 100%; padding: 0; border: 0; background: none; color: inherit; font: inherit; text-align: left; cursor: pointer; }
+    .abre-video:hover .midia { transform: scale(.98); }
+    .abre-video:hover .play { background: var(--bordo); }
+    .abre-video:hover .play svg { fill: var(--bege); }
+    .subfiltros { display: flex; flex-wrap: wrap; gap: 8px; margin: -24px 0 32px; }
+    .subfiltros[hidden] { display: none; }
+    .subfiltro { font: 500 .85rem/1 var(--sans); padding: 10px 16px; border-radius: 999px; border: 1px solid transparent; background: rgba(17, 13, 10, .06); color: var(--tinta); cursor: pointer; transition: background .3s ease, color .3s ease; }
+    .subfiltro:hover { border-color: var(--linha); }
+    .subfiltro[aria-pressed="true"] { background: var(--bordo); color: var(--bege); }
+    .mais-videos { display: flex; justify-content: center; margin-top: 40px; }
+    .mais-videos .botao[hidden] { display: none; }
+    .card-video-player { position: relative; width: min(92vw, calc((100vh - 120px) * 9 / 16), 420px); }
+    .moldura-video { aspect-ratio: 9 / 16; background: var(--preto); border-radius: var(--raio-g); overflow: hidden; }
+    .moldura-video iframe { width: 100%; height: 100%; border: 0; display: block; }
+    .card-video-player .fechar { top: -52px; right: 0; background: var(--bege); }
+    .link-youtube { display: block; text-align: center; margin-top: 14px; color: var(--bege); font-size: .9rem; }
+    .trabalho .info { display: flex; flex-direction: column; gap: 2px; margin-top: 12px; }
     .trabalho h3 { font-size: 1.2rem; }
     .trabalho .nicho { font-size: .72rem; letter-spacing: .12em; text-transform: uppercase; color: var(--azul); font-weight: 600; white-space: nowrap; }
     .trabalho .marca { font-size: .88rem; color: var(--tinta-suave); margin: 2px 0 0; }
@@ -509,6 +527,9 @@
     @media (max-width: 640px) {
       body { font-size: 1rem; }
       .selo-circular { left: auto; right: -6px; bottom: 24px; width: 96px; }
+      .galeria { grid-template-columns: repeat(2, 1fr); gap: 14px; }
+      .trabalho h3 { font-size: 1.05rem; }
+      .trabalho .play { width: 46px; height: 46px; }
       .nichos-capa { letter-spacing: .2em; line-height: 1.8; }
       .monograma { font-size: 2.8rem; }
       .numeros-capa div { padding: 18px 10px 18px 0; }
@@ -567,7 +588,7 @@
           <div class="revelar">
             <p class="rotulo">UGC Creator · Natal RN</p>
             <h1 id="titulo-capa">Yasmin <em>Caetano</em></h1>
-            <p class="nichos-capa">Beleza · Skincare · Moda · Gastronomia · Casa</p>
+            <p class="nichos-capa">Beleza · Moda · Gastronomia · Tecnologia · Casa</p>
             <p class="frase"><strong class="destaque-frase">UGC que soma estratégia e sensibilidade.</strong> Transformo experiências reais em vídeos que geram identificação e influenciam a decisão de compra.</p>
             <div class="acoes">
               <a class="botao botao-primario" href="#contato">Falar comigo</a>
@@ -699,8 +720,10 @@
         </div>
 
         <div class="filtros revelar" id="filtros" role="group" aria-label="Filtrar trabalhos por nicho"></div>
+        <div class="subfiltros" id="subfiltros" role="group" aria-label="Filtrar por subnicho" hidden></div>
         <p class="pilar" id="pilar" aria-live="polite" hidden></p>
         <ul class="galeria" id="galeria" aria-live="polite"></ul>
+        <div class="mais-videos"><button type="button" class="botao botao-secundario" id="verMais" hidden>Ver mais vídeos</button></div>
       </div>
     </section>
 
@@ -836,6 +859,15 @@
     </div>
   </footer>
 
+  <!-- ============ PLAYER DE VÍDEO (abre ao clicar num vídeo da galeria) ============ -->
+  <div class="fundo-modal fundo-video" id="fundoVideo" aria-hidden="true">
+    <div class="card-video-player" role="dialog" aria-modal="true" aria-label="Vídeo">
+      <button class="fechar" id="fecharVideo" type="button" aria-label="Fechar vídeo">×</button>
+      <div class="moldura-video" id="molduraVideo"></div>
+      <a class="link-youtube" id="linkYoutube" href="#" target="_blank" rel="noopener">Abrir no YouTube</a>
+    </div>
+  </div>
+
   <!-- ============ CARD DE CAPTURA (aparece após 7 segundos, uma vez por visita) ============ -->
   <div class="fundo-modal" id="fundoModal" aria-hidden="true">
     <div class="card-captura" role="dialog" aria-modal="true" aria-labelledby="tituloCaptura">
@@ -896,31 +928,63 @@
       { numero: "4,6M", rotulo: "curtidas no TikTok" }
     ];
 
-    // Nichos dos filtros. O "id" precisa ser igual ao campo "nicho" dos trabalhos.
+    // Nichos dos filtros. O "id" precisa ser igual ao campo "nicho" dos vídeos.
     // pilar: frase que aparece quando o nicho é escolhido. Deixe "" para não mostrar nada.
+    // subs: subnichos que viram um segundo filtro quando o nicho é escolhido.
     const nichos = [
-      { id: "beleza", nome: "Beleza", pilar: "Estética cinematográfica limpa: luz natural, close macro, textura e narrativa visual suave. Meu maior diferencial, direto da bagagem com maquiagem artística: sensorialidade, textura e brilho real em cada frame." },
-      { id: "skincare", nome: "Skincare", pilar: "Estética cinematográfica limpa: luz natural, close macro, textura e narrativa visual suave. Meu maior diferencial, direto da bagagem com maquiagem artística: sensorialidade, textura e brilho real em cada frame." },
-      { id: "moda", nome: "Moda", pilar: "" },
-      { id: "comida", nome: "Comida", pilar: "" },
-      { id: "casa", nome: "Casa e decoração", pilar: "" }
+      { id: "beleza", nome: "Beleza", subs: ["Haircare", "Skincare", "Bodycare", "Makeup"], pilar: "Estética cinematográfica limpa: luz natural, close macro, textura e narrativa visual suave. Meu maior diferencial, direto da bagagem com maquiagem artística: sensorialidade, textura e brilho real em cada frame." },
+      { id: "moda", nome: "Moda", subs: ["Calçados", "Bolsas e acessórios"], pilar: "" },
+      { id: "gastronomia", nome: "Gastronomia", subs: [], pilar: "" },
+      { id: "tecnologia", nome: "Tecnologia", subs: [], pilar: "" }
     ];
 
-    // Trabalhos da galeria.
-    // capa: deixe "" para usar o degradê, ou coloque o caminho da imagem, ex: "trabalhos/batom.jpg"
-    // link: endereço do vídeo ou post. Deixe "" se não tiver.
-    const trabalhos = [
-      { titulo: "Storytelling de lançamento", nicho: "beleza", marca: "Marca 01", formato: "vídeo 9:16", capa: "", link: "" },
-      { titulo: "Maquiagem em cenário", nicho: "beleza", marca: "Marca 02", formato: "vídeo 9:16", capa: "", link: "" },
-      { titulo: "Rotina de cuidado", nicho: "skincare", marca: "Marca 03", formato: "vídeo 9:16", capa: "", link: "" },
-      { titulo: "Textura em close", nicho: "skincare", marca: "Marca 04", formato: "foto 4:5", capa: "", link: "" },
-      { titulo: "Look com narrativa", nicho: "moda", marca: "Marca 05", formato: "vídeo 9:16", capa: "", link: "" },
-      { titulo: "Unboxing de coleção", nicho: "moda", marca: "Marca 06", formato: "vídeo 9:16", capa: "", link: "" },
-      { titulo: "Receita com o produto", nicho: "comida", marca: "Marca 07", formato: "vídeo 9:16", capa: "", link: "" },
-      { titulo: "Mesa posta de fim de ano", nicho: "comida", marca: "Marca 08", formato: "foto 4:5", capa: "", link: "" },
-      { titulo: "Cantinho transformado", nicho: "casa", marca: "Marca 09", formato: "vídeo 9:16", capa: "", link: "" },
-      { titulo: "Antes e depois da sala", nicho: "casa", marca: "Marca 10", formato: "vídeo 9:16", capa: "", link: "" }
+    // Vídeos da galeria (YouTube Shorts). A capa vem sozinha do YouTube.
+    // id: o código do vídeo, que fica depois de "shorts/" no link.
+    // marca: escreva o nome da marca pra aparecer no card. Vazio mostra só o subnicho.
+    // Para adicionar um vídeo, copie uma linha e troque o id.
+    const videos = [
+      { id: "mwWG5L3VRW4", nicho: "beleza", sub: "Haircare", marca: "" },
+      { id: "pp8ShpId7lo", nicho: "beleza", sub: "Haircare", marca: "" },
+      { id: "AJQwc90nzIU", nicho: "beleza", sub: "Haircare", marca: "" },
+      { id: "_MeV-KUkeiY", nicho: "beleza", sub: "Haircare", marca: "" },
+      { id: "6c9-RoJucfc", nicho: "beleza", sub: "Haircare", marca: "" },
+      { id: "pvpWG6x2ucA", nicho: "beleza", sub: "Skincare", marca: "" },
+      { id: "ZzVcJfGI3fE", nicho: "beleza", sub: "Skincare", marca: "" },
+      { id: "5MUp_H9r6lk", nicho: "beleza", sub: "Skincare", marca: "" },
+      { id: "s5OEB6FtKxg", nicho: "beleza", sub: "Skincare", marca: "" },
+      { id: "w6-MqP7ZRr4", nicho: "beleza", sub: "Skincare", marca: "" },
+      { id: "mYr7VDvsxYo", nicho: "beleza", sub: "Bodycare", marca: "" },
+      { id: "4-GFwHONjUY", nicho: "beleza", sub: "Bodycare", marca: "" },
+      { id: "7Qa5xWTfAuo", nicho: "beleza", sub: "Bodycare", marca: "" },
+      { id: "-HWZykwyN9c", nicho: "beleza", sub: "Bodycare", marca: "" },
+      { id: "SpHDfJ-BWOk", nicho: "beleza", sub: "Makeup", marca: "" },
+      { id: "BsOCinxvmbw", nicho: "beleza", sub: "Makeup", marca: "" },
+      { id: "S1xfDL7h_Tw", nicho: "beleza", sub: "Makeup", marca: "" },
+      { id: "V66_PzR_T10", nicho: "beleza", sub: "Makeup", marca: "" },
+      { id: "Xj8rqOkqexE", nicho: "beleza", sub: "Makeup", marca: "" },
+      { id: "HPbxUy2ie8Y", nicho: "beleza", sub: "Makeup", marca: "" },
+      { id: "xZuFjGpek0M", nicho: "moda", sub: "Calçados", marca: "" },
+      { id: "6jdHd0K3b_4", nicho: "moda", sub: "Calçados", marca: "" },
+      { id: "3forMuneVmo", nicho: "moda", sub: "Calçados", marca: "" },
+      { id: "hcnZV7lxfaI", nicho: "moda", sub: "Calçados", marca: "" },
+      { id: "eQKGJGUUxA8", nicho: "moda", sub: "Bolsas e acessórios", marca: "" },
+      { id: "54a_MPOI124", nicho: "moda", sub: "Bolsas e acessórios", marca: "" },
+      { id: "I4llRk5BCdw", nicho: "moda", sub: "Bolsas e acessórios", marca: "" },
+      { id: "GMK9yJPUJbk", nicho: "gastronomia", sub: "", marca: "" },
+      { id: "KHrjhYwHz_w", nicho: "gastronomia", sub: "", marca: "" },
+      { id: "fZKi578gXLc", nicho: "gastronomia", sub: "", marca: "" },
+      { id: "RsC91pApMrA", nicho: "gastronomia", sub: "", marca: "" },
+      { id: "Gi5gqFu8oX4", nicho: "gastronomia", sub: "", marca: "" },
+      { id: "5L0vDLj5ubs", nicho: "gastronomia", sub: "", marca: "" },
+      { id: "HNMgo5j_ONY", nicho: "tecnologia", sub: "", marca: "" },
+      { id: "1z5ZKTFDaag", nicho: "tecnologia", sub: "", marca: "" },
+      { id: "_lm4xX2D5RA", nicho: "tecnologia", sub: "", marca: "" },
+      { id: "9MmKGwZTexQ", nicho: "tecnologia", sub: "", marca: "" },
+      { id: "o6m2-1l1U0w", nicho: "tecnologia", sub: "", marca: "" }
     ];
+
+    // Quantos vídeos aparecem antes do botão "Ver mais vídeos"
+    const VIDEOS_POR_VEZ = 12;
 
     // Serviços da seção "Como eu te ajudo".
     const servicos = [
@@ -1001,53 +1065,112 @@
       `<ul>${listaMarcas}</ul><ul aria-hidden="true">${listaMarcas}</ul>`;
     document.getElementById("trilhoMarcas").style.animationDuration = (marcas.length * 1.6) + "s";
 
-    // Trabalhos e filtros
+    // Galeria de vídeos com filtro por nicho e subnicho
     const galeria = document.getElementById("galeria");
-    const nomeNicho = id => (nichos.find(n => n.id === id) || { nome: id }).nome;
-
-    galeria.innerHTML = trabalhos.map((t, i) => {
-      const midia = t.capa
-        ? `<div class="midia"><img src="${esc(t.capa)}" alt="${esc(t.titulo)} para ${esc(t.marca)}" loading="lazy"></div>`
-        : `<div class="midia ${degradeS[i % degradeS.length]}" role="img" aria-label="Espaço para a capa de ${esc(t.titulo)}"><span class="legenda-midia">${esc(t.formato)}</span></div>`;
-      const info = `<div class="info"><h3>${esc(t.titulo)}</h3><span class="nicho">${esc(nomeNicho(t.nicho))}</span></div><p class="marca">${esc(t.marca)}</p>`;
-      const corpo = t.link
-        ? `<a href="${esc(t.link)}" target="_blank" rel="noopener">${midia}${info}</a>`
-        : `${midia}${info}`;
-      return `<li class="trabalho" data-nicho="${esc(t.nicho)}">${corpo}</li>`;
-    }).join("");
-
     const filtros = document.getElementById("filtros");
+    const subfiltros = document.getElementById("subfiltros");
+    const botaoMais = document.getElementById("verMais");
+    const pilar = document.getElementById("pilar");
+    const nomeNicho = id => (nichos.find(n => n.id === id) || { nome: id }).nome;
+    const estado = { nicho: "todos", sub: "todos", limite: VIDEOS_POR_VEZ };
+
+    // Em "Todos", os nichos se alternam pra mostrar variedade logo de cara
+    function misturaNichos(lista) {
+      const grupos = nichos.map(n => lista.filter(v => v.nicho === n.id));
+      const saida = [];
+      for (let i = 0; saida.length < lista.length; i++) grupos.forEach(g => { if (g[i]) saida.push(g[i]); });
+      return saida;
+    }
+    function videosVisiveis() {
+      if (estado.nicho === "todos") return misturaNichos(videos);
+      return videos.filter(v => v.nicho === estado.nicho && (estado.sub === "todos" || v.sub === estado.sub));
+    }
+    function cardVideo(v) {
+      const titulo = v.marca || v.sub || nomeNicho(v.nicho);
+      const rotulo = v.marca ? (v.sub || nomeNicho(v.nicho)) : (v.sub ? nomeNicho(v.nicho) : "Vídeo UGC");
+      return `<li class="trabalho"><button type="button" class="abre-video" data-video="${esc(v.id)}" aria-label="Assistir vídeo de ${esc(titulo)}">
+        <div class="midia g6"><img src="https://i.ytimg.com/vi/${esc(v.id)}/oardefault.jpg" alt="" loading="lazy" onerror="if(this.dataset.f){this.remove()}else{this.dataset.f=1;this.src='https://i.ytimg.com/vi/${esc(v.id)}/hqdefault.jpg'}"><span class="play" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M6 4l14 8-14 8z"/></svg></span></div>
+        <div class="info"><h3>${esc(titulo)}</h3><span class="nicho">${esc(rotulo)}</span></div></button></li>`;
+    }
+    function desenhaGaleria() {
+      const lista = videosVisiveis();
+      galeria.innerHTML = lista.slice(0, estado.limite).map(cardVideo).join("");
+      const faltam = lista.length - estado.limite;
+      botaoMais.hidden = faltam <= 0;
+      botaoMais.textContent = `Ver mais vídeos (${Math.max(faltam, 0)})`;
+      const nicho = nichos.find(n => n.id === estado.nicho);
+      pilar.textContent = nicho ? nicho.pilar : "";
+      pilar.hidden = !pilar.textContent;
+      const subs = nicho ? nicho.subs : [];
+      subfiltros.hidden = subs.length === 0;
+      subfiltros.innerHTML = subs.length ? ["todos"].concat(subs).map(s =>
+        `<button type="button" class="subfiltro" data-sub="${esc(s)}" aria-pressed="${estado.sub === s}">${s === "todos" ? "Tudo de " + esc(nicho.nome) : esc(s)}</button>`).join("") : "";
+    }
+
     // Ícones de nicho no estilo do moodboard (traço fino dentro de um círculo colorido)
     const icones = {
       todos: { fundo: "var(--preto)", traco: "var(--bege)", d: ["M12 3l1.8 7.2L21 12l-7.2 1.8L12 21l-1.8-7.2L3 12l7.2-1.8z"] },
       beleza: { fundo: "var(--bordo)", traco: "var(--bege)", d: ["M9 21h6v-8H9z", "M10 13V7.5L14 5v8"] },
-      skincare: { fundo: "var(--bege)", traco: "var(--bordo)", d: ["M12 3c3 4.5 6 7.7 6 11a6 6 0 0 1-12 0c0-3.3 3-6.5 6-11z"] },
       moda: { fundo: "var(--bege)", traco: "var(--preto)", d: ["M10 5a2 2 0 1 1 2 2v2l9 7H3l9-7"] },
-      comida: { fundo: "var(--petroleo)", traco: "var(--bege)", d: ["M7 3v18", "M5 3v5a2 2 0 0 0 4 0V3", "M16 21V3c2 1.5 3 4 3 7h-3"] },
+      gastronomia: { fundo: "var(--petroleo)", traco: "var(--bege)", d: ["M7 3v18", "M5 3v5a2 2 0 0 0 4 0V3", "M16 21V3c2 1.5 3 4 3 7h-3"] },
+      tecnologia: { fundo: "var(--verde)", traco: "var(--bege)", d: ["M4 5h16v11H4z", "M2 19h20"] },
       casa: { fundo: "var(--verde)", traco: "var(--bege)", d: ["M3 11l9-7 9 7", "M5 10v10h14V10", "M10 20v-6h4v6"] }
     };
     function icone(id) {
       const ic = icones[id] || icones.todos;
       return `<span class="ico" aria-hidden="true" style="background:${ic.fundo}"><svg viewBox="0 0 24 24" style="stroke:${ic.traco}">${ic.d.map(d => `<path d="${d}"/>`).join("")}</svg></span>`;
     }
-    filtros.innerHTML = [{ id: "todos", nome: "Todos" }].concat(nichos)
+    filtros.innerHTML = [{ id: "todos", nome: "Todos" }].concat(nichos.filter(n => videos.some(v => v.nicho === n.id)))
       .map(n => `<button type="button" class="filtro" data-filtro="${esc(n.id)}" aria-pressed="${n.id === "todos"}">${icone(n.id)}${esc(n.nome)}</button>`).join("");
 
     filtros.addEventListener("click", e => {
       const botao = e.target.closest(".filtro");
       if (!botao) return;
-      const escolhido = botao.dataset.filtro;
       filtros.querySelectorAll(".filtro").forEach(b => b.setAttribute("aria-pressed", b === botao));
-      const pilar = document.getElementById("pilar");
-      const texto = (nichos.find(n => n.id === escolhido) || {}).pilar || "";
-      pilar.textContent = texto;
-      pilar.hidden = !texto;
-      galeria.querySelectorAll(".trabalho").forEach(item => {
-        const mostra = escolhido === "todos" || item.dataset.nicho === escolhido;
-        item.hidden = !mostra;
-        if (mostra) { item.style.animation = "none"; void item.offsetWidth; item.style.animation = ""; }
-      });
+      Object.assign(estado, { nicho: botao.dataset.filtro, sub: "todos", limite: VIDEOS_POR_VEZ });
+      desenhaGaleria();
     });
+    subfiltros.addEventListener("click", e => {
+      const botao = e.target.closest(".subfiltro");
+      if (!botao) return;
+      Object.assign(estado, { sub: botao.dataset.sub, limite: VIDEOS_POR_VEZ });
+      desenhaGaleria();
+    });
+    botaoMais.addEventListener("click", () => {
+      const primeiroNovo = estado.limite;
+      estado.limite += VIDEOS_POR_VEZ;
+      desenhaGaleria();
+      const novo = galeria.querySelectorAll(".abre-video")[primeiroNovo];
+      if (novo) novo.focus();
+    });
+    desenhaGaleria();
+
+    // Player do vídeo na própria página
+    const fundoVideo = document.getElementById("fundoVideo");
+    const molduraVideo = document.getElementById("molduraVideo");
+    const linkYoutube = document.getElementById("linkYoutube");
+    let focoAntesVideo = null;
+    function abreVideo(id) {
+      focoAntesVideo = document.activeElement;
+      molduraVideo.innerHTML = `<iframe src="https://www.youtube-nocookie.com/embed/${encodeURIComponent(id)}?autoplay=1&rel=0&playsinline=1&modestbranding=1" title="Vídeo da Yasmin Caetano" allow="autoplay; encrypted-media; picture-in-picture; fullscreen" allowfullscreen></iframe>`;
+      linkYoutube.href = `https://www.youtube.com/shorts/${encodeURIComponent(id)}`;
+      fundoVideo.classList.add("aberto");
+      fundoVideo.setAttribute("aria-hidden", "false");
+      document.getElementById("fecharVideo").focus();
+    }
+    function fechaVideo() {
+      fundoVideo.classList.remove("aberto");
+      fundoVideo.setAttribute("aria-hidden", "true");
+      molduraVideo.innerHTML = "";
+      if (focoAntesVideo && focoAntesVideo.focus) focoAntesVideo.focus();
+    }
+    const videoAberto = () => fundoVideo.classList.contains("aberto");
+    galeria.addEventListener("click", e => {
+      const botao = e.target.closest(".abre-video");
+      if (botao) abreVideo(botao.dataset.video);
+    });
+    document.getElementById("fecharVideo").addEventListener("click", fechaVideo);
+    fundoVideo.addEventListener("click", e => { if (e.target === fundoVideo) fechaVideo(); });
 
     // Serviços
     document.getElementById("listaServicos").innerHTML = servicos.map((s, i) =>
@@ -1215,6 +1338,7 @@
 
     function abreModal() {
       if (fundoModal.classList.contains("aberto")) return;
+      if (videoAberto()) { setTimeout(abreModal, 8000); return; }
       focoAnterior = document.activeElement;
       fundoModal.classList.add("aberto");
       fundoModal.setAttribute("aria-hidden", "false");
@@ -1233,7 +1357,8 @@
     fundoModal.addEventListener("click", e => { if (e.target === fundoModal) fechaModal(); });
     document.addEventListener("keydown", e => {
       if (e.key === "Escape") {
-        if (fundoModal.classList.contains("aberto")) fechaModal();
+        if (videoAberto()) fechaVideo();
+        else if (fundoModal.classList.contains("aberto")) fechaModal();
         else if (botaoMenu.getAttribute("aria-expanded") === "true") { alternaMenu(false); botaoMenu.focus(); }
       }
       // Mantém o foco do teclado dentro do card enquanto ele está aberto
