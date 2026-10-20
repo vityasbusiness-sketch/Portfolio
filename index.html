@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Yasmin Caetano | Portfólio UGC Creator</title>
   <meta name="description" content="Yasmin Caetano, UGC Creator em Natal RN. UGC que soma estratégia e sensibilidade: vídeos de storytelling para beleza, skincare, moda, gastronomia e casa.">
-  <meta name="theme-color" content="#7a0e1a">
+  <meta name="theme-color" content="#4d0510">
 
   <!-- Fontes: Fraunces (títulos) e Plus Jakarta Sans (texto). Única coisa que vem de fora. -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -15,23 +15,23 @@
   <style>
     /* ============ CORES E MEDIDAS ============ */
     :root {
-      /* Paleta do moodboard: bordô 40%, bege 25%, verde 15%, azul 15%, preto 5% */
-      --bordo: #7a0e1a;
-      --bege: #e8dcc9;
-      --verde: #3e5a3d;
-      --petroleo: #2e6b8f;
-      --preto: #111111;
+      /* Paleta tirada das cores reais do moodboard (tons mais profundos e terrosos) */
+      --bordo: #4d0510;
+      --bege: #d2bea6;
+      --verde: #2e3724;
+      --petroleo: #1f4c63;
+      --preto: #110d0a;
 
-      --creme: #efe6d8;          /* fundo geral, bege mais claro pra leitura */
-      --creme-2: #e8dcc9;        /* bege oficial */
-      --papel: #f7f1e8;          /* cards claros */
-      --tinta: #111111;
-      --tinta-suave: #4d4240;
-      --linha: rgba(17, 17, 17, .14);
-      --azul: #7a0e1a;           /* destaque principal (bordô) */
-      --azul-escuro: #5a0a13;
-      --laranja: #3e5a3d;        /* destaque secundário (verde) */
-      --laranja-texto: #3e5a3d;
+      --creme: #e0d2c2;          /* fundo geral, como o papel do moodboard */
+      --creme-2: #d2bea6;        /* bege do moodboard */
+      --papel: #ebe1d4;          /* cards claros */
+      --tinta: #110d0a;
+      --tinta-suave: #4a3b34;
+      --linha: rgba(17, 13, 10, .16);
+      --azul: #4d0510;           /* destaque principal (bordô) */
+      --azul-escuro: #330309;
+      --laranja: #2e3724;        /* destaque secundário (verde oliva) */
+      --laranja-texto: #2e3724;
       --textura: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.07'/%3E%3C/svg%3E");
       --serif: "Fraunces", Georgia, "Times New Roman", serif;
       --sans: "Plus Jakarta Sans", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
@@ -96,7 +96,7 @@
     /* ============ MÍDIA PROVISÓRIA (degradê no lugar de foto e vídeo) ============ */
     .midia {
       position: relative; overflow: hidden; border-radius: var(--raio-g);
-      background: linear-gradient(160deg, #e8dcc9 0%, #c9b394 60%, #7a0e1a 140%);
+      background: linear-gradient(160deg, #e0d2c2 0%, #b59c7e 60%, #4d0510 140%);
       box-shadow: var(--sombra);
     }
     .midia img, .midia video { width: 100%; height: 100%; object-fit: cover; }
@@ -106,17 +106,17 @@
       background: rgba(251, 248, 244, .92); color: var(--tinta); padding: 6px 10px; border-radius: 4px;
     }
     /* Degradês provisórios inspirados nas fotos do moodboard */
-    .g1 { background: linear-gradient(165deg, #7fb1c4 0%, #2e6b8f 55%, #0d2a38 120%); }   /* água de piscina */
-    .g2 { background: linear-gradient(160deg, #b0424d 0%, #7a0e1a 60%, #2a0509 120%); }   /* veludo bordô */
-    .g3 { background: linear-gradient(160deg, #a7b596 0%, #3e5a3d 60%, #142012 125%); }   /* folha de palmeira */
-    .g4 { background: linear-gradient(160deg, #efe3d0 0%, #c9a483 60%, #6e4228 130%); }   /* pele e sol */
-    .g5 { background: linear-gradient(160deg, #f5eee3 0%, #e8dcc9 60%, #b6a07f 130%); }   /* papel bege */
-    .g6 { background: linear-gradient(165deg, #2e6b8f 0%, #16303d 70%, #111111 120%); }   /* piscina à noite */
+    .g1 { background: linear-gradient(165deg, #5f97ab 0%, #1f4c63 55%, #0b1f29 120%); }   /* água de piscina */
+    .g2 { background: linear-gradient(160deg, #8a2a33 0%, #4d0510 60%, #1a0205 120%); }   /* veludo bordô */
+    .g3 { background: linear-gradient(160deg, #75815f 0%, #2e3724 60%, #11150c 125%); }   /* folha de palmeira */
+    .g4 { background: linear-gradient(160deg, #dcc7ad 0%, #a7774f 60%, #4a2a17 130%); }   /* pele e sol */
+    .g5 { background: linear-gradient(160deg, #ebe1d4 0%, #d2bea6 60%, #a08867 130%); }   /* papel bege */
+    .g6 { background: linear-gradient(165deg, #1f4c63 0%, #0e1f29 70%, #110d0a 120%); }   /* piscina à noite */
 
     /* ============ MENU FIXO ============ */
     .menu {
       position: fixed; inset: 0 0 auto 0; z-index: 100; height: var(--topo);
-      background: rgba(243, 238, 233, .86);
+      background: rgba(224, 210, 194, .94);
       -webkit-backdrop-filter: blur(12px); backdrop-filter: blur(12px);
       border-bottom: 1px solid transparent; transition: border-color .3s ease;
     }
@@ -407,12 +407,11 @@
     .capa .trilho li { color: var(--bege); }
     .capa .trilho li::after { background: var(--bege); }
     .capa-visual { position: relative; }
-    .selo-circular { position: absolute; left: -40px; bottom: 48px; width: clamp(104px, 11vw, 136px); height: auto; z-index: 2; }
-    .selo-circular .fundo-selo { fill: var(--bordo); stroke: rgba(232, 220, 201, .5); stroke-width: .8; }
-    .selo-circular text { fill: var(--bege); font-family: var(--sans); font-size: 8.4px; font-weight: 600; letter-spacing: 2px; }
-    .selo-circular .palmeira { fill: none; stroke: var(--bege); stroke-width: 1.4; stroke-linecap: round; }
-    .selo-circular .giro { transform-origin: 60px 60px; animation: gira 40s linear infinite; }
-    @keyframes gira { to { transform: rotate(360deg); } }
+    .selo-circular { position: absolute; left: -40px; bottom: 48px; width: clamp(112px, 12vw, 150px); height: auto; z-index: 2; }
+    .selo-circular .fundo-selo { fill: var(--verde); }
+    .selo-circular text { fill: var(--bege); font-family: var(--sans); font-size: 10px; font-weight: 500; letter-spacing: 3.2px; }
+    .selo-circular .tronco { fill: var(--bege); }
+    .selo-circular .folhas { fill: none; stroke: var(--bege); stroke-width: 1.5; stroke-linecap: round; }
 
     /* Sobre: foto em arco com moldura fina */
     .sobre-foto { border-radius: 999px 999px var(--raio-g) var(--raio-g); outline: 1px solid var(--bordo); outline-offset: 10px; }
@@ -566,7 +565,7 @@
       <div class="container">
         <div class="capa-grade">
           <div class="revelar">
-            <p class="rotulo">UGC Creator · Do Natal para o mundo</p>
+            <p class="rotulo">UGC Creator · Natal RN</p>
             <h1 id="titulo-capa">Yasmin <em>Caetano</em></h1>
             <p class="nichos-capa">Beleza · Skincare · Moda · Gastronomia · Casa</p>
             <p class="frase"><strong class="destaque-frase">UGC que soma estratégia e sensibilidade.</strong> Transformo experiências reais em vídeos que geram identificação e influenciam a decisão de compra.</p>
@@ -582,18 +581,27 @@
             <div class="midia capa-foto g1" role="img" aria-label="Espaço para foto da Yasmin Caetano">
               <span class="legenda-midia">foto da creator 4:5</span>
             </div>
-            <!-- Selo circular do moodboard: UGC Creator · Natal RN com a palmeira -->
-            <svg class="selo-circular" viewBox="0 0 120 120" aria-hidden="true">
-              <defs><path id="circuloSelo" d="M60,60 m-45,0 a45,45 0 1,1 90,0 a45,45 0 1,1 -90,0"/></defs>
-              <circle class="fundo-selo" cx="60" cy="60" r="58"/>
-              <g class="giro"><text><textPath href="#circuloSelo" textLength="280" lengthAdjust="spacing">UGC CREATOR · NATAL · RN · UGC CREATOR · NATAL · RN ·</textPath></text></g>
-              <g class="palmeira">
-                <path d="M60 80 C59 70 59 62 60 53"/>
-                <path d="M60 53 C55 48 49 48 44 51"/>
-                <path d="M60 53 C65 48 71 48 76 51"/>
-                <path d="M60 53 C57 46 53 43 48 42"/>
-                <path d="M60 53 C63 46 67 43 72 42"/>
-                <path d="M60 53 C59 47 60 43 62 40"/>
+            <!-- Selo do moodboard: UGC CREATOR em cima, NATAL · RN embaixo e a palmeira no centro -->
+            <svg class="selo-circular" viewBox="0 0 140 140" aria-hidden="true">
+              <defs>
+                <path id="arcoCima" d="M24,70 A46,46 0 0,1 116,70"/>
+                <path id="arcoBaixo" d="M16,70 A54,54 0 0,0 124,70"/>
+              </defs>
+              <circle class="fundo-selo" cx="70" cy="70" r="69"/>
+              <text text-anchor="middle"><textPath href="#arcoCima" startOffset="50%">UGC CREATOR</textPath></text>
+              <text text-anchor="middle"><textPath href="#arcoBaixo" startOffset="50%">NATAL · RN</textPath></text>
+              <path class="tronco" d="M69.4 50 L70.6 50 L71.8 98 Q70 99 68.2 98 Z"/>
+              <g class="folhas">
+                <path d="M70 50 Q63 42 53 45"/>
+                <path d="M70 50 Q77 42 87 45"/>
+                <path d="M70 50 Q60 46 52 55"/>
+                <path d="M70 50 Q80 46 88 55"/>
+                <path d="M70 50 Q63 51 59 61"/>
+                <path d="M70 50 Q77 51 81 61"/>
+                <path d="M70 50 Q66 41 60 38"/>
+                <path d="M70 50 Q74 41 80 38"/>
+                <path d="M70 50 Q68 55 66 63"/>
+                <path d="M70 50 Q72 55 74 63"/>
               </g>
             </svg>
           </div>
@@ -627,8 +635,8 @@
 
           <ul class="promessas">
             <li><b>01</b><span>Roteiro aprovado por você antes de gravar</span></li>
-            <li><b>02</b><span>Uma rodada de ajuste inclusa</span></li>
-            <li><b>03</b><span>Entrega em até 72 horas úteis</span></li>
+            <li><b>02</b><span>Uso vitalício do conteúdo nas suas redes sociais</span></li>
+            <li><b>03</b><span>Entrega em até 7 dias</span></li>
           </ul>
 
           <p class="assinatura">Yasmin Caetano<small>UGC Creator</small></p>
@@ -884,7 +892,7 @@
     // Números curtos da capa. "Vídeos entregues" usa a quantidade de marcas como mínimo (+39).
     const numerosCapa = [
       { numero: "+" + marcas.length, rotulo: "vídeos entregues" },
-      { numero: String(marcas.length), rotulo: "marcas atendidas" },
+      { numero: "+" + marcas.length, rotulo: "marcas atendidas" },
       { numero: "4,6M", rotulo: "curtidas no TikTok" }
     ];
 
@@ -928,7 +936,7 @@
     // valor: o número final (ex: 120). Deixe null enquanto não tiver o número real: aparece "00".
     const metricas = [
       { valor: marcas.length, prefixo: "+", sufixo: "", rotulo: "vídeos entregues" },
-      { valor: marcas.length, prefixo: "", sufixo: "", rotulo: "marcas atendidas" },
+      { valor: marcas.length, prefixo: "+", sufixo: "", rotulo: "marcas atendidas" },
       { valor: 4.6, prefixo: "", sufixo: "M", rotulo: "curtidas no TikTok" },
       { valor: 70.9, prefixo: "", sufixo: " mil", rotulo: "visualizações em um único vídeo" }
     ];
