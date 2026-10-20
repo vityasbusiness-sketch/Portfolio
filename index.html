@@ -229,6 +229,29 @@
     .servico h3 { font-size: 1.7rem; margin-bottom: 14px; }
     .servico p { color: rgba(243, 238, 233, .74); margin: 0; font-size: .97rem; }
 
+    /* ============ FOTOS UGC E PACOTES ============ */
+    .fotos-grade { display: grid; grid-template-columns: repeat(4, 1fr); gap: clamp(12px, 1.6vw, 20px); list-style: none; margin: 0 0 clamp(64px, 9vw, 110px); padding: 0; }
+    .fotos-grade li { margin: 0; }
+    .fotos-grade .midia { aspect-ratio: 4 / 5; height: 100%; }
+    .fotos-grade li:first-child { grid-column: span 2; grid-row: span 2; }
+    .fotos-grade li:first-child .midia { aspect-ratio: auto; min-height: 100%; }
+    .pacotes-grade { display: grid; grid-template-columns: repeat(3, 1fr); gap: clamp(16px, 2vw, 26px); list-style: none; margin: 0; padding: 0; align-items: stretch; }
+    .pacote { display: flex; flex-direction: column; background: var(--papel); border: 1px solid var(--linha); border-radius: var(--raio-g); padding: clamp(28px, 3.4vw, 40px); box-shadow: var(--sombra); }
+    .pacote .selo-pacote { align-self: flex-start; font-size: .7rem; font-weight: 600; letter-spacing: .14em; text-transform: uppercase; padding: 6px 10px; border-radius: 999px; background: var(--laranja); color: var(--tinta); margin-bottom: 18px; }
+    .pacote h3 { font-size: 2rem; margin-bottom: 8px; }
+    .pacote .para-quem { color: var(--tinta-suave); margin-bottom: 22px; }
+    .pacote ul { list-style: none; margin: 0 0 28px; padding: 0; border-top: 1px solid var(--linha); flex: 1; }
+    .pacote ul li { position: relative; padding: 12px 0 12px 22px; border-bottom: 1px solid var(--linha); font-size: .95rem; }
+    .pacote ul li::before { content: ""; position: absolute; left: 2px; top: 21px; width: 8px; height: 8px; border-radius: 50%; background: var(--laranja); }
+    .pacote .preco { font-family: var(--serif); font-size: 1.5rem; margin: 0 0 18px; }
+    .pacote .botao { width: 100%; }
+    .pacote.destaque { background: var(--azul); color: #fff; border-color: var(--azul); }
+    .pacote.destaque .para-quem { color: rgba(255, 255, 255, .8); }
+    .pacote.destaque ul, .pacote.destaque ul li { border-color: rgba(255, 255, 255, .25); }
+    .pacote.destaque .botao-primario { background: #fff; border-color: #fff; color: var(--azul); }
+    .pacote.destaque .botao-primario:hover { background: var(--creme); }
+    .pacote.destaque :focus-visible { outline-color: #fff; }
+
     /* ============ 6. NÚMEROS E DEPOIMENTOS ============ */
     .subrotulo { font-size: .78rem; font-weight: 600; letter-spacing: .16em; text-transform: uppercase; color: var(--tinta-suave); margin: 0 0 22px; }
     .metricas { display: grid; grid-template-columns: repeat(4, 1fr); list-style: none; margin: 0 0 clamp(64px, 9vw, 110px); padding: 0; border-top: 1px solid var(--tinta); }
@@ -348,6 +371,8 @@
       .metricas { grid-template-columns: repeat(2, 1fr); }
       .metricas li:nth-child(3) { padding-left: 0; border-left: 0; }
       .resultados { grid-template-columns: 1fr; }
+      .pacotes-grade { grid-template-columns: 1fr; max-width: 520px; }
+      .fotos-grade { grid-template-columns: repeat(2, 1fr); }
     }
 
     @media (max-width: 860px) {
@@ -412,6 +437,7 @@
           <li><a href="#destaques">Destaques</a></li>
           <li><a href="#trabalhos">Trabalhos</a></li>
           <li><a href="#servicos">Serviços</a></li>
+          <li><a href="#pacotes">Pacotes</a></li>
           <li><a href="#numeros">Números</a></li>
           <li><a href="#contato">Contato</a></li>
         </ul>
@@ -491,10 +517,10 @@
         </div>
 
         <div class="case">
-          <!-- LINK DO VÍDEO: troque o "#" do href pelo link do vídeo do Bombado (Reels, TikTok, Drive ou YouTube).
+          <!-- LINK DO VÍDEO: está no href abaixo (reel do Bombado no Instagram).
                CAPA DO VÍDEO: apague o <span class="legenda-midia"> e coloque dentro do div.midia:
                <img src="capas/bombado.jpg" alt="Capa do vídeo feito para o Bombado"> (formato vertical 9:16) -->
-          <a class="card-video case-video revelar" href="#" target="_blank" rel="noopener" aria-label="Assistir ao vídeo feito para o Bombado (abre em nova aba)">
+          <a class="card-video case-video revelar" href="https://www.instagram.com/reel/DcM0mfYTfIs/" target="_blank" rel="noopener" aria-label="Assistir ao vídeo feito para o Bombado (abre em nova aba)">
             <div class="midia g1">
               <span class="play" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M6 4l14 8-14 8z"/></svg></span>
               <span class="legenda-midia">capa do vídeo 9:16</span>
@@ -553,6 +579,26 @@
       </div>
     </section>
 
+    <!-- ============ FOTOS UGC E PACOTES ============ -->
+    <section class="pacotes" id="pacotes" aria-labelledby="titulo-pacotes">
+      <div class="container">
+        <div class="cabeca-secao revelar">
+          <div>
+            <p class="rotulo">Fotos UGC e pacotes</p>
+            <h2 class="titulo-secao" id="titulo-pacotes">Imagem que dá <em>vontade</em> de ter.</h2>
+          </div>
+          <p class="apoio">Fotos com luz natural, textura e cenário, pensadas pra site, catálogo, anúncio e redes. E pacotes prontos pra sua marca começar.</p>
+        </div>
+
+        <!-- As fotos vêm do array "fotosUgc" no script -->
+        <ul class="fotos-grade" id="listaFotos"></ul>
+
+        <p class="subrotulo revelar">Pacotes</p>
+        <!-- Os pacotes vêm do array "pacotes" no script -->
+        <ul class="pacotes-grade" id="listaPacotes"></ul>
+      </div>
+    </section>
+
     <!-- ============ 6. NÚMEROS E DEPOIMENTOS ============ -->
     <section id="numeros" aria-labelledby="titulo-numeros">
       <div class="container">
@@ -593,9 +639,9 @@
           <p>Me conta sobre a sua marca, o produto e a campanha. Eu respondo com uma ideia de roteiro e o orçamento.</p>
 
           <div class="canais">
-            <a class="canal" href="https://wa.me/5581989857308" target="_blank" rel="noopener"><span>WhatsApp</span><b>(81) 98985-7308</b></a>
             <a class="canal" href="mailto:vityasbusiness@gmail.com"><span>E-mail</span><b>vityasbusiness@gmail.com</b></a>
             <a class="canal" href="https://instagram.com/caetyas_" target="_blank" rel="noopener"><span>Instagram</span><b>@caetyas_</b></a>
+            <a class="canal" href="https://www.tiktok.com/@caetyas_" target="_blank" rel="noopener"><span>TikTok</span><b>@caetyas_</b></a>
           </div>
         </div>
 
@@ -623,8 +669,8 @@
           <div class="confirmacao" id="confirmacao" role="status" tabindex="-1">
             <div class="selo" aria-hidden="true">✓</div>
             <h3>Mensagem recebida!</h3>
-            <p>Valeu pelo contato! Eu te respondo em breve. Se preferir agilizar, me chama também no WhatsApp.</p>
-            <a class="botao botao-primario" id="linkZapConfirmacao" href="https://wa.me/5581989857308" target="_blank" rel="noopener">Continuar no WhatsApp</a>
+            <p>Valeu pelo contato! Eu te respondo em breve no e-mail que você deixou.</p>
+            <a class="botao botao-primario" href="https://instagram.com/caetyas_" target="_blank" rel="noopener">Ver meu Instagram</a>
           </div>
         </div>
       </div>
@@ -637,9 +683,7 @@
       <a class="logo" href="#topo">Yasmin <em>Caetano</em></a>
       <ul class="redes">
         <li><a href="https://instagram.com/caetyas_" target="_blank" rel="noopener">Instagram</a></li>
-        <!-- TikTok: troque @seuusuario pelo seu usuário, ou apague esta linha -->
-        <li><a href="https://www.tiktok.com/@seuusuario" target="_blank" rel="noopener">TikTok</a></li>
-        <li><a href="https://wa.me/5581989857308" target="_blank" rel="noopener">WhatsApp</a></li>
+        <li><a href="https://www.tiktok.com/@caetyas_" target="_blank" rel="noopener">TikTok</a></li>
         <li><a href="mailto:vityasbusiness@gmail.com">E-mail</a></li>
       </ul>
       <p class="copia">© <span id="ano"></span> Yasmin Caetano · UGC Creator · Natal RN</p>
@@ -691,15 +735,17 @@
       "Farinha Láctea", "Kind",
       // Gastronomia
       "Bombado", "Camarão na Telha", "Maná", "Matutos", "Nicks Burger", "Espetaria Premium", "Cookitos", "DeliCookies",
-      // Tecnologia e acessórios
-      "Acer", "Gocase",
+      // Moda e acessórios
+      "Domidona", "Gocase",
+      // Tecnologia
+      "Acer",
       // Outras
-      "Domidona", "Néctar", "Eizz", "Revien", "Ollie", "Hydratta"
+      "Néctar", "Eizz", "Revien", "Ollie", "Hydratta"
     ];
 
-    // Números curtos da capa. Troque "00" pelos seus números reais.
+    // Números curtos da capa. "Vídeos entregues" usa a quantidade de marcas como mínimo (+39).
     const numerosCapa = [
-      { numero: "00+", rotulo: "vídeos entregues" },
+      { numero: "+" + marcas.length, rotulo: "vídeos entregues" },
       { numero: String(marcas.length), rotulo: "marcas atendidas" },
       { numero: "4,6M", rotulo: "curtidas no TikTok" }
     ];
@@ -743,10 +789,29 @@
     // Métricas com contador animado.
     // valor: o número final (ex: 120). Deixe null enquanto não tiver o número real: aparece "00".
     const metricas = [
-      { valor: null, prefixo: "+", sufixo: "", rotulo: "vídeos entregues" },
+      { valor: marcas.length, prefixo: "+", sufixo: "", rotulo: "vídeos entregues" },
       { valor: marcas.length, prefixo: "", sufixo: "", rotulo: "marcas atendidas" },
       { valor: 4.6, prefixo: "", sufixo: "M", rotulo: "curtidas no TikTok" },
-      { valor: null, prefixo: "+", sufixo: "M", rotulo: "views somadas" }
+      { valor: 70.9, prefixo: "", sufixo: " mil", rotulo: "visualizações em um único vídeo" }
+    ];
+
+    // Fotos UGC da seção "Fotos UGC e pacotes". A primeira aparece maior.
+    // src: deixe "" para usar o degradê, ou coloque o caminho da foto, ex: "fotos/ugc-01.jpg"
+    // alt: descreva a foto pra quem usa leitor de tela.
+    const fotosUgc = [
+      { src: "", alt: "Produto de skincare em cenário com luz natural", legenda: "produto em cenário 4:5" },
+      { src: "", alt: "Close da textura de um produto", legenda: "close de textura 4:5" },
+      { src: "", alt: "Mesa posta com produto de gastronomia", legenda: "mesa posta 4:5" },
+      { src: "", alt: "Look com acessório da marca", legenda: "moda 4:5" },
+      { src: "", alt: "Produto na mão da creator", legenda: "produto na mão 4:5" }
+    ];
+
+    // Pacotes. Edite os itens e o preço ("Sob consulta" ou um valor, ex: "A partir de R$ 000").
+    // destaque: true deixa o card azul.
+    const pacotes = [
+      { nome: "Essencial", paraQuem: "Pra marca que quer testar UGC.", itens: ["1 vídeo UGC com roteiro estratégico", "Roteiro aprovado antes de gravar", "1 rodada de ajuste inclusa", "Entrega em até 72 horas úteis"], preco: "Sob consulta", selo: "", destaque: false },
+      { nome: "Performance", paraQuem: "Pra marca que vai rodar anúncio.", itens: ["3 vídeos UGC com roteiro estratégico", "Cortes para anúncio com ganchos diferentes", "5 fotos UGC do produto", "1 rodada de ajuste por vídeo"], preco: "Sob consulta", selo: "Mais completo", destaque: true },
+      { nome: "Mensal", paraQuem: "Pra marca que quer presença constante.", itens: ["Quantidade de vídeos combinada por mês", "Calendário de conteúdo", "Fotos UGC inclusas", "Prioridade na agenda"], preco: "Sob consulta", selo: "", destaque: false }
     ];
 
     // Resultados de campanha. Hoje está vazio porque o case do Bombado já aparece completo nos destaques.
@@ -757,19 +822,18 @@
     // Depoimentos, na ordem em que aparecem. Os dois primeiros ficam visíveis no computador;
     // o resto aparece pelas setas. Os mais estratégicos (roteiro, briefing, resultado) vêm primeiro.
     const depoimentos = [
-      { texto: "Ótima construção do roteiro, com uma abordagem natural e criativa. Adoramos os takes externos! O conteúdo ficou natural, dinâmico e super alinhado ao briefing.", nome: "Domidona", empresa: "Parceria UGC" },
-      { texto: "Era um vídeo desse mesmo que estava imaginando, ficou muito bom de verdade. Até a qualidade do brilho ficou top. Esse vídeo vai ser um dos que vão bombar mesmo no patrocínio.", nome: "Bombado", empresa: "Gastronomia" },
-      { texto: "Foi muito positivo. O vídeo ficou exatamente como eu gostaria. Trazer a pegada família, seu roteiro foi muito bem escrito, apresentou a fachada, mostrou detalhes, falou de pontos positivos.", nome: "Camarão na Telha", empresa: "Restaurante" },
-      { texto: "Oi Yasmin, bom dia. Ficou muito bom, gostei demais. Espero estender nossa parceria com conteúdos futuros. Parabéns pelo seu trabalho!", nome: "DeliCookies", empresa: "Cookies" },
-      { texto: "Passando pra agradecer o trabalho, muito bom, gostei de verdade. Gosto dessas coisas não tão enfeitadas, mas também com um toquezinho de capricho.", nome: "Matutos Burger", empresa: "Hamburgueria" },
-      { texto: "Amei o conteúdo, Yasmin. Sempre achei os vídeos super interessantes, já acompanho tem um tempo e vejo que dão muitos resultados.", nome: "Maná", empresa: "Fábrica de Sushi" },
-      { texto: "Gratidão pelo registro, somos gratos por tanto carinho em mostrar nossa loja e nossos produtos! E parabéns pela estética do vídeo, ficou incrível.", nome: "Cookitos", empresa: "Loja" }
+      { texto: "Ótima construção do roteiro, com uma abordagem natural e criativa. Adoramos os takes externos! O conteúdo ficou natural, dinâmico e super alinhado ao briefing.", nome: "Domidona", nicho: "Moda" },
+      { texto: "Era um vídeo desse mesmo que estava imaginando, ficou muito bom de verdade. Até a qualidade do brilho ficou top. Esse vídeo vai ser um dos que vão bombar mesmo no patrocínio.", nome: "Bombado", nicho: "Gastronomia" },
+      { texto: "Foi muito positivo. O vídeo ficou exatamente como eu gostaria. Trazer a pegada família, seu roteiro foi muito bem escrito, apresentou a fachada, mostrou detalhes, falou de pontos positivos.", nome: "Camarão na Telha", nicho: "Gastronomia" },
+      { texto: "Oi Yasmin, bom dia. Ficou muito bom, gostei demais. Espero estender nossa parceria com conteúdos futuros. Parabéns pelo seu trabalho!", nome: "DeliCookies", nicho: "Gastronomia" },
+      { texto: "Passando pra agradecer o trabalho, muito bom, gostei de verdade. Gosto dessas coisas não tão enfeitadas, mas também com um toquezinho de capricho.", nome: "Matutos", nicho: "Gastronomia" },
+      { texto: "Amei o conteúdo, Yasmin. Sempre achei os vídeos super interessantes, já acompanho tem um tempo e vejo que dão muitos resultados.", nome: "Maná · Fábrica de Sushi", nicho: "Gastronomia" },
+      { texto: "Gratidão pelo registro, somos gratos por tanto carinho em mostrar nossa loja e nossos produtos! E parabéns pela estética do vídeo, ficou incrível.", nome: "Cookitos", nicho: "Gastronomia" }
     ];
 
     // Endereço do Formspree (ou serviço parecido) para receber o formulário por e-mail.
     // Deixe "" para só mostrar a confirmação na tela.
     const ENDERECO_FORMULARIO = "";
-    const WHATSAPP = "5581989857308";
 
     /* =====================================================================
        DAQUI PRA BAIXO É O FUNCIONAMENTO. Não precisa mexer.
@@ -836,6 +900,23 @@
       `<li><strong data-valor="${m.valor === null ? "" : m.valor}" data-prefixo="${esc(m.prefixo)}" data-sufixo="${esc(m.sufixo)}">${esc(m.prefixo)}${m.valor === null ? "00" : "0"}${esc(m.sufixo)}</strong><span>${esc(m.rotulo)}</span></li>`
     ).join("");
 
+    // Fotos UGC
+    document.getElementById("listaFotos").innerHTML = fotosUgc.map((f, i) => f.src
+      ? `<li class="revelar"><div class="midia"><img src="${esc(f.src)}" alt="${esc(f.alt)}" loading="lazy"></div></li>`
+      : `<li class="revelar"><div class="midia ${degradeS[(i + 3) % degradeS.length]}" role="img" aria-label="Espaço para foto: ${esc(f.alt)}"><span class="legenda-midia">${esc(f.legenda)}</span></div></li>`
+    ).join("");
+
+    // Pacotes: o botão leva pro formulário com o nome do pacote já escrito
+    document.getElementById("listaPacotes").innerHTML = pacotes.map(pc =>
+      `<li class="pacote revelar${pc.destaque ? " destaque" : ""}">${pc.selo ? `<span class="selo-pacote">${esc(pc.selo)}</span>` : ""}<h3>${esc(pc.nome)}</h3><p class="para-quem">${esc(pc.paraQuem)}</p><ul>${pc.itens.map(it => `<li>${esc(it)}</li>`).join("")}</ul><p class="preco">${esc(pc.preco)}</p><a class="botao botao-primario" href="#contato" data-pacote="${esc(pc.nome)}">Quero este pacote</a></li>`
+    ).join("");
+    document.getElementById("listaPacotes").addEventListener("click", e => {
+      const botao = e.target.closest("[data-pacote]");
+      if (!botao) return;
+      const campo = document.getElementById("mensagem");
+      if (!campo.value.trim()) campo.value = `Oi, Yasmin! Tenho interesse no pacote ${botao.dataset.pacote}. Minha marca é `;
+    });
+
     // Resultados (o bloco some quando o array está vazio)
     document.getElementById("blocoResultados").hidden = resultados.length === 0;
     document.getElementById("listaResultados").innerHTML = resultados.map(r =>
@@ -844,7 +925,7 @@
 
     // Depoimentos
     document.getElementById("listaDepoimentos").innerHTML = depoimentos.map(d =>
-      `<li><figure class="depoimento"><blockquote>${esc(d.texto)}</blockquote><figcaption><span class="avatar" aria-hidden="true"></span><div><b>${esc(d.nome)}</b><span>${esc(d.empresa)}</span></div></figcaption></figure></li>`
+      `<li><figure class="depoimento"><blockquote>${esc(d.texto)}</blockquote><figcaption><span class="avatar" aria-hidden="true"></span><div><b>${esc(d.nome)}</b><span>${esc(d.nicho)}</span></div></figcaption></figure></li>`
     ).join("");
 
     // Setas do carrossel de depoimentos
@@ -957,8 +1038,6 @@
       if (!valida(formContato, document.getElementById("avisoForm"))) return;
       const dados = new FormData(formContato);
       envia(dados);
-      const texto = `Oi, Yasmin! Aqui é ${dados.get("nome")}. ${dados.get("mensagem")}`;
-      document.getElementById("linkZapConfirmacao").href = `https://wa.me/${WHATSAPP}?text=${encodeURIComponent(texto)}`;
       formContato.reset();
       formContato.style.display = "none";
       const conf = document.getElementById("confirmacao");
