@@ -268,11 +268,6 @@
     .servico p { color: rgba(243, 238, 233, .74); margin: 0; font-size: .97rem; }
 
     /* ============ FOTOS UGC E PACOTES ============ */
-    .fotos-grade { display: grid; grid-template-columns: repeat(4, 1fr); gap: clamp(12px, 1.6vw, 20px); list-style: none; margin: 0 0 clamp(64px, 9vw, 110px); padding: 0; }
-    .fotos-grade li { margin: 0; }
-    .fotos-grade .midia { aspect-ratio: 4 / 5; height: 100%; }
-    .fotos-grade li:first-child { grid-column: span 2; grid-row: span 2; }
-    .fotos-grade li:first-child .midia { aspect-ratio: auto; min-height: 100%; }
     .pacotes-grade { display: grid; grid-template-columns: repeat(3, 1fr); gap: clamp(16px, 2vw, 26px); list-style: none; margin: 0; padding: 0; align-items: stretch; }
     .pacote { display: flex; flex-direction: column; background: var(--papel); border: 1px solid var(--linha); border-radius: var(--raio-g); padding: clamp(28px, 3.4vw, 40px); box-shadow: var(--sombra); }
     .pacote .selo-pacote { align-self: flex-start; font-size: .7rem; font-weight: 600; letter-spacing: .14em; text-transform: uppercase; padding: 6px 10px; border-radius: 999px; background: var(--laranja); color: var(--tinta); margin-bottom: 18px; }
@@ -543,7 +538,7 @@
     /* A foto ocupa só a área visível (entre o menu e a faixa de marcas), com menos zoom */
     .capa-fundo { position: absolute; top: var(--topo); left: 0; right: 0; bottom: var(--altura-faixa); z-index: 0; }
     /* Como no portfólio antigo: você à esquerda e o texto à direita, sobre o fundo do jardim */
-    .capa-fundo img { width: 100%; height: 100%; object-fit: cover; object-position: 0% 75%; }
+    .capa-fundo img { width: 100%; height: 100%; object-fit: cover; object-position: 0% 55%; }
     /* Sem degradê: a leitura vem do fundo escuro da foto e de uma sombra suave nas letras */
     .capa-texto { text-shadow: 0 1px 2px rgba(17, 13, 10, .6), 0 0 26px rgba(17, 13, 10, .55); }
     .capa-texto .botao, .capa-texto .numeros-capa { text-shadow: none; }
@@ -568,7 +563,7 @@
     .cabeca-secao { margin-bottom: clamp(28px, 4vw, 48px); }
     .titulo-secao { font-size: clamp(2.1rem, 4.4vw, 3.5rem); }
     .rotulo { margin-bottom: 14px; }
-    .metricas, .resultados, .fotos-grade { margin-bottom: clamp(44px, 6vw, 72px); }
+    .metricas, .resultados { margin-bottom: clamp(44px, 6vw, 72px); }
     .etapas { margin-bottom: clamp(40px, 6vw, 64px); }
     .trabalho .midia { aspect-ratio: 3 / 4; }
     .case { grid-template-columns: minmax(0, 300px) 1fr; }
@@ -597,7 +592,6 @@
     .pacote ul li { padding: 9px 0 9px 22px; font-size: .92rem; }
     .pacote ul li::before { top: 17px; }
     .pacote .para-quem { margin-bottom: 14px; }
-    .fotos-grade .midia { aspect-ratio: 1 / 1; }
     .metricas li { padding-top: 22px; }
     .sobre-foto { min-height: 380px; }
     .sobre-texto h2 { margin-bottom: 20px; }
@@ -637,10 +631,6 @@
     .pasta-drive h3 { font-size: 1.1rem; margin-bottom: 2px; }
     .pasta-drive p { font-size: .86rem; line-height: 1.45; }
 
-    /* Fotos UGC numa fileira só */
-    .fotos-grade { grid-template-columns: repeat(5, 1fr); }
-    .fotos-grade li:first-child { grid-column: auto; grid-row: auto; }
-    .fotos-grade .midia, .fotos-grade li:first-child .midia { aspect-ratio: 4 / 5; min-height: 0; }
 
     /* Selo da palmeira carimbado no canto da foto do Sobre mim */
     .sobre-visual { position: relative; }
@@ -664,6 +654,30 @@
     .papel { position: relative; isolation: isolate; }
     .papel::before { content: ""; position: absolute; inset: 0; z-index: -1; pointer-events: none; background: var(--amassado) center / 900px; mix-blend-mode: multiply; opacity: .3; }
 
+    /* Fotos UGC em carrossel */
+    .fotos-ugc { background: var(--creme-2) var(--textura); }
+    .fotos-trilho {
+      display: grid; grid-auto-flow: column; grid-auto-columns: calc((100% - 48px) / 4); column-gap: 16px;
+      list-style: none; margin: 0; padding: 0 0 4px; overflow-x: auto; scroll-snap-type: x mandatory; scrollbar-width: none; overscroll-behavior-x: contain;
+    }
+    .fotos-trilho::-webkit-scrollbar { display: none; }
+    .fotos-trilho li { scroll-snap-align: start; }
+    .fotos-trilho .midia { aspect-ratio: 4 / 5; }
+    .setas-fotos { justify-content: flex-end; margin-top: 18px; }
+
+    /* Entrega: passos em cima e a pasta do Drive num painel bege */
+    .etapa p { color: rgba(232, 220, 201, .66); }
+    .etapa .bolinha { font-size: 1.05rem; }
+    .painel-pasta { display: grid; grid-template-columns: minmax(160px, 220px) 1fr; gap: 28px; align-items: center; background: var(--bege); color: var(--tinta); border-radius: var(--raio-g); padding: 24px 28px; }
+    .painel-titulo { font-size: clamp(1.5rem, 2.2vw, 1.9rem); line-height: 1.15; color: var(--petroleo); }
+    .painel-titulo em { color: var(--petroleo); }
+    .painel-pasta .pasta-drive li { display: block; background: transparent; border: 0; padding: 0; }
+    .painel-pasta .pasta-drive .ico-pasta { width: 36px; height: 36px; margin-bottom: 10px; }
+    .painel-pasta .pasta-drive .ico-pasta { background: var(--petroleo); }
+    .painel-pasta .pasta-drive .ico-pasta svg { stroke: var(--bege); }
+    .painel-pasta .pasta-drive h3 { color: var(--tinta); font-size: 1.05rem; }
+    .painel-pasta .pasta-drive p { color: var(--tinta-suave); }
+
     /* ============ RESPONSIVO ============ */
     @media (max-width: 980px) {
       .capa-grade, .sobre-grade, .contato-grade { grid-template-columns: 1fr; }
@@ -678,6 +692,8 @@
       .etapa .bolinha { grid-row: span 2; margin: 0; }
       .etapas::before { left: 19px; }
       .pasta-drive { grid-template-columns: repeat(2, 1fr); }
+      .painel-pasta { grid-template-columns: 1fr; gap: 18px; }
+      .fotos-trilho { grid-auto-columns: calc((100% - 16px) / 2); }
       .servicos-grade { grid-template-columns: repeat(2, 1fr); }
       .servico, .servico:not(:nth-child(3n + 1)) { padding: 36px 24px 40px 0; border-left: 0; }
       .servico:nth-child(even) { padding-left: 24px; border-left: 1px solid rgba(243, 238, 233, .2); }
@@ -685,9 +701,6 @@
       .metricas li:nth-child(3) { padding-left: 0; border-left: 0; }
       .resultados { grid-template-columns: 1fr; }
       .pacotes-grade { grid-template-columns: 1fr; max-width: 520px; }
-      .fotos-grade { grid-template-columns: repeat(2, 1fr); }
-      .fotos-grade li:first-child { grid-column: 1 / -1; }
-      .fotos-grade li:first-child .midia { aspect-ratio: 4 / 3; }
     }
 
     @media (max-width: 860px) {
@@ -714,7 +727,8 @@
     @media (max-width: 640px) {
       body { font-size: 1rem; }
       .selo-circular { left: auto; right: -6px; bottom: 24px; width: 96px; }
-      .pasta-drive { grid-template-columns: 1fr; }
+      .pasta-drive { grid-template-columns: 1fr; gap: 16px; }
+      .fotos-trilho { grid-auto-columns: 72%; }
       .promessas { grid-template-columns: 1fr; }
       .promessas li { grid-template-columns: 44px 1fr; border-bottom: 1px solid var(--linha); }
       .galeria { grid-template-columns: repeat(2, 1fr); gap: 14px; }
@@ -791,6 +805,7 @@
           <li><a href="#sobre">Sobre</a></li>
           <li><a href="#destaques">Destaques</a></li>
           <li><a href="#trabalhos">Trabalhos</a></li>
+          <li><a href="#fotos">Fotos</a></li>
           <li><a href="#entrega">Entrega</a></li>
           <li><a href="#pacotes">Pacotes</a></li>
           <li><a href="#numeros">Números</a></li>
@@ -808,7 +823,7 @@
            Para trocar, substitua esses dois arquivos (mantenha os mesmos nomes). -->
       <picture class="capa-fundo">
         <source media="(max-width: 760px)" srcset="fotos/capa-celular.webp">
-        <img src="fotos/capa-larga.webp" alt="Yasmin Caetano à noite em um restaurante com jardim, com um drink de frutas vermelhas na mesa" width="2600" height="1081" fetchpriority="high">
+        <img src="fotos/capa-larga.webp" alt="Yasmin Caetano à noite em um restaurante com jardim, com um drink de frutas vermelhas na mesa" width="2600" height="1242" fetchpriority="high">
       </picture>
 
       <div class="container capa-conteudo">
@@ -891,7 +906,7 @@
           <button type="button" class="card-video case-video revelar" id="abreDestaque" aria-label="Assistir ao vídeo feito para o Bombado">
             <div class="midia g1" id="capaDestaque">
               <span class="play" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M6 4l14 8-14 8z"/></svg></span>
-              <span class="legenda-midia">vídeo Bombado 9:16</span>
+              <span class="legenda-midia">vídeo Bombado</span>
             </div>
           </button>
 
@@ -935,6 +950,27 @@
       </div>
     </section>
 
+    <!-- ============ FOTOS UGC (carrossel) ============ -->
+    <section class="fotos-ugc papel" id="fotos" aria-labelledby="titulo-fotos">
+      <div class="container">
+        <div class="cabeca-secao revelar">
+          <div>
+            <p class="rotulo">Fotos UGC</p>
+            <h2 class="titulo-secao" id="titulo-fotos">Imagem que dá <em>vontade</em> de ter.</h2>
+          </div>
+          <p class="apoio">Fotos com luz natural, textura e cenário, pensadas pra site, catálogo, anúncio e redes.</p>
+        </div>
+        <!-- As fotos vêm do array "fotosUgc" no script. Elas passam sozinhas e pausam com o mouse em cima. -->
+        <div class="carrossel-fotos revelar">
+          <ul class="fotos-trilho" id="listaFotos" tabindex="0" aria-label="Fotos UGC, use as setas para ver mais"></ul>
+          <div class="setas setas-fotos">
+            <button class="seta" id="fotoAnterior" type="button" aria-label="Foto anterior">←</button>
+            <button class="seta" id="fotoProxima" type="button" aria-label="Próxima foto">→</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <!-- ============ ENTREGA: o caminho depois do sim ============ -->
     <section class="entrega" id="entrega" aria-labelledby="titulo-entrega">
       <div class="container">
@@ -947,27 +983,23 @@
         </div>
         <!-- As etapas e os itens da pasta vêm dos arrays "etapas" e "pastaDrive" no script -->
         <ol class="etapas revelar" id="listaEtapas"></ol>
-        <p class="subrotulo revelar">Na pasta do Drive vai</p>
-        <ul class="pasta-drive" id="listaPasta"></ul>
+        <div class="painel-pasta revelar">
+          <h3 class="painel-titulo">Na pasta do <em>Drive</em> vai</h3>
+          <ul class="pasta-drive" id="listaPasta"></ul>
+        </div>
       </div>
     </section>
 
-    <!-- ============ FOTOS UGC E PACOTES ============ -->
+    <!-- ============ PACOTES ============ -->
     <section class="pacotes papel" id="pacotes" aria-labelledby="titulo-pacotes">
       <div class="container">
         <div class="cabeca-secao revelar">
           <div>
-            <p class="rotulo">Fotos UGC e pacotes</p>
-            <h2 class="titulo-secao" id="titulo-pacotes">Imagem que dá <em>vontade</em> de ter.</h2>
+            <p class="rotulo">Investimento</p>
+            <h2 class="titulo-secao" id="titulo-pacotes">Pacotes pra sua marca <em>começar</em>.</h2>
           </div>
-          <p class="apoio">Fotos com luz natural, textura e cenário, pensadas pra site, catálogo, anúncio e redes. E pacotes prontos pra sua marca começar.</p>
+          <p class="apoio">Pacotes fechados pra facilitar sua decisão. Nichos ou exclusividade sob medida? Só chamar.</p>
         </div>
-
-        <!-- As fotos vêm do array "fotosUgc" no script -->
-        <ul class="fotos-grade" id="listaFotos"></ul>
-
-        <p class="subrotulo revelar">Pacotes</p>
-        <p class="pacotes-nota revelar">Pacotes fechados pra facilitar sua decisão. Nichos ou exclusividade sob medida? Só chamar.</p>
         <!-- Os pacotes vêm do array "pacotes" no script -->
         <ul class="pacotes-grade" id="listaPacotes"></ul>
       </div>
@@ -1196,7 +1228,7 @@
     // youtube: o código do vídeo no YouTube (o que vem depois de "shorts/" no link)
     // arquivo: o caminho do vídeo enviado pro GitHub, ex: "videos/bombado.mp4"
     // Enquanto os dois estiverem vazios, o card abre o reel no Instagram.
-    const VIDEO_DESTAQUE = { youtube: "", arquivo: "", capa: "", instagram: "https://www.instagram.com/reel/DcM0mfYTfIs/" };
+    const VIDEO_DESTAQUE = { youtube: "GMK9yJPUJbk", arquivo: "", capa: "", instagram: "https://www.instagram.com/reel/DcM0mfYTfIs/" };
 
     // Quantos vídeos aparecem antes do botão "Ver mais vídeos"
     const VIDEOS_POR_VEZ = 12;
@@ -1210,15 +1242,18 @@
       { valor: 70.9, prefixo: "", sufixo: " mil", rotulo: "visualizações em um único vídeo" }
     ];
 
-    // Fotos UGC da seção "Fotos UGC e pacotes". A primeira aparece maior.
-    // src: deixe "" para usar o degradê, ou coloque o caminho da foto, ex: "fotos/ugc-01.jpg"
+    // Fotos UGC do carrossel. Elas passam sozinhas e pausam com o mouse em cima.
+    // src: deixe "" para usar o degradê, ou coloque o caminho da foto, ex: "fotos/ugc-01.webp"
     // alt: descreva a foto pra quem usa leitor de tela.
     const fotosUgc = [
-      { src: "", alt: "Produto de skincare em cenário com luz natural", legenda: "produto em cenário 4:5" },
-      { src: "", alt: "Close da textura de um produto", legenda: "close de textura 4:5" },
-      { src: "", alt: "Mesa posta com produto de gastronomia", legenda: "mesa posta 4:5" },
-      { src: "", alt: "Look com acessório da marca", legenda: "moda 4:5" },
-      { src: "", alt: "Produto na mão da creator", legenda: "produto na mão 4:5" }
+      { src: "", alt: "Produto de skincare em cenário com luz natural", legenda: "produto em cenário" },
+      { src: "", alt: "Close da textura de um produto", legenda: "close de textura" },
+      { src: "", alt: "Mesa posta com produto de gastronomia", legenda: "mesa posta" },
+      { src: "", alt: "Look com acessório da marca", legenda: "moda" },
+      { src: "", alt: "Produto na mão da creator", legenda: "produto na mão" },
+      { src: "", alt: "Produto de cabelo no banheiro", legenda: "haircare" },
+      { src: "", alt: "Prato servido em restaurante", legenda: "gastronomia" },
+      { src: "", alt: "Acessório de tecnologia na mesa", legenda: "tecnologia" }
     ];
 
     // Pacotes. Edite os itens e o preço (ou escreva "Sob consulta").
@@ -1517,10 +1552,35 @@
     ).join("");
 
     // Fotos UGC
-    document.getElementById("listaFotos").innerHTML = fotosUgc.map((f, i) => f.src
-      ? `<li class="revelar"><div class="midia"><img src="${esc(f.src)}" alt="${esc(f.alt)}" loading="lazy"></div></li>`
-      : `<li class="revelar"><div class="midia ${degradeS[(i + 3) % degradeS.length]}" role="img" aria-label="Espaço para foto: ${esc(f.alt)}"><span class="legenda-midia">${esc(f.legenda)}</span></div></li>`
+    const trilhoFotos = document.getElementById("listaFotos");
+    trilhoFotos.innerHTML = fotosUgc.map((f, i) => f.src
+      ? `<li><div class="midia"><img src="${esc(f.src)}" alt="${esc(f.alt)}" loading="lazy"></div></li>`
+      : `<li><div class="midia ${degradeS[(i + 3) % degradeS.length]}" role="img" aria-label="Espaço para foto: ${esc(f.alt)}"><span class="legenda-midia">${esc(f.legenda)}</span></div></li>`
     ).join("");
+    function passoFoto() {
+      const item = trilhoFotos.querySelector("li");
+      return item ? item.getBoundingClientRect().width + parseFloat(getComputedStyle(trilhoFotos).columnGap || 0) : 300;
+    }
+    function moveFotos(direcao) {
+      const fim = trilhoFotos.scrollWidth - trilhoFotos.clientWidth;
+      const comportamento = menosMovimento ? "auto" : "smooth";
+      if (direcao > 0 && trilhoFotos.scrollLeft >= fim - 4) trilhoFotos.scrollTo({ left: 0, behavior: comportamento });
+      else if (direcao < 0 && trilhoFotos.scrollLeft <= 4) trilhoFotos.scrollTo({ left: fim, behavior: comportamento });
+      else trilhoFotos.scrollBy({ left: direcao * passoFoto(), behavior: comportamento });
+    }
+    document.getElementById("fotoAnterior").addEventListener("click", () => moveFotos(-1));
+    document.getElementById("fotoProxima").addEventListener("click", () => moveFotos(1));
+    trilhoFotos.addEventListener("keydown", e => {
+      if (e.key === "ArrowRight") { e.preventDefault(); moveFotos(1); }
+      if (e.key === "ArrowLeft") { e.preventDefault(); moveFotos(-1); }
+    });
+    // Passa sozinho a cada 3,5 segundos; pausa com o mouse em cima, com o foco ou com o dedo
+    let fotosPausadas = false;
+    const carrosselFotos = trilhoFotos.parentElement;
+    ["mouseenter", "focusin", "touchstart"].forEach(ev => carrosselFotos.addEventListener(ev, () => { fotosPausadas = true; }, { passive: true }));
+    ["mouseleave", "focusout"].forEach(ev => carrosselFotos.addEventListener(ev, () => { fotosPausadas = false; }));
+    carrosselFotos.addEventListener("touchend", () => setTimeout(() => { fotosPausadas = false; }, 4000), { passive: true });
+    if (!menosMovimento) setInterval(() => { if (!fotosPausadas && !document.hidden && !videoAberto()) moveFotos(1); }, 3500);
 
     // Pacotes: o botão leva pro formulário com o nome do pacote já escrito
     document.getElementById("listaPacotes").innerHTML = pacotes.map(pc =>
