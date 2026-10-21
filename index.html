@@ -528,6 +528,48 @@
     .pasta-drive h3 { font-size: 1.25rem; margin-bottom: 6px; }
     .pasta-drive p { margin: 0; font-size: .92rem; color: rgba(232, 220, 201, .78); }
 
+    /* ============ CAPA EM FOTO INTEIRA ============ */
+    .capa { position: relative; isolation: isolate; overflow: hidden; display: flex; flex-direction: column; min-height: 100vh; min-height: 100svh; padding: var(--topo) 0 0; }
+    .capa::before {
+      content: ""; position: absolute; inset: 0; z-index: 1; pointer-events: none;
+      background:
+        linear-gradient(90deg, rgba(77, 5, 16, .97) 0%, rgba(77, 5, 16, .9) 30%, rgba(77, 5, 16, .45) 50%, rgba(77, 5, 16, 0) 68%),
+        linear-gradient(0deg, rgba(17, 13, 10, .55) 0%, rgba(17, 13, 10, 0) 28%);
+    }
+    .capa-fundo { position: absolute; top: 0; bottom: 0; left: 26%; right: 0; z-index: 0; }
+    .capa-fundo img { width: 100%; height: 100%; object-fit: cover; object-position: 60% 30%; -webkit-mask-image: linear-gradient(90deg, transparent 0, #000 28%); mask-image: linear-gradient(90deg, transparent 0, #000 28%); }
+    .capa-conteudo { position: relative; z-index: 2; flex: 1; display: flex; align-items: center; padding-top: clamp(20px, 4vh, 48px); padding-bottom: clamp(20px, 4vh, 48px); }
+    .capa-texto { max-width: 620px; }
+    .capa .rotulo { margin-bottom: 14px; }
+    .capa h1 { font-size: clamp(3rem, min(8.4vw, 14vh), 8rem); text-shadow: 0 2px 30px rgba(17, 13, 10, .35); }
+    .capa .nichos-capa { margin-top: 14px; }
+    .capa .frase { margin: 18px 0 24px; max-width: 38ch; color: rgba(232, 220, 201, .9); }
+    .capa .numeros-capa { display: flex; flex-wrap: wrap; gap: 10px; margin-top: clamp(22px, 4vh, 40px); border-top: 0; }
+    .capa .numeros-capa div, .capa .numeros-capa div + div {
+      padding: 12px 18px; border: 1px solid rgba(232, 220, 201, .22); border-radius: var(--raio-g);
+      background: rgba(17, 13, 10, .3); -webkit-backdrop-filter: blur(10px); backdrop-filter: blur(10px);
+    }
+    .capa .numeros-capa strong { font-size: clamp(1.5rem, 2.4vw, 2rem); }
+    .capa .numeros-capa span { font-size: .78rem; }
+    .capa .selo-circular { left: auto; right: var(--gutter); bottom: clamp(20px, 4vh, 44px); width: clamp(96px, 9vw, 126px); }
+    .capa .faixa-marcas { position: relative; z-index: 2; margin-top: 0; padding: 14px 0; background: rgba(77, 5, 16, .78); -webkit-backdrop-filter: blur(8px); backdrop-filter: blur(8px); }
+
+    /* ============ RITMO MAIS COMPACTO ============ */
+    section { padding: clamp(56px, 7vw, 100px) 0; }
+    .cabeca-secao { margin-bottom: clamp(28px, 4vw, 48px); }
+    .titulo-secao { font-size: clamp(2.1rem, 4.4vw, 3.5rem); }
+    .rotulo { margin-bottom: 14px; }
+    .metricas, .resultados, .fotos-grade { margin-bottom: clamp(44px, 6vw, 72px); }
+    .etapas { margin-bottom: clamp(40px, 6vw, 64px); }
+    .trabalho .midia { aspect-ratio: 3 / 4; }
+    .case { grid-template-columns: minmax(0, 320px) 1fr; }
+    .sobre-foto { min-height: 380px; }
+    .sobre-texto h2 { margin-bottom: 20px; }
+    .promessas { margin: 26px 0; }
+    .promessas li { padding: 14px 0; }
+    .servico { padding-top: 28px; padding-bottom: 30px; }
+    .servico .num { margin-bottom: 16px; }
+
     /* ============ RESPONSIVO ============ */
     @media (max-width: 980px) {
       .capa-grade, .sobre-grade, .contato-grade { grid-template-columns: 1fr; }
@@ -600,6 +642,34 @@
       .trilho ul { flex-wrap: wrap; justify-content: center; row-gap: 8px; }
       .js .revelar { opacity: 1; transform: none; }
     }
+    /* Notebooks com tela mais baixa: a capa encolhe pra faixa de marcas aparecer sem rolar */
+    @media (max-height: 780px) and (min-width: 761px) {
+      .capa h1 { font-size: clamp(2.8rem, min(8vw, 11.5vh), 7rem); }
+      .capa .rotulo { margin-bottom: 8px; }
+      .capa .nichos-capa { margin-top: 8px; }
+      .capa .frase { margin: 12px 0 16px; font-size: .98rem; line-height: 1.55; }
+      .capa .botao { padding: 13px 22px; }
+      .capa .numeros-capa { margin-top: 14px; }
+      .capa .numeros-capa div, .capa .numeros-capa div + div { padding: 8px 14px; }
+      .capa .numeros-capa strong { font-size: 1.4rem; }
+      .capa-conteudo { padding-top: 12px; padding-bottom: 12px; }
+      .capa .faixa-marcas { padding: 10px 0; }
+    }
+
+    /* Capa no celular: foto em cima, texto embaixo sobre o bordô */
+    @media (max-width: 760px) {
+      .capa { min-height: 0; }
+      .capa::before { background: linear-gradient(180deg, rgba(77, 5, 16, 0) 0%, rgba(77, 5, 16, 0) 34%, rgba(77, 5, 16, .85) 52%, var(--bordo) 64%); }
+      .capa-fundo { left: 0; bottom: auto; height: 70svh; min-height: 440px; }
+      .capa-fundo img { object-position: 50% 18%; -webkit-mask-image: none; mask-image: none; }
+      .capa-conteudo { align-items: flex-end; padding-top: max(300px, 44svh); padding-bottom: 32px; }
+      .capa .acoes .botao { flex: 1 1 0; padding: 15px 12px; }
+      .capa .numeros-capa { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; }
+      .capa .numeros-capa div, .capa .numeros-capa div + div { padding: 10px 12px; }
+      .capa .numeros-capa strong { font-size: 1.4rem; }
+      .capa .numeros-capa span { font-size: .7rem; }
+      .capa .selo-circular { top: 16px; bottom: auto; right: var(--gutter); width: 84px; }
+    }
   </style>
 </head>
 <body>
@@ -630,52 +700,50 @@
 
     <!-- ============ 1. CAPA ============ -->
     <section class="capa" id="topo" aria-labelledby="titulo-capa">
-      <div class="container">
-        <div class="capa-grade">
-          <div class="revelar">
-            <p class="rotulo">UGC Creator · Natal RN</p>
-            <h1 id="titulo-capa">Yasmin <em>Caetano</em></h1>
-            <p class="nichos-capa">Beleza · Moda · Gastronomia · Tecnologia · Casa</p>
-            <p class="frase"><strong class="destaque-frase">UGC que soma estratégia e sensibilidade.</strong> Transformo experiências reais em vídeos que geram identificação e influenciam a decisão de compra.</p>
-            <div class="acoes">
-              <a class="botao botao-primario" href="#contato">Falar comigo</a>
-              <a class="botao botao-secundario" href="#trabalhos">Ver os trabalhos</a>
-            </div>
-          </div>
+      <!-- FOTO DA CAPA: fotos/capa-larga.webp aparece no computador e fotos/capa-celular.webp no celular.
+           Para trocar, substitua esses dois arquivos (mantenha os mesmos nomes). -->
+      <picture class="capa-fundo">
+        <source media="(max-width: 760px)" srcset="fotos/capa-celular.webp">
+        <img src="fotos/capa-larga.webp" alt="Yasmin Caetano à noite em um restaurante com jardim, com um drink de frutas vermelhas na mesa" width="2200" height="1238" fetchpriority="high">
+      </picture>
 
-          <!-- FOTO DA CAPA: para trocar, substitua o arquivo fotos/capa.webp -->
-          <div class="capa-visual revelar">
-            <div class="midia capa-foto g1">
-              <img src="fotos/capa.webp" alt="Yasmin Caetano à noite em um restaurante com jardim, com um drink de frutas vermelhas na mesa" width="800" height="1082" fetchpriority="high" style="object-position: 50% 30%">
-            </div>
-            <!-- Selo do moodboard: UGC CREATOR em cima, NATAL · RN embaixo e a palmeira no centro -->
-            <svg class="selo-circular" viewBox="0 0 140 140" aria-hidden="true">
-              <defs>
-                <path id="arcoCima" d="M24,70 A46,46 0 0,1 116,70"/>
-                <path id="arcoBaixo" d="M16,70 A54,54 0 0,0 124,70"/>
-              </defs>
-              <circle class="fundo-selo" cx="70" cy="70" r="69"/>
-              <text text-anchor="middle"><textPath href="#arcoCima" startOffset="50%">UGC CREATOR</textPath></text>
-              <text text-anchor="middle"><textPath href="#arcoBaixo" startOffset="50%">NATAL · RN</textPath></text>
-              <path class="tronco" d="M69.4 50 L70.6 50 L71.8 98 Q70 99 68.2 98 Z"/>
-              <g class="folhas">
-                <path d="M70 50 Q63 42 53 45"/>
-                <path d="M70 50 Q77 42 87 45"/>
-                <path d="M70 50 Q60 46 52 55"/>
-                <path d="M70 50 Q80 46 88 55"/>
-                <path d="M70 50 Q63 51 59 61"/>
-                <path d="M70 50 Q77 51 81 61"/>
-                <path d="M70 50 Q66 41 60 38"/>
-                <path d="M70 50 Q74 41 80 38"/>
-                <path d="M70 50 Q68 55 66 63"/>
-                <path d="M70 50 Q72 55 74 63"/>
-              </g>
-            </svg>
+      <div class="container capa-conteudo">
+        <div class="capa-texto revelar">
+          <p class="rotulo">UGC Creator · Natal RN</p>
+          <h1 id="titulo-capa">Yasmin <em>Caetano</em></h1>
+          <p class="nichos-capa">Beleza · Moda · Gastronomia · Tecnologia · Casa</p>
+          <p class="frase"><strong class="destaque-frase">UGC que soma estratégia e sensibilidade.</strong> Transformo experiências reais em vídeos que geram identificação e influenciam a decisão de compra.</p>
+          <div class="acoes">
+            <a class="botao botao-primario" href="#contato">Falar comigo</a>
+            <a class="botao botao-secundario" href="#trabalhos">Ver os trabalhos</a>
           </div>
+          <!-- Os três números da capa vêm do array "numerosCapa" no script -->
+          <div class="numeros-capa" id="numerosCapa"></div>
         </div>
 
-        <!-- Os três números da capa vêm do array "numerosCapa" no script -->
-        <div class="numeros-capa revelar" id="numerosCapa"></div>
+        <!-- Selo do moodboard: UGC CREATOR em cima, NATAL · RN embaixo e a palmeira no centro -->
+        <svg class="selo-circular" viewBox="0 0 140 140" aria-hidden="true">
+          <defs>
+            <path id="arcoCima" d="M24,70 A46,46 0 0,1 116,70"/>
+            <path id="arcoBaixo" d="M16,70 A54,54 0 0,0 124,70"/>
+          </defs>
+          <circle class="fundo-selo" cx="70" cy="70" r="69"/>
+          <text text-anchor="middle"><textPath href="#arcoCima" startOffset="50%">UGC CREATOR</textPath></text>
+          <text text-anchor="middle"><textPath href="#arcoBaixo" startOffset="50%">NATAL · RN</textPath></text>
+          <path class="tronco" d="M69.4 50 L70.6 50 L71.8 98 Q70 99 68.2 98 Z"/>
+          <g class="folhas">
+            <path d="M70 50 Q63 42 53 45"/>
+            <path d="M70 50 Q77 42 87 45"/>
+            <path d="M70 50 Q60 46 52 55"/>
+            <path d="M70 50 Q80 46 88 55"/>
+            <path d="M70 50 Q63 51 59 61"/>
+            <path d="M70 50 Q77 51 81 61"/>
+            <path d="M70 50 Q66 41 60 38"/>
+            <path d="M70 50 Q74 41 80 38"/>
+            <path d="M70 50 Q68 55 66 63"/>
+            <path d="M70 50 Q72 55 74 63"/>
+          </g>
+        </svg>
       </div>
 
       <!-- Faixa de marcas: os nomes vêm do array "marcas" no script -->
