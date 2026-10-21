@@ -10,7 +10,7 @@
   <!-- Fontes: Fraunces (títulos) e Plus Jakarta Sans (texto). Única coisa que vem de fora. -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..600;1,9..144,300..600&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Allura&family=Fraunces:ital,opsz,wght@0,9..144,300..900;1,9..144,300..600&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
 
   <style>
     /* ============ CORES E MEDIDAS ============ */
@@ -693,6 +693,19 @@
     .pacote ul li { padding: 5px 0 5px 20px; border-bottom: 0; font-size: .92rem; }
     .pacote ul li::before { top: 13px; width: 6px; height: 6px; }
 
+    /* Nome da capa no estilo do portfólio antigo: YASMIN forte em bordô aceso e Caetano manuscrito por cima */
+    .capa h1.nome-capa { font-size: clamp(4rem, min(12.5vw, 21vh), 12.5rem); letter-spacing: 0; text-shadow: none; line-height: 1; margin: 4px 0 6px; }
+    .nome-capa .nome-1 {
+      display: block; font-family: var(--serif); font-weight: 900; text-transform: uppercase; line-height: .82;
+      letter-spacing: -.02em; color: #a3192b; font-variation-settings: "opsz" 144, "SOFT" 0, "WONK" 0;
+      text-shadow: 0 6px 40px rgba(17, 13, 10, .45);
+    }
+    .nome-capa .nome-2 {
+      display: block; font-family: "Allura", "Fraunces", cursive; font-weight: 400; line-height: 1;
+      color: var(--bege); margin: -.66em 0 0 .4em; position: relative; font-size: .8em;
+      text-shadow: 0 2px 6px rgba(17, 13, 10, .55), 0 0 30px rgba(17, 13, 10, .45);
+    }
+
     /* ============ RESPONSIVO ============ */
     @media (max-width: 980px) {
       .capa-grade, .sobre-grade, .contato-grade { grid-template-columns: 1fr; }
@@ -776,6 +789,7 @@
     /* Notebooks com tela mais baixa: a capa encolhe pra faixa de marcas aparecer sem rolar */
     @media (max-height: 780px) and (min-width: 761px) {
       .capa h1 { font-size: clamp(3rem, min(9vw, 13.5vh), 8.2rem); }
+      .capa h1.nome-capa { font-size: clamp(3.6rem, min(11vw, 17vh), 10rem); }
       .capa .rotulo { margin-bottom: 8px; }
       .capa .nichos-capa { margin-top: 8px; }
       .capa .frase { margin: 12px 0 16px; font-size: .98rem; line-height: 1.55; }
@@ -790,6 +804,9 @@
 
     /* Capa no celular: foto em cima, texto embaixo sobre o bordô */
     @media (max-width: 760px) {
+      .nome-capa .nome-1 { color: var(--bege); text-shadow: none; }
+      .nome-capa .nome-2 { color: #f0b3b6; text-shadow: 0 2px 8px rgba(17, 13, 10, .5); }
+      .capa h1.nome-capa { font-size: clamp(4.2rem, 23vw, 6rem); }
       .capa { min-height: 0; }
       .capa-fundo { position: relative; inset: auto; display: block; height: 62svh; min-height: 400px; }
       .capa-fundo img { object-position: 50% 22%; }
@@ -845,7 +862,7 @@
       <div class="container capa-conteudo">
         <div class="capa-texto revelar">
           <p class="rotulo">UGC Creator · Natal RN</p>
-          <h1 id="titulo-capa">Yasmin <em>Caetano</em></h1>
+          <h1 id="titulo-capa" class="nome-capa"><span class="nome-1">Yasmin</span> <span class="nome-2">Caetano</span></h1>
           <p class="frase"><strong class="destaque-frase">UGC que soma estratégia e sensibilidade.</strong> Transformo experiências reais em vídeos que geram identificação e influenciam a decisão de compra.</p>
           <div class="acoes">
             <a class="botao botao-primario" href="#contato">Falar comigo</a>
