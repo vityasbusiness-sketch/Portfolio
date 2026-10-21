@@ -235,8 +235,16 @@
     .mais-videos { display: flex; justify-content: center; margin-top: 40px; }
     .mais-videos .botao[hidden] { display: none; }
     .card-video-player { position: relative; width: min(92vw, calc((100vh - 120px) * 9 / 16), 420px); }
-    .moldura-video { aspect-ratio: 9 / 16; background: var(--preto); border-radius: var(--raio-g); overflow: hidden; }
-    .moldura-video iframe { width: 100%; height: 100%; border: 0; display: block; }
+    .moldura-video { position: relative; aspect-ratio: 9 / 16; background: var(--preto); border-radius: var(--raio-g); overflow: hidden; }
+    .moldura-video iframe { position: absolute; left: 0; top: -60px; width: 100%; height: calc(100% + 120px); border: 0; display: block; pointer-events: none; }
+    .moldura-video video { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+    .toque-video { position: absolute; inset: 0; z-index: 2; width: 100%; border: 0; background: transparent; cursor: pointer; }
+    .toque-video .icone-pausa { position: absolute; top: 50%; left: 50%; width: 72px; height: 72px; margin: -36px 0 0 -36px; border-radius: 50%; background: rgba(232, 220, 201, .92); display: grid; place-items: center; opacity: 0; transition: opacity .25s ease; }
+    .toque-video .icone-pausa svg { width: 22px; height: 22px; margin-left: 4px; fill: var(--bordo); }
+    .moldura-video.pausado .icone-pausa { opacity: 1; }
+    .moldura-video.pausado iframe { filter: brightness(.7); }
+    .botao-som { position: absolute; z-index: 3; left: 12px; bottom: 12px; padding: 8px 14px; border-radius: 999px; border: 1px solid rgba(232, 220, 201, .5); background: rgba(17, 13, 10, .55); color: var(--bege); font: 600 .78rem/1 var(--sans); letter-spacing: .06em; cursor: pointer; }
+    .case-video { border: 0; padding: 0; background: none; cursor: pointer; width: 100%; text-align: left; }
     .card-video-player .fechar { top: -52px; right: 0; background: var(--bege); }
     .link-youtube { display: block; text-align: center; margin-top: 14px; color: var(--bege); font-size: .9rem; }
     .trabalho .info { display: flex; flex-direction: column; gap: 2px; margin-top: 12px; }
@@ -530,14 +538,11 @@
 
     /* ============ CAPA EM FOTO INTEIRA ============ */
     .capa { position: relative; isolation: isolate; overflow: hidden; display: flex; flex-direction: column; min-height: 100vh; min-height: 100svh; padding: var(--topo) 0 0; }
-    .capa::before {
-      content: ""; position: absolute; inset: 0; z-index: 1; pointer-events: none;
-      background:
-        linear-gradient(90deg, rgba(77, 5, 16, .97) 0%, rgba(77, 5, 16, .9) 30%, rgba(77, 5, 16, .45) 50%, rgba(77, 5, 16, 0) 68%),
-        linear-gradient(0deg, rgba(17, 13, 10, .55) 0%, rgba(17, 13, 10, 0) 28%);
-    }
-    .capa-fundo { position: absolute; top: 0; bottom: 0; left: 26%; right: 0; z-index: 0; }
-    .capa-fundo img { width: 100%; height: 100%; object-fit: cover; object-position: 60% 30%; -webkit-mask-image: linear-gradient(90deg, transparent 0, #000 28%); mask-image: linear-gradient(90deg, transparent 0, #000 28%); }
+    .capa-fundo { position: absolute; inset: 0; z-index: 0; }
+    .capa-fundo img { width: 100%; height: 100%; object-fit: cover; object-position: 100% 35%; }
+    /* Sem degradê: a leitura vem do fundo escuro da foto e de uma sombra suave nas letras */
+    .capa-texto { text-shadow: 0 1px 2px rgba(17, 13, 10, .6), 0 0 26px rgba(17, 13, 10, .55); }
+    .capa-texto .botao, .capa-texto .numeros-capa { text-shadow: none; }
     .capa-conteudo { position: relative; z-index: 2; flex: 1; display: flex; align-items: center; padding-top: clamp(20px, 4vh, 48px); padding-bottom: clamp(20px, 4vh, 48px); }
     .capa-texto { max-width: 620px; }
     .capa .rotulo { margin-bottom: 14px; }
@@ -552,17 +557,44 @@
     .capa .numeros-capa strong { font-size: clamp(1.5rem, 2.4vw, 2rem); }
     .capa .numeros-capa span { font-size: .78rem; }
     .capa .selo-circular { left: auto; right: var(--gutter); bottom: clamp(20px, 4vh, 44px); width: clamp(96px, 9vw, 126px); }
-    .capa .faixa-marcas { position: relative; z-index: 2; margin-top: 0; padding: 14px 0; background: rgba(77, 5, 16, .78); -webkit-backdrop-filter: blur(8px); backdrop-filter: blur(8px); }
+    .capa .faixa-marcas { position: relative; z-index: 2; margin-top: 0; padding: 14px 0; background: var(--bordo); }
 
     /* ============ RITMO MAIS COMPACTO ============ */
-    section { padding: clamp(56px, 7vw, 100px) 0; }
+    section { padding: clamp(44px, 5.5vw, 80px) 0; }
     .cabeca-secao { margin-bottom: clamp(28px, 4vw, 48px); }
     .titulo-secao { font-size: clamp(2.1rem, 4.4vw, 3.5rem); }
     .rotulo { margin-bottom: 14px; }
     .metricas, .resultados, .fotos-grade { margin-bottom: clamp(44px, 6vw, 72px); }
     .etapas { margin-bottom: clamp(40px, 6vw, 64px); }
     .trabalho .midia { aspect-ratio: 3 / 4; }
-    .case { grid-template-columns: minmax(0, 320px) 1fr; }
+    .case { grid-template-columns: minmax(0, 300px) 1fr; }
+    .destaques .titulo-secao { margin-bottom: 14px; }
+    .destaques .case-marca { margin-bottom: 14px; }
+    .destaques .case-numeros { margin: 18px 0; gap: 8px; }
+    .destaques .titulo-secao { font-size: clamp(2rem, 3.6vw, 3rem); }
+    .destaques .case-texto > p { font-size: .98rem; margin-bottom: 0; }
+    .destaques .case-numeros div { padding: 12px 16px !important; }
+    .destaques .case-numeros dd { font-size: clamp(1.4rem, 2.2vw, 1.9rem); }
+    .destaques .case-conclusao { padding: 14px 18px; }
+
+    /* Sobre mim numa tela só */
+    .sobre-grade { grid-template-columns: minmax(0, .72fr) 1.28fr; gap: clamp(32px, 5vw, 72px); }
+    .sobre-texto h2 { font-size: clamp(2rem, 3.4vw, 2.8rem); }
+    .sobre-texto p { max-width: 66ch; font-size: 1rem; margin-bottom: .8em; }
+    .sobre-foto { min-height: 340px; }
+    .promessas { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0 18px; margin: 20px 0 18px; }
+    .promessas li { grid-template-columns: 1fr; gap: 4px; padding: 14px 0; border-bottom: 0; }
+    .promessas span { font-size: .93rem; line-height: 1.45; }
+    .assinatura { font-size: 1.6rem; }
+
+    /* Pacotes e fotos mais baixos */
+    .pacote { padding: clamp(22px, 2.6vw, 32px); }
+    .pacote ul { margin-bottom: 20px; }
+    .pacote ul li { padding: 9px 0 9px 22px; font-size: .92rem; }
+    .pacote ul li::before { top: 17px; }
+    .pacote .para-quem { margin-bottom: 14px; }
+    .fotos-grade .midia { aspect-ratio: 1 / 1; }
+    .metricas li { padding-top: 22px; }
     .sobre-foto { min-height: 380px; }
     .sobre-texto h2 { margin-bottom: 20px; }
     .promessas { margin: 26px 0; }
@@ -616,6 +648,8 @@
       body { font-size: 1rem; }
       .selo-circular { left: auto; right: -6px; bottom: 24px; width: 96px; }
       .pasta-drive { grid-template-columns: 1fr; }
+      .promessas { grid-template-columns: 1fr; }
+      .promessas li { grid-template-columns: 44px 1fr; border-bottom: 1px solid var(--linha); }
       .galeria { grid-template-columns: repeat(2, 1fr); gap: 14px; }
       .trabalho h3 { font-size: 1.05rem; }
       .trabalho .play { width: 46px; height: 46px; }
@@ -659,16 +693,16 @@
     /* Capa no celular: foto em cima, texto embaixo sobre o bordô */
     @media (max-width: 760px) {
       .capa { min-height: 0; }
-      .capa::before { background: linear-gradient(180deg, rgba(77, 5, 16, 0) 0%, rgba(77, 5, 16, 0) 34%, rgba(77, 5, 16, .85) 52%, var(--bordo) 64%); }
-      .capa-fundo { left: 0; bottom: auto; height: 70svh; min-height: 440px; }
-      .capa-fundo img { object-position: 50% 18%; -webkit-mask-image: none; mask-image: none; }
-      .capa-conteudo { align-items: flex-end; padding-top: max(300px, 44svh); padding-bottom: 32px; }
+      .capa-fundo { position: relative; inset: auto; display: block; height: 62svh; min-height: 400px; }
+      .capa-fundo img { object-position: 50% 22%; }
+      .capa-conteudo { align-items: flex-start; padding-top: 28px; padding-bottom: 32px; }
+      .capa-texto { text-shadow: none; }
       .capa .acoes .botao { flex: 1 1 0; padding: 15px 12px; }
       .capa .numeros-capa { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; }
       .capa .numeros-capa div, .capa .numeros-capa div + div { padding: 10px 12px; }
       .capa .numeros-capa strong { font-size: 1.4rem; }
       .capa .numeros-capa span { font-size: .7rem; }
-      .capa .selo-circular { top: 16px; bottom: auto; right: var(--gutter); width: 84px; }
+      .capa .selo-circular { top: -48px; bottom: auto; right: var(--gutter); width: 88px; }
     }
   </style>
 </head>
@@ -687,7 +721,7 @@
           <li><a href="#sobre">Sobre</a></li>
           <li><a href="#destaques">Destaques</a></li>
           <li><a href="#trabalhos">Trabalhos</a></li>
-          <li><a href="#servicos">Serviços</a></li>
+          <li><a href="#entrega">Entrega</a></li>
           <li><a href="#pacotes">Pacotes</a></li>
           <li><a href="#numeros">Números</a></li>
           <li><a href="#contato">Contato</a></li>
@@ -704,7 +738,7 @@
            Para trocar, substitua esses dois arquivos (mantenha os mesmos nomes). -->
       <picture class="capa-fundo">
         <source media="(max-width: 760px)" srcset="fotos/capa-celular.webp">
-        <img src="fotos/capa-larga.webp" alt="Yasmin Caetano à noite em um restaurante com jardim, com um drink de frutas vermelhas na mesa" width="2200" height="1238" fetchpriority="high">
+        <img src="fotos/capa-larga.webp" alt="Yasmin Caetano à noite em um restaurante com jardim, com um drink de frutas vermelhas na mesa" width="2200" height="1437" fetchpriority="high">
       </picture>
 
       <div class="container capa-conteudo">
@@ -781,29 +815,20 @@
     <!-- ============ 3. CONTEÚDO DE DESTAQUE (case Bombado) ============ -->
     <section class="destaques" id="destaques" aria-labelledby="titulo-destaques">
       <div class="container">
-        <div class="cabeca-secao revelar">
-          <div>
-            <p class="rotulo">Conteúdo de destaque</p>
-            <h2 class="titulo-secao" id="titulo-destaques">Por trás de um vídeo que <em>performou</em>.</h2>
-          </div>
-          <p class="apoio">Um case real, com os números do tráfego pago, pra você ver o que um roteiro bem pensado entrega.</p>
-        </div>
-
         <div class="case">
-          <!-- LINK DO VÍDEO: está no href abaixo (reel do Bombado no Instagram).
-               CAPA DO VÍDEO: apague o <span class="legenda-midia"> e coloque dentro do div.midia:
-               <img src="capas/bombado.jpg" alt="Capa do vídeo feito para o Bombado"> (formato vertical 9:16) -->
-          <a class="card-video case-video revelar" href="https://www.instagram.com/reel/DcM0mfYTfIs/" target="_blank" rel="noopener" aria-label="Assistir ao vídeo feito para o Bombado (abre em nova aba)">
-            <div class="midia g1">
+          <!-- O vídeo do destaque é configurado em VIDEO_DESTAQUE, no começo do script -->
+          <button type="button" class="card-video case-video revelar" id="abreDestaque" aria-label="Assistir ao vídeo feito para o Bombado">
+            <div class="midia g1" id="capaDestaque">
               <span class="play" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M6 4l14 8-14 8z"/></svg></span>
-              <span class="legenda-midia">capa do vídeo 9:16</span>
+              <span class="legenda-midia">vídeo Bombado 9:16</span>
             </div>
-          </a>
+          </button>
 
           <div class="case-texto revelar">
+            <p class="rotulo">Conteúdo de destaque</p>
+            <h2 class="titulo-secao" id="titulo-destaques">Por trás de um vídeo que <em>performou</em>.</h2>
             <p class="case-marca">Bombado · Gastronomia · Tráfego pago</p>
-            <h3>Uma experiência gastronômica que virou <em>alcance</em>, interação e crescimento.</h3>
-            <p>O vídeo foi produzido para o Bombado, explorando o ambiente, a comida e a experiência de forma espontânea e envolvente. A marca usou o conteúdo no tráfego pago, e ele gerou muito mais do que visualizações: gerou novas conexões com a marca.</p>
+            <p>Uma experiência gastronômica que virou alcance, interação e crescimento. O vídeo foi produzido para o Bombado, explorando o ambiente, a comida e a experiência de forma espontânea e envolvente. A marca usou o conteúdo no tráfego pago, e ele gerou muito mais do que visualizações: gerou novas conexões com a marca.</p>
 
             <!-- Números do case. Para mudar, edite só o texto dentro de <dd> (número) e <dt> (rótulo). -->
             <dl class="case-numeros">
@@ -839,17 +864,20 @@
       </div>
     </section>
 
-    <!-- ============ 5. COMO EU TE AJUDO ============ -->
-    <section class="servicos" id="servicos" aria-labelledby="titulo-servicos">
+    <!-- ============ ENTREGA: o caminho depois do sim ============ -->
+    <section class="entrega" id="entrega" aria-labelledby="titulo-entrega">
       <div class="container">
         <div class="cabeca-secao revelar">
           <div>
-            <p class="rotulo">Como eu te ajudo</p>
-            <h2 class="titulo-secao" id="titulo-servicos">Do roteiro ao <em>anúncio</em> pronto.</h2>
+            <p class="rotulo">Entrega</p>
+            <h2 class="titulo-secao" id="titulo-entrega">O caminho de uma campanha <em>depois do sim</em>.</h2>
           </div>
-          <p class="apoio">Formatos pensados pra campanha, pra anúncio e pra presença constante da sua marca.</p>
+          <p class="apoio">Um processo fixo, pra você saber exatamente o que acontece em cada etapa e o que recebe no final.</p>
         </div>
-        <ul class="servicos-grade" id="listaServicos"></ul>
+        <!-- As etapas e os itens da pasta vêm dos arrays "etapas" e "pastaDrive" no script -->
+        <ol class="etapas revelar" id="listaEtapas"></ol>
+        <p class="subrotulo revelar">Na pasta do Drive vai</p>
+        <ul class="pasta-drive" id="listaPasta"></ul>
       </div>
     </section>
 
@@ -871,23 +899,6 @@
         <p class="pacotes-nota revelar">Pacotes fechados pra facilitar sua decisão. Nichos ou exclusividade sob medida? Só chamar.</p>
         <!-- Os pacotes vêm do array "pacotes" no script -->
         <ul class="pacotes-grade" id="listaPacotes"></ul>
-      </div>
-    </section>
-
-    <!-- ============ ENTREGA: o caminho depois do sim ============ -->
-    <section class="entrega" id="entrega" aria-labelledby="titulo-entrega">
-      <div class="container">
-        <div class="cabeca-secao revelar">
-          <div>
-            <p class="rotulo">Entrega</p>
-            <h2 class="titulo-secao" id="titulo-entrega">O caminho de uma campanha <em>depois do sim</em>.</h2>
-          </div>
-          <p class="apoio">Um processo fixo, pra você saber exatamente o que acontece em cada etapa e o que recebe no final.</p>
-        </div>
-        <!-- As etapas e os itens da pasta vêm dos arrays "etapas" e "pastaDrive" no script -->
-        <ol class="etapas revelar" id="listaEtapas"></ol>
-        <p class="subrotulo revelar">Na pasta do Drive vai</p>
-        <ul class="pasta-drive" id="listaPasta"></ul>
       </div>
     </section>
 
@@ -993,7 +1004,6 @@
     <div class="card-video-player" role="dialog" aria-modal="true" aria-label="Vídeo">
       <button class="fechar" id="fecharVideo" type="button" aria-label="Fechar vídeo">×</button>
       <div class="moldura-video" id="molduraVideo"></div>
-      <a class="link-youtube" id="linkYoutube" href="#" target="_blank" rel="noopener">Abrir no YouTube</a>
     </div>
   </div>
 
@@ -1112,18 +1122,14 @@
       { id: "o6m2-1l1U0w", nicho: "tecnologia", sub: "", marca: "", formato: "" }
     ];
 
+    // Vídeo do destaque (case Bombado). Preencha UM dos dois:
+    // youtube: o código do vídeo no YouTube (o que vem depois de "shorts/" no link)
+    // arquivo: o caminho do vídeo enviado pro GitHub, ex: "videos/bombado.mp4"
+    // Enquanto os dois estiverem vazios, o card abre o reel no Instagram.
+    const VIDEO_DESTAQUE = { youtube: "", arquivo: "", capa: "", instagram: "https://www.instagram.com/reel/DcM0mfYTfIs/" };
+
     // Quantos vídeos aparecem antes do botão "Ver mais vídeos"
     const VIDEOS_POR_VEZ = 12;
-
-    // Serviços da seção "Como eu te ajudo".
-    const servicos = [
-      { titulo: "Vídeo UGC", descricao: "Storytelling para vídeo curto, com roteiro estratégico, ganchos visuais e falados nos primeiros segundos e estética cinematográfica." },
-      { titulo: "Corte para anúncio", descricao: "Versões do mesmo vídeo com ganchos diferentes, pensadas para desejo e conversão no tráfego pago." },
-      { titulo: "Fotos do produto", descricao: "Direção criativa com luz natural, close e textura, na estética da sua marca, para site, catálogo e redes sociais." },
-      { titulo: "Unboxing", descricao: "A experiência de abrir o produto contada com detalhe, expectativa e reação verdadeira." },
-      { titulo: "Publicação no meu perfil", descricao: "O conteúdo vai ao ar no meu Instagram, em parceria com a sua marca, para o meu público." },
-      { titulo: "Pacote mensal", descricao: "Uma quantidade fixa de vídeos por mês, com calendário combinado e prioridade na agenda." }
-    ];
 
     // Métricas com contador animado.
     // valor: o número final (ex: 120). Deixe null enquanto não tiver o número real: aparece "00".
@@ -1303,22 +1309,87 @@
     // Player do vídeo na própria página
     const fundoVideo = document.getElementById("fundoVideo");
     const molduraVideo = document.getElementById("molduraVideo");
-    const linkYoutube = document.getElementById("linkYoutube");
     let focoAntesVideo = null;
-    function abreVideo(id) {
-      focoAntesVideo = document.activeElement;
-      molduraVideo.innerHTML = `<iframe src="https://www.youtube-nocookie.com/embed/${encodeURIComponent(id)}?autoplay=1&rel=0&playsinline=1&modestbranding=1" title="Vídeo da Yasmin Caetano" allow="autoplay; encrypted-media; picture-in-picture; fullscreen" allowfullscreen></iframe>`;
-      linkYoutube.href = `https://www.youtube.com/shorts/${encodeURIComponent(id)}`;
+    // Player limpo: o YouTube fica escondido por baixo, e os toques passam pelos nossos botões.
+    // A altura extra do iframe é cortada pela moldura, escondendo o título do YouTube.
+    const toqueCelular = window.matchMedia("(pointer: coarse)").matches;
+    const player = { tipo: "", el: null, tocando: false, mudo: false };
+    function comando(func) {
+      if (player.tipo === "yt" && player.el && player.el.contentWindow) {
+        player.el.contentWindow.postMessage(JSON.stringify({ event: "command", func, args: [] }), "*");
+      } else if (player.tipo === "arquivo" && player.el) {
+        if (func === "playVideo") player.el.play().catch(() => {});
+        if (func === "pauseVideo") player.el.pause();
+        if (func === "mute") player.el.muted = true;
+        if (func === "unMute") player.el.muted = false;
+      }
+    }
+    function controles() {
+      return `<button type="button" class="toque-video" id="toqueVideo" aria-label="Pausar o vídeo"><span class="icone-pausa" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M6 4l14 8-14 8z"/></svg></span></button>
+        <button type="button" class="botao-som" id="botaoSom" aria-label="${player.mudo ? "Ativar som" : "Tirar som"}">${player.mudo ? "Ativar som" : "Tirar som"}</button>`;
+    }
+    function ligaControles() {
+      const toque = document.getElementById("toqueVideo");
+      const som = document.getElementById("botaoSom");
+      toque.addEventListener("click", () => {
+        player.tocando = !player.tocando;
+        comando(player.tocando ? "playVideo" : "pauseVideo");
+        molduraVideo.classList.toggle("pausado", !player.tocando);
+        toque.setAttribute("aria-label", player.tocando ? "Pausar o vídeo" : "Continuar o vídeo");
+      });
+      som.addEventListener("click", () => {
+        player.mudo = !player.mudo;
+        comando(player.mudo ? "mute" : "unMute");
+        som.textContent = player.mudo ? "Ativar som" : "Tirar som";
+        som.setAttribute("aria-label", som.textContent);
+      });
+    }
+    function mostraPlayer() {
+      molduraVideo.classList.remove("pausado");
       fundoVideo.classList.add("aberto");
       fundoVideo.setAttribute("aria-hidden", "false");
+      ligaControles();
       document.getElementById("fecharVideo").focus();
+    }
+    function abreVideo(id) {
+      focoAntesVideo = document.activeElement;
+      Object.assign(player, { tipo: "yt", tocando: true, mudo: toqueCelular });
+      const cod = encodeURIComponent(id);
+      const origem = location.protocol.startsWith("http") ? `&origin=${encodeURIComponent(location.origin)}` : "";
+      molduraVideo.innerHTML = `<iframe src="https://www.youtube-nocookie.com/embed/${cod}?autoplay=1&mute=${player.mudo ? 1 : 0}&controls=0&rel=0&playsinline=1&iv_load_policy=3&disablekb=1&fs=0&loop=1&playlist=${cod}&enablejsapi=1${origem}" title="Vídeo da Yasmin Caetano" allow="autoplay; encrypted-media; picture-in-picture" tabindex="-1"></iframe>` + controles();
+      player.el = molduraVideo.querySelector("iframe");
+      mostraPlayer();
+    }
+    function abreArquivo(src) {
+      focoAntesVideo = document.activeElement;
+      Object.assign(player, { tipo: "arquivo", tocando: true, mudo: false });
+      molduraVideo.innerHTML = `<video src="${esc(src)}" autoplay playsinline loop></video>` + controles();
+      player.el = molduraVideo.querySelector("video");
+      player.el.play().catch(() => { player.mudo = true; player.el.muted = true; player.el.play().catch(() => {}); const som = document.getElementById("botaoSom"); if (som) som.textContent = "Ativar som"; });
+      mostraPlayer();
     }
     function fechaVideo() {
       fundoVideo.classList.remove("aberto");
       fundoVideo.setAttribute("aria-hidden", "true");
       molduraVideo.innerHTML = "";
+      Object.assign(player, { tipo: "", el: null });
       if (focoAntesVideo && focoAntesVideo.focus) focoAntesVideo.focus();
     }
+
+    // Vídeo do destaque (Bombado)
+    const capaDestaque = document.getElementById("capaDestaque");
+    if (VIDEO_DESTAQUE.youtube) {
+      capaDestaque.insertAdjacentHTML("afterbegin", `<img src="https://i.ytimg.com/vi/${esc(VIDEO_DESTAQUE.youtube)}/oardefault.jpg" alt="" onerror="if(this.dataset.f){this.remove()}else{this.dataset.f=1;this.src='https://i.ytimg.com/vi/${esc(VIDEO_DESTAQUE.youtube)}/hqdefault.jpg'}">`);
+      capaDestaque.querySelector(".legenda-midia").remove();
+    } else if (VIDEO_DESTAQUE.capa) {
+      capaDestaque.insertAdjacentHTML("afterbegin", `<img src="${esc(VIDEO_DESTAQUE.capa)}" alt="">`);
+      capaDestaque.querySelector(".legenda-midia").remove();
+    }
+    document.getElementById("abreDestaque").addEventListener("click", () => {
+      if (VIDEO_DESTAQUE.youtube) abreVideo(VIDEO_DESTAQUE.youtube);
+      else if (VIDEO_DESTAQUE.arquivo) abreArquivo(VIDEO_DESTAQUE.arquivo);
+      else window.open(VIDEO_DESTAQUE.instagram, "_blank", "noopener");
+    });
     const videoAberto = () => fundoVideo.classList.contains("aberto");
     galeria.addEventListener("click", e => {
       const ir = e.target.closest(".ver-grupo");
@@ -1332,11 +1403,6 @@
     });
     document.getElementById("fecharVideo").addEventListener("click", fechaVideo);
     fundoVideo.addEventListener("click", e => { if (e.target === fundoVideo) fechaVideo(); });
-
-    // Serviços
-    document.getElementById("listaServicos").innerHTML = servicos.map((s, i) =>
-      `<li class="servico revelar"><span class="num">${String(i + 1).padStart(2, "0")}</span><h3>${esc(s.titulo)}</h3><p>${esc(s.descricao)}</p></li>`
-    ).join("");
 
     // Métricas
     document.getElementById("listaMetricas").innerHTML = metricas.map(m =>
