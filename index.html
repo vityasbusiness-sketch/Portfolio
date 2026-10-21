@@ -702,9 +702,9 @@
     }
     .nome-capa .nome-2 {
       display: block; font-family: "Allura", "Fraunces", cursive; font-weight: 400; line-height: 1;
-      color: #7a0e1a; margin: -.38em 0 0 1.6em; position: relative; font-size: .64em;
-      /* contorno bege bem fino pra o bordô não sumir no fundo escuro da foto */
-      text-shadow: 1px 0 0 var(--bege), -1px 0 0 var(--bege), 0 1px 0 var(--bege), 0 -1px 0 var(--bege), 1px 1px 0 var(--bege), -1px -1px 0 var(--bege), 1px -1px 0 var(--bege), -1px 1px 0 var(--bege), 0 0 16px rgba(232, 220, 201, .3);
+      color: #f2dc9b; margin: -.38em 0 0 1.6em; position: relative; font-size: .64em;
+      /* amarelo manteiga, sem contorno */
+      text-shadow: 0 2px 10px rgba(17, 13, 10, .55);
     }
 
     /* ============ RESPONSIVO ============ */
@@ -806,7 +806,7 @@
     /* Capa no celular: foto em cima, texto embaixo sobre o bordô */
     @media (max-width: 760px) {
       .nome-capa .nome-1 { color: var(--bege); text-shadow: none; }
-      .nome-capa .nome-2 { color: #7a0e1a; }
+      .nome-capa .nome-2 { color: #f2dc9b; text-shadow: none; }
       .capa h1.nome-capa { font-size: clamp(3rem, 16.5vw, 4.8rem); }
       .capa { min-height: 0; }
       .capa-fundo { position: relative; inset: auto; display: block; height: 62svh; min-height: 400px; }
