@@ -100,6 +100,7 @@
       box-shadow: var(--sombra);
     }
     .midia img, .midia video { width: 100%; height: 100%; object-fit: cover; }
+    .capa-foto img, .sobre-foto img { position: absolute; inset: 0; }
     .midia .legenda-midia {
       position: absolute; left: 14px; bottom: 14px;
       font-size: .72rem; font-weight: 600; letter-spacing: .12em; text-transform: uppercase;
@@ -642,11 +643,10 @@
             </div>
           </div>
 
-          <!-- FOTO DA CAPA: para trocar, apague o <span> e coloque dentro do div:
-               <img src="fotos/capa.jpg" alt="Yasmin Caetano gravando um vídeo"> -->
+          <!-- FOTO DA CAPA: para trocar, substitua o arquivo fotos/capa.webp -->
           <div class="capa-visual revelar">
-            <div class="midia capa-foto g1" role="img" aria-label="Espaço para foto da Yasmin Caetano">
-              <span class="legenda-midia">foto vertical da creator</span>
+            <div class="midia capa-foto g1">
+              <img src="fotos/capa.webp" alt="Yasmin Caetano à noite em um restaurante com jardim, com um drink de frutas vermelhas na mesa" width="800" height="1082" fetchpriority="high" style="object-position: 50% 30%">
             </div>
             <!-- Selo do moodboard: UGC CREATOR em cima, NATAL · RN embaixo e a palmeira no centro -->
             <svg class="selo-circular" viewBox="0 0 140 140" aria-hidden="true">
@@ -687,10 +687,9 @@
     <!-- ============ 2. SOBRE MIM ============ -->
     <section id="sobre" aria-labelledby="titulo-sobre">
       <div class="container sobre-grade">
-        <!-- FOTO DO SOBRE: para trocar, apague o <span> e coloque dentro do div:
-             <img src="fotos/sobre.jpg" alt="Yasmin Caetano em seu estúdio em Natal"> -->
-        <div class="midia sobre-foto g2 revelar" role="img" aria-label="Espaço para foto da Yasmin Caetano no estúdio">
-          <span class="legenda-midia">foto vertical da creator</span>
+        <!-- FOTO DO SOBRE: para trocar, substitua o arquivo fotos/sobre.webp -->
+        <div class="midia sobre-foto g2 revelar">
+          <img src="fotos/sobre.webp" alt="Yasmin Caetano sorrindo, sentada em um restaurante com plantas e letreiro em neon" width="750" height="1104" loading="lazy" style="object-position: 50% 60%">
         </div>
 
         <div class="sobre-texto revelar">
