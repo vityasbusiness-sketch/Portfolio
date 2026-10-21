@@ -694,7 +694,7 @@
     .pacote ul li::before { top: 13px; width: 6px; height: 6px; }
 
     /* Nome da capa no estilo do portfólio antigo: YASMIN forte em bordô aceso e Caetano manuscrito por cima */
-    .capa h1.nome-capa { font-size: clamp(3.2rem, min(8.6vw, 14.5vh), 8.4rem); letter-spacing: 0; text-shadow: none; line-height: 1; margin: 4px 0 6px; }
+    .capa h1.nome-capa { font-size: clamp(3.5rem, min(9.5vw, 16vh), 9.2rem); letter-spacing: 0; text-shadow: none; line-height: 1; margin: 4px 0 6px; }
     .nome-capa .nome-1 {
       display: block; font-family: var(--serif); font-weight: 900; text-transform: uppercase; line-height: .82;
       letter-spacing: .01em; color: var(--bege); font-variation-settings: "opsz" 18, "SOFT" 50, "WONK" 0; font-weight: 600;
@@ -702,8 +702,9 @@
     }
     .nome-capa .nome-2 {
       display: block; font-family: "Allura", "Fraunces", cursive; font-weight: 400; line-height: 1;
-      color: #e9a9ad; margin: -.36em 0 0 1.7em; position: relative; font-size: .6em;
-      text-shadow: 0 2px 10px rgba(17, 13, 10, .7);
+      color: #7a0e1a; margin: -.38em 0 0 1.6em; position: relative; font-size: .64em;
+      /* contorno bege bem fino pra o bordô não sumir no fundo escuro da foto */
+      text-shadow: 1px 0 0 var(--bege), -1px 0 0 var(--bege), 0 1px 0 var(--bege), 0 -1px 0 var(--bege), 1px 1px 0 var(--bege), -1px -1px 0 var(--bege), 1px -1px 0 var(--bege), -1px 1px 0 var(--bege), 0 0 16px rgba(232, 220, 201, .3);
     }
 
     /* ============ RESPONSIVO ============ */
@@ -805,8 +806,8 @@
     /* Capa no celular: foto em cima, texto embaixo sobre o bordô */
     @media (max-width: 760px) {
       .nome-capa .nome-1 { color: var(--bege); text-shadow: none; }
-      .nome-capa .nome-2 { color: #f0b3b6; text-shadow: 0 2px 8px rgba(17, 13, 10, .5); }
-      .capa h1.nome-capa { font-size: clamp(2.8rem, 15vw, 4.4rem); }
+      .nome-capa .nome-2 { color: #7a0e1a; }
+      .capa h1.nome-capa { font-size: clamp(3rem, 16.5vw, 4.8rem); }
       .capa { min-height: 0; }
       .capa-fundo { position: relative; inset: auto; display: block; height: 62svh; min-height: 400px; }
       .capa-fundo img { object-position: 50% 22%; }
