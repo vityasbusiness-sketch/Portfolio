@@ -538,14 +538,14 @@
     /* A foto ocupa só a área visível (entre o menu e a faixa de marcas), com menos zoom */
     .capa-fundo { position: absolute; top: var(--topo); left: 0; right: 0; bottom: var(--altura-faixa); z-index: 0; }
     /* Como no portfólio antigo: você à esquerda e o texto à direita, sobre o fundo do jardim */
-    .capa-fundo img { width: 100%; height: 100%; object-fit: cover; object-position: 0% 55%; }
+    .capa-fundo img { width: 100%; height: 100%; object-fit: cover; object-position: 0% 60%; }
     /* Sem degradê: a leitura vem do fundo escuro da foto e de uma sombra suave nas letras */
     .capa-texto { text-shadow: 0 1px 2px rgba(17, 13, 10, .6), 0 0 26px rgba(17, 13, 10, .55); }
     .capa-texto .botao, .capa-texto .numeros-capa { text-shadow: none; }
     .capa-conteudo { position: relative; z-index: 2; flex: 1; display: flex; align-items: center; justify-content: flex-end; padding-top: clamp(20px, 4vh, 48px); padding-bottom: clamp(20px, 4vh, 48px); }
-    .capa-texto { max-width: min(540px, 46%); }
+    .capa-texto { max-width: min(600px, 48%); }
     .capa .rotulo { margin-bottom: 14px; }
-    .capa h1 { font-size: clamp(3rem, min(8.4vw, 14vh), 8rem); text-shadow: 0 2px 30px rgba(17, 13, 10, .35); }
+    .capa h1 { font-size: clamp(3.4rem, min(9.6vw, 16.5vh), 9.8rem); letter-spacing: -.035em; text-shadow: 0 2px 30px rgba(17, 13, 10, .35); }
     .capa .nichos-capa { margin-top: 14px; }
     .capa .frase { margin: 18px 0 24px; max-width: 38ch; color: rgba(232, 220, 201, .9); }
     .capa .numeros-capa { display: flex; flex-wrap: wrap; gap: 10px; margin-top: clamp(22px, 4vh, 40px); border-top: 0; }
@@ -662,7 +662,7 @@
     }
     .fotos-trilho::-webkit-scrollbar { display: none; }
     .fotos-trilho li { scroll-snap-align: start; }
-    .fotos-trilho .midia { aspect-ratio: 4 / 5; }
+    .fotos-trilho .midia { aspect-ratio: 3 / 4; }
     .setas-fotos { justify-content: flex-end; margin-top: 18px; }
 
     /* Entrega: passos em cima e a pasta do Drive num painel bege */
@@ -677,6 +677,21 @@
     .painel-pasta .pasta-drive .ico-pasta svg { stroke: var(--bege); }
     .painel-pasta .pasta-drive h3 { color: var(--tinta); font-size: 1.05rem; }
     .painel-pasta .pasta-drive p { color: var(--tinta-suave); }
+
+    /* Pacotes numa tela só */
+    .pacotes .cabeca-secao { margin-bottom: 28px; }
+    .pacotes .titulo-secao { max-width: none; font-size: clamp(2rem, 3.4vw, 2.9rem); }
+    .pacotes .cabeca-secao .apoio { max-width: 40ch; }
+    .pacote { padding: 24px 26px; }
+    .pacote { position: relative; }
+    .pacote .selo-pacote { position: absolute; top: 20px; right: 22px; margin: 0; }
+    .pacotes .cabeca-secao { flex-wrap: nowrap; align-items: flex-end; }
+    .pacotes { padding-top: clamp(40px, 5vw, 64px); padding-bottom: clamp(40px, 5vw, 64px); }
+    .pacote .preco { font-size: clamp(2.1rem, 3vw, 2.6rem); margin-bottom: 6px; }
+    .pacote .para-quem { margin-bottom: 12px; font-size: .95rem; }
+    .pacote ul { margin-bottom: 18px; border-top: 0; }
+    .pacote ul li { padding: 5px 0 5px 20px; border-bottom: 0; font-size: .92rem; }
+    .pacote ul li::before { top: 13px; width: 6px; height: 6px; }
 
     /* ============ RESPONSIVO ============ */
     @media (max-width: 980px) {
@@ -701,6 +716,7 @@
       .metricas li:nth-child(3) { padding-left: 0; border-left: 0; }
       .resultados { grid-template-columns: 1fr; }
       .pacotes-grade { grid-template-columns: 1fr; max-width: 520px; }
+      .pacotes .cabeca-secao { flex-wrap: wrap; }
     }
 
     @media (max-width: 860px) {
@@ -759,7 +775,7 @@
     }
     /* Notebooks com tela mais baixa: a capa encolhe pra faixa de marcas aparecer sem rolar */
     @media (max-height: 780px) and (min-width: 761px) {
-      .capa h1 { font-size: clamp(2.8rem, min(8vw, 11.5vh), 7rem); }
+      .capa h1 { font-size: clamp(3rem, min(9vw, 13.5vh), 8.2rem); }
       .capa .rotulo { margin-bottom: 8px; }
       .capa .nichos-capa { margin-top: 8px; }
       .capa .frase { margin: 12px 0 16px; font-size: .98rem; line-height: 1.55; }
@@ -823,7 +839,7 @@
            Para trocar, substitua esses dois arquivos (mantenha os mesmos nomes). -->
       <picture class="capa-fundo">
         <source media="(max-width: 760px)" srcset="fotos/capa-celular.webp">
-        <img src="fotos/capa-larga.webp" alt="Yasmin Caetano à noite em um restaurante com jardim, com um drink de frutas vermelhas na mesa" width="2600" height="1242" fetchpriority="high">
+        <img src="fotos/capa-larga.webp" alt="Yasmin Caetano à noite em um restaurante com jardim, com um drink de frutas vermelhas na mesa" width="2600" height="1150" fetchpriority="high">
       </picture>
 
       <div class="container capa-conteudo">
@@ -1242,18 +1258,20 @@
       { valor: 70.9, prefixo: "", sufixo: " mil", rotulo: "visualizações em um único vídeo" }
     ];
 
-    // Fotos UGC do carrossel. Elas passam sozinhas e pausam com o mouse em cima.
+    // Fotos UGC do carrossel, intercalando foto com você e foto de produto.
+    // Elas passam sozinhas e pausam com o mouse em cima. Os arquivos ficam em fotos/ugc (formato 3:4).
     // src: deixe "" para usar o degradê, ou coloque o caminho da foto, ex: "fotos/ugc-01.webp"
     // alt: descreva a foto pra quem usa leitor de tela.
     const fotosUgc = [
-      { src: "", alt: "Produto de skincare em cenário com luz natural", legenda: "produto em cenário" },
-      { src: "", alt: "Close da textura de um produto", legenda: "close de textura" },
-      { src: "", alt: "Mesa posta com produto de gastronomia", legenda: "mesa posta" },
-      { src: "", alt: "Look com acessório da marca", legenda: "moda" },
-      { src: "", alt: "Produto na mão da creator", legenda: "produto na mão" },
-      { src: "", alt: "Produto de cabelo no banheiro", legenda: "haircare" },
-      { src: "", alt: "Prato servido em restaurante", legenda: "gastronomia" },
-      { src: "", alt: "Acessório de tecnologia na mesa", legenda: "tecnologia" }
+      { src: "fotos/ugc/ugc-01.webp", alt: "Yasmin segurando o spray DivaBlue perto do rosto, com maquiagem azul" },
+      { src: "fotos/ugc/ugc-02.webp", alt: "Produtos CBSkin sobre bolsa de crochê com óculos de sol" },
+      { src: "fotos/ugc/ugc-03.webp", alt: "Yasmin de óculos escuros mostrando o bastão Ollie na piscina" },
+      { src: "fotos/ugc/ugc-04.webp", alt: "Produtos de cabelo Thermal Sealing entre folhas e madeira" },
+      { src: "fotos/ugc/ugc-05.webp", alt: "Yasmin sorrindo e mostrando sandálias pretas sob o guarda-sol" },
+      { src: "fotos/ugc/ugc-06.webp", alt: "Hidratante Fruta Branca sendo aplicado na praia" },
+      { src: "fotos/ugc/ugc-07.webp", alt: "Yasmin posando com look claro e sandália branca" },
+      { src: "fotos/ugc/ugc-08.webp", alt: "Drink verde com garrafa de Heineken no balcão" },
+      { src: "fotos/ugc/ugc-09.webp", alt: "Yasmin segurando sandálias de tiras entre plantas" }
     ];
 
     // Pacotes. Edite os itens e o preço (ou escreva "Sob consulta").
@@ -1331,15 +1349,26 @@
     const estado = { nicho: "todos", sub: "todos", limite: VIDEOS_POR_VEZ };
 
     // Em "Todos", cada nicho vira uma fileira de 4 vídeos, um de cada subnicho quando houver
+    // Reordena pra dois vídeos da mesma marca não ficarem um do lado do outro
+    function espalhaMarcas(lista) {
+      const resto = lista.slice(), saida = [];
+      while (resto.length) {
+        const anterior = saida[saida.length - 1];
+        let i = resto.findIndex(v => !anterior || !v.marca || v.marca.toLowerCase() !== (anterior.marca || "").toLowerCase());
+        if (i < 0) i = 0;
+        saida.push(resto.splice(i, 1)[0]);
+      }
+      return saida;
+    }
     function vitrineDoNicho(n) {
-      const lista = videos.filter(v => v.nicho === n.id);
+      const lista = espalhaMarcas(videos.filter(v => v.nicho === n.id));
       const grupos = n.subs.length ? n.subs.map(s => lista.filter(v => v.sub === s)) : [lista];
       const saida = [];
       for (let i = 0; saida.length < Math.min(4, lista.length); i++) grupos.forEach(g => { if (g[i] && saida.length < 4) saida.push(g[i]); });
       return saida;
     }
     function videosVisiveis() {
-      return videos.filter(v => v.nicho === estado.nicho && (estado.sub === "todos" || v.sub === estado.sub));
+      return espalhaMarcas(videos.filter(v => v.nicho === estado.nicho && (estado.sub === "todos" || v.sub === estado.sub)));
     }
     function cardVideo(v) {
       const titulo = v.marca || v.sub || nomeNicho(v.nicho);
