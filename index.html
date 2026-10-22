@@ -866,7 +866,7 @@
           <h1 id="titulo-capa" class="nome-capa"><span class="nome-1">Yasmin</span> <span class="nome-2">Caetano</span></h1>
           <p class="frase"><strong class="destaque-frase">UGC que soma estratégia e sensibilidade.</strong> Transformo experiências reais em vídeos que geram identificação e influenciam a decisão de compra.</p>
           <div class="acoes">
-            <a class="botao botao-primario" href="#contato">Falar comigo</a>
+            <a class="botao botao-primario" href="https://wa.me/5581989857308?text=Oi%2C%20Yasmin!%20Vi%20seu%20portf%C3%B3lio%20e%20quero%20conversar%20sobre%20uma%20parceria." target="_blank" rel="noopener" id="falarComigo">Falar comigo</a>
             <a class="botao botao-secundario" href="#trabalhos">Ver os trabalhos</a>
           </div>
           <!-- Os três números da capa vêm do array "numerosCapa" no script -->
@@ -1338,6 +1338,10 @@
     // Deixe "" para só mostrar a confirmação na tela.
     const ENDERECO_FORMULARIO = "";
 
+    // WhatsApp: não aparece escrito no site, só abre quando a marca clica em "Falar comigo" ou "Quero este pacote".
+    const WHATSAPP = "5581989857308";
+    const linkZap = texto => `https://wa.me/${WHATSAPP}?text=${encodeURIComponent(texto)}`;
+
     /* =====================================================================
        DAQUI PRA BAIXO É O FUNCIONAMENTO. Não precisa mexer.
        ===================================================================== */
@@ -1631,14 +1635,8 @@
 
     // Pacotes: o botão leva pro formulário com o nome do pacote já escrito
     document.getElementById("listaPacotes").innerHTML = pacotes.map(pc =>
-      `<li class="pacote revelar${pc.destaque ? " destaque" : ""}">${pc.selo ? `<span class="selo-pacote">${esc(pc.selo)}</span>` : ""}<h3>${esc(pc.nome)}</h3><p class="preco">${esc(pc.preco)}</p><p class="para-quem">${esc(pc.paraQuem)}</p><ul>${pc.itens.map(it => `<li>${esc(it)}</li>`).join("")}</ul><a class="botao botao-primario" href="#contato" data-pacote="${esc(pc.nome)}">Quero este pacote</a></li>`
+      `<li class="pacote revelar${pc.destaque ? " destaque" : ""}">${pc.selo ? `<span class="selo-pacote">${esc(pc.selo)}</span>` : ""}<h3>${esc(pc.nome)}</h3><p class="preco">${esc(pc.preco)}</p><p class="para-quem">${esc(pc.paraQuem)}</p><ul>${pc.itens.map(it => `<li>${esc(it)}</li>`).join("")}</ul><a class="botao botao-primario" href="${linkZap(`Oi, Yasmin! Vi seu portfólio e tenho interesse no pacote ${pc.nome}. Minha marca é `)}" target="_blank" rel="noopener">Quero este pacote</a></li>`
     ).join("");
-    document.getElementById("listaPacotes").addEventListener("click", e => {
-      const botao = e.target.closest("[data-pacote]");
-      if (!botao) return;
-      const campo = document.getElementById("mensagem");
-      if (!campo.value.trim()) campo.value = `Oi, Yasmin! Tenho interesse no pacote ${botao.dataset.pacote}. Minha marca é `;
-    });
 
     // Resultados (o bloco some quando o array está vazio)
     document.getElementById("blocoResultados").hidden = resultados.length === 0;
