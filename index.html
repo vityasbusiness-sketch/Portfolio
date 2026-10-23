@@ -824,39 +824,34 @@
       .capa-texto { max-width: none; }
       .capa-conteudo { justify-content: flex-start; }
     }
-    /* ============ CELULAR: capa com foto e nome lado a lado, Sobre mim numa tela ============ */
+    /* ============ CELULAR: capa com a foto ocupando a faixa toda e o nome dentro dela ============ */
     @media (max-width: 760px) {
-      .capa-fundo { position: absolute; top: calc(var(--topo) + 22px); left: var(--gutter); width: calc((100% - 2 * var(--gutter)) * .52); height: 330px; min-height: 0; border-radius: var(--raio-g); overflow: hidden; }
-      .capa-fundo img { object-position: 50% 28%; }
-      .capa-conteudo { padding-top: 22px; padding-bottom: 26px; }
-      .capa-texto { display: grid; grid-template-columns: 52% minmax(0, 1fr); grid-template-rows: 1fr auto auto 1fr; column-gap: 14px; }
-      .capa-texto::before { content: ""; grid-column: 1; grid-row: 1 / 5; height: 330px; }
-      .capa-texto .rotulo { grid-column: 2; grid-row: 2; font-size: .56rem; letter-spacing: .1em; line-height: 1.5; margin-bottom: 8px; white-space: nowrap; }
+      .capa-fundo { position: absolute; top: var(--topo); left: 0; right: 0; width: auto; height: 80vw; min-height: 0; border-radius: 0; }
+      .capa-fundo img { object-position: 33% 40%; }
+      .capa-conteudo { padding-top: 0; padding-bottom: 26px; }
+      .capa-texto { display: grid; grid-template-columns: 56% minmax(0, 1fr); grid-template-rows: 1fr auto auto 1fr; column-gap: 0; text-shadow: 0 1px 2px rgba(17, 13, 10, .7), 0 0 18px rgba(17, 13, 10, .6); }
+      .capa-texto::before { content: ""; grid-column: 1; grid-row: 1 / 5; height: 80vw; }
+      .capa-texto .rotulo { grid-column: 2; grid-row: 2; font-size: .5rem; letter-spacing: .1em; line-height: 1.5; margin-bottom: 6px; white-space: nowrap; }
       .capa-texto .rotulo::before { display: none; }
-      .capa-texto h1.nome-capa { grid-column: 2; grid-row: 3; font-size: clamp(1.9rem, 9.4vw, 2.6rem); margin: 0; }
-      .capa-texto .frase, .capa-texto .acoes, .capa-texto .numeros-capa { grid-column: 1 / -1; }
+      .capa-texto h1.nome-capa { grid-column: 2; grid-row: 3; font-size: clamp(1.7rem, 8.6vw, 2.4rem); margin: 0; }
+      .nome-capa .nome-2 { text-shadow: 0 1px 6px rgba(17, 13, 10, .8); }
+      .capa-texto .frase, .capa-texto .acoes, .capa-texto .numeros-capa { grid-column: 1 / -1; text-shadow: none; }
       .capa-texto .frase { margin: 22px 0 18px; font-size: .95rem; line-height: 1.55; }
       .capa .acoes .botao { padding: 13px 10px; font-size: .88rem; }
       .capa .numeros-capa { margin-top: 16px; }
 
-      #sobre { padding: 26px 0 28px; }
-      .sobre-grade { grid-template-columns: 37% minmax(0, 1fr); column-gap: 16px; row-gap: 0; align-items: center; }
-      .sobre-visual { grid-column: 1; grid-row: 1 / 3; max-width: none; }
-      .sobre-visual .sobre-foto { aspect-ratio: 3 / 4; max-width: none; min-height: 0; outline-offset: 5px; }
-      .sobre-visual .selo-circular { width: 54px; right: -10px; bottom: 6px; }
-      .sobre-texto { display: contents; }
-      .sobre-texto .rotulo { grid-column: 2; grid-row: 1; align-self: end; margin-bottom: 8px; font-size: .66rem; }
-      .sobre-texto h2 { grid-column: 2; grid-row: 2; align-self: start; font-size: 1.55rem; line-height: 1.15; margin-bottom: 0; }
-      .sobre-texto > p, .sobre-texto .promessas, .sobre-texto .assinatura { grid-column: 1 / -1; }
-      .sobre-texto > p:first-of-type { margin-top: 30px; }
-      .sobre-texto > p { font-size: .84rem; line-height: 1.5; margin-bottom: .5em; }
-      .sobre-texto .promessas { margin: 10px 0 8px; }
-      .sobre-texto .promessas li { grid-template-columns: 30px 1fr; padding: 5px 0; }
+      /* Sobre mim: foto em cima como antes; ao rolar, o texto inteiro cabe numa tela */
+      #sobre { padding: 36px 0 32px; }
+      .sobre-grade { row-gap: 26px; }
+      .sobre-texto .rotulo { margin-bottom: 10px; font-size: .68rem; }
+      .sobre-texto h2 { font-size: 1.6rem; line-height: 1.15; margin-bottom: 14px; }
+      .sobre-texto > p { font-size: .86rem; line-height: 1.5; margin-bottom: .55em; }
+      .sobre-texto .promessas { margin: 12px 0 10px; }
+      .sobre-texto .promessas li { grid-template-columns: 30px 1fr; padding: 6px 0; }
       .sobre-texto .promessas b { font-size: 1rem; }
       .sobre-texto .promessas span { font-size: .85rem; }
       .sobre-texto .assinatura { font-size: 1.15rem; }
       .sobre-texto .assinatura small { display: inline; margin-left: 8px; font-size: .62rem; }
-      .sobre-texto h2 { font-size: 1.4rem; }
     }
   </style>
 </head>
@@ -892,7 +887,6 @@
       <!-- FOTO DA CAPA: fotos/capa-larga.webp aparece no computador e fotos/capa-celular.webp no celular.
            Para trocar, substitua esses dois arquivos (mantenha os mesmos nomes). -->
       <picture class="capa-fundo">
-        <source media="(max-width: 760px)" srcset="fotos/capa-celular.webp">
         <img src="fotos/capa-larga.webp" alt="Yasmin Caetano à noite em um restaurante com jardim, com um drink de frutas vermelhas na mesa" width="2600" height="1150" fetchpriority="high">
       </picture>
 
