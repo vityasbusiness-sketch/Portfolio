@@ -749,6 +749,7 @@
       .menu nav a::after { display: none; }
       .case { grid-template-columns: 1fr; }
       .case-video { width: 100%; max-width: 380px; margin: 0 auto; }
+      @media (max-width: 640px) { .case-video { max-width: 240px; } }
       .case-numeros { grid-template-columns: repeat(2, 1fr); }
       .case-numeros div:not(:nth-child(3n + 1)) { padding-left: 0; border-left: 0; }
       .case-numeros div:nth-child(even) { padding-left: 16px; border-left: 1px solid var(--linha); }
@@ -782,9 +783,10 @@
     @media (prefers-reduced-motion: reduce) {
       html { scroll-behavior: auto; }
       *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; }
-      .trilho { animation: none; flex-wrap: wrap; width: auto; }
+      /* Sem animação: a faixa de marcas fica numa linha só e a pessoa arrasta pro lado */
+      .trilho { animation: none; width: auto; overflow-x: auto; scrollbar-width: none; }
+      .trilho::-webkit-scrollbar { display: none; }
       .trilho ul[aria-hidden="true"] { display: none; }
-      .trilho ul { flex-wrap: wrap; justify-content: center; row-gap: 8px; }
       .js .revelar { opacity: 1; transform: none; }
     }
     /* Notebooks com tela mais baixa: a capa encolhe pra faixa de marcas aparecer sem rolar */
