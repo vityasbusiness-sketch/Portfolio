@@ -108,17 +108,29 @@
   .serie .olho { color: var(--ambar-claro); }
   .serie .lead { color: #d8dcc8; }
   .serie h2 em { color: var(--ambar-claro); }
-  .eps { list-style: none; padding: 0; margin: 30px 0 0; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 12px; }
-  .ep { border-radius: 14px; padding: 16px; background: rgba(244,236,225,.07); border: 1px solid rgba(244,236,225,.14); display: flex; flex-direction: column; gap: 6px; transition: background .25s, opacity .25s; }
-  .ep .num { font-size: .7rem; font-weight: 700; letter-spacing: .2em; text-transform: uppercase; color: #e7c39c; display: flex; justify-content: space-between; gap: 8px; }
-  .ep h3 { font-size: 1.2rem; }
-  .ep p { font-size: .85rem; color: #d8dcc8; }
-  .ep.sim { background: var(--papel); color: var(--tinta); }
-  .ep.sim .num { color: var(--bordo); }
-  .ep.sim p { color: var(--tinta-suave); }
-  .ep.nao { opacity: .45; }
-  .ep .selo { display: none; background: var(--ambar); color: #fff; border-radius: 999px; padding: 1px 8px; letter-spacing: .08em; }
-  .ep.sim .selo { display: inline-block; }
+  .eps-ex { display: grid; grid-template-columns: minmax(0, .85fr) minmax(0, 1.3fr) minmax(0, .85fr); gap: 14px; margin-top: 30px; align-items: start; }
+  .ep-card { border-radius: 16px; padding: 20px; background: rgba(244,236,225,.07); border: 1px solid rgba(244,236,225,.16); display: flex; flex-direction: column; gap: 8px; }
+  .ep-card .num { font-size: .7rem; font-weight: 700; letter-spacing: .2em; text-transform: uppercase; color: #e7c39c; }
+  .ep-card h3 { font-size: 1.35rem; }
+  .ep-card p { font-size: .9rem; color: #d8dcc8; }
+  .ep-card.destaque { background: var(--papel); color: var(--tinta); border-color: var(--papel); }
+  .ep-card.destaque .num { color: var(--bordo); }
+  .ep-card.destaque p { color: var(--tinta-suave); }
+  .checklist { list-style: none; padding: 0; margin: 8px 0 0; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 6px; }
+  .checklist button { width: 100%; display: flex; align-items: center; gap: 10px; text-align: left; border: 1px solid var(--linha); background: #fbf7f1; border-radius: 10px; padding: 9px 10px; font-size: .9rem; transition: background .2s, border-color .2s; }
+  .checklist .caixa { width: 18px; height: 18px; flex: none; border: 1.5px solid var(--verde); border-radius: 5px; display: grid; place-items: center; font-size: .75rem; color: var(--papel); }
+  .checklist button[aria-pressed="true"] .caixa { background: var(--verde); }
+  .checklist button[aria-pressed="true"] span:last-child { text-decoration: line-through; color: var(--tinta-suave); }
+  .checklist button.sua { border-color: var(--ambar); background: #fbeee0; }
+  .checklist button.sua::after { content: "sua vaga"; margin-left: auto; font-size: .62rem; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; background: var(--ambar); color: #fff; border-radius: 999px; padding: 2px 7px; white-space: nowrap; }
+  .nota-lista { font-family: var(--mao); font-size: 1.35rem !important; color: var(--bordo) !important; line-height: 1.1; margin-top: 4px; }
+  .ciclo { margin-top: 26px; display: flex; align-items: center; gap: 14px 20px; flex-wrap: wrap; }
+  .ciclo p { font-family: var(--serif); font-size: 1.2rem; }
+  .ciclo p span { font-family: var(--sans); font-size: .72rem; font-weight: 700; letter-spacing: .16em; text-transform: uppercase; color: var(--ambar-claro); margin-left: 8px; }
+  .comodos { display: flex; flex-wrap: wrap; gap: 8px; }
+  .comodos span { border: 1px solid rgba(244,236,225,.35); border-radius: 999px; padding: 7px 14px; font-size: .88rem; transition: background .2s, color .2s; }
+  .comodos span.sim { background: var(--ambar); border-color: var(--ambar); color: #fff; font-weight: 600; }
+  .comodos span.fim { border-style: dashed; }
   .regras { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 14px; margin-top: 22px; }
   .regras div { border-top: 1px solid rgba(244,236,225,.3); padding-top: 12px; }
   .regras b { display: block; font-family: var(--serif); font-weight: 400; font-size: 1.2rem; color: var(--ambar-claro); }
@@ -292,7 +304,7 @@
 
   @media (max-width: 960px) {
     .ganhos, .formatos { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-    .eps { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .eps-ex { grid-template-columns: 1fr; }
     .pacotes { grid-template-columns: 1fr; }
     .passos { grid-template-columns: repeat(3, minmax(0, 1fr)); }
     .nichos { grid-template-columns: repeat(2, minmax(0, 1fr)); }
@@ -316,7 +328,7 @@
     .passos { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   }
   @media (max-width: 440px) {
-    .nichos, .eps, .ganhos, .formatos, .condicoes, .pasta ul { grid-template-columns: 1fr; }
+    .nichos, .checklist, .ganhos, .formatos, .condicoes, .pasta ul { grid-template-columns: 1fr; }
     .numeros { grid-template-columns: repeat(2, minmax(0, 1fr)); }
     .frame { padding: 10px; }
     .barra p { font-size: .78rem; }
@@ -391,13 +403,35 @@
 <section class="serie" id="serie">
   <div class="wrap">
     <div class="olho">A série</div>
-    <h2>Oito episódios, e as marcas <em>dentro da história</em>.</h2>
-    <p class="lead">Cada episódio acompanha uma etapa da casa. O produto entra como parte da escolha, nunca como intervalo comercial.</p>
-    <ol class="eps" id="eps"></ol>
+    <h2>Cada cômodo vira capítulo, e as marcas <em>entram na lista</em>.</h2>
+    <p class="lead">Começa com o anúncio da mudança. Depois, cada cômodo ganha a sua lista do que precisa e a montagem completa. Veja como fica com a sala:</p>
+    <div class="eps-ex">
+      <article class="ep-card">
+        <span class="num">Ep. 01</span>
+        <h3>Vou montar minha casa do zero</h3>
+        <p>O anúncio da mudança: como a série vai funcionar, o moodboard da casa e o que vem por aí.</p>
+      </article>
+      <article class="ep-card destaque">
+        <span class="num">Ep. 02 · exemplo</span>
+        <h3>Escolhendo os móveis da minha sala</h3>
+        <p>Bastidores da escolha e o checklist na tela: o que precisa pra montar uma sala?</p>
+        <ul class="checklist" id="checklist"></ul>
+        <p class="nota-lista">cada item da lista é uma vaga pra uma marca</p>
+      </article>
+      <article class="ep-card">
+        <span class="num">Ep. 03 · exemplo</span>
+        <h3>Montando a sala completa</h3>
+        <p>A lista vira realidade: chegada, unboxing, montagem e o antes e depois da sala pronta.</p>
+      </article>
+    </div>
+    <div class="ciclo">
+      <p>E o ciclo se repete em cada cômodo <span>lista → montagem</span></p>
+      <div class="comodos" id="comodos"></div>
+    </div>
     <div class="regras">
-      <div><b>1 marca por categoria</b><p>Em cada episódio, nenhum concorrente dividindo a cena com você.</p></div>
-      <div><b>Aparece duas vezes</b><p>No episódio da etapa e de novo no tour final, com a casa pronta.</p></div>
-      <div><b>Já começou</b><p>Planejamento e escolhas são episódio. Dá pra fechar e gravar agora.</p></div>
+      <div><b>1 marca por categoria</b><p>Em cada lista, nenhum concorrente dividindo a cena com você.</p></div>
+      <div><b>Aparece mais de uma vez</b><p>Na lista, na montagem e de novo no tour com a casa pronta.</p></div>
+      <div><b>Começa no anúncio</b><p>A série já pode ser planejada com a sua marca desde o primeiro episódio.</p></div>
     </div>
   </div>
 </section>
@@ -621,15 +655,21 @@
     { src: "coz3", legenda: "", alto: false }
   ];
 
-  const EPISODIOS = [
-    { t: "Antes da chave", d: "Planejamento, moodboard e a lista de escolhas." },
-    { t: "Caixa por caixa", d: "Mudança, faxina e organização do que chega." },
-    { t: "Minha primeira cozinha", d: "Do armário vazio à primeira receita." },
-    { t: "Banheiro verde", d: "Organização, autocuidado e o ritual de banho." },
-    { t: "A sala que eu sonhei", d: "Sofá, luz e a estética retrô ganhando forma." },
-    { t: "Pet: o espaço da Mel", d: "Um espaço pensado pra minha gata." },
-    { t: "Meu quarto, minha cara", d: "Cama, cores e os detalhes do quarto." },
-    { t: "Tour: o lar pronto", d: "A casa inteira, com todas as marcas de volta." }
+  // Cômodos da série (cada um ganha lista + montagem). O último é o fechamento.
+  const COMODOS = ["Sala", "Cozinha", "Banheiro", "Quarto", "Espaço pet"];
+
+  // Checklist do exemplo da sala. nichos: quais marcas ocupam esse item.
+  const CHECKLIST_SALA = [
+    { item: "Sofá", nichos: ["moveis"] },
+    { item: "Rack", nichos: ["moveis"] },
+    { item: "Tapete", nichos: ["decoracao"] },
+    { item: "Mesa de centro", nichos: ["moveis"] },
+    { item: "Luminária", nichos: ["decoracao"] },
+    { item: "Quadros", nichos: ["decoracao"] },
+    { item: "Manta e almofadas", nichos: ["cama-mesa-banho"] },
+    { item: "Vela ou difusor", nichos: ["aromas"] },
+    { item: "Aspirador", nichos: ["eletros", "limpeza"] },
+    { item: "Cesto organizador", nichos: ["organizacao"] }
   ];
 
   const PACOTES = [
@@ -640,55 +680,55 @@
 
   // Nichos. ganchos: [texto, tipo de gancho, formato]. video: vídeo meu de referência.
   const NICHOS = [
-    { id: "cozinha", nome: "Cozinha e utensílios", curto: "cozinha", ex: "Panelas, potes, louças", eps: [0, 2, 7], video: "KHrjhYwHz_w",
+    { id: "cozinha", nome: "Cozinha e utensílios", curto: "cozinha", ex: "Panelas, potes, louças", comodos: ["Cozinha"], video: "KHrjhYwHz_w",
       momento: "A primeira cozinha é montada do zero, e cada item é pesquisado. É a hora em que o cliente compara marcas e decide qual vai durar anos.",
       ganha: ["Produto em uso real, numa receita de verdade", "Credibilidade extra: sou estudante de Nutrição", "Vídeo de demonstração pronto pra anúncio"],
       formatos: ["Demonstração", "Review falado", "Rotina"],
       ganchos: [["Faz uma semana que eu cozinho numa panela emprestada.", "Situação reconhecível", "Storytelling"], ["Eu já joguei dinheiro fora com panela que grudava em tudo.", "Confissão", "Comparativo"], ["Primeira cozinha: o que eu compraria de novo e o que foi besteira.", "Lista", "Review"]],
       frames: [["0–3s · gancho", "Close da panela no fogo, vapor subindo.", "primeira receita da casa nova"], ["3–18s · uso real", "Receita rápida mostrando o diferencial.", ""], ["18–25s · fecho", "Prato servido na bancada de madeira. Por que eu escolhi essa.", "aprovada ✓"]] },
-    { id: "cama-mesa-banho", nome: "Cama, mesa e banho", curto: "cama, mesa e banho", ex: "Colcha, toalha, pano de prato", eps: [2, 3, 6, 7], video: "mYr7VDvsxYo",
+    { id: "cama-mesa-banho", nome: "Cama, mesa e banho", curto: "cama, mesa e banho", ex: "Colcha, toalha, pano de prato", comodos: ["Sala", "Cozinha", "Banheiro", "Quarto"], video: "mYr7VDvsxYo",
       momento: "Enxoval é uma das primeiras compras de quem monta casa, e é comprado pelo toque. Mostrar textura em vídeo é o que convence.",
       ganha: ["Textura e caimento mostrados em close", "Produto aparecendo em mais de um cômodo", "Antes e depois que vira anúncio"],
       formatos: ["Antes × depois", "Unboxing", "Rotina"],
       ganchos: [["Meu quarto não tinha cara de meu até eu trocar uma coisa.", "Situação reconhecível", "Antes × depois"], ["Opinião impopular: enxoval é o que mais muda uma casa.", "Opinião impopular", "Review"], ["Abri a caixa e senti o tecido antes de qualquer coisa.", "Sensorial", "Unboxing"]],
       frames: [["0–3s · gancho", "Cama só com colchão, luz fria.", "meu quarto ainda sem cara de meu"], ["3–18s · montagem", "Lençol, colcha e almofadas em cortes rápidos. Close da textura.", ""], ["18–25s · revelação", "Luz quente acesa, a Mel deitando na cama pronta.", "agora sim"]] },
-    { id: "limpeza", nome: "Limpeza e lavanderia", curto: "limpeza", ex: "Multiuso, panos, lava-roupas", eps: [0, 1, 2, 3], video: "mwWG5L3VRW4",
+    { id: "limpeza", nome: "Limpeza e lavanderia", curto: "limpeza", ex: "Multiuso, panos, lava-roupas", comodos: ["Cozinha", "Banheiro", "Sala"], video: "mwWG5L3VRW4",
       momento: "Antes de qualquer móvel entrar, vem a faxina. É quando o cliente escolhe a marca que vai virar hábito de compra todo mês.",
       ganha: ["Resultado visível em antes e depois", "Produto de recompra apresentado como rotina", "Formato que performa em anúncio"],
       formatos: ["Antes × depois", "Problema × solução", "Lo-fi pra anúncio"],
       ganchos: [["Ninguém te conta como fica um apê antes de você se mudar.", "Informação inesperada", "Antes × depois"], ["Faz uma semana que esse rejunte tá me olhando.", "Situação reconhecível", "Problema × solução"], ["Kit de limpeza de quem está começando do zero.", "Lista", "Demonstração"]],
       frames: [["0–3s · gancho", "Porta abrindo num cômodo vazio e empoeirado.", "antes de qualquer móvel entrar…"], ["3–18s · faxina", "O produto em ação no piso, no box e na pia.", ""], ["18–25s · fecho", "Cômodo brilhando, primeira caixa entrando.", "agora pode mudar"]] },
-    { id: "organizacao", nome: "Organização", curto: "organização", ex: "Potes, cestos, nichos", eps: [1, 2, 3, 6, 7], video: "pvpWG6x2ucA",
+    { id: "organizacao", nome: "Organização", curto: "organização", ex: "Potes, cestos, nichos", comodos: ["Cozinha", "Banheiro", "Quarto"], video: "pvpWG6x2ucA",
       momento: "Casa nova é a chance de organizar do jeito certo desde o início. O cliente compra organização em kit, não uma peça só.",
       ganha: ["Vídeo sensorial, o formato que mais prende", "Vários produtos da linha numa cena só", "Transformação que gera salvamento"],
       formatos: ["Problema × solução", "Antes × depois", "Rotina"],
       ganchos: [["Eu prometi que na casa nova não ia ter gaveta da bagunça.", "Confissão", "Storytelling"], ["Banheiro pequeno não é problema, falta de nicho é.", "Quebra de crença", "Problema × solução"], ["A despensa da casa nova, do zero.", "Situação reconhecível", "Antes × depois"]],
       frames: [["0–3s · gancho", "Sacolas de mercado na bancada, tudo bagunçado.", "a despensa da casa nova"], ["3–18s · organização", "Potes sendo cheios em ritmo ASMR, tudo no lugar.", ""], ["18–25s · revelação", "Armário aberto, tudo alinhado.", "paz"]] },
-    { id: "moveis", nome: "Móveis", curto: "móveis", ex: "Sofá, rack, mesa", eps: [0, 2, 4, 7], video: "xZuFjGpek0M",
+    { id: "moveis", nome: "Móveis", curto: "móveis", ex: "Sofá, rack, mesa", comodos: ["Sala", "Cozinha", "Quarto"], video: "xZuFjGpek0M",
       momento: "Móvel é compra cara e pensada: o cliente assiste muito conteúdo antes de decidir. Ver a escolha acontecendo é o que tira a dúvida.",
       ganha: ["Jornada completa: escolha, chegada, montagem e uso", "Produto como protagonista do episódio", "Conteúdo que responde às objeções de compra"],
       formatos: ["Comparativo", "Review falado", "Antes × depois"],
       ganchos: [["Minha sala tinha só uma TV no chão.", "Situação reconhecível", "Antes × depois"], ["3 coisas que eu olhei antes de escolher meu primeiro sofá.", "Lista", "Review"], ["Montei sozinha. Dá pra montar sem ajuda?", "Pergunta que abre loop", "Demonstração"]],
       frames: [["0–3s · gancho", "Sala vazia, só a TV no chão.", "minha sala tinha só isso"], ["3–18s · chegada", "Caixa chegando, montagem, detalhes do tecido e do conforto.", ""], ["18–25s · revelação", "Sofá montado, luz âmbar, eu deitando nele.", "agora é sala"]] },
-    { id: "decoracao", nome: "Decoração e iluminação", curto: "decoração", ex: "Quadros, tapetes, luminárias", eps: [0, 3, 4, 6, 7], video: "SpHDfJ-BWOk",
+    { id: "decoracao", nome: "Decoração e iluminação", curto: "decoração", ex: "Quadros, tapetes, luminárias", comodos: ["Sala", "Quarto", "Banheiro"], video: "SpHDfJ-BWOk",
       momento: "Depois do básico, vem o que dá personalidade. É compra de desejo, e desejo nasce de ver o produto num ambiente bonito.",
       ganha: ["Produto num cenário com identidade", "Transformação de ambiente em segundos", "Estética que valoriza o preço do produto"],
       formatos: ["Antes × depois", "Demonstração", "Rotina"],
       ganchos: [["A luz branca de teto estava estragando a minha sala.", "Quebra de crença", "Antes × depois"], ["3 formas de usar esse quadro sem furar parede.", "Lista", "Demonstração"], ["Mesmo cômodo, só uma troca.", "Informação inesperada", "Antes × depois"]],
       frames: [["0–3s · gancho", "Cômodo com luz branca de teto.", "o erro que deixa a casa sem graça"], ["3–18s · troca", "Luminária entrando, a luz de cima apaga, o ambiente muda.", ""], ["18–25s · fecho", "Plano aberto da sala aconchegante à noite.", "mesmo cômodo"]] },
-    { id: "eletros", nome: "Eletros e eletroportáteis", curto: "eletros", ex: "Air fryer, cafeteira, aspirador", eps: [2, 4, 7], video: "HNMgo5j_ONY",
+    { id: "eletros", nome: "Eletros e eletroportáteis", curto: "eletros", ex: "Air fryer, cafeteira, aspirador", comodos: ["Cozinha", "Sala"], video: "HNMgo5j_ONY",
       momento: "Eletro é a compra que o cliente mais pesquisa em vídeo antes de fechar. Ver funcionando na rotina de alguém real decide.",
       ganha: ["Demonstração de uso real, com som e detalhe", "Respostas às dúvidas mais comuns de compra", "Credibilidade na cozinha: estudante de Nutrição"],
       formatos: ["Demonstração", "Comparativo", "Lo-fi pra anúncio"],
       ganchos: [["O primeiro café da casa nova.", "Situação reconhecível", "Rotina"], ["Testei com o que tinha na geladeira, sem receita.", "Pergunta que abre loop", "Demonstração"], ["Eu achava que não precisava disso morando numa casa pequena.", "Quebra de crença", "Review"]],
       frames: [["0–3s · gancho", "Manhã, cozinha verde, luz entrando.", "primeiro café da casa nova"], ["3–18s · uso", "O aparelho funcionando em close, som real.", ""], ["18–25s · fecho", "Xícara na mão, olhando a casa ganhar forma.", "começou bem"]] },
-    { id: "pet", nome: "Pet", curto: "pet", ex: "Caminha, arranhador, fonte", eps: [5, 7], video: "eQKGJGUUxA8",
+    { id: "pet", nome: "Pet", curto: "pet", ex: "Caminha, arranhador, fonte", comodos: ["Espaço pet"], video: "eQKGJGUUxA8",
       momento: "Mudança mexe com a rotina do pet, e o tutor compra pra ele se adaptar. A reação real do animal é o argumento mais forte que existe.",
       ganha: ["Reação espontânea da Mel, sem encenação", "Episódio dedicado ao pet", "Conteúdo de alto engajamento e compartilhamento"],
       formatos: ["Unboxing", "Rotina", "Review falado"],
       ganchos: [["A opinião que mais importa nessa casa é a dela.", "Situação reconhecível", "Storytelling"], ["A Mel odiou a casa nova nos primeiros dias.", "Confissão", "Problema × solução"], ["Fonte ou pote: ela bebe mais água?", "Pergunta que abre loop", "Comparativo"]],
       frames: [["0–3s · gancho", "A Mel desconfiada, cheirando a caixa.", "a opinião que mais importa"], ["3–18s · reação", "Montagem do produto e a reação dela em tempo real.", ""], ["18–25s · fecho", "A Mel dormindo no cantinho dela.", "aprovado pela chefe"]] },
-    { id: "aromas", nome: "Aromas e bem-estar", curto: "aromas", ex: "Velas, difusores, home spray", eps: [3, 6, 7], video: "pvpWG6x2ucA",
+    { id: "aromas", nome: "Aromas e bem-estar", curto: "aromas", ex: "Velas, difusores, home spray", comodos: ["Banheiro", "Sala", "Quarto"], video: "pvpWG6x2ucA",
       momento: "Cheiro é o que transforma casa em lar, e quem acabou de se mudar quer exatamente essa sensação. É compra emocional.",
       ganha: ["Conteúdo sensorial que faz sentir o cheiro pela tela", "Ritual de autocuidado com o produto", "Estética que eleva a percepção da marca"],
       formatos: ["Unboxing", "Rotina", "Review falado"],
@@ -756,7 +796,7 @@
       <div class="plano-corpo">
         <div class="bloco"><p class="rotulo">O que a sua marca ganha</p><ul>${n.ganha.map(g => `<li>${esc(g)}</li>`).join("")}</ul>
           <p class="rotulo" style="margin-top:22px">Formatos indicados</p><div class="tags">${n.formatos.map(f => `<span>${esc(f)}</span>`).join("")}</div>
-          <p class="rotulo" style="margin-top:22px">Na série</p><ul>${n.eps.map(e => `<li>Ep. 0${e} · ${esc(EPISODIOS[e].t)}</li>`).join("")}</ul></div>
+          <p class="rotulo" style="margin-top:22px">Na série</p><ul>${n.comodos.map(c => `<li>Lista e montagem: ${esc(c)}</li>`).join("")}<li>Tour final com a casa pronta</li></ul></div>
         <div class="bloco"><p class="rotulo">Três ganchos pro seu produto</p><ol class="ideias">${n.ganchos.map((x, i) => `<li><span class="n">0${i + 1}</span><div><q>${esc(x[0])}</q><small>${esc(x[1])} · ${esc(x[2])}</small></div></li>`).join("")}</ol></div>
         <div class="bloco roteiro"><p class="rotulo">Prévia de roteiro · gancho 01</p>
           <div class="frames">${n.frames.map(f => `<div class="frame"><span class="tempo">${esc(f[0])}</span>${f[2] ? `<span class="na-tela">${esc(f[2])}</span>` : "<span></span>"}<span class="cena">${esc(f[1])}</span></div>`).join("")}</div></div>
@@ -764,12 +804,18 @@
       </div>`;
   }
 
+  const marcados = new Set();
   function desenhaEps() {
-    $("#eps").innerHTML = EPISODIOS.map((e, i) => {
-      const cls = !atual ? "" : (atual.eps.includes(i) ? " sim" : " nao");
-      return `<li class="ep${cls}"><span class="num">Ep. 0${i}<span class="selo">sua marca</span></span><h3>${esc(e.t)}</h3><p>${esc(e.d)}</p></li>`;
+    $("#checklist").innerHTML = CHECKLIST_SALA.map((c, i) => {
+      const sua = atual && c.nichos.includes(atual.id) ? " sua" : "";
+      return `<li><button type="button" class="${sua.trim()}" data-check="${i}" aria-pressed="${marcados.has(i)}"><span class="caixa" aria-hidden="true">${marcados.has(i) ? "✓" : ""}</span><span>${esc(c.item)}</span></button></li>`;
     }).join("");
+    $("#comodos").innerHTML = COMODOS.map(c => `<span class="${atual && atual.comodos.includes(c) ? "sim" : ""}">${esc(c)}</span>`).join("") + `<span class="fim">Tour final</span>`;
   }
+  $("#checklist").addEventListener("click", e => {
+    const b = e.target.closest("[data-check]"); if (!b) return;
+    const i = +b.dataset.check; marcados.has(i) ? marcados.delete(i) : marcados.add(i); desenhaEps();
+  });
 
   function atualizaContato() {
     const href = linkZap(atual);
