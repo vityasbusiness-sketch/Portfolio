@@ -1,0 +1,690 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Construindo Meu Lar do Zero · Yasmin Caetano</title>
+<meta name="description" content="Série UGC de casa, lifestyle e pet: o seu produto no momento em que o público está escolhendo o que comprar.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..800;1,9..144,300..600&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Caveat:wght@500;700&display=swap" rel="stylesheet">
+<style>
+  /* Funil: valor pra marca → prova → estética → plano do nicho → série → investimento → contato */
+  :root {
+    color-scheme: light;
+    --creme: #ebe1d4;
+    --papel: #f4ece1;
+    --tinta: #1b120e;
+    --tinta-suave: #5a4a40;
+    --bordo: #4d0510;
+    --bordo-escuro: #2f030a;
+    --verde: #3f4a2a;
+    --madeira: #a47148;
+    --ambar: #d9772f;
+    --ambar-claro: #f0b37e;
+    --linha: rgba(27, 18, 14, .14);
+    --serif: "Fraunces", Georgia, "Times New Roman", serif;
+    --sans: "Plus Jakarta Sans", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+    --mao: "Caveat", "Comic Sans MS", cursive;
+    --sombra: 0 1px 2px rgba(27,18,14,.06), 0 14px 34px -16px rgba(27,18,14,.35);
+    --largura: 1120px;
+    --gutter: clamp(16px, 5vw, 40px);
+    --textura: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.08'/%3E%3C/svg%3E");
+  }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } *, *::before, *::after { transition: none !important; animation: none !important; } }
+  body { margin: 0; background: var(--creme) var(--textura); color: var(--tinta); font-family: var(--sans); font-size: 16px; line-height: 1.55; padding-bottom: 76px; }
+  img { max-width: 100%; display: block; }
+  h1, h2, h3 { font-family: var(--serif); font-weight: 400; line-height: 1.06; margin: 0; letter-spacing: -.01em; text-wrap: balance; }
+  h2 { font-size: clamp(2rem, 5.4vw, 3.2rem); }
+  h2 em, h3 em { font-style: italic; color: var(--bordo); }
+  p { margin: 0; }
+  a { color: inherit; }
+  button { font: inherit; color: inherit; cursor: pointer; }
+  :focus-visible { outline: 2px solid var(--ambar); outline-offset: 3px; }
+  .wrap { width: min(var(--largura), 100% - 2 * var(--gutter)); margin-inline: auto; }
+  section { padding: clamp(56px, 9vw, 100px) 0; }
+  .olho { font-size: .72rem; font-weight: 700; letter-spacing: .22em; text-transform: uppercase; color: var(--bordo); margin-bottom: 14px; }
+  .lead { max-width: 58ch; color: var(--tinta-suave); margin-top: 14px; font-size: 1.02rem; }
+  .botao { display: inline-flex; align-items: center; justify-content: center; gap: 10px; padding: 15px 24px; border-radius: 999px; border: 0; background: var(--bordo); color: var(--papel); font-weight: 600; text-decoration: none; font-size: .95rem; transition: transform .2s, background .2s; }
+  .botao:hover { background: var(--bordo-escuro); transform: translateY(-1px); }
+  .botao.claro { background: var(--papel); color: var(--bordo); }
+  .botao.vazado { background: transparent; color: var(--papel); box-shadow: inset 0 0 0 1.5px rgba(244,236,225,.7); }
+
+  /* CAPA */
+  .capa { position: relative; color: var(--papel); background: var(--bordo-escuro); padding: 0; overflow: hidden; }
+  .capa-foto { position: absolute; inset: 0; background: url("img/hero.webp") center/cover; opacity: .55; }
+  .capa::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(47,3,10,.2), rgba(47,3,10,.93) 75%); }
+  .capa .wrap { position: relative; z-index: 1; padding: clamp(36px, 7vw, 80px) 0 clamp(44px, 7vw, 72px); }
+  .capa-topo { display: flex; justify-content: space-between; font-size: .72rem; letter-spacing: .22em; text-transform: uppercase; opacity: .85; gap: 12px; flex-wrap: wrap; }
+  .capa h1 { font-size: clamp(3rem, 11vw, 7rem); margin-top: clamp(56px, 10vw, 110px); line-height: .92; }
+  .capa h1 .mao { font-family: var(--mao); font-weight: 700; font-size: .55em; color: var(--ambar-claro); display: block; transform: rotate(-3deg); margin-bottom: -.04em; }
+  .capa h1 b { font-weight: 600; }
+  .capa .sub { max-width: 44ch; margin-top: 22px; font-size: clamp(1.05rem, 2.4vw, 1.25rem); color: #f1e2d2; }
+  .capa .sub strong { color: var(--ambar-claro); font-weight: 600; }
+  .capa .acoes { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 28px; }
+
+  /* O QUE A MARCA GANHA */
+  .ganhos { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; margin-top: 34px; }
+  .ganho { background: var(--papel); border-radius: 18px; padding: clamp(20px, 3vw, 28px); display: grid; grid-template-columns: auto 1fr; gap: 6px 16px; }
+  .ganho .n { grid-row: span 2; font-family: var(--serif); font-style: italic; font-size: 2.2rem; line-height: 1; color: var(--ambar); }
+  .ganho h3 { font-size: 1.35rem; }
+  .ganho p { color: var(--tinta-suave); font-size: .95rem; }
+
+  /* QUEM + CASE */
+  .escuro { background: var(--bordo); color: var(--papel); }
+  .escuro .olho { color: var(--ambar-claro); }
+  .escuro h2 em { color: var(--ambar-claro); }
+  .escuro .lead { color: #e6d3c1; }
+  .quem { display: grid; grid-template-columns: minmax(0, .8fr) minmax(0, 1.3fr); gap: clamp(28px, 6vw, 72px); align-items: center; }
+  .polaroid { background: #fbf7f1; padding: 12px 12px 46px; box-shadow: var(--sombra); position: relative; transform: rotate(-2.5deg); max-width: 360px; margin: 0; }
+  .polaroid img { aspect-ratio: 4/5; object-fit: cover; width: 100%; }
+  .polaroid figcaption { position: absolute; bottom: 8px; left: 0; right: 0; text-align: center; font-family: var(--mao); font-size: 1.5rem; color: var(--bordo); }
+  .fita { position: absolute; width: 96px; height: 26px; background: rgba(217,119,47,.45); top: -12px; left: 50%; transform: translateX(-50%) rotate(-4deg); }
+  .diferenciais { list-style: none; padding: 0; margin: 22px 0 0; display: grid; gap: 10px; }
+  .diferenciais li { padding-left: 22px; position: relative; color: #f1e2d2; }
+  .diferenciais li::before { content: "✦"; position: absolute; left: 0; color: var(--ambar-claro); }
+  .diferenciais b { color: var(--papel); }
+  .case { display: grid; grid-template-columns: minmax(0, 260px) minmax(0, 1fr); gap: clamp(22px, 4vw, 44px); margin-top: clamp(48px, 7vw, 72px); padding-top: clamp(36px, 5vw, 52px); border-top: 1px solid rgba(244,236,225,.2); align-items: center; }
+  .case h3 { font-size: clamp(1.6rem, 4vw, 2.3rem); }
+  .case h3 em { color: var(--ambar-claro); }
+  .case p { color: #e6d3c1; margin-top: 10px; font-size: .96rem; max-width: 56ch; }
+  .numeros { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px 12px; margin-top: 22px; }
+  .numeros strong { display: block; font-family: var(--serif); font-weight: 400; font-size: clamp(1.4rem, 4vw, 2.1rem); color: var(--ambar-claro); font-variant-numeric: tabular-nums; line-height: 1.1; }
+  .numeros span { font-size: .78rem; color: #d9c6b4; }
+
+  /* VÍDEOS */
+  .videos { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 14px; margin-top: 30px; }
+  .video { border: 0; padding: 0; background: none; text-align: left; display: flex; flex-direction: column; gap: 8px; }
+  .video .tela { position: relative; aspect-ratio: 9/16; border-radius: 12px; overflow: hidden; background: var(--verde); width: 100%; }
+  .video img { width: 100%; height: 100%; object-fit: cover; transition: transform .4s; }
+  .video:hover img { transform: scale(1.04); }
+  .play { position: absolute; left: 50%; top: 50%; width: 54px; height: 54px; margin: -27px 0 0 -27px; border-radius: 50%; background: rgba(244,236,225,.92); display: grid; place-items: center; }
+  .play svg { width: 18px; height: 18px; margin-left: 3px; fill: var(--bordo); }
+  .video b { font-size: .92rem; display: block; }
+  .video small { display: block; color: var(--tinta-suave); font-size: .8rem; line-height: 1.35; }
+  .video .casa { color: var(--verde); font-weight: 600; }
+  .case .video .tela { max-width: 260px; }
+  .case .video b { color: var(--papel); }
+
+  /* ESTÉTICA */
+  .estetica { background: var(--papel); }
+  .paleta { display: flex; margin-top: 26px; border-radius: 12px; overflow: hidden; }
+  .paleta div { flex: 1; min-height: 52px; padding: 8px; display: flex; align-items: flex-end; font-size: .68rem; font-weight: 600; letter-spacing: .06em; }
+  .mood { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); grid-auto-rows: 150px; gap: 10px; margin-top: 18px; }
+  .mood figure { margin: 0; position: relative; overflow: hidden; border-radius: 8px; }
+  .mood img { width: 100%; height: 100%; object-fit: cover; }
+  .mood figure.alto { grid-row: span 2; }
+  .mood figcaption { position: absolute; left: 8px; bottom: 8px; background: var(--papel); color: var(--bordo); font-family: var(--mao); font-size: 1.2rem; line-height: 1; padding: 4px 8px; transform: rotate(-2deg); }
+
+  /* PLANO DO NICHO */
+  .nichos { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 10px; margin-top: 30px; }
+  .nicho { border: 1.5px solid var(--linha); background: var(--papel); border-radius: 14px; padding: 14px 16px; text-align: left; display: flex; justify-content: space-between; align-items: center; gap: 10px; transition: border-color .2s, background .2s, color .2s; }
+  .nicho b { font-weight: 600; font-size: .98rem; }
+  .nicho small { display: block; color: var(--tinta-suave); font-size: .8rem; margin-top: 2px; }
+  .nicho .seta { font-size: 1.2rem; color: var(--bordo); flex: none; }
+  .nicho:hover { border-color: var(--bordo); }
+  .nicho[aria-pressed="true"] { background: var(--bordo); color: var(--papel); border-color: var(--bordo); }
+  .nicho[aria-pressed="true"] small, .nicho[aria-pressed="true"] .seta { color: #e6d3c1; }
+  .plano { margin-top: 26px; scroll-margin-top: 20px; }
+  .plano-vazio { border: 2px dashed var(--linha); border-radius: 18px; padding: 28px; text-align: center; color: var(--tinta-suave); }
+  .plano-topo { background: var(--verde); color: var(--papel); border-radius: 18px 18px 0 0; padding: clamp(22px, 4vw, 34px); }
+  .plano-topo .olho { color: var(--ambar-claro); margin-bottom: 8px; }
+  .plano-topo h3 { font-size: clamp(1.7rem, 4.4vw, 2.5rem); }
+  .plano-topo h3 em { color: var(--ambar-claro); }
+  .plano-topo p { margin-top: 10px; color: #e1e4d6; max-width: 62ch; }
+  .plano-corpo { background: var(--papel); border-radius: 0 0 18px 18px; padding: clamp(22px, 4vw, 34px); display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: clamp(20px, 4vw, 40px); box-shadow: var(--sombra); }
+  .bloco .rotulo { font-size: .7rem; font-weight: 700; letter-spacing: .2em; text-transform: uppercase; color: var(--bordo); margin-bottom: 10px; }
+  .bloco ul { margin: 0; padding: 0; list-style: none; display: grid; gap: 8px; }
+  .bloco ul li { padding-left: 20px; position: relative; font-size: .95rem; }
+  .bloco ul li::before { content: "✦"; position: absolute; left: 0; color: var(--ambar); font-size: .8rem; top: 2px; }
+  .ideias { list-style: none; padding: 0; margin: 0; display: grid; }
+  .ideias li { display: grid; grid-template-columns: auto 1fr; gap: 12px; padding: 12px 0; border-bottom: 1px solid var(--linha); }
+  .ideias li:first-child { padding-top: 0; }
+  .ideias li:last-child { border-bottom: 0; }
+  .ideias .n { font-family: var(--serif); font-style: italic; color: var(--bordo); font-size: 1.3rem; line-height: 1; }
+  .ideias q { font-family: var(--serif); font-size: 1.08rem; }
+  .ideias small { display: block; font-size: .72rem; font-weight: 600; letter-spacing: .12em; text-transform: uppercase; color: var(--verde); margin-top: 4px; }
+  .roteiro { grid-column: 1 / -1; }
+  .frames { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; max-width: 600px; }
+  .frame { aspect-ratio: 9/14; border-radius: 14px; background: linear-gradient(160deg, var(--verde), #2a3119); color: var(--papel); padding: 14px; display: flex; flex-direction: column; justify-content: space-between; }
+  .frame:nth-child(2) { background: linear-gradient(160deg, var(--madeira), #6e4426); }
+  .frame:nth-child(3) { background: linear-gradient(160deg, var(--bordo), var(--bordo-escuro)); }
+  .frame .tempo { font-size: .68rem; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; opacity: .85; }
+  .frame .cena { font-size: clamp(.78rem, 2.2vw, .92rem); line-height: 1.35; }
+  .frame .na-tela { font-family: var(--mao); font-size: clamp(1.05rem, 3.4vw, 1.45rem); line-height: 1.05; background: var(--papel); color: var(--bordo); padding: 6px 8px; transform: rotate(-2deg); align-self: flex-start; }
+  .plano-cta { grid-column: 1 / -1; display: flex; gap: 12px; flex-wrap: wrap; align-items: center; padding-top: 6px; }
+  .plano-cta p { color: var(--tinta-suave); font-size: .9rem; }
+
+  /* SÉRIE */
+  .serie { background: var(--verde); color: var(--papel); }
+  .serie .olho { color: var(--ambar-claro); }
+  .serie .lead { color: #d8dcc8; }
+  .serie h2 em { color: var(--ambar-claro); }
+  .regras { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 14px; margin-top: 30px; }
+  .regras div { border: 1px solid rgba(244,236,225,.25); border-radius: 14px; padding: 16px; }
+  .regras b { display: block; font-family: var(--serif); font-weight: 400; font-size: 1.25rem; color: var(--ambar-claro); }
+  .regras p { font-size: .9rem; color: #e1e4d6; margin-top: 4px; }
+  .eps { list-style: none; padding: 0; margin: 30px 0 0; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 12px; }
+  .ep { border-radius: 14px; padding: 16px; background: rgba(244,236,225,.07); border: 1px solid rgba(244,236,225,.14); display: flex; flex-direction: column; gap: 6px; transition: background .25s, opacity .25s; }
+  .ep .num { font-size: .7rem; font-weight: 700; letter-spacing: .2em; text-transform: uppercase; color: #e7c39c; display: flex; justify-content: space-between; gap: 8px; }
+  .ep h3 { font-size: 1.2rem; }
+  .ep p { font-size: .85rem; color: #d8dcc8; }
+  .ep.sim { background: var(--papel); color: var(--tinta); }
+  .ep.sim .num { color: var(--bordo); }
+  .ep.sim p { color: var(--tinta-suave); }
+  .ep.nao { opacity: .45; }
+  .ep .selo { display: none; background: var(--ambar); color: #fff; border-radius: 999px; padding: 1px 8px; letter-spacing: .08em; }
+  .ep.sim .selo { display: inline-block; }
+
+  /* INVESTIMENTO */
+  .inclui { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 24px; }
+  .inclui span { background: var(--papel); border-radius: 999px; padding: 8px 14px; font-size: .9rem; font-weight: 500; }
+  .inclui span b { color: var(--bordo); }
+  .pacotes { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; margin-top: 28px; align-items: stretch; }
+  .pacote { border-radius: 18px; padding: 24px; background: var(--papel); display: flex; flex-direction: column; gap: 12px; }
+  .pacote.destaque { background: var(--bordo); color: var(--papel); }
+  .pacote .topo { display: flex; justify-content: space-between; gap: 8px; align-items: baseline; }
+  .pacote .topo span { font-size: .7rem; font-weight: 700; letter-spacing: .2em; text-transform: uppercase; color: var(--bordo); }
+  .pacote.destaque .topo span { color: var(--ambar-claro); }
+  .pacote h3 { font-size: 1.6rem; }
+  .pacote .pra { font-size: .9rem; color: var(--tinta-suave); }
+  .pacote.destaque .pra { color: #e6d3c1; }
+  .pacote ul { margin: 0; padding-left: 18px; font-size: .92rem; display: grid; gap: 4px; }
+  .pacote li.serie-item { list-style: "✦  "; color: var(--verde); font-weight: 600; }
+  .pacote.destaque li.serie-item { color: var(--ambar-claro); }
+  .pacote .preco { margin-top: auto; padding-top: 14px; border-top: 1px solid var(--linha); font-family: var(--serif); font-size: 2rem; font-variant-numeric: tabular-nums; }
+  .pacote.destaque .preco { border-color: rgba(244,236,225,.25); }
+  .alto-valor { margin-top: 18px; border-radius: 18px; padding: clamp(20px, 3vw, 28px); background: var(--verde); color: var(--papel); display: flex; justify-content: space-between; align-items: center; gap: 20px; flex-wrap: wrap; }
+  .alto-valor h3 { font-size: 1.4rem; }
+  .alto-valor h3 em { color: var(--ambar-claro); }
+  .alto-valor p { color: #e1e4d6; font-size: .95rem; margin-top: 6px; max-width: 60ch; }
+  .letra-miuda { margin-top: 16px; font-size: .85rem; color: var(--tinta-suave); max-width: 72ch; }
+
+  /* PROCESSO + FAQ */
+  .passos { list-style: none; padding: 0; margin: 30px 0 0; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 14px; counter-reset: p; }
+  .passos li { border-top: 1.5px solid var(--bordo); padding-top: 12px; counter-increment: p; }
+  .passos li::before { content: "0" counter(p); font-family: var(--serif); font-style: italic; color: var(--bordo); font-size: 1.6rem; display: block; }
+  .passos b { display: block; margin-top: 4px; }
+  .passos p { font-size: .9rem; color: var(--tinta-suave); margin-top: 4px; }
+  .faq { margin-top: 52px; display: grid; gap: 10px; max-width: 820px; }
+  .faq details { background: var(--papel); border-radius: 12px; padding: 0 18px; }
+  .faq summary { cursor: pointer; padding: 16px 0; font-weight: 600; list-style: none; display: flex; justify-content: space-between; gap: 12px; }
+  .faq summary::-webkit-details-marker { display: none; }
+  .faq summary::after { content: "+"; font-family: var(--serif); font-size: 1.4rem; line-height: 1; color: var(--bordo); }
+  .faq details[open] summary::after { content: "–"; }
+  .faq details p { padding: 0 0 16px; color: var(--tinta-suave); font-size: .95rem; }
+
+  /* CONTATO */
+  .contato { background: var(--bordo-escuro); color: var(--papel); }
+  .contato-grid { display: grid; grid-template-columns: minmax(0, 1.3fr) minmax(0, .8fr); gap: clamp(28px, 5vw, 60px); align-items: center; }
+  .contato .olho { color: var(--ambar-claro); }
+  .contato h2 em { color: var(--ambar-claro); }
+  .contato .lead { color: #d9c6b4; }
+  .contato .acoes { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 26px; }
+  .contato .dados { margin-top: 22px; font-size: .9rem; color: #d9c6b4; display: grid; gap: 4px; }
+  .contato .polaroid { transform: rotate(2.5deg); margin-inline: auto; }
+  footer { text-align: center; padding: 26px var(--gutter); font-size: .78rem; color: var(--tinta-suave); }
+
+  .barra { position: fixed; left: 0; right: 0; bottom: 0; z-index: 10; background: rgba(47,3,10,.96); color: var(--papel); padding: 12px var(--gutter); display: flex; justify-content: space-between; align-items: center; gap: 12px; transform: translateY(110%); transition: transform .3s; }
+  .barra.visivel { transform: none; }
+  .barra p { font-size: .85rem; line-height: 1.25; color: #ead9c8; }
+  .barra p b { color: var(--papel); }
+  .barra .botao { padding: 11px 18px; flex: none; }
+
+  /* PLAYER */
+  .fundo-video { position: fixed; inset: 0; z-index: 50; background: rgba(17,13,10,.86); display: grid; place-items: center; opacity: 0; visibility: hidden; transition: opacity .25s, visibility .25s; padding: 60px 16px 16px; }
+  .fundo-video.aberto { opacity: 1; visibility: visible; }
+  .card-player { position: relative; width: min(92vw, calc((100vh - 110px) * 9 / 16), 420px); }
+  .moldura { position: relative; aspect-ratio: 9/16; background: #110d0a; border-radius: 10px; overflow: hidden; }
+  .moldura iframe { position: absolute; left: 0; top: -60px; width: 100%; height: calc(100% + 120px); border: 0; pointer-events: none; }
+  .toque { position: absolute; inset: 0; z-index: 2; border: 0; background: transparent; width: 100%; }
+  .toque .icone { position: absolute; top: 50%; left: 50%; width: 72px; height: 72px; margin: -36px 0 0 -36px; border-radius: 50%; background: rgba(244,236,225,.92); display: grid; place-items: center; opacity: 0; transition: opacity .25s; }
+  .toque .icone svg { width: 22px; height: 22px; margin-left: 4px; fill: var(--bordo); }
+  .moldura.pausado .icone { opacity: 1; }
+  .som { position: absolute; z-index: 3; left: 12px; bottom: 12px; padding: 8px 14px; border-radius: 999px; border: 1px solid rgba(244,236,225,.5); background: rgba(17,13,10,.55); color: var(--papel); font-size: .78rem; font-weight: 600; }
+  .fechar { position: absolute; top: -50px; right: 0; width: 40px; height: 40px; border-radius: 50%; border: 0; background: var(--papel); color: var(--tinta); font-size: 1.3rem; line-height: 1; }
+
+  @media (max-width: 900px) {
+    .eps { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .pacotes { grid-template-columns: 1fr; }
+    .passos { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .nichos { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .mood { grid-template-columns: repeat(3, minmax(0, 1fr)); grid-auto-rows: 120px; }
+  }
+  @media (max-width: 720px) {
+    .ganhos, .quem, .case, .plano-corpo, .contato-grid { grid-template-columns: 1fr; }
+    .polaroid { max-width: 260px; margin-inline: auto; }
+    .regras { grid-template-columns: 1fr; }
+    .videos { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .case .video { max-width: 220px; }
+    .contato .polaroid { display: none; }
+    .mood { grid-template-columns: repeat(2, minmax(0, 1fr)); grid-auto-rows: 130px; }
+  }
+  @media (max-width: 440px) {
+    .nichos { grid-template-columns: 1fr; }
+    .eps { grid-template-columns: 1fr; }
+    .passos { grid-template-columns: 1fr; }
+    .numeros { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .frame { padding: 10px; }
+    .barra p { font-size: .78rem; }
+  }
+</style>
+</head>
+<body>
+
+<!-- 1. CAPA -->
+<header class="capa" id="topo">
+  <div class="capa-foto" role="img" aria-label="Sala aconchegante com luz quente"></div>
+  <div class="wrap">
+    <div class="capa-topo"><span>Yasmin Caetano · @caetyas_</span><span>UGC Creator · Casa · Lifestyle · Pet</span></div>
+    <h1><span class="mao">Construindo</span><b>meu lar</b> do zero</h1>
+    <p class="sub">Uma série sobre escolher cada coisa de uma casa. Pra sua marca, é o produto aparecendo <strong>no exato momento em que o público decide o que comprar</strong>.</p>
+    <div class="acoes">
+      <a class="botao claro" href="#ganhos">Entender a série</a>
+      <a class="botao vazado" href="#sua-marca">Ver o plano pra minha marca</a>
+    </div>
+  </div>
+</header>
+
+<main>
+<!-- 2. O QUE A MARCA GANHA -->
+<section id="ganhos">
+  <div class="wrap">
+    <div class="olho">Por que essa série vende</div>
+    <h2>Quem monta uma casa está <em>pronto pra comprar</em>.</h2>
+    <p class="lead">Montar casa é a fase em que a pessoa mais pesquisa, compara e compra. A série fala com ela nesse momento, e o seu produto entra como resposta.</p>
+    <div class="ganhos">
+      <div class="ganho"><span class="n">01</span><h3>Público em fase de compra</h3><p>Quem acompanha uma casa sendo montada está montando a sua também, ou sonhando com isso. É audiência com intenção, não só com curiosidade.</p></div>
+      <div class="ganho"><span class="n">02</span><h3>Produto escolhido, não recebido</h3><p>O vídeo mostra o critério: por que esse e não outro. Escolha justificada gera confiança, e confiança é o que faz alguém clicar em comprar.</p></div>
+      <div class="ganho"><span class="n">03</span><h3>Criativo que não envelhece</h3><p>Casa é assunto o ano inteiro. O vídeo UGC que você recebe roda em anúncio por meses, sem cara de data comemorativa.</p></div>
+      <div class="ganho"><span class="n">04</span><h3>Duas entregas, uma parceria</h3><p>Vídeos UGC prontos pra anúncio, pra sua marca usar como quiser, e o produto vivendo dentro de uma história que o público acompanha.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- 3. QUEM CRIA + CASE -->
+<section class="escuro" id="quem">
+  <div class="wrap">
+    <div class="quem">
+      <figure class="polaroid"><span class="fita" aria-hidden="true"></span><img src="img/eu1.webp" alt="Yasmin Caetano sentada em frente a uma parede de plantas e prateleiras"><figcaption>prazer, Yasmin</figcaption></figure>
+      <div>
+        <div class="olho">Quem cria</div>
+        <h2>Olhar de maquiadora, <em>roteiro</em> de estrategista.</h2>
+        <p class="lead">Sou Yasmin Caetano, criadora UGC e influenciadora em Natal/RN. Já criei pra mais de 20 marcas, de L'Oréal e Garnier a SHEIN e Mercado Livre.</p>
+        <ul class="diferenciais">
+          <li><b>Estética que valoriza o produto:</b> venho da maquiagem artística. Luz, textura e composição fazem o produto parecer o que ele vale.</li>
+          <li><b>Roteiro pensado pra vender:</b> gancho de curiosidade, uso real e o porquê da escolha, sem cara de propaganda.</li>
+          <li><b>Estudante de Nutrição:</b> cozinha, alimentação e rotina com propriedade, não só com estética.</li>
+        </ul>
+      </div>
+    </div>
+    <div class="case">
+      <button type="button" class="video" data-video="GMK9yJPUJbk" aria-label="Assistir ao vídeo do Bombado">
+        <span class="tela"><img src="https://i.ytimg.com/vi/GMK9yJPUJbk/oardefault.jpg" alt="" data-fallback="GMK9yJPUJbk"><span class="play"><svg viewBox="0 0 24 24"><path d="M6 4l14 8-14 8z"/></svg></span></span>
+      </button>
+      <div>
+        <div class="olho">Case · Bombado · tráfego pago</div>
+        <h3>Um vídeo que <em>performou</em> como anúncio.</h3>
+        <p>Em vez de apresentar o cardápio, mostrei ambiente, comida e experiência com cara de visita real. É a mesma lógica da série: o produto dentro de uma vivência, não numa vitrine.</p>
+        <div class="numeros">
+          <div><strong>70.900</strong><span>visualizações</span></div>
+          <div><strong>33.505</strong><span>pessoas alcançadas</span></div>
+          <div><strong>2.281</strong><span>interações</span></div>
+          <div><strong>1.891</strong><span>novos seguidores</span></div>
+          <div><strong>R$ 0,10</strong><span>por visita ao perfil</span></div>
+          <div><strong>R$ 359</strong><span>investidos</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 4. VÍDEOS -->
+<section id="videos-sec">
+  <div class="wrap">
+    <div class="olho">Meus vídeos</div>
+    <h2>O mesmo olhar, <em>agora na casa</em>.</h2>
+    <p class="lead">Toque pra assistir aqui mesmo. Cada formato que já funcionou pra outras marcas vira um jeito de mostrar o seu produto dentro de casa.</p>
+    <div class="videos" id="videos"></div>
+  </div>
+</section>
+
+<!-- 5. ESTÉTICA -->
+<section class="estetica" id="estetica">
+  <div class="wrap">
+    <div class="olho">A estética da casa</div>
+    <h2>Seu produto num cenário <em>com identidade</em>.</h2>
+    <p class="lead">Madeira, verde e luz quente ligam a casa inteira. O seu produto não aparece num fundo qualquer: aparece num lar que dá vontade de ter.</p>
+    <div class="paleta" aria-label="Paleta da casa">
+      <div style="background:#3f4a2a;color:#f4ece1">Verde musgo</div>
+      <div style="background:#9aa889;color:#1b120e">Sálvia</div>
+      <div style="background:#a47148;color:#f4ece1">Madeira</div>
+      <div style="background:#d9772f;color:#1b120e">Âmbar</div>
+      <div style="background:#ebe1d4;color:#1b120e">Creme</div>
+    </div>
+    <div class="mood" id="mood"></div>
+  </div>
+</section>
+
+<!-- 6. PLANO DA MARCA -->
+<section id="sua-marca">
+  <div class="wrap">
+    <div class="olho">E a sua marca?</div>
+    <h2>Escolha o seu nicho e veja <em>o plano pronto</em>.</h2>
+    <p class="lead">O momento de compra do seu cliente, como o produto aparece, três ideias de vídeo e uma prévia de roteiro.</p>
+    <div class="nichos" id="nichos" role="group" aria-label="Nicho da marca"></div>
+    <div class="plano" id="plano" aria-live="polite"></div>
+  </div>
+</section>
+
+<!-- 7. SÉRIE -->
+<section class="serie" id="serie">
+  <div class="wrap">
+    <div class="olho">A série</div>
+    <h2>Um episódio por etapa, e o seu produto <em>dentro da história</em>.</h2>
+    <p class="lead">Cada episódio acompanha uma etapa da casa. A marca entra onde o produto faz sentido, como parte da escolha, nunca como intervalo comercial.</p>
+    <div class="regras">
+      <div><b>1 marca por categoria</b><p>Em cada episódio, nenhum concorrente dividindo a cena com você.</p></div>
+      <div><b>Aparece duas vezes</b><p>No episódio da etapa e de novo no tour final, com a casa pronta.</p></div>
+      <div><b>Já começou</b><p>Planejamento e escolhas são episódio. Dá pra fechar e gravar agora.</p></div>
+    </div>
+    <ol class="eps" id="eps"></ol>
+  </div>
+</section>
+
+<!-- 8. INVESTIMENTO -->
+<section id="investimento">
+  <div class="wrap">
+    <div class="olho">Investimento</div>
+    <h2>Toda parceria tem <em>as duas entregas</em>.</h2>
+    <p class="lead">Você escolhe quantos vídeos UGC quer. A aparição na série já vem junto, em qualquer pacote.</p>
+    <div class="inclui"><span><b>✓</b> Roteiro aprovado antes de gravar</span><span><b>✓</b> Uso vitalício nas suas redes</span><span><b>✓</b> Entrega em até 7 dias</span><span><b>✓</b> Aparição na série + tour final</span></div>
+    <div class="pacotes" id="pacotes"></div>
+    <div class="alto-valor">
+      <div><h3>Produto de <em>alto valor</em>?</h3><p>Móveis, eletros e enxovais completos: o valor do produto pode compor parte do investimento. A gente monta uma proposta sob medida.</p></div>
+      <a class="botao claro" id="zapValor" href="https://wa.me/5581989857308" target="_blank" rel="noopener">Montar minha proposta</a>
+    </div>
+    <p class="letra-miuda">Os vídeos UGC são da marca: você posta e impulsiona onde quiser. Se quiser collab no meu perfil, sai sem custo adicional. Exclusividade de categoria tem ajuste de valor.</p>
+  </div>
+</section>
+
+<!-- 9. PROCESSO + FAQ -->
+<section style="padding-top:0">
+  <div class="wrap">
+    <div class="olho">Depois do sim</div>
+    <h2>Do produto em mãos ao <em>vídeo entregue</em>.</h2>
+    <ol class="passos">
+      <li><b>Alinhamento</b><p>Objetivo, público e onde o vídeo vai rodar.</p></li>
+      <li><b>Roteiro</b><p>Ideias e roteiro pronto pra você aprovar.</p></li>
+      <li><b>Gravação</b><p>Cenário da casa, luz, som e edição nativa.</p></li>
+      <li><b>Entrega</b><p>Em até 7 dias, numa pasta no Drive, com 1 rodada de ajuste.</p></li>
+    </ol>
+    <div class="faq">
+      <details><summary>Preciso esperar a série pra receber os vídeos?</summary><p>Não. O UGC da sua marca é entregue em até 7 dias depois do produto chegar, independente do calendário da série.</p></details>
+      <details><summary>Quem posta os vídeos UGC?</summary><p>Você. Os vídeos são da marca, pra postar e impulsionar onde quiser. Se quiser collab no meu perfil, eu faço sem custo adicional.</p></details>
+      <details><summary>Meu produto é de outro nicho. Cabe na série?</summary><p>Se ele faz parte de uma casa, cabe. Me chama com o produto que eu te mostro o episódio e o formato em que ele entra.</p></details>
+      <details><summary>Tem exclusividade?</summary><p>Na série, já é 1 marca por categoria em cada episódio. Exclusividade de categoria nos vídeos UGC tem ajuste de valor antes da contratação.</p></details>
+    </div>
+  </div>
+</section>
+</main>
+
+<!-- 10. CONTATO -->
+<section class="contato" id="contato">
+  <div class="wrap contato-grid">
+    <div>
+      <div class="olho">Vamos criar?</div>
+      <h2>Seu produto tem um <em>lugar</em> nessa casa.</h2>
+      <p class="lead">Me conta qual produto você quer destacar. Eu te respondo com a ideia de roteiro e o episódio em que ele entra.</p>
+      <div class="acoes">
+        <a class="botao claro" id="zap" href="https://wa.me/5581989857308" target="_blank" rel="noopener">Chamar no WhatsApp</a>
+        <a class="botao vazado" href="https://instagram.com/caetyas_" target="_blank" rel="noopener">@caetyas_</a>
+      </div>
+      <div class="dados"><span>WhatsApp (81) 98985-7308</span><span>vityasbusiness@gmail.com</span></div>
+    </div>
+    <figure class="polaroid"><span class="fita" aria-hidden="true"></span><img src="img/eu2.webp" alt="Yasmin sorrindo, sentada em frente a um letreiro neon"><figcaption>até já!</figcaption></figure>
+  </div>
+</section>
+
+<footer>Yasmin Caetano · UGC Creator · Natal RN · Imagens do moodboard são referências de estilo.</footer>
+
+<div class="barra" id="barra">
+  <p id="barraTexto"><b>Construindo meu lar do zero</b><br>Parcerias abertas pra marcas de casa e pet</p>
+  <a class="botao claro" id="zapBarra" href="https://wa.me/5581989857308" target="_blank" rel="noopener">Falar comigo</a>
+</div>
+
+<div class="fundo-video" id="fundoVideo" aria-hidden="true">
+  <div class="card-player" role="dialog" aria-modal="true" aria-label="Vídeo">
+    <button class="fechar" id="fecharVideo" type="button" aria-label="Fechar vídeo">×</button>
+    <div class="moldura" id="moldura"></div>
+  </div>
+</div>
+
+<script>
+  /* ====== SEUS DADOS (edite aqui) ====== */
+  const WHATSAPP = "5581989857308";
+
+  // Vídeos da seção "Meus vídeos". id = código do YouTube (depois de "shorts/").
+  // casa = como esse formato vira conteúdo de casa.
+  const VIDEOS = [
+    { id: "pvpWG6x2ucA", nicho: "Skincare", casa: "Na casa: banheiro e aromas" },
+    { id: "mwWG5L3VRW4", nicho: "Haircare", casa: "Na casa: uso passo a passo" },
+    { id: "mYr7VDvsxYo", nicho: "Bodycare", casa: "Na casa: cama, mesa e banho" },
+    { id: "xZuFjGpek0M", nicho: "Calçados", casa: "Na casa: antes e depois" },
+    { id: "KHrjhYwHz_w", nicho: "Gastronomia", casa: "Na casa: cozinha" },
+    { id: "SpHDfJ-BWOk", nicho: "Makeup", casa: "Na casa: decoração e detalhe" },
+    { id: "eQKGJGUUxA8", nicho: "Acessórios", casa: "Na casa: lifestyle" },
+    { id: "HNMgo5j_ONY", nicho: "Tecnologia", casa: "Na casa: eletros" }
+  ];
+
+  // Moodboard. alto: true ocupa duas linhas.
+  const MOOD = [
+    { src: "sala1", legenda: "sala retrô", alto: true },
+    { src: "coz1", legenda: "cozinha verde", alto: false },
+    { src: "ban2", legenda: "banheiro spa", alto: true },
+    { src: "sala4", legenda: "", alto: true },
+    { src: "coz2", legenda: "", alto: false },
+    { src: "pet3", legenda: "pet", alto: false },
+    { src: "sala2", legenda: "", alto: false },
+    { src: "ban1", legenda: "", alto: false },
+    { src: "coz3", legenda: "", alto: false }
+  ];
+
+  const EPISODIOS = [
+    { t: "Antes da chave", d: "Planejamento, moodboard e a lista de escolhas da casa." },
+    { t: "Caixa por caixa", d: "Mudança, faxina e organização do que chega." },
+    { t: "Minha primeira cozinha", d: "Do armário vazio à primeira receita." },
+    { t: "Banheiro verde", d: "Organização, autocuidado e o ritual de banho." },
+    { t: "A sala que eu sonhei", d: "Sofá, luz e a estética retrô ganhando forma." },
+    { t: "Pet: o espaço da Mel", d: "Um espaço pensado pra minha gata." },
+    { t: "Meu quarto, minha cara", d: "Cama, cores e os detalhes que fazem o quarto." },
+    { t: "Tour: o lar pronto", d: "A casa inteira, com todas as marcas de volta." }
+  ];
+
+  const PACOTES = [
+    { nome: "Validação", pra: "Pra testar o UGC na sua marca.", itens: ["1 vídeo UGC", "2 fotos", "30 dias de uso em anúncio"], preco: "R$ 300", destaque: false },
+    { nome: "Performance", pra: "Pra rodar anúncio e testar criativos.", itens: ["3 vídeos UGC", "6 fotos", "90 dias de uso em anúncio", "1 rodada de ajuste"], preco: "R$ 790", destaque: true, selo: "Recomendado" },
+    { nome: "Estratégico", pra: "Pra escalar com volume.", itens: ["5 vídeos UGC", "10 fotos", "120 dias de uso em anúncio", "2 rodadas de ajuste"], preco: "R$ 1.190", destaque: false }
+  ];
+
+  // Nichos. momento = por que esse cliente compra agora. ganha = o que a marca leva.
+  const NICHOS = [
+    { id: "cozinha", nome: "Cozinha e utensílios", curto: "cozinha", ex: "Panelas, potes, louças", eps: [0, 2, 7],
+      momento: "A primeira cozinha é montada do zero, e cada item é pesquisado. É a hora em que o cliente compara marcas e decide qual vai durar anos.",
+      ganha: ["Produto em uso real, numa receita de verdade", "Credibilidade extra: sou estudante de Nutrição", "Vídeo de demonstração pronto pra anúncio"],
+      ideias: [["Eu não compraria uma panela sem olhar essas 3 coisas", "Review"], ["A primeira receita na cozinha nova", "Storytelling"], ["O que realmente precisa numa primeira cozinha", "Problema × solução"]],
+      frames: [["0–3s · gancho", "Close da panela no fogo, vapor subindo.", "primeira coisa que eu fiz na casa nova"], ["3–18s · uso real", "Receita rápida mostrando o diferencial.", ""], ["18–25s · fecho", "Prato servido na bancada de madeira. Por que eu escolhi essa.", "aprovada ✓"]] },
+    { id: "cama-mesa-banho", nome: "Cama, mesa e banho", curto: "cama, mesa e banho", ex: "Colcha, toalha, pano de prato", eps: [2, 3, 6, 7],
+      momento: "Enxoval é uma das primeiras compras de quem monta casa, e é comprado pelo toque e pela foto. Mostrar textura em vídeo é o que convence.",
+      ganha: ["Textura e caimento mostrados em close", "Produto aparecendo em mais de um cômodo", "Antes e depois que vira anúncio"],
+      ideias: [["Montando a cama do meu quarto novo", "Antes × depois"], ["O detalhe que deixa a cozinha com cara de casa", "Lifestyle"], ["Toalha que seca de verdade? Testei", "Review"]],
+      frames: [["0–3s · gancho", "Cama só com colchão, luz fria.", "meu quarto ainda sem cara de meu"], ["3–18s · montagem", "Lençol, colcha e almofadas em cortes rápidos. Close da textura.", ""], ["18–25s · revelação", "Luz quente acesa, a Mel deitando na cama pronta.", "agora sim"]] },
+    { id: "limpeza", nome: "Limpeza e lavanderia", curto: "limpeza", ex: "Multiuso, panos, lava-roupas", eps: [0, 1, 2, 3],
+      momento: "Antes de qualquer móvel entrar, vem a faxina. É quando o cliente escolhe a marca que vai virar hábito de compra todo mês.",
+      ganha: ["Resultado visível em antes e depois", "Produto de recompra apresentado como rotina", "Formato que performa em anúncio"],
+      ideias: [["A primeira faxina antes de tudo entrar", "Antes × depois"], ["Kit de limpeza de quem está começando do zero", "Demonstração"], ["Esse produto resolveu o que veio com o apê", "Problema × solução"]],
+      frames: [["0–3s · gancho", "Porta abrindo num cômodo vazio e empoeirado.", "antes de qualquer móvel entrar…"], ["3–18s · faxina", "O produto em ação no piso, no box e na pia.", ""], ["18–25s · fecho", "Cômodo brilhando, primeira caixa entrando.", "agora pode mudar"]] },
+    { id: "organizacao", nome: "Organização", curto: "organização", ex: "Potes, cestos, nichos", eps: [1, 2, 3, 6, 7],
+      momento: "Casa nova é a chance de organizar do jeito certo desde o início. O cliente compra organização em kit, não uma peça só.",
+      ganha: ["Vídeo sensorial, o formato que mais prende", "Vários produtos da linha numa cena só", "Transformação que gera salvamento e compartilhamento"],
+      ideias: [["Organizando a despensa do zero", "Sensorial"], ["Caixa por caixa: desembalando a mudança", "Storytelling"], ["Banheiro pequeno, 3 soluções", "Problema × solução"]],
+      frames: [["0–3s · gancho", "Sacolas de mercado na bancada, tudo bagunçado.", "a despensa da casa nova"], ["3–18s · organização", "Potes sendo cheios em ritmo ASMR, tudo no lugar.", ""], ["18–25s · revelação", "Armário aberto, tudo alinhado.", "paz"]] },
+    { id: "moveis", nome: "Móveis", curto: "móveis", ex: "Sofá, rack, mesa", eps: [0, 2, 4, 7],
+      momento: "Móvel é compra cara e pensada: o cliente assiste muito conteúdo antes de decidir. Ver a escolha acontecendo é o que tira a dúvida.",
+      ganha: ["Jornada completa: escolha, chegada, montagem e uso", "Produto como protagonista de um episódio inteiro", "Conteúdo que responde às objeções de compra"],
+      ideias: [["Encontrando o sofá ideal pra minha primeira sala", "Storytelling"], ["3 coisas que eu olharia num sofá", "Review"], ["Montei sozinha: dá pra montar sem ajuda?", "Demonstração"]],
+      frames: [["0–3s · gancho", "Sala vazia, só a TV no chão.", "minha sala tinha só isso"], ["3–18s · chegada", "Caixa chegando, montagem, detalhes do tecido e do conforto.", ""], ["18–25s · revelação", "Sofá montado, luz âmbar, eu deitando nele.", "agora é sala"]] },
+    { id: "decoracao", nome: "Decoração e iluminação", curto: "decoração", ex: "Quadros, tapetes, luminárias", eps: [0, 3, 4, 6, 7],
+      momento: "Depois do básico, vem o que dá personalidade. É compra de desejo, e desejo nasce de ver o produto num ambiente bonito.",
+      ganha: ["Produto num cenário de revista", "Transformação de ambiente em segundos", "Estética que valoriza o preço do produto"],
+      ideias: [["A luz que mudou a sala inteira", "Antes × depois"], ["3 formas de usar esse quadro", "Demonstração"], ["Montando a estética retrô sem gastar muito", "Lifestyle"]],
+      frames: [["0–3s · gancho", "Cômodo com luz branca de teto.", "o erro que deixa a casa sem graça"], ["3–18s · troca", "Luminária entrando, a luz de cima apaga, o ambiente muda.", ""], ["18–25s · fecho", "Plano aberto da sala aconchegante à noite.", "mesmo cômodo"]] },
+    { id: "eletros", nome: "Eletros e eletroportáteis", curto: "eletros", ex: "Air fryer, cafeteira, aspirador", eps: [2, 4, 7],
+      momento: "Eletro é a compra que o cliente mais pesquisa em vídeo antes de fechar. Ver funcionando na rotina de alguém real decide.",
+      ganha: ["Demonstração de uso real, com som e detalhe", "Respostas às dúvidas mais comuns de compra", "Credibilidade na cozinha: estudante de Nutrição"],
+      ideias: [["O primeiro café da casa nova", "Sensorial"], ["Testei com o que tinha na geladeira", "Demonstração"], ["Vale a pena pra quem está começando?", "Review"]],
+      frames: [["0–3s · gancho", "Manhã, cozinha verde, luz entrando.", "primeiro café da casa nova"], ["3–18s · uso", "O aparelho funcionando em close, som real.", ""], ["18–25s · fecho", "Xícara na mão, olhando a casa ganhar forma.", "começou bem"]] },
+    { id: "pet", nome: "Pet", curto: "pet", ex: "Caminha, arranhador, fonte", eps: [5, 7],
+      momento: "Mudança muda a rotina do pet, e o tutor compra pra ele se adaptar. A reação real do animal é o argumento mais forte que existe.",
+      ganha: ["Reação espontânea da Mel, sem encenação", "Episódio dedicado ao pet", "Conteúdo de alto engajamento e compartilhamento"],
+      ideias: [["Será que a Mel aprovou a caminha nova?", "Storytelling"], ["Montando o espaço da Mel no lar novo", "Lifestyle"], ["Fonte ou pote: a Mel bebe mais água?", "Demonstração"]],
+      frames: [["0–3s · gancho", "A Mel desconfiada, cheirando a caixa.", "a opinião que mais importa"], ["3–18s · reação", "Montagem do produto e a reação dela em tempo real.", ""], ["18–25s · fecho", "A Mel dormindo no cantinho dela.", "aprovado pela chefe"]] },
+    { id: "aromas", nome: "Aromas e bem-estar", curto: "aromas", ex: "Velas, difusores, home spray", eps: [3, 6, 7],
+      momento: "Cheiro é o que transforma casa em lar, e quem acabou de se mudar quer exatamente essa sensação. É compra emocional.",
+      ganha: ["Conteúdo sensorial, que faz sentir o cheiro pela tela", "Ritual de autocuidado com o produto", "Estética que eleva a percepção da marca"],
+      ideias: [["O cheiro de casa nova", "Sensorial"], ["Ritual de domingo no banheiro verde", "Lifestyle"], ["Casa com cheiro de hotel? Testei", "Review"]],
+      frames: [["0–3s · gancho", "Fósforo acendendo a vela em câmera lenta.", "o que faz uma casa virar lar"], ["3–18s · ritual", "Banheiro verde, vapor, toalha, o produto em close.", ""], ["18–25s · fecho", "Luz baixa, sala silenciosa.", "cheiro de casa"]] }
+  ];
+  /* ====== fim dos dados ====== */
+
+  const $ = s => document.querySelector(s);
+  const esc = s => String(s).replace(/[&<>"']/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
+  const playSvg = '<svg viewBox="0 0 24 24"><path d="M6 4l14 8-14 8z"/></svg>';
+  let atual = null;
+
+  function linkZap(n) {
+    const msg = n
+      ? `Oi, Yasmin! Vi o projeto Construindo meu lar do zero. Minha marca é de ${n.curto} e quero conversar sobre uma parceria.`
+      : "Oi, Yasmin! Vi o projeto Construindo meu lar do zero e quero conversar sobre uma parceria.";
+    return `https://wa.me/${WHATSAPP}?text=${encodeURIComponent(msg)}`;
+  }
+
+  // Vídeos
+  $("#videos").innerHTML = VIDEOS.map(v => `<button type="button" class="video" data-video="${esc(v.id)}" aria-label="Assistir vídeo de ${esc(v.nicho)}">
+    <span class="tela"><img src="https://i.ytimg.com/vi/${esc(v.id)}/oardefault.jpg" alt="" loading="lazy" data-fallback="${esc(v.id)}"><span class="play">${playSvg}</span></span>
+    <span><b data-titulo="${esc(v.id)}">${esc(v.nicho)}</b><small class="casa">${esc(v.casa)}</small></span></button>`).join("");
+  document.querySelectorAll("img[data-fallback]").forEach(img => img.addEventListener("error", () => {
+    if (!img.dataset.f) { img.dataset.f = 1; img.src = `https://i.ytimg.com/vi/${img.dataset.fallback}/hqdefault.jpg`; }
+  }));
+  // Título do YouTube no formato "Marca • Formato" vira a legenda do card
+  VIDEOS.forEach(v => {
+    fetch("https://noembed.com/embed?url=" + encodeURIComponent("https://www.youtube.com/watch?v=" + v.id))
+      .then(r => r.json()).then(d => {
+        if (!d || !d.title) return;
+        const el = document.querySelector(`[data-titulo="${v.id}"]`);
+        if (el) el.textContent = d.title.split(/\s*[•·|]\s*/).filter(Boolean).join(" · ");
+      }).catch(() => {});
+  });
+
+  // Moodboard
+  $("#mood").innerHTML = MOOD.map(m => `<figure class="${m.alto ? "alto" : ""}"><img src="img/${esc(m.src)}.webp" alt="Referência de estilo${m.legenda ? ": " + esc(m.legenda) : ""}" loading="lazy">${m.legenda ? `<figcaption>${esc(m.legenda)}</figcaption>` : ""}</figure>`).join("");
+
+  // Pacotes
+  $("#pacotes").innerHTML = PACOTES.map(p => `<article class="pacote${p.destaque ? " destaque" : ""}">
+    <div class="topo"><span>${p.selo || "Pacote"}</span></div><h3>${esc(p.nome)}</h3><p class="pra">${esc(p.pra)}</p>
+    <ul>${p.itens.map(i => `<li>${esc(i)}</li>`).join("")}<li class="serie-item">Aparição na série + tour final</li></ul>
+    <p class="preco">${esc(p.preco)}</p></article>`).join("");
+
+  function desenhaNichos() {
+    $("#nichos").innerHTML = NICHOS.map(n => `<button type="button" class="nicho" data-id="${n.id}" aria-pressed="${!!atual && atual.id === n.id}">
+      <span><b>${esc(n.nome)}</b><small>${esc(n.ex)}</small></span><span class="seta" aria-hidden="true">→</span></button>`).join("");
+  }
+
+  function desenhaPlano() {
+    if (!atual) { $("#plano").innerHTML = `<div class="plano-vazio">Toque no nicho da sua marca e o plano aparece aqui.</div>`; return; }
+    const n = atual;
+    $("#plano").innerHTML = `<div class="plano-topo"><div class="olho">Plano pra marcas de ${esc(n.curto)}</div>
+        <h3>O momento de compra do <em>seu cliente</em>.</h3><p>${esc(n.momento)}</p></div>
+      <div class="plano-corpo">
+        <div class="bloco"><p class="rotulo">O que a sua marca ganha</p><ul>${n.ganha.map(g => `<li>${esc(g)}</li>`).join("")}</ul>
+          <p class="rotulo" style="margin-top:22px">Na série</p><ul>${n.eps.map(e => `<li>Ep. 0${e} · ${esc(EPISODIOS[e].t)}</li>`).join("")}</ul></div>
+        <div class="bloco"><p class="rotulo">Ideias de vídeo UGC</p><ol class="ideias">${n.ideias.map((x, i) => `<li><span class="n">0${i + 1}</span><div><q>${esc(x[0])}</q><small>${esc(x[1])}</small></div></li>`).join("")}</ol></div>
+        <div class="bloco roteiro"><p class="rotulo">Prévia de roteiro · ideia 01</p>
+          <div class="frames">${n.frames.map(f => `<div class="frame"><span class="tempo">${esc(f[0])}</span>${f[2] ? `<span class="na-tela">${esc(f[2])}</span>` : "<span></span>"}<span class="cena">${esc(f[1])}</span></div>`).join("")}</div></div>
+        <div class="plano-cta"><a class="botao" href="${linkZap(n)}" target="_blank" rel="noopener">Quero esse plano pra minha marca</a><p>O roteiro final é feito pro seu produto e objetivo.</p></div>
+      </div>`;
+  }
+
+  function desenhaEps() {
+    $("#eps").innerHTML = EPISODIOS.map((e, i) => {
+      const cls = !atual ? "" : (atual.eps.includes(i) ? " sim" : " nao");
+      return `<li class="ep${cls}"><span class="num">Ep. 0${i}<span class="selo">sua marca</span></span><h3>${esc(e.t)}</h3><p>${esc(e.d)}</p></li>`;
+    }).join("");
+  }
+
+  function atualizaContato() {
+    const href = linkZap(atual);
+    ["#zap", "#zapBarra", "#zapValor"].forEach(s => $(s).href = href);
+    $("#barraTexto").innerHTML = atual
+      ? `<b>Marca de ${esc(atual.curto)}</b><br>Seu plano está pronto`
+      : `<b>Construindo meu lar do zero</b><br>Parcerias abertas pra marcas de casa e pet`;
+  }
+
+  function escolhe(id, rolar) {
+    atual = NICHOS.find(n => n.id === id) || null;
+    if (atual && location.hash !== "#" + id) history.replaceState(null, "", "#" + id);
+    desenhaNichos(); desenhaPlano(); desenhaEps(); atualizaContato();
+    if (rolar && atual) $("#plano").scrollIntoView({ behavior: "smooth", block: "start" });
+  }
+
+  $("#nichos").addEventListener("click", e => { const b = e.target.closest(".nicho"); if (b) escolhe(b.dataset.id, true); });
+
+  // Barra fixa aparece depois da capa
+  const barra = $("#barra");
+  new IntersectionObserver(([en]) => barra.classList.toggle("visivel", !en.isIntersecting)).observe($("#topo"));
+
+  // Player na própria página
+  const fundo = $("#fundoVideo"), moldura = $("#moldura");
+  const toqueCel = window.matchMedia("(pointer: coarse)").matches;
+  const player = { el: null, tocando: false, mudo: false };
+  let focoAntes = null;
+  const comando = f => player.el && player.el.contentWindow && player.el.contentWindow.postMessage(JSON.stringify({ event: "command", func: f, args: [] }), "*");
+  function abreVideo(id) {
+    focoAntes = document.activeElement;
+    Object.assign(player, { tocando: true, mudo: toqueCel });
+    const cod = encodeURIComponent(id);
+    const origem = location.protocol.startsWith("http") ? `&origin=${encodeURIComponent(location.origin)}` : "";
+    moldura.innerHTML = `<iframe src="https://www.youtube-nocookie.com/embed/${cod}?autoplay=1&mute=${player.mudo ? 1 : 0}&controls=0&rel=0&playsinline=1&iv_load_policy=3&disablekb=1&fs=0&loop=1&playlist=${cod}&enablejsapi=1${origem}" title="Vídeo da Yasmin Caetano" allow="autoplay; encrypted-media; picture-in-picture" tabindex="-1"></iframe>
+      <button type="button" class="toque" id="toque" aria-label="Pausar o vídeo"><span class="icone" aria-hidden="true">${playSvg}</span></button>
+      <button type="button" class="som" id="som">${player.mudo ? "Ativar som" : "Tirar som"}</button>`;
+    player.el = moldura.querySelector("iframe");
+    moldura.classList.remove("pausado");
+    $("#toque").addEventListener("click", () => {
+      player.tocando = !player.tocando; comando(player.tocando ? "playVideo" : "pauseVideo");
+      moldura.classList.toggle("pausado", !player.tocando);
+    });
+    $("#som").addEventListener("click", e => {
+      player.mudo = !player.mudo; comando(player.mudo ? "mute" : "unMute");
+      e.currentTarget.textContent = player.mudo ? "Ativar som" : "Tirar som";
+    });
+    fundo.classList.add("aberto"); fundo.setAttribute("aria-hidden", "false");
+    $("#fecharVideo").focus();
+  }
+  function fechaVideo() {
+    fundo.classList.remove("aberto"); fundo.setAttribute("aria-hidden", "true");
+    moldura.innerHTML = ""; player.el = null;
+    if (focoAntes && focoAntes.focus) focoAntes.focus();
+  }
+  document.addEventListener("click", e => { const v = e.target.closest("[data-video]"); if (v) abreVideo(v.dataset.video); });
+  $("#fecharVideo").addEventListener("click", fechaVideo);
+  fundo.addEventListener("click", e => { if (e.target === fundo) fechaVideo(); });
+  document.addEventListener("keydown", e => { if (e.key === "Escape" && fundo.classList.contains("aberto")) fechaVideo(); });
+
+  const doLink = location.hash.slice(1);
+  escolhe(NICHOS.some(n => n.id === doLink) ? doLink : "", false);
+  if (atual) setTimeout(() => $("#sua-marca").scrollIntoView({ block: "start" }), 300);
+</script>
+</body>
+</html>
