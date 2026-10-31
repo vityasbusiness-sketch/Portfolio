@@ -739,15 +739,15 @@
   ];
 
   const MOOD = [
-    { src: "set", legenda: "sala" },
-    { src: "ncoz1", legenda: "cozinha" },
-    { src: "nban3", legenda: "banheiro" },
-    { src: "nqua1", legenda: "quarto" },
-    { src: "nluz1", legenda: "luz indireta" },
-    { src: "npet3", legenda: "pet" },
-    { src: "nsala1", legenda: "" },
-    { src: "ncoz3", legenda: "" }
-  ]
+    { src: "m-sala1", legenda: "sala" },
+    { src: "m-coz1", legenda: "cozinha" },
+    { src: "m-ban1", legenda: "banheiro" },
+    { src: "m-qua2", legenda: "quarto" },
+    { src: "m-dec3", legenda: "luz indireta" },
+    { src: "m-pet1", legenda: "pet" },
+    { src: "m-sala4", legenda: "" },
+    { src: "m-aro1", legenda: "" }
+  ];
 
   // Cômodos da série (cada um ganha lista + montagem). O último é o fechamento.
   const COMODOS = ["Sala", "Cozinha", "Banheiro", "Quarto", "Espaço pet"];
@@ -770,7 +770,7 @@
   // videos: [etapa, formato, gancho, objetivo, sensação]. [seu produto] é trocado no roteiro final.
   const NICHOS = [
     { id: "sala", exemplos: "Sofá, tapete ou luminária", tipo: "comodo", nome: "Sala", curto: "sala", ex: "Móveis, tapetes, luminárias", serie: ["Sala"], video: "xZuFjGpek0M",
-      mood: ["set", "nsala1", "nsala2", "sala1", "sala2"],
+      mood: ["m-sala1", "m-sala2", "m-sala3", "m-sala4", "m-sala5"],
       conceito: "Os móveis fazem a casa. O aconchego <em>faz o lar</em>.",
       cenario: "A sala começa vazia e vai ganhar sofá, rack, tapete e luz indireta, num estilo retrô aconchegante com verde oliva, madeira e laranja. Um canto dela vira o meu set de gravação.",
       marcas: ["Móveis", "Tapetes", "Iluminação", "Quadros", "Mantas e almofadas", "Eletros"],
@@ -779,7 +779,7 @@
                ["Conectar", "Review com critério", "O que eu olhei antes de escolher [seu produto] pra minha primeira sala.", "Gerar confiança mostrando o critério da escolha.", "ela pensou nisso por mim"],
                ["Converter", "Lo-fi de uso real", "Uma semana com [seu produto] na sala. Valeu a pena?", "Fechar a decisão com o produto na rotina.", "quero na minha casa"]] },
     { id: "cozinha", exemplos: "Panela, pano de prato ou air fryer", tipo: "comodo", nome: "Cozinha", curto: "cozinha", ex: "Utensílios, eletros, panos", serie: ["Cozinha"], video: "KHrjhYwHz_w",
-      mood: ["ncoz1", "ncoz2", "ncoz3", "ncoz4", "coz1"],
+      mood: ["m-coz1", "m-coz2", "m-coz3", "m-coz4", "m-coz5"],
       conceito: "Cozinha que dá vontade de <em>usar todo dia</em>.",
       cenario: "Armários verde musgo, madeira clara e luz quente embaixo das prateleiras. Uma cozinha montada do zero por quem estuda Nutrição e cozinha de verdade.",
       marcas: ["Panelas e utensílios", "Eletroportáteis", "Potes e organização", "Panos e enxoval", "Louças", "Móveis"],
@@ -788,7 +788,7 @@
                ["Conectar", "Demonstração", "Testei [seu produto] na rotina de quem cozinha todo dia.", "Mostrar funcionando e responder dúvidas de uso.", "funciona de verdade"],
                ["Converter", "Lo-fi / review", "O que eu compraria de novo pra minha primeira cozinha.", "Converter com recomendação de amiga.", "vou levar esse"]] },
     { id: "quarto", exemplos: "Jogo de cama, abajur ou vela", tipo: "comodo", nome: "Quarto", curto: "quarto", ex: "Enxoval, decoração, aromas", serie: ["Quarto"], video: "mYr7VDvsxYo",
-      mood: ["nqua1", "nqua2", "nluz2", "nluz1", "nqua3"],
+      mood: ["m-qua2", "m-qua1", "m-qua3", "m-qua4", "m-qua5"],
       conceito: "O cômodo que já existe, <em>ganhando a minha cara</em>.",
       cenario: "O quarto já tem cama, guarda-roupa e mesa. Agora entram roupa de cama, decoração e luz baixa pra virar o meu canto.",
       marcas: ["Cama e enxoval", "Decoração", "Iluminação", "Aromas", "Organização"],
@@ -797,7 +797,7 @@
                ["Conectar", "Rotina sensorial", "Meu ritual de fim de noite, só com luz baixa.", "Mostrar o produto vivendo a rotina.", "dá vontade de deitar"],
                ["Converter", "Review", "Valeu a pena trocar [seu produto] do meu quarto?", "Converter com um veredito honesto.", "valeu cada detalhe"]] },
     { id: "banheiro", exemplos: "Toalha, organizador ou difusor", tipo: "comodo", nome: "Banheiro", curto: "banheiro", ex: "Toalhas, organização, aromas", serie: ["Banheiro"], video: "pvpWG6x2ucA",
-      mood: ["nban3", "nban1", "nban2", "nban4", "ban1"],
+      mood: ["m-ban1", "m-ban2", "m-ban3", "m-ban4", "m-ban5"],
       conceito: "O banheiro como <em>o lugar mais calmo</em> da casa.",
       cenario: "Verde sálvia, madeira e palha, com luz indireta no espelho. Pequeno, organizado e com cara de spa.",
       marcas: ["Toalhas e tapetes", "Organizadores", "Aromas", "Iluminação", "Limpeza"],
@@ -806,7 +806,7 @@
                ["Conectar", "Problema × solução", "Banheiro pequeno: como eu fiz caber tudo.", "Resolver uma dor real com o produto.", "eu preciso disso"],
                ["Converter", "Lo-fi / lista", "O que eu recomendo pro banheiro de quem vai se mudar.", "Converter como indicação de amiga.", "anotado"]] },
     { id: "pet", exemplos: "Caminha, fonte ou arranhador", tipo: "comodo", nome: "Área pet", curto: "pet", ex: "Caminha, arranhador, fonte", serie: ["Espaço pet"], video: "eQKGJGUUxA8",
-      mood: ["npet3", "npet1", "npet4", "npet2", "pet3"],
+      mood: ["m-pet1", "m-pet2", "m-pet3", "m-pet4", "m-pet5"],
       conceito: "A casa também é <em>dela</em>.",
       cenario: "A Mel, minha gata, vem comigo. Nichos na parede, madeira, terracota e um cantinho pensado pra ela se adaptar à casa nova.",
       marcas: ["Caminhas e nichos", "Arranhadores", "Fontes e comedouros", "Areia e higiene", "Brinquedos"],
@@ -815,7 +815,7 @@
                ["Conectar", "Demonstração + reação", "Montei [seu produto] e a Mel reagiu assim.", "Mostrar o produto e a reação em tempo real.", "ela aprovou"],
                ["Converter", "Review", "Uma semana depois: a Mel aprovou mesmo?", "Converter com resultado real.", "quero pro meu"]] },
     { id: "decoracao", exemplos: "Luminária, quadro ou espelho", tipo: "casa", nome: "Decoração e iluminação", curto: "decoração e iluminação", ex: "Em todos os cômodos", serie: ["Sala", "Cozinha", "Banheiro", "Quarto"], video: "SpHDfJ-BWOk",
-      mood: ["nluz1", "nsala2", "sala6", "nluz2", "nsala1"],
+      mood: ["m-dec3", "m-dec1", "m-dec2", "m-dec4", "m-dec5"],
       conceito: "Luz indireta é o que <em>transforma casa em lar</em>.",
       cenario: "É o que eu mais vou precisar: nada de luz branca, só abajures, luminárias de pôr do sol e luz quente em todos os cômodos, com quadros, espelhos e tapetes.",
       marcas: ["Abajures e luminárias", "Fitas e luzes de LED", "Quadros", "Espelhos", "Tapetes", "Vasos"],
@@ -824,7 +824,7 @@
                ["Conectar", "Demonstração", "3 jeitos de usar [seu produto] pra mudar o clima de um cômodo.", "Mostrar versatilidade e dar ideias de uso.", "quero testar em casa"],
                ["Converter", "Lo-fi", "A peça que mais mudou a minha casa nova.", "Converter com a escolha número um.", "essa é a peça"]] },
     { id: "limpeza", exemplos: "Multiuso, pano ou lava-roupas", tipo: "casa", nome: "Limpeza e lavanderia", curto: "limpeza", ex: "Da faxina à rotina", serie: ["Sala", "Cozinha", "Banheiro"], video: "mwWG5L3VRW4",
-      mood: ["nlav1", "nlav2", "norg2", "coz4", "ban6"],
+      mood: ["m-lim1", "m-lim2", "m-lim3", "m-lim4", "m-lim5"],
       conceito: "Antes de qualquer móvel, <em>a primeira faxina</em>.",
       cenario: "A casa nova chega vazia e empoeirada. A limpeza abre a série e vira rotina em todos os cômodos, da cozinha ao banheiro.",
       marcas: ["Multiuso e detergentes", "Panos e microfibra", "Vassouras e rodos", "Cuidado com roupas", "Aromatizantes"],
@@ -842,7 +842,7 @@
                ["Conectar", "Problema × solução", "Eu prometi que na casa nova não ia ter gaveta da bagunça.", "Resolver uma dor que todo mundo tem.", "preciso fazer isso"],
                ["Converter", "Antes e depois lo-fi", "Uma gaveta, [seu produto] e 5 minutos.", "Converter mostrando como é fácil.", "fácil demais"]] },
     { id: "aromas", exemplos: "Vela, difusor ou home spray", tipo: "casa", nome: "Aromas e bem-estar", curto: "aromas", ex: "Velas, difusores, home spray", serie: ["Sala", "Banheiro", "Quarto"], video: "pvpWG6x2ucA",
-      mood: ["aro1", "aro2", "nban2", "ban5", "nluz1"],
+      mood: ["m-aro1", "m-aro2", "m-aro3", "m-aro4", "m-aro5"],
       conceito: "O que faz uma casa virar lar <em>não é móvel</em>.",
       cenario: "Velas, difusores e luz baixa em cada cômodo. O cheiro da casa nova é parte da identidade dela.",
       marcas: ["Velas", "Difusores", "Home spray", "Sabonetes e banho"],
