@@ -844,26 +844,32 @@
       .capa-conteudo { justify-content: flex-start; }
     }
     /* Funil */
-    .funil-grade { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; list-style: none; margin: 0 0 22px; padding: 0; }
-    .etapa-funil { display: flex; flex-direction: column; background: var(--papel); border-radius: var(--raio-g); padding: 0 22px 22px; box-shadow: var(--sombra); overflow: hidden; }
-    .barra-funil { height: 8px; margin: 0 auto 20px; border-radius: 0 0 6px 6px; }
-    .etapa-1 .barra-funil { width: 100%; background: var(--verde); }
-    .etapa-2 .barra-funil { width: 70%; background: var(--petroleo); }
-    .etapa-3 .barra-funil { width: 40%; background: var(--bordo); }
-    .topo-funil { display: flex; justify-content: space-between; gap: 14px; align-items: flex-start; }
-    .etapa-nome { margin: 0 0 4px; font-size: .7rem; font-weight: 600; letter-spacing: .18em; text-transform: uppercase; color: var(--tinta-suave); }
-    .etapa-funil h3 { font-size: clamp(1.7rem, 2.4vw, 2.1rem); font-style: italic; margin-bottom: 6px; }
-    .etapa-1 h3 { color: var(--verde); } .etapa-2 h3 { color: var(--petroleo); } .etapa-3 h3 { color: var(--bordo); }
-    .publico { margin: 0; font-size: .9rem; font-weight: 600; color: var(--tinta); }
-    .mini-video { position: relative; flex: none; width: 70px; aspect-ratio: 9 / 16; border: 0; padding: 0; border-radius: var(--raio); overflow: hidden; cursor: pointer; background: linear-gradient(160deg, #75815f, #2e3724); }
-    .mini-video img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
-    .mini-video .play { width: 30px; height: 30px; }
-    .mini-video .play svg { width: 11px; height: 11px; margin-left: 2px; fill: var(--bordo); }
-    .porque { margin: 14px 0; font-size: .92rem; line-height: 1.55; color: var(--tinta-suave); }
-    .etapa-funil dl { margin: auto 0 0; padding-top: 12px; border-top: 1px solid var(--linha); display: grid; gap: 8px; }
-    .etapa-funil dt { font-size: .66rem; font-weight: 600; letter-spacing: .14em; text-transform: uppercase; color: var(--tinta-suave); }
-    .etapa-funil dd { margin: 2px 0 0; font-size: .88rem; }
-    .legenda-funil { margin: 10px 0 0; font-size: .78rem; font-style: italic; color: var(--verde); }
+    .funil-grade { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; list-style: none; margin: 0 0 22px; padding: 0; align-items: stretch; }
+    .etapa-funil { --cor: var(--verde); display: flex; flex-direction: column; background: var(--papel); border-radius: var(--raio-g); box-shadow: var(--sombra); overflow: hidden; }
+    .etapa-2 { --cor: var(--petroleo); } .etapa-3 { --cor: var(--bordo); }
+    .cabeca-funil { position: relative; display: flex; align-items: center; gap: 14px; padding: 18px 18px 18px 20px; background: var(--cor); color: var(--bege); }
+    /* a faixa colorida vai afinando como um funil */
+    .cabeca-funil::before { content: ""; position: absolute; top: 0; left: 50%; transform: translateX(-50%); height: 5px; border-radius: 0 0 4px 4px; background: rgba(232, 220, 201, .55); }
+    .etapa-1 .cabeca-funil::before { width: 100%; } .etapa-2 .cabeca-funil::before { width: 66%; } .etapa-3 .cabeca-funil::before { width: 33%; }
+    .numero-funil { font-family: var(--serif); font-size: 2.6rem; line-height: 1; font-style: italic; opacity: .45; }
+    .titulos-funil { flex: 1; min-width: 0; }
+    .etapa-nome { margin: 0 0 2px; font-size: .64rem; font-weight: 600; letter-spacing: .2em; text-transform: uppercase; opacity: .8; }
+    .etapa-funil h3 { font-size: clamp(1.6rem, 2.2vw, 2rem); font-style: italic; color: var(--bege); margin: 0; }
+    .mini-video { position: relative; flex: none; width: 62px; aspect-ratio: 9 / 16; border: 2px solid rgba(232, 220, 201, .7); padding: 0; border-radius: var(--raio); overflow: visible; cursor: pointer; background: #222; }
+    .mini-video img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; border-radius: 2px; }
+    .mini-video .play { width: 26px; height: 26px; }
+    .mini-video .play svg { width: 10px; height: 10px; margin-left: 2px; fill: var(--bordo); }
+    .selo-video { position: absolute; left: 50%; bottom: -10px; transform: translateX(-50%); white-space: nowrap; padding: 3px 7px; border-radius: 999px; background: var(--bege); color: var(--verde); font: 700 .58rem/1.2 var(--sans); }
+    .corpo-funil { display: flex; flex-direction: column; flex: 1; padding: 18px 20px 20px; }
+    .publico { margin: 0 0 10px; font-size: .92rem; font-weight: 600; color: var(--cor); }
+    .porque { margin: 0 0 14px; font-size: .9rem; line-height: 1.55; color: var(--tinta-suave); }
+    .porque strong { color: var(--tinta); font-weight: 700; background: linear-gradient(transparent 62%, rgba(242, 220, 155, .75) 62%); }
+    .chips { display: flex; flex-wrap: wrap; gap: 6px; list-style: none; margin: 0 0 14px; padding: 0; }
+    .chips li { padding: 5px 10px; border-radius: 999px; border: 1px solid var(--cor); color: var(--cor); font-size: .74rem; font-weight: 600; }
+    .metrica { margin: auto 0 0; padding: 10px 12px; border-radius: var(--raio); background: rgba(17, 13, 10, .05); font-size: .86rem; font-weight: 600; }
+    .metrica span { display: block; font-size: .6rem; letter-spacing: .16em; text-transform: uppercase; color: var(--tinta-suave); font-weight: 600; margin-bottom: 2px; }
+    .exemplo-funil { margin: 10px 0 0; font-size: .76rem; color: var(--tinta-suave); }
+    .exemplo-funil b { color: var(--cor); }
     .funil-combo { display: flex; align-items: center; justify-content: space-between; gap: 20px; padding: 18px 22px; border-radius: var(--raio-g); background: var(--bordo); color: var(--bege); }
     .funil-combo p { margin: 0; }
     .funil-combo .botao-primario { background: var(--bege); border-color: var(--bege); color: var(--bordo); flex: none; }
@@ -973,8 +979,9 @@
       /* Funil: arrastar pro lado */
       .funil-grade { grid-auto-flow: column; grid-auto-columns: 84%; grid-template-columns: none; gap: 12px; overflow-x: auto; scroll-snap-type: x mandatory; scrollbar-width: none; padding-bottom: 6px; }
       .funil-grade::-webkit-scrollbar { display: none; }
-      .etapa-funil { scroll-snap-align: start; padding: 0 16px 16px; }
-      .porque { font-size: .84rem; margin: 10px 0; }
+      .etapa-funil { scroll-snap-align: start; }
+      .corpo-funil { padding: 16px; }
+      .porque { font-size: .84rem; }
       .funil-combo { flex-direction: column; align-items: stretch; padding: 16px; font-size: .88rem; }
       .frase-grupo { font-size: .74rem; }
       .ver-grupo { padding: 7px 10px; font-size: .6rem; }
@@ -1461,9 +1468,9 @@
       { id: "5L0vDLj5ubs", nicho: "gastronomia", sub: "", marca: "", formato: "" },
       { id: "HNMgo5j_ONY", nicho: "tecnologia", sub: "", marca: "", formato: "" },
       { id: "1z5ZKTFDaag", nicho: "tecnologia", sub: "", marca: "", formato: "" },
-      { id: "_lm4xX2D5RA", nicho: "tecnologia", sub: "", marca: "", formato: "" },
+      { id: "_lm4xX2D5RA", nicho: "tecnologia", sub: "", marca: "Mercado Livre", formato: "Campanha" },
       { id: "9MmKGwZTexQ", nicho: "tecnologia", sub: "", marca: "", formato: "" },
-      { id: "o6m2-1l1U0w", nicho: "tecnologia", sub: "", marca: "", formato: "" }
+      { id: "o6m2-1l1U0w", nicho: "tecnologia", sub: "", marca: "Amazon", formato: "Campanha" }
     ];
 
     // Vídeo do destaque (case Bombado). Preencha UM dos dois:
@@ -1515,15 +1522,18 @@
     // Funil: um vídeo de exemplo por etapa.
     // video: código do YouTube (o que vem depois de "shorts/"). Deixe "" e o card aparece sem vídeo.
     const funil = [
-      { etapa: "Topo", verbo: "Atrair", publico: "Quem ainda não conhece a sua marca.",
-        porque: "Gancho forte nos primeiros segundos e uma experiência real contada como história. Prende quem só está rolando o feed.",
-        formatos: "Storytelling, experiência, tendência", metrica: "Alcance e visualizações", video: "GMK9yJPUJbk", legenda: "Bombado: 70,9 mil visualizações" },
-      { etapa: "Meio", verbo: "Convencer", publico: "Quem já viu, mas ainda tem dúvida.",
-        porque: "O produto em uso, de perto: textura, resultado e resposta às objeções. É aqui que nasce a confiança.",
-        formatos: "Review, demonstração, rotina", metrica: "Retenção, salvamentos e visitas ao perfil", video: "", legenda: "" },
-      { etapa: "Fundo", verbo: "Converter", publico: "Quem está pronto pra comprar.",
-        porque: "Benefício direto, prova e uma chamada clara pra ação. Tira o último atrito entre o desejo e o carrinho.",
-        formatos: "Unboxing com oferta, prova social, CTA", metrica: "Cliques, vendas e custo por resultado", video: "", legenda: "" }
+      { etapa: "Topo", verbo: "Atrair", publico: "Quem ainda não conhece a sua marca",
+        porque: "Um **gancho forte nos primeiros segundos** e uma experiência real contada como história prendem quem só está rolando o feed.",
+        formatos: ["Storytelling", "Experiência", "Tendência"], metrica: "Alcance e visualizações",
+        video: "GMK9yJPUJbk", exemplo: "Bombado · ADS", selo: "70,9 mil views" },
+      { etapa: "Meio", verbo: "Convencer", publico: "Quem já viu, mas ainda tem dúvida",
+        porque: "Mostro **o problema e a solução na prática**: o produto em uso, de perto, respondendo às objeções. É aqui que nasce a confiança.",
+        formatos: ["Problema x solução", "Review", "Demonstração"], metrica: "Retenção, salvamentos e visitas ao perfil",
+        video: "5MUp_H9r6lk", exemplo: "Ollie · Problema x solução", selo: "" },
+      { etapa: "Fundo", verbo: "Converter", publico: "Quem está pronto pra comprar",
+        porque: "**Desejo imediato e chamada clara pra ação**: o produto no seu melhor momento, sem rodeio, tirando o último atrito até o carrinho.",
+        formatos: ["Anúncio direto", "Prova social", "Oferta"], metrica: "Cliques, vendas e custo por resultado",
+        video: "RsC91pApMrA", exemplo: "Cookitos · ADS", selo: "" }
     ];
 
     // Etapas da seção "Entrega". prazo: deixe "" para não mostrar, ou escreva ex: "3 dias".
@@ -1816,23 +1826,24 @@
     ).join("");
 
     // Funil
+    const negrito = s => esc(s).replace(/\*\*(.+?)\*\*/g, "<strong>$1</strong>");
     document.getElementById("listaFunil").innerHTML = funil.map((f, i) => `
       <li class="etapa-funil etapa-${i + 1} revelar">
-        <div class="barra-funil" aria-hidden="true"></div>
-        <div class="topo-funil">
-          <div>
+        <div class="cabeca-funil">
+          <span class="numero-funil" aria-hidden="true">0${i + 1}</span>
+          <div class="titulos-funil">
             <p class="etapa-nome">${esc(f.etapa)} de funil</p>
             <h3>${esc(f.verbo)}</h3>
-            <p class="publico">${esc(f.publico)}</p>
           </div>
-          ${f.video ? `<button type="button" class="mini-video" data-video="${esc(f.video)}" aria-label="Assistir exemplo de vídeo de ${esc(f.etapa.toLowerCase())} de funil"><img src="https://i.ytimg.com/vi/${esc(f.video)}/oardefault.jpg" alt="" loading="lazy" onerror="if(this.dataset.f){this.remove()}else{this.dataset.f=1;this.src='https://i.ytimg.com/vi/${esc(f.video)}/hqdefault.jpg'}"><span class="play" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M6 4l14 8-14 8z"/></svg></span></button>` : ""}
+          ${f.video ? `<button type="button" class="mini-video" data-video="${esc(f.video)}" aria-label="Assistir exemplo: ${esc(f.exemplo)}"><img src="https://i.ytimg.com/vi/${esc(f.video)}/oardefault.jpg" alt="" loading="lazy" onerror="if(this.dataset.f){this.remove()}else{this.dataset.f=1;this.src='https://i.ytimg.com/vi/${esc(f.video)}/hqdefault.jpg'}"><span class="play" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M6 4l14 8-14 8z"/></svg></span>${f.selo ? `<span class="selo-video">${esc(f.selo)}</span>` : ""}</button>` : ""}
         </div>
-        <p class="porque">${esc(f.porque)}</p>
-        <dl>
-          <div><dt>Formatos</dt><dd>${esc(f.formatos)}</dd></div>
-          <div><dt>O que medir</dt><dd>${esc(f.metrica)}</dd></div>
-        </dl>
-        ${f.video && f.legenda ? `<p class="legenda-funil">Exemplo: ${esc(f.legenda)}</p>` : ""}
+        <div class="corpo-funil">
+          <p class="publico"><span aria-hidden="true">→</span> ${esc(f.publico)}</p>
+          <p class="porque">${negrito(f.porque)}</p>
+          <ul class="chips" aria-label="Formatos">${f.formatos.map(x => `<li>${esc(x)}</li>`).join("")}</ul>
+          <p class="metrica"><span>O que medir</span>${esc(f.metrica)}</p>
+          ${f.exemplo ? `<p class="exemplo-funil">Exemplo no vídeo: <b>${esc(f.exemplo)}</b></p>` : ""}
+        </div>
       </li>`).join("");
     document.getElementById("listaFunil").addEventListener("click", e => {
       const b = e.target.closest(".mini-video");
