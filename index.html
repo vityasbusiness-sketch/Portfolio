@@ -1400,9 +1400,9 @@
 
     // Números curtos da capa. "Vídeos entregues" usa a quantidade de marcas como mínimo (+39).
     const numerosCapa = [
-      { numero: "+" + marcas.length, rotulo: "vídeos entregues" },
       { numero: "+" + marcas.length, rotulo: "marcas atendidas" },
-      { numero: "4,6M", rotulo: "curtidas no TikTok" }
+      { numero: "4,6M", rotulo: "curtidas no TikTok" },
+      { numero: "70,9 mil", rotulo: "views em um único vídeo" }
     ];
 
     // Nichos dos filtros. O "id" precisa ser igual ao campo "nicho" dos vídeos.
@@ -1472,10 +1472,10 @@
     // Métricas com contador animado.
     // valor: o número final (ex: 120). Deixe null enquanto não tiver o número real: aparece "00".
     const metricas = [
-      { valor: marcas.length, prefixo: "+", sufixo: "", rotulo: "vídeos entregues" },
       { valor: marcas.length, prefixo: "+", sufixo: "", rotulo: "marcas atendidas" },
       { valor: 4.6, prefixo: "", sufixo: "M", rotulo: "curtidas no TikTok" },
-      { valor: 70.9, prefixo: "", sufixo: " mil", rotulo: "visualizações em um único vídeo" }
+      { valor: 70.9, prefixo: "", sufixo: " mil", rotulo: "visualizações em um único vídeo" },
+      { valor: "0.10", prefixo: "R$ ", sufixo: "", rotulo: "por visita ao perfil em anúncio" }
     ];
 
     // Fotos UGC do carrossel, intercalando foto com você e foto de produto.
