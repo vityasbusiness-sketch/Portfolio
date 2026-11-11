@@ -887,6 +887,9 @@
     .funil-combo :focus-visible { outline-color: var(--bege); }
     .funil .cabeca-secao .apoio { max-width: 40ch; }
 
+    .dica-nicho { margin: -22px 0 26px; font-size: .84rem; color: var(--tinta-suave); }
+    .dica-nicho span { color: var(--bordo); margin-right: 4px; }
+    .dica-nicho[hidden] { display: none; }
     /* Nichos: frase curta e CTA mais visível */
     .grupo { align-items: flex-end; }
     .frase-grupo { margin: 4px 0 0; font-size: .9rem; color: var(--tinta-suave); }
@@ -971,6 +974,7 @@
       .filtro { font-size: .8rem; padding: 5px 12px 5px 5px; gap: 6px; }
       .filtro .ico { width: 24px; height: 24px; }
       .subfiltros { margin: -8px 0 18px; }
+      .dica-nicho { margin: -8px 0 16px; font-size: .74rem; }
 
       /* Entrega: passos compactos e pasta em 2 colunas */
       .etapas { margin-bottom: 18px; }
@@ -1184,6 +1188,7 @@
         </div>
 
         <div class="filtros revelar" id="filtros" role="group" aria-label="Filtrar trabalhos por nicho"></div>
+        <p class="dica-nicho" id="dicaNicho"><span aria-hidden="true">✦</span> Toque em um nicho para ver os subnichos: haircare, skincare, makeup, calçados e mais.</p>
         <div class="subfiltros" id="subfiltros" role="group" aria-label="Filtrar por subnicho" hidden></div>
         <ul class="galeria" id="galeria" aria-live="polite"></ul>
         <div class="mais-videos"><button type="button" class="botao botao-secundario" id="verMais" hidden>Ver mais vídeos</button></div>
@@ -1688,6 +1693,7 @@
       .map(n => `<button type="button" class="filtro" data-filtro="${esc(n.id)}" aria-pressed="${n.id === "todos"}">${icone(n.id)}${esc(n.nome)}</button>`).join("");
 
     function escolheNicho(id) {
+      document.getElementById("dicaNicho").hidden = id !== "todos";
       filtros.querySelectorAll(".filtro").forEach(b => b.setAttribute("aria-pressed", b.dataset.filtro === id));
       Object.assign(estado, { nicho: id, sub: "todos", limite: VIDEOS_POR_VEZ });
       desenhaGaleria();
