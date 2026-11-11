@@ -396,6 +396,17 @@
     .redes a:hover { color: var(--azul); }
     .rodape .copia { width: 100%; padding-top: 24px; border-top: 1px solid var(--linha); font-size: .85rem; color: var(--tinta-suave); margin: 0; }
 
+    /* Contato sem formulário */
+    .conversa h3 { font-size: clamp(1.5rem, 2.4vw, 1.9rem); margin-bottom: 16px; }
+    .conversa h3 em { color: var(--bordo); }
+    .lista-conversa { list-style: none; counter-reset: c; margin: 0 0 22px; padding: 0; }
+    .lista-conversa li { counter-increment: c; display: grid; grid-template-columns: 34px 1fr; column-gap: 12px; padding: 12px 0; border-bottom: 1px solid var(--linha); }
+    .lista-conversa li::before { content: "0" counter(c); grid-row: span 2; font-family: var(--serif); font-style: italic; font-size: 1.2rem; color: var(--bordo); }
+    .lista-conversa b { font-weight: 600; }
+    .lista-conversa span { font-size: .88rem; color: var(--tinta-suave); }
+    .conversa .botao { width: 100%; margin-top: 10px; }
+    .conversa .botao-secundario { color: var(--tinta); border-color: var(--tinta); }
+    .nota-conversa { margin: 14px 0 0; font-size: .82rem; color: var(--tinta-suave); text-align: center; }
     /* ============ CARD DE CAPTURA (mídia kit) ============ */
     .fundo-modal {
       position: fixed; inset: 0; z-index: 300; background: rgba(20, 17, 13, .62);
@@ -1315,33 +1326,16 @@
           </div>
         </div>
 
-        <!-- FORMULÁRIO: hoje ele só mostra a confirmação na tela.
-             Para receber as mensagens no seu e-mail, crie um formulário grátis no Formspree
-             e coloque o endereço que ele te der na constante ENDERECO_FORMULARIO no script. -->
-        <div class="formulario revelar">
-          <form id="formContato" novalidate>
-            <div class="campo">
-              <label for="nome">Nome</label>
-              <input id="nome" name="nome" type="text" autocomplete="name" required>
-            </div>
-            <div class="campo">
-              <label for="email">E-mail</label>
-              <input id="email" name="email" type="email" autocomplete="email" required>
-            </div>
-            <div class="campo">
-              <label for="mensagem">Mensagem</label>
-              <textarea id="mensagem" name="mensagem" required placeholder="Marca, produto, prazo e o que você imagina pra campanha"></textarea>
-            </div>
-            <button class="botao botao-primario" type="submit">Enviar mensagem</button>
-            <p class="aviso-form" id="avisoForm" role="alert" style="margin:14px 0 0;font-size:.9rem;color:#a32b00"></p>
-          </form>
-
-          <div class="confirmacao" id="confirmacao" role="status" tabindex="-1">
-            <div class="selo" aria-hidden="true">✓</div>
-            <h3>Mensagem recebida!</h3>
-            <p>Valeu pelo contato! Eu te respondo em breve no e-mail que você deixou.</p>
-            <a class="botao botao-primario" href="https://instagram.com/caetyas_" target="_blank" rel="noopener">Ver meu Instagram</a>
-          </div>
+        <!-- Sem formulário: a marca fala direto no WhatsApp ou no e-mail, com a mensagem já começada -->
+        <div class="formulario conversa revelar">
+          <h3>Me conta em <em>uma mensagem</em>:</h3>
+          <ol class="lista-conversa">
+            <li><b>Marca e produto</b><span>O que você quer mostrar.</span></li>
+            <li><b>Objetivo</b><span>Anúncio, orgânico, lançamento ou campanha.</span></li>
+            <li><b>Prazo</b><span>Pra quando você precisa do conteúdo.</span></li>
+          </ol>
+          <a class="botao botao-primario" id="zapContato" href="#" target="_blank" rel="noopener">Chamar no WhatsApp</a>
+          <a class="botao botao-secundario" id="emailContato" href="mailto:vityasbusiness@gmail.com">Prefiro mandar e-mail</a>
         </div>
       </div>
     </section>
@@ -1371,29 +1365,6 @@
     <div class="card-video-player" role="dialog" aria-modal="true" aria-label="Vídeo">
       <button class="fechar" id="fecharVideo" type="button" aria-label="Fechar vídeo">×</button>
       <div class="moldura-video" id="molduraVideo"></div>
-    </div>
-  </div>
-
-  <!-- ============ CARD DE CAPTURA (aparece após 7 segundos, uma vez por visita) ============ -->
-  <div class="fundo-modal" id="fundoModal" aria-hidden="true">
-    <div class="card-captura" role="dialog" aria-modal="true" aria-labelledby="tituloCaptura">
-      <button class="fechar" id="fecharModal" type="button" aria-label="Fechar">×</button>
-      <div id="conteudoCaptura">
-        <h2 id="tituloCaptura">Quer meu mídia kit <em>completo</em>?</h2>
-        <p>Deixe seu nome e e-mail que eu te envio os formatos, os números e os valores.</p>
-        <form id="formCaptura" novalidate>
-          <div class="campo">
-            <label for="capNome">Nome</label>
-            <input id="capNome" name="nome" type="text" autocomplete="name" required>
-          </div>
-          <div class="campo">
-            <label for="capEmail">E-mail</label>
-            <input id="capEmail" name="email" type="email" autocomplete="email" required>
-          </div>
-          <button class="botao botao-primario" type="submit">Quero receber</button>
-          <p id="avisoCaptura" role="alert" style="margin:12px 0 0;font-size:.9rem;color:#a32b00"></p>
-        </form>
-      </div>
     </div>
   </div>
 
@@ -1587,9 +1558,6 @@
       { texto: "Gratidão pelo registro, somos gratos por tanto carinho em mostrar nossa loja e nossos produtos! E parabéns pela estética do vídeo, ficou incrível.", nome: "Cookitos", nicho: "Gastronomia" }
     ];
 
-    // Endereço do Formspree (ou serviço parecido) para receber o formulário por e-mail.
-    // Deixe "" para só mostrar a confirmação na tela.
-    const ENDERECO_FORMULARIO = "";
 
     // WhatsApp: não aparece escrito no site, só abre quando a marca clica em "Falar comigo" ou "Quero este pacote".
     const WHATSAPP = "5581989857308";
@@ -2036,92 +2004,18 @@
     navegacao.addEventListener("click", e => { if (e.target.closest("a")) alternaMenu(false); });
     window.addEventListener("resize", () => { if (window.innerWidth > 860) alternaMenu(false); });
 
-    // Validação simples dos formulários
-    function valida(form, aviso) {
-      const invalido = Array.from(form.elements).find(c => c.willValidate && !c.checkValidity());
-      if (invalido) {
-        aviso.textContent = invalido.type === "email" && invalido.value
-          ? "Confira o e-mail, parece que falta alguma coisa."
-          : "Preencha todos os campos, por favor.";
-        invalido.focus();
-        return false;
-      }
-      aviso.textContent = "";
-      return true;
-    }
-    function envia(dados) {
-      if (!ENDERECO_FORMULARIO) return;
-      fetch(ENDERECO_FORMULARIO, { method: "POST", headers: { Accept: "application/json" }, body: dados }).catch(() => {});
-    }
+    // Contato: WhatsApp e e-mail com a mensagem já começada
+    const roteiroMensagem = "Oi, Yasmin! Vi seu portfólio.\nMarca e produto: \nObjetivo: \nPrazo: ";
+    document.getElementById("zapContato").href = linkZap(roteiroMensagem);
+    document.getElementById("emailContato").href = "mailto:vityasbusiness@gmail.com?subject=" + encodeURIComponent("Parceria UGC") + "&body=" + encodeURIComponent(roteiroMensagem);
 
-    // Formulário de contato
-    const formContato = document.getElementById("formContato");
-    formContato.addEventListener("submit", e => {
-      e.preventDefault();
-      if (!valida(formContato, document.getElementById("avisoForm"))) return;
-      const dados = new FormData(formContato);
-      envia(dados);
-      formContato.reset();
-      formContato.style.display = "none";
-      const conf = document.getElementById("confirmacao");
-      conf.classList.add("ativa");
-      conf.focus();
-    });
-
-    // Card de captura do mídia kit
-    const fundoModal = document.getElementById("fundoModal");
-    const fecharModal = document.getElementById("fecharModal");
-    let focoAnterior = null;
-
-    function lerSessao(chave) { try { return sessionStorage.getItem(chave); } catch (e) { return null; } }
-    function gravarSessao(chave, valor) { try { sessionStorage.setItem(chave, valor); } catch (e) {} }
-
-    function abreModal() {
-      if (fundoModal.classList.contains("aberto")) return;
-      if (videoAberto()) { setTimeout(abreModal, 8000); return; }
-      focoAnterior = document.activeElement;
-      fundoModal.classList.add("aberto");
-      fundoModal.setAttribute("aria-hidden", "false");
-      gravarSessao("midiaKitVisto", "1");
-      setTimeout(() => document.getElementById("capNome").focus(), 60);
-    }
-    function fechaModal() {
-      fundoModal.classList.remove("aberto");
-      fundoModal.setAttribute("aria-hidden", "true");
-      if (focoAnterior && focoAnterior.focus) focoAnterior.focus();
-    }
-
-    if (!lerSessao("midiaKitVisto")) setTimeout(abreModal, 7000);
-
-    fecharModal.addEventListener("click", fechaModal);
-    fundoModal.addEventListener("click", e => { if (e.target === fundoModal) fechaModal(); });
     document.addEventListener("keydown", e => {
       if (e.key === "Escape") {
         if (videoAberto()) fechaVideo();
-        else if (fundoModal.classList.contains("aberto")) fechaModal();
         else if (botaoMenu.getAttribute("aria-expanded") === "true") { alternaMenu(false); botaoMenu.focus(); }
-      }
-      // Mantém o foco do teclado dentro do card enquanto ele está aberto
-      if (e.key === "Tab" && fundoModal.classList.contains("aberto")) {
-        const focaveis = fundoModal.querySelectorAll("button, input, a[href]");
-        const primeiro = focaveis[0], ultimo = focaveis[focaveis.length - 1];
-        if (e.shiftKey && document.activeElement === primeiro) { e.preventDefault(); ultimo.focus(); }
-        else if (!e.shiftKey && document.activeElement === ultimo) { e.preventDefault(); primeiro.focus(); }
       }
     });
 
-    const formCaptura = document.getElementById("formCaptura");
-    formCaptura.addEventListener("submit", e => {
-      e.preventDefault();
-      if (!valida(formCaptura, document.getElementById("avisoCaptura"))) return;
-      envia(new FormData(formCaptura));
-      const nome = esc(formCaptura.elements.nome.value.trim().split(" ")[0]);
-      document.getElementById("conteudoCaptura").innerHTML =
-        `<h2 id="tituloCaptura">Prontinho, <em>${nome}</em>!</h2><p>Seu pedido chegou. Vou te mandar o mídia kit completo no e-mail que você deixou.</p><button class="botao botao-primario" type="button" id="okCaptura">Continuar navegando</button>`;
-      const ok = document.getElementById("okCaptura");
-      ok.addEventListener("click", fechaModal);
-      ok.focus();
-    });
   </script>
 </body>
 </html>
