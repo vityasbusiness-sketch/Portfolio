@@ -258,6 +258,14 @@
     .card-video-player { position: relative; width: min(92vw, calc((100vh - 120px) * 9 / 16), 420px); }
     .moldura-video { position: relative; aspect-ratio: 9 / 16; background: var(--preto); border-radius: var(--raio-g); overflow: hidden; }
     .moldura-video iframe { position: absolute; left: 0; top: -60px; width: 100%; height: calc(100% + 120px); border: 0; display: block; pointer-events: none; }
+    .capa-player { position: absolute; inset: 0; z-index: 2; pointer-events: none; background: var(--preto); transition: opacity .35s ease; }
+    .capa-player img { width: 100%; height: 100%; object-fit: cover; filter: brightness(.82); }
+    .play-player { position: absolute; top: 50%; left: 50%; width: 76px; height: 76px; margin: -38px 0 0 -38px; border-radius: 50%; display: grid; place-items: center; background: rgba(232, 220, 201, .95); box-shadow: 0 0 0 10px rgba(232, 220, 201, .22), 0 14px 30px rgba(17, 13, 10, .35); }
+    .play-player svg { width: 26px; height: 26px; margin-left: 4px; fill: var(--bordo); }
+    .moldura-video:not(.aguardando) .capa-player { opacity: 0; visibility: hidden; }
+    .moldura-video.aguardando iframe { pointer-events: auto; }
+    .moldura-video.aguardando .toque-video { pointer-events: none; }
+    .moldura-video.aguardando .botao-som { display: none; }
     .moldura-video video { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
     .toque-video { position: absolute; inset: 0; z-index: 2; width: 100%; border: 0; background: transparent; cursor: pointer; }
     .toque-video .icone-pausa { position: absolute; top: 50%; left: 50%; width: 72px; height: 72px; margin: -36px 0 0 -36px; border-radius: 50%; background: rgba(232, 220, 201, .92); display: grid; place-items: center; opacity: 0; transition: opacity .25s ease; }
@@ -1776,8 +1784,16 @@
       Object.assign(player, { tipo: "yt", tocando: true, mudo: toqueCelular });
       const cod = encodeURIComponent(id);
       const origem = location.protocol.startsWith("http") ? `&origin=${encodeURIComponent(location.origin)}` : "";
-      molduraVideo.innerHTML = `<iframe src="https://www.youtube-nocookie.com/embed/${cod}?autoplay=1&mute=${player.mudo ? 1 : 0}&controls=0&rel=0&playsinline=1&iv_load_policy=3&disablekb=1&fs=0&loop=1&playlist=${cod}&enablejsapi=1${origem}" title="Vídeo da Yasmin Caetano" allow="autoplay; encrypted-media; picture-in-picture" tabindex="-1"></iframe>` + controles();
+      molduraVideo.innerHTML = `<iframe src="https://www.youtube-nocookie.com/embed/${cod}?autoplay=1&mute=${player.mudo ? 1 : 0}&controls=0&rel=0&playsinline=1&iv_load_policy=3&disablekb=1&fs=0&loop=1&playlist=${cod}&enablejsapi=1${origem}" title="Vídeo da Yasmin Caetano" allow="autoplay; encrypted-media; picture-in-picture" tabindex="-1"></iframe>`
+        + `<div class="capa-player" aria-hidden="true"><img src="https://i.ytimg.com/vi/${cod}/oardefault.jpg" alt="" onerror="if(this.dataset.f){this.remove()}else{this.dataset.f=1;this.src='https://i.ytimg.com/vi/${cod}/hqdefault.jpg'}"><span class="play-player"><svg viewBox="0 0 24 24"><path d="M7 4.5l13 7.5-13 7.5z"/></svg></span></div>`
+        + controles();
       player.el = molduraVideo.querySelector("iframe");
+      // Até o vídeo começar, a capa com o nosso botão fica por cima e esconde o botão vermelho do YouTube.
+      // O toque passa pela capa e chega no vídeo (o celular exige o toque no próprio vídeo pra tocar).
+      molduraVideo.classList.add("aguardando");
+      player.el.addEventListener("load", () => {
+        try { player.el.contentWindow.postMessage(JSON.stringify({ event: "listening", id: cod }), "*"); } catch (e) {}
+      });
       mostraPlayer();
     }
     function abreArquivo(src) {
@@ -1788,6 +1804,17 @@
       player.el.play().catch(() => { player.mudo = true; player.el.muted = true; player.el.play().catch(() => {}); const som = document.getElementById("botaoSom"); if (som) som.textContent = "Ativar som"; });
       mostraPlayer();
     }
+    function videoComecou() { molduraVideo.classList.remove("aguardando"); }
+    window.addEventListener("message", e => {
+      if (!/youtube/.test(e.origin) || player.tipo !== "yt") return;
+      let d; try { d = typeof e.data === "string" ? JSON.parse(e.data) : e.data; } catch (err) { return; }
+      const estado = d && (d.event === "onStateChange" ? d.info : d.info && d.info.playerState);
+      if (estado === 1) videoComecou();
+    });
+    // Se a pessoa tocou no vídeo, a página perde o foco pro player: é sinal de que ele começou
+    window.addEventListener("blur", () => {
+      if (player.tipo === "yt" && molduraVideo.classList.contains("aguardando")) setTimeout(videoComecou, 350);
+    });
     function fechaVideo() {
       fundoVideo.classList.remove("aberto");
       fundoVideo.setAttribute("aria-hidden", "true");
