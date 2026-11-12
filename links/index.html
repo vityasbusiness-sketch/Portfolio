@@ -159,11 +159,11 @@
     /* ============ MARCAS ============ */
     .marcas-titulo { font-family: var(--mao); font-size: 1.8rem; color: var(--vermelho); text-align: center; }
     .esteira { margin: 10px -18px 0; background: var(--verde); color: var(--bege); transform: rotate(-1.5deg); overflow: hidden; padding: 13px 0; box-shadow: 0 16px 26px -18px rgba(0,0,0,.6); }
-    .esteira-trilho { display: flex; width: max-content; animation: correr 46s linear infinite; }
+    .esteira-trilho { display: flex; width: max-content; animation: correr 46s linear infinite; will-change: transform; -webkit-animation: correr 46s linear infinite; }
     .esteira-trilho span { font-family: var(--serif); font-size: 1.3rem; white-space: nowrap; padding: 0 14px; display: flex; align-items: center; gap: 28px; }
     .esteira-trilho span::after { content: "✦"; font-size: .8rem; color: var(--pessego); }
     @keyframes correr { to { transform: translateX(-50%); } }
-    @media (prefers-reduced-motion: reduce) { .esteira-trilho { animation: none; } }
+    @media (prefers-reduced-motion: reduce) { .esteira-trilho { animation-duration: 90s; } }
 
     /* ============ CABEÇALHO DE SEÇÃO ============ */
     .cabeca .mao { font-size: 1.35rem; color: var(--vermelho); display: block; margin-bottom: 2px; }
@@ -172,13 +172,12 @@
     .cabeca p { margin-top: 10px; color: var(--tinta-suave); }
 
     /* ============ MAKE ARTÍSTICA: mural ============ */
-    .mural { display: flex; gap: 14px; overflow-x: auto; scroll-snap-type: x mandatory; margin: 18px -18px 0; padding: 18px 18px 24px; scrollbar-width: none; }
-    .mural::-webkit-scrollbar { display: none; }
-    .mural .polaroid { flex: none; width: 62%; max-width: 240px; scroll-snap-align: center; padding: 8px 8px 42px; }
+    .mural { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin-top: 20px; padding: 6px 2px 14px; }
+    .mural .polaroid { margin: 0; padding: 4px 4px 24px; }
     .mural .polaroid img { aspect-ratio: 4/5; object-position: 50% 20%; }
-    .mural .polaroid .legenda { font-size: 1.2rem; bottom: 8px; }
+    .mural .polaroid .legenda { font-size: .95rem; bottom: 4px; }
     .mural .polaroid:nth-child(odd) { transform: rotate(-2.5deg); }
-    .mural .polaroid:nth-child(even) { transform: rotate(2deg) translateY(10px); }
+    .mural .polaroid:nth-child(even) { transform: rotate(2deg) translateY(6px); }
 
     /* ============ CUPONS ============ */
     .cupons { display: grid; gap: 14px; margin-top: 20px; }
@@ -229,11 +228,7 @@
     .numero strong { display: block; font-family: var(--serif); font-size: 2.1rem; line-height: 1; font-weight: 400; }
     .numero span { display: block; margin-top: 6px; font-size: .8rem; line-height: 1.3; }
 
-    .divisor { position: relative; height: 1px; margin: 56px 0 0; border-top: 1.5px dashed rgba(72,5,14,.3); }
-    .divisor span { position: absolute; top: -15px; left: 50%; transform: translateX(-50%); background: var(--bege); color: var(--vermelho); padding: 0 12px; font-size: 1.1rem; line-height: 1.6; }
-    .divisor + section, .divisor + .dupla > section { margin-top: 40px; }
-    .cabeca-tempo { margin-top: 56px; padding-top: 34px; border-top: 1.5px dashed rgba(72,5,14,.3); position: relative; }
-    .cabeca-tempo::before { content: "✦"; position: absolute; top: -15px; left: 50%; transform: translateX(-50%); background: var(--bege); color: var(--vermelho); padding: 0 12px; font-size: 1.1rem; }
+    .cabeca-tempo { position: relative; }
     .linha-tempo { position: relative; margin-top: 28px; padding-left: 30px; }
     .linha-tempo::before { content: ""; position: absolute; left: 9px; top: 8px; bottom: 8px; border-left: 2px dotted rgba(72,5,14,.45); }
     .marco { position: relative; border-radius: 20px; padding: 18px 18px 16px; margin-bottom: 14px; box-shadow: var(--sombra); }
@@ -303,6 +298,18 @@
     .aviso.mostrar { opacity: 1; transform: translateX(-50%) translateY(0); }
     .dupla:not(:has(section:not([hidden]))) { display: none; }
 
+    /* ============ BLOCOS DE COR (separam as seções) ============ */
+    .bloco { margin-left: calc(50% - 50vw); margin-right: calc(50% - 50vw); padding: 48px calc(50vw - 50%) 52px; }
+    .bloco-verde { background: var(--verde) var(--textura); color: var(--bege); margin-top: 64px; }
+    .bloco-verde .cabeca .mao { color: var(--pessego); }
+    .bloco-verde .cabeca h2 { color: var(--bege); }
+    .bloco-verde .cabeca h2 em { color: var(--pessego); }
+    .bloco-verde .cabeca p { color: rgba(237,229,215,.82); }
+    .bloco-verde .polaroid { box-shadow: 0 2px 4px rgba(0,0,0,.2), 0 22px 34px -18px rgba(0,0,0,.8); }
+    .bloco-tempo { background: var(--bege-2) var(--textura); margin-top: 64px; padding-bottom: 84px; }
+    .bloco-tempo .bastidores { background-color: var(--papel); }
+    .contato { margin-top: 0 !important; }
+
     /* ============ COMPUTADOR ============ */
     @media (min-width: 900px) {
       :root { --largura: 1140px; }
@@ -310,6 +317,8 @@
       .pagina { padding: 0 32px; }
       .barra { display: none; }
       section { margin-top: 72px; }
+      .bloco { padding-top: 72px; padding-bottom: 80px; }
+      .bloco-tempo { padding-bottom: 110px; }
       .aviso { bottom: 40px; }
 
       .topo { padding: 16px 0 4px; }
@@ -347,7 +356,9 @@
       /* make artística */
       .make-grid { display: grid; grid-template-columns: 300px 1fr; gap: 40px; align-items: center; }
       .mural { margin: 0; padding: 20px 10px 30px; overflow: visible; display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 18px; }
-      .mural .polaroid { width: auto; max-width: none; }
+      .mural .polaroid { padding: 8px 8px 42px; }
+      .mural .polaroid .legenda { font-size: 1.2rem; bottom: 8px; }
+      .mural { gap: 18px; }
 
       /* cupons + vitrine */
       .dupla { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: start; margin-top: 72px; }
@@ -374,10 +385,8 @@
       .numero span { margin-top: 0; }
 
       /* linha do tempo: linha no meio, cards alternando os lados */
-      .divisor { margin-top: 72px; }
-      .divisor + section, .divisor + .dupla > section { margin-top: 52px; }
-      .cabeca-tempo { margin-top: 72px; text-align: center; padding-top: 44px; }
-      .cabeca-tempo .fotinhos { position: absolute; inset: 30px 0 auto 0; margin: 0; justify-content: space-between; pointer-events: none; }
+      .cabeca-tempo { text-align: center; padding-top: 14px; }
+      .cabeca-tempo .fotinhos { position: absolute; inset: 0 0 auto 0; margin: 0; justify-content: space-between; pointer-events: none; }
       .cabeca-tempo .fotinhos .polaroid { width: 170px; max-width: none; pointer-events: auto; }
       .cabeca-tempo .fotinhos .polaroid:first-child { transform: rotate(-7deg); }
       .cabeca-tempo .fotinhos .polaroid:last-child { transform: rotate(6deg); }
@@ -489,17 +498,13 @@
     </header>
 
     <!-- ============ MARCAS ============ -->
-    <div class="divisor" aria-hidden="true"><span>✦</span></div>
-
     <section aria-label="Marcas">
       <p class="marcas-titulo">marcas com quem já criei</p>
       <div class="esteira" aria-hidden="true"><div class="esteira-trilho" id="esteira"></div></div>
     </section>
 
     <!-- ============ MAKE ARTÍSTICA (aparece quando tiver foto cadastrada) ============ -->
-    <div class="divisor" id="divMake" aria-hidden="true" hidden><span>✿</span></div>
-
-    <section id="make" hidden>
+    <section id="make" class="bloco bloco-verde" hidden>
       <div class="make-grid">
         <div class="cabeca revelar">
           <span class="mao">onde tudo começou</span>
@@ -531,8 +536,6 @@
     </div>
 
     <!-- ============ HISTÓRIA ============ -->
-    <div class="divisor" aria-hidden="true"><span>☀</span></div>
-
     <section id="historia">
       <div class="cabeca revelar">
         <span class="mao">prazer, yasmin</span>
@@ -574,6 +577,7 @@
         </div>
       </div>
 
+      <div class="bloco bloco-tempo">
       <div class="cabeca cabeca-tempo revelar">
         <span class="mao">como eu cheguei até aqui</span>
         <h2>Linha do <em>tempo</em></h2>
@@ -648,12 +652,13 @@
 <path d="M24 32v1.8c-1 1.6-3 1.8-4.2.8M24 33.8c1 1.6 3 1.8 4.2.8" fill="none" stroke="#0A0808" stroke-width=".9" stroke-linecap="round"/>
 <path d="M22 35.2c0 3 .9 4.6 2 4.6s2-1.6 2-4.6z" fill="#E68A9A"/><path d="M24 35.5v3.5" stroke="#C96B7C" stroke-width=".5"/></svg><figcaption>Maggie</figcaption></figure></div>
       </div>
+      </div>
     </section>
 
     <!-- ============ CONTATO ============ -->
     <section class="contato" id="conversar">
       <span class="mao">parceria, UGC, publi ou só um oi</span>
-      <h2>Bora <em>criar juntos?</em></h2>
+      <h2>Vamos <em>criar juntas?</em></h2>
       <p>Me conta a marca, o produto e o objetivo. Eu respondo com uma ideia de roteiro e o orçamento.</p>
       <div class="botoes">
         <a class="botao botao-claro" data-zap="Oi, Yasmin! Vim pelo seu link e quero conversar sobre uma parceria." href="#">
@@ -741,7 +746,7 @@
           <img src="${esc(m.src)}" alt="${esc(m.alt || "Make artística da Yasmin")}" loading="lazy">
           <figcaption class="legenda">${esc(m.legenda || "")}</figcaption>
         </figure>`).join("");
-      $("#make").hidden = false; $("#divMake").hidden = false; $("#menuMake").hidden = false;
+      $("#make").hidden = false; $("#menuMake").hidden = false;
     }
 
     function avisar(t) { const a = $("#aviso"); a.textContent = t; a.classList.add("mostrar"); clearTimeout(avisar.t); avisar.t = setTimeout(() => a.classList.remove("mostrar"), 1800); }
