@@ -368,6 +368,77 @@
       .rodape { margin-top: 56px; }
     }
 
+    /* ============ COMPUTADOR: cada parte cabe numa tela ============ */
+    @media (min-width: 900px) {
+      section { margin-top: 64px; }
+      .topo { padding: 16px 0 4px; }
+
+      /* capa */
+      .hero { min-height: calc(100svh - 150px); gap: 64px; margin-top: 0; padding: 12px 0 24px; grid-template-columns: minmax(0, .8fr) minmax(0, 1.2fr); }
+      .capa-foto { max-width: 370px; }
+      .polaroid img { aspect-ratio: 4/4.5; }
+      .selo-estrela { width: 128px; height: 128px; right: -34px; top: -26px; }
+      .selo-estrela span { font-size: 1rem; }
+      .nome { font-size: 1.9rem; bottom: 66px; }
+      .intro h1 { font-size: clamp(2.3rem, 3.3vw, 3.25rem); }
+      .intro p { font-size: 1rem; margin-top: 10px; }
+      .links { margin-top: 18px; gap: 9px; max-width: 560px; }
+      .link { padding: 11px 18px; }
+      .link .icone { width: 38px; height: 38px; }
+      .link b { font-size: .98rem; }
+      .link small { font-size: .8rem; }
+      .redes-mini { margin-top: 14px; }
+      .redes-mini a { width: 44px; height: 44px; }
+
+      /* marcas */
+      .marcas-titulo { font-size: 1.9rem; }
+      .esteira { padding: 10px 0; }
+
+      /* história, parte 1: foto, conceito, facetas e números lado a lado */
+      .cabeca h2 { font-size: 2.8rem; }
+      .cabeca p { margin-top: 6px; }
+      .historia-grid { display: block; margin-top: 0; }
+      .hist-esq {
+        position: static; display: grid; gap: 18px 28px; margin-top: 22px; align-items: start;
+        grid-template-columns: 290px minmax(0, 1.15fr) minmax(0, 1fr);
+        grid-template-areas: "foto conceito numeros" "foto facetas numeros";
+      }
+      .historia-foto { grid-area: foto; margin: 8px 14px 0 6px; }
+      .historia-foto .polaroid { padding-bottom: 44px; }
+      .historia-foto .polaroid img { aspect-ratio: 4/4.3; }
+      .historia-foto .legenda { font-size: 1.3rem; bottom: 10px; }
+      .facetas { grid-area: facetas; margin-top: 0; }
+      .conceito { grid-area: conceito; margin-top: 0; padding: 24px 24px 20px; }
+      .conceito h3 { font-size: 1.9rem; margin-top: 10px; }
+      .conceito p { font-size: .95rem; margin-top: 8px; }
+      .conceito .assinatura { margin-top: 8px; font-size: 1.4rem; }
+      .hist-esq .numeros { grid-area: numeros; margin-top: 0; }
+      .numero { padding: 18px 16px; }
+      .numero strong { font-size: 2.1rem; }
+
+      /* história, parte 2: linha do tempo em grade 3 x 2 */
+      .hist-dir { margin-top: 56px; }
+      .linha-tempo { margin-top: 0; padding-left: 0; display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
+      .linha-tempo::before, .marco::before { display: none; }
+      .marco { margin-bottom: 0; padding: 18px 20px 16px; }
+      .marco h3 { font-size: 1.45rem; }
+      .marco p { font-size: .9rem; margin-top: 6px; }
+      .marco .quando { font-size: 1.25rem; }
+      .bastidores { margin-top: 14px; display: grid; grid-template-columns: auto 1fr auto; gap: 6px 24px; align-items: center; padding: 16px 22px; }
+      .bastidores p { margin-top: 0; }
+      .bastidores .patas { margin-top: 0; flex-wrap: nowrap; }
+
+      /* contato */
+      .contato { margin-top: 72px; padding-top: 56px; padding-bottom: 28px; }
+      .contato h2 { font-size: 3.6rem; }
+      .contato .botao { padding: 15px 22px; }
+      .contato .botoes { gap: 10px; }
+      .rodape { margin-top: 30px; }
+
+      .vitrine { padding: 26px; }
+      .dupla { margin-top: 64px; }
+    }
+
     .revelar { opacity: 0; transform: translateY(18px); transition: opacity .6s ease, transform .6s ease; }
     .revelar.visivel { opacity: 1; transform: none; }
     @media (prefers-reduced-motion: reduce) { .revelar { opacity: 1; transform: none; transition: none; } }
