@@ -187,34 +187,6 @@
     .cabeca h2 em { color: var(--vermelho); }
     .cabeca p { margin-top: 10px; color: var(--tinta-suave); }
 
-    /* ============ PORTFÓLIO ============ */
-    .abas { display: flex; gap: 8px; overflow-x: auto; margin: 18px -18px 0; padding: 4px 18px 6px; scrollbar-width: none; }
-    .abas::-webkit-scrollbar { display: none; }
-    .aba {
-      flex: none; border: 1.5px solid var(--bordo); background: transparent; color: var(--bordo);
-      border-radius: 999px; padding: 8px 16px; font-weight: 600; font-size: .9rem;
-    }
-    .aba[aria-selected="true"] { background: var(--bordo); color: var(--bege); }
-    .aba small { opacity: .7; font-weight: 500; margin-left: 4px; }
-    .frase-nicho { margin-top: 12px; font-size: .92rem; color: var(--tinta-suave); min-height: 1.5em; }
-
-    .trilho-videos { display: flex; gap: 12px; overflow-x: auto; scroll-snap-type: x mandatory; margin: 14px -18px 0; padding: 4px 18px 14px; scrollbar-width: none; }
-    .trilho-videos::-webkit-scrollbar { display: none; }
-    .card-video { flex: none; width: 46%; max-width: 200px; scroll-snap-align: start; background: none; border: 0; padding: 0; text-align: left; }
-    .card-video .midia {
-      position: relative; aspect-ratio: 9/16; border-radius: 16px; overflow: hidden;
-      background: linear-gradient(160deg, var(--rosado), var(--bege-2)); box-shadow: var(--sombra);
-    }
-    .card-video img { width: 100%; height: 100%; object-fit: cover; }
-    .card-video .play {
-      position: absolute; right: 10px; bottom: 10px; width: 36px; height: 36px; border-radius: 50%;
-      background: var(--bege); display: grid; place-items: center;
-    }
-    .card-video .play svg { width: 14px; height: 14px; fill: var(--bordo); margin-left: 2px; }
-    .card-video .marca { display: block; margin-top: 9px; font-weight: 700; font-size: .95rem; line-height: 1.2; }
-    .card-video .formato { display: inline-block; margin-top: 5px; font-size: .72rem; font-weight: 600; background: var(--verde); color: var(--bege); padding: 3px 10px; border-radius: 999px; }
-    .card-video .formato:empty { display: none; }
-    .ver-tudo { display: flex; justify-content: center; margin-top: 4px; }
     .botao {
       display: inline-flex; align-items: center; justify-content: center; gap: 10px; width: 100%;
       border-radius: 999px; padding: 15px 22px; font-weight: 700; font-size: 1rem; border: 0;
@@ -321,15 +293,80 @@
     .barra a.centro svg { stroke: var(--bege); }
     .barra a[hidden] { display: none; }
 
-    /* ============ PLAYER ============ */
-    .modal { position: fixed; inset: 0; z-index: 60; background: rgba(30,11,12,.88); display: none; align-items: center; justify-content: center; padding: 20px; }
-    .modal.aberto { display: flex; }
-    .modal .quadro { position: relative; width: min(100%, 380px); aspect-ratio: 9/16; max-height: 82vh; border-radius: 18px; overflow: hidden; background: #000; }
-    .modal iframe { width: 100%; height: 100%; border: 0; }
-    .modal .fechar { position: absolute; top: max(14px, env(safe-area-inset-top)); right: 14px; width: 44px; height: 44px; border-radius: 50%; border: 0; background: var(--bege); color: var(--bordo); font-size: 1.6rem; line-height: 1; }
-
     .aviso { position: fixed; left: 50%; bottom: 110px; transform: translateX(-50%) translateY(20px); opacity: 0; background: var(--verde); color: var(--bege); padding: 10px 18px; border-radius: 999px; font-size: .88rem; font-weight: 600; transition: .25s; z-index: 70; pointer-events: none; }
     .aviso.mostrar { opacity: 1; transform: translateX(-50%) translateY(0); }
+
+    .menu-pc { display: none; }
+    .dupla:not(:has(section:not([hidden]))) { display: none; }
+    .redes-mini a { display: inline-flex; align-items: center; gap: 7px; }
+    .redes-mini svg { width: 17px; height: 17px; stroke: currentColor; fill: none; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+
+    /* ============ COMPUTADOR ============ */
+    @media (min-width: 900px) {
+      :root { --largura: 1140px; }
+      body { padding-bottom: 0; font-size: 17px; }
+      .pagina { padding: 0 32px; }
+      .barra { display: none; }
+      section { margin-top: 96px; }
+      .aviso { bottom: 40px; }
+
+      /* menu de cima */
+      .topo { padding: 26px 0 10px; }
+      .monograma { font-size: 2.1rem; }
+      .monograma svg { width: 18px; height: 18px; }
+      .arroba { display: none; }
+      .menu-pc { display: flex; align-items: center; gap: 34px; }
+      .menu-pc a { font-weight: 600; color: var(--bordo); }
+      .menu-pc a:not(.menu-botao):hover { text-decoration: underline; text-underline-offset: 5px; }
+      .menu-pc a[hidden] { display: none; }
+      .menu-botao { background: var(--bordo); color: var(--bege) !important; padding: 13px 22px; border-radius: 999px; }
+
+      /* capa em duas colunas */
+      .hero { display: grid; grid-template-columns: minmax(0, .9fr) minmax(0, 1.1fr); gap: 72px; align-items: center; margin-top: 30px; }
+      .capa-foto { margin: 0; max-width: 500px; justify-self: end; width: 100%; }
+      .nome { font-size: 2.3rem; left: -28px; }
+      .selo-estrela { right: -26px; top: -14px; width: 118px; height: 118px; }
+      .selo-estrela span { font-size: 1.15rem; }
+      .intro { margin-top: 0; }
+      .intro h1 { font-size: clamp(2.8rem, 4.6vw, 4.1rem); }
+      .intro p { font-size: 1.12rem; max-width: 46ch; }
+      .links { margin-top: 26px; max-width: 540px; }
+      .link { padding: 18px 22px; }
+      .redes-mini { justify-content: flex-start; margin-top: 22px; }
+      .redes-mini a { width: 52px; height: 52px; padding: 0; justify-content: center; border-radius: 50%; background: var(--bordo); color: var(--bege); border: 0; }
+      .redes-mini a span { display: none; }
+      .redes-mini svg { width: 21px; height: 21px; }
+
+      /* marcas */
+      .marcas-titulo { font-size: 2.3rem; }
+      .esteira { margin: 12px 0 0; border-radius: 4px; }
+      .esteira-trilho span { font-size: 1.7rem; }
+
+      /* cupons + vitrine lado a lado */
+      .dupla { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: start; margin-top: 96px; }
+      .dupla > section { margin-top: 0; }
+      .dupla > section:only-child, .dupla:has(> section[hidden]) > section:not([hidden]) { grid-column: 1 / -1; }
+      .vitrine { padding: 34px; }
+
+      /* história em duas colunas */
+      .cabeca h2 { font-size: 3.4rem; }
+      #historia > .cabeca { max-width: 640px; }
+      .historia-grid { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.1fr); gap: 56px; align-items: start; margin-top: 10px; }
+      .hist-esq { position: sticky; top: 70px; }
+      .historia-foto { margin: 26px 60px 0 20px; }
+      .linha-tempo { margin-top: 26px; }
+      .marco { padding: 22px 24px 20px; }
+      .marco h3 { font-size: 1.7rem; }
+
+      /* contato ocupando a largura toda */
+      .contato { margin: 110px calc(50% - 50vw) 0; border-radius: 40px 40px 0 0; padding: 80px max(32px, calc(50vw - 570px)) 40px; }
+      .contato-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; }
+      .contato h2 { font-size: 4.4rem; }
+      .contato .botoes { margin-top: 0; }
+      .contato .botao { padding: 19px 22px; font-size: 1.05rem; }
+      .contato .estrela { right: max(40px, calc(50vw - 600px)); top: -30px; width: 66px; height: 66px; }
+      .rodape { margin-top: 56px; }
+    }
 
     .revelar { opacity: 0; transform: translateY(18px); transition: opacity .6s ease, transform .6s ease; }
     .revelar.visivel { opacity: 1; transform: none; }
@@ -352,7 +389,14 @@
       <div class="topo">
         <span class="monograma"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 0c.9 6.4 5.6 11.1 12 12-6.4.9-11.1 5.6-12 12-.9-6.4-5.6-11.1-12-12C6.4 11.1 11.1 6.4 12 0z"/></svg>caetyas_</span>
         <a class="arroba" href="https://instagram.com/caetyas_" target="_blank" rel="noopener">@caetyas_</a>
+        <nav class="menu-pc" aria-label="Menu">
+          <a href="https://vityasbusiness-sketch.github.io/Portfolio/" target="_blank" rel="noopener">Portfólio</a>
+          <a href="#cupons" id="menuCupons" hidden>Cupons</a>
+          <a href="#historia">Minha história</a>
+          <a class="menu-botao" href="#conversar">Bora conversar</a>
+        </nav>
       </div>
+      <div class="hero">
 
       <div class="capa-foto">
         <div class="polaroid">
@@ -367,6 +411,7 @@
         <div class="nome">Oi, eu sou a <em>Yasmin</em><span class="etiqueta">mas pode chamar de Mima Artista</span></div>
       </div>
 
+      <div class="hero-texto">
       <div class="intro revelar">
         <h1>UGC creator, influenciadora, estudante de nutrição e <em>artista desde sempre.</em></h1>
         <p>Transformo produto em conceito visual, com cenário, referência e narrativa. Aqui tem tudo: portfólio, parcerias, cupons e um pouco da minha história.</p>
@@ -393,9 +438,11 @@
       </nav>
 
       <div class="redes-mini revelar">
-        <a href="https://instagram.com/caetyas_" target="_blank" rel="noopener">Instagram</a>
-        <a href="https://www.tiktok.com/@caetyas_" target="_blank" rel="noopener">TikTok</a>
-        <a href="mailto:vityasbusiness@gmail.com">E-mail</a>
+        <a href="https://instagram.com/caetyas_" target="_blank" rel="noopener" aria-label="Instagram"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r=".6" fill="currentColor"/></svg><span>Instagram</span></a>
+        <a href="https://www.tiktok.com/@caetyas_" target="_blank" rel="noopener" aria-label="TikTok"><svg viewBox="0 0 24 24"><path d="M14 3v11.5a3.5 3.5 0 1 1-3.5-3.5"/><path d="M14 3c.5 2.6 2.3 4.3 5 4.5"/></svg><span>TikTok</span></a>
+        <a href="mailto:vityasbusiness@gmail.com" aria-label="E-mail"><svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg><span>E-mail</span></a>
+      </div>
+      </div>
       </div>
     </header>
 
@@ -404,28 +451,10 @@
       <p class="marcas-titulo">marcas com quem já criei</p>
       <div class="esteira" aria-hidden="true"><div class="esteira-trilho" id="esteira"></div></div>
 
-      <div class="numeros">
-        <div class="numero revelar" style="background:var(--rosado);color:var(--bordo)"><strong id="nMarcas">+40</strong><span>marcas atendidas</span></div>
-        <div class="numero revelar" style="background:var(--nevoa);color:var(--azul)"><strong>4,6M</strong><span>curtidas no TikTok</span></div>
-        <div class="numero revelar" style="background:var(--salvia);color:var(--verde)"><strong>+12M</strong><span>views num único vídeo de make artística</span></div>
-        <div class="numero revelar" style="background:var(--bordo);color:var(--bege)"><strong>R$ 0,10</strong><span>por visita ao perfil num anúncio que criei</span></div>
-      </div>
     </section>
 
-    <!-- ============ PORTFÓLIO ============ -->
-    <section id="portfolio">
-      <div class="cabeca revelar">
-        <span class="mao">aperta o play</span>
-        <h2>Cada nicho, uma <em>linguagem</em></h2>
-        <p>Alguns vídeos que criei pra marcas. Toque pra assistir aqui mesmo.</p>
-      </div>
-      <div class="abas" id="abas" role="tablist" aria-label="Nichos"></div>
-      <p class="frase-nicho" id="fraseNicho"></p>
-      <div class="trilho-videos" id="trilhoVideos"></div>
-      <div class="ver-tudo"><a class="botao botao-bordo" href="https://vityasbusiness-sketch.github.io/Portfolio/#trabalhos" target="_blank" rel="noopener">Ver o portfólio completo →</a></div>
-    </section>
-
-    <!-- ============ CUPONS (aparece quando tiver cupom cadastrado) ============ -->
+    <!-- ============ CUPONS + VITRINE (cada um aparece quando tiver conteúdo) ============ -->
+    <div class="dupla" id="duplaCupons">
     <section id="cupons" hidden>
       <div class="cabeca revelar">
         <span class="mao">desconto de amiga</span>
@@ -444,6 +473,7 @@
         <div class="itens" id="listaVitrine"></div>
       </div>
     </section>
+    </div>
 
     <!-- ============ HISTÓRIA ============ -->
     <section id="historia">
@@ -453,6 +483,8 @@
         <p>Cada caminho que eu fiz virou repertório. É isso que entra nos meus vídeos.</p>
       </div>
 
+      <div class="historia-grid">
+      <div class="hist-esq">
       <div class="historia-foto revelar">
         <div class="polaroid">
           <span class="fita" aria-hidden="true"></span>
@@ -477,6 +509,14 @@
         <p>Eu coleciono referências: luz, textura, cor, cena, memória. Meu olhar foi treinado na maquiagem artística, e é ele que transforma um produto em conceito visual, mostrando o que existe além da embalagem.</p>
         <span class="assinatura">Yasmin Caetano</span>
       </div>
+      <div class="numeros">
+        <div class="numero revelar" style="background:var(--rosado);color:var(--bordo)"><strong id="nMarcas">+40</strong><span>marcas atendidas</span></div>
+        <div class="numero revelar" style="background:var(--nevoa);color:var(--azul)"><strong>4,6M</strong><span>curtidas no TikTok</span></div>
+        <div class="numero revelar" style="background:var(--salvia);color:var(--verde)"><strong>+12M</strong><span>views num único vídeo de make artística</span></div>
+        <div class="numero revelar" style="background:var(--bordo);color:var(--bege)"><strong>R$ 0,10</strong><span>por visita ao perfil num anúncio que criei</span></div>
+      </div>
+      </div>
+      <div class="hist-dir">
 
       <div class="linha-tempo">
         <article class="marco revelar" style="background:var(--papel)">
@@ -522,14 +562,20 @@
         <p>Amo bicho desde criança. Toda gravação aqui em casa tem plateia (e, às vezes, participação especial).</p>
         <div class="patas"><span>Maya 🐈</span><span>Mel, a Bafuda 🐈</span><span>Maggie 🐕‍🦺</span></div>
       </div>
+      </div>
+      </div>
     </section>
 
     <!-- ============ CONTATO ============ -->
     <section class="contato" id="conversar">
       <svg class="estrela" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 0c.9 6.4 5.6 11.1 12 12-6.4.9-11.1 5.6-12 12-.9-6.4-5.6-11.1-12-12C6.4 11.1 11.1 6.4 12 0z"/></svg>
+      <div class="contato-grid">
+      <div>
       <span class="mao">parceria, UGC, publi ou só um oi</span>
       <h2>Bora <em>criar juntos?</em></h2>
       <p>Me conta a marca, o produto e o objetivo. Eu respondo com uma ideia de roteiro e o orçamento.</p>
+      </div>
+      <div>
       <div class="botoes">
         <a class="botao botao-claro" data-zap="Oi, Yasmin! Vim pelo seu link e quero conversar sobre uma parceria." href="#">
           <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M21 12a8.5 8.5 0 0 1-12.6 7.4L3 21l1.6-5.2A8.5 8.5 0 1 1 21 12z"/></svg>
@@ -539,6 +585,8 @@
         <a class="botao botao-contorno" href="mailto:vityasbusiness@gmail.com?subject=Parceria%20com%20a%20Yasmin">Mandar e-mail</a>
       </div>
       <button class="copiar-email" type="button" data-copiar="vityasbusiness@gmail.com">copiar e-mail</button>
+      </div>
+      </div>
       <p class="rodape">feito pela Mima, <a href="https://instagram.com/caetyas_" target="_blank" rel="noopener">@caetyas_</a></p>
     </section>
   </main>
@@ -546,16 +594,12 @@
   <!-- ============ BARRA DE BAIXO ============ -->
   <nav class="barra" aria-label="Seções">
     <a href="#inicio" class="ativo" data-secao="inicio"><svg viewBox="0 0 24 24"><path d="M3 11l9-7 9 7"/><path d="M5 10v10h14V10"/></svg>Início</a>
-    <a href="#portfolio" data-secao="portfolio"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="4"/><path d="M10 8.5l5 3.5-5 3.5z"/></svg>Portfólio</a>
+    <a href="https://vityasbusiness-sketch.github.io/Portfolio/" target="_blank" rel="noopener"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="4"/><path d="M10 8.5l5 3.5-5 3.5z"/></svg>Portfólio</a>
     <a href="#conversar" class="centro" data-secao="conversar"><span class="bolha"><svg viewBox="0 0 24 24"><path d="M21 12a8.5 8.5 0 0 1-12.6 7.4L3 21l1.6-5.2A8.5 8.5 0 1 1 21 12z"/></svg></span>Conversar</a>
     <a href="#cupons" data-secao="cupons" id="navCupons" hidden><svg viewBox="0 0 24 24"><path d="M3 8a2 2 0 0 0 2-2h14a2 2 0 0 0 2 2v8a2 2 0 0 0-2 2H5a2 2 0 0 0-2-2z"/><path d="M10 6v12" stroke-dasharray="2 2"/></svg>Cupons</a>
     <a href="#historia" data-secao="historia"><svg viewBox="0 0 24 24"><path d="M4 4h6a3 3 0 0 1 2 1 3 3 0 0 1 2-1h6v15h-6a2 2 0 0 0-2 2 2 2 0 0 0-2-2H4z"/></svg>História</a>
   </nav>
 
-  <div class="modal" id="modal" role="dialog" aria-modal="true" aria-label="Vídeo">
-    <button class="fechar" id="fecharModal" type="button" aria-label="Fechar">×</button>
-    <div class="quadro" id="quadro"></div>
-  </div>
   <div class="aviso" id="aviso" role="status">Copiado!</div>
 
   <script>
@@ -579,19 +623,6 @@
     // Marcas da esteira.
     const MARCAS = ["Shein", "Amazon", "Mercado Livre", "Garnier", "L'Oréal Elseve", "Dove", "Pantene", "Sallve", "Principia", "CBSkin", "Medicube", "Sheglam", "Dermacol", "Sace Lady", "Farinha Láctea", "Kind", "Domidona", "Gocase", "Acer", "Saint-Germain", "Bombado", "Camarão na Telha", "Cookitos", "Revien", "Ollie"];
     const TOTAL_MARCAS = 40; // número do card "marcas atendidas"
-
-    // Vídeos por nicho (códigos do YouTube Shorts, os mesmos do portfólio).
-    // marca e formato: o site lê sozinho o título do YouTube ("Marca • Formato").
-    const NICHOS = [
-      { id: "beleza", nome: "Beleza", frase: "Textura, luz e brilho real em cada frame, do cabelo à make.",
-        videos: ["SpHDfJ-BWOk", "mYr7VDvsxYo", "pvpWG6x2ucA", "mwWG5L3VRW4", "BsOCinxvmbw", "ZzVcJfGI3fE", "4-GFwHONjUY", "pp8ShpId7lo"] },
-      { id: "moda", nome: "Moda", frase: "Looks com narrativa e movimento, pra peça ganhar contexto.",
-        videos: ["hcnZV7lxfaI", "xZuFjGpek0M", "6jdHd0K3b_4", "eQKGJGUUxA8", "54a_MPOI124", "3forMuneVmo"] },
-      { id: "gastronomia", nome: "Gastronomia", frase: "Ambiente, prato e experiência pra dar vontade de ir até lá.",
-        videos: ["GMK9yJPUJbk", "KHrjhYwHz_w", "fZKi578gXLc", "RsC91pApMrA", "Gi5gqFu8oX4", "5L0vDLj5ubs"] },
-      { id: "tecnologia", nome: "Tecnologia", frase: "Unboxing, setup e demonstração de uso no dia a dia.",
-        videos: ["_lm4xX2D5RA", "o6m2-1l1U0w", "HNMgo5j_ONY", "1z5ZKTFDaag", "9MmKGwZTexQ"] }
-    ];
 
     /* ===================================================================== */
 
@@ -622,57 +653,6 @@
     $("#esteira").innerHTML = [...MARCAS, ...MARCAS].map(m => `<span>${esc(m)}</span>`).join("");
     $("#nMarcas").textContent = "+" + TOTAL_MARCAS;
 
-    // Portfólio
-    const titulos = {};
-    function capa(id) {
-      return `<img src="https://i.ytimg.com/vi/${esc(id)}/oardefault.jpg" alt="" loading="lazy" onerror="if(this.dataset.f){this.remove()}else{this.dataset.f=1;this.src='https://i.ytimg.com/vi/${esc(id)}/hqdefault.jpg'}">`;
-    }
-    function mostrarNicho(n) {
-      document.querySelectorAll(".aba").forEach(b => b.setAttribute("aria-selected", b.dataset.id === n.id));
-      $("#fraseNicho").textContent = n.frase;
-      const trilho = $("#trilhoVideos");
-      trilho.innerHTML = n.videos.map(id => `
-        <button class="card-video" type="button" data-video="${esc(id)}" aria-label="Assistir vídeo">
-          <span class="midia">${capa(id)}<span class="play" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M6 4l14 8-14 8z"/></svg></span></span>
-          <span class="marca" data-marca="${esc(id)}">&nbsp;</span>
-          <span class="formato" data-formato="${esc(id)}"></span>
-        </button>`).join("");
-      trilho.scrollLeft = 0;
-      n.videos.forEach(preencherTitulo);
-    }
-    function aplicarTitulo(id, t) {
-      const partes = t.split(/\s*[•|·]\s*/);
-      const m = document.querySelector(`[data-marca="${CSS.escape(id)}"]`);
-      const f = document.querySelector(`[data-formato="${CSS.escape(id)}"]`);
-      if (m) m.textContent = partes[0] || "";
-      if (f) f.textContent = partes[1] || "";
-    }
-    function preencherTitulo(id) {
-      if (titulos[id] !== undefined) return aplicarTitulo(id, titulos[id]);
-      fetch("https://noembed.com/embed?url=" + encodeURIComponent("https://www.youtube.com/watch?v=" + id))
-        .then(r => r.json()).then(d => { titulos[id] = d.title || ""; aplicarTitulo(id, titulos[id]); })
-        .catch(() => {});
-    }
-    $("#abas").innerHTML = NICHOS.map(n => `<button class="aba" role="tab" type="button" data-id="${n.id}">${esc(n.nome)}<small>${n.videos.length}</small></button>`).join("");
-    $("#abas").addEventListener("click", e => {
-      const b = e.target.closest(".aba"); if (!b) return;
-      mostrarNicho(NICHOS.find(n => n.id === b.dataset.id));
-    });
-    mostrarNicho(NICHOS[0]);
-
-    // Player
-    const modal = $("#modal"), quadro = $("#quadro");
-    document.addEventListener("click", e => {
-      const v = e.target.closest("[data-video]"); if (!v) return;
-      const id = encodeURIComponent(v.dataset.video);
-      quadro.innerHTML = `<iframe src="https://www.youtube-nocookie.com/embed/${id}?autoplay=1&playsinline=1&rel=0&loop=1&playlist=${id}" allow="autoplay; encrypted-media; picture-in-picture" allowfullscreen title="Vídeo"></iframe>`;
-      modal.classList.add("aberto"); document.body.style.overflow = "hidden";
-    });
-    function fechar() { modal.classList.remove("aberto"); quadro.innerHTML = ""; document.body.style.overflow = ""; }
-    $("#fecharModal").addEventListener("click", fechar);
-    modal.addEventListener("click", e => { if (e.target === modal) fechar(); });
-    document.addEventListener("keydown", e => { if (e.key === "Escape") fechar(); });
-
     // Copiar
     function avisar(t) { const a = $("#aviso"); a.textContent = t; a.classList.add("mostrar"); clearTimeout(avisar.t); avisar.t = setTimeout(() => a.classList.remove("mostrar"), 1800); }
     async function copiar(texto) {
@@ -690,7 +670,7 @@
           <div><b>${esc(c.marca)}</b><code>${esc(c.codigo)}</code>${c.detalhe ? `<small>${esc(c.detalhe)}</small>` : ""}</div>
           <div class="acoes"><button type="button" data-copiar="${esc(c.codigo)}">copiar</button>${c.link ? `<a href="${esc(c.link)}" target="_blank" rel="noopener">ir pro site ↗</a>` : ""}</div>
         </div>`).join("");
-      $("#cupons").hidden = false; $("#navCupons").hidden = false;
+      $("#cupons").hidden = false; $("#navCupons").hidden = false; $("#menuCupons").hidden = false;
     }
 
     // Vitrine
@@ -706,7 +686,7 @@
     const io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { e.target.classList.add("visivel"); io.unobserve(e.target); } }), { threshold: .12 });
     document.querySelectorAll(".revelar").forEach(el => io.observe(el));
 
-    const secoes = ["inicio", "portfolio", "cupons", "historia", "conversar"].map(id => document.getElementById(id)).filter(s => s && !s.hidden);
+    const secoes = ["inicio", "cupons", "historia", "conversar"].map(id => document.getElementById(id)).filter(s => s && !s.hidden);
     const barra = document.querySelectorAll(".barra a");
     const ioNav = new IntersectionObserver(es => es.forEach(e => {
       if (e.isIntersecting) barra.forEach(a => a.classList.toggle("ativo", a.dataset.secao === e.target.id));
