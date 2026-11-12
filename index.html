@@ -937,6 +937,28 @@
     .fc-chips { display: flex; flex-wrap: wrap; gap: 5px; list-style: none; margin: 0; padding: 0; }
     .fc-chips li { padding: 3px 9px; border-radius: 999px; border: 1px solid var(--cor); color: var(--cor); font-size: .68rem; font-weight: 600; }
     .fc .extra-funil { margin-top: 10px; font-size: .74rem; }
+    /* Fundos discretos por nicho na galeria */
+    .bloco-nicho, .galeria-nicho { position: relative; isolation: isolate; overflow: hidden; border-radius: var(--raio-g); }
+    .bloco-nicho { grid-column: 1 / -1; padding: 22px 24px 26px; }
+    .galeria-nicho { padding: 24px; }
+    .bloco-nicho .grupo { margin: 0 0 18px; padding: 0; border: 0; }
+    .galeria-interna { display: grid; grid-template-columns: repeat(4, 1fr); gap: clamp(14px, 1.8vw, 22px); list-style: none; margin: 0; padding: 0; }
+    .marca-dagua { display: block; position: absolute; z-index: -1; top: -30px; right: -20px; width: 240px; height: 240px; transform: rotate(-12deg); pointer-events: none; list-style: none; grid-column: 1 / -1; }
+    .marca-dagua svg { width: 100%; height: 100%; fill: none; stroke: currentColor; stroke-width: .9; stroke-linecap: round; stroke-linejoin: round; opacity: .12; }
+    /* Beleza: bordô com pó iluminado */
+    .fundo-beleza { background: radial-gradient(circle at 12% 18%, rgba(242, 220, 155, .12), transparent 38%), radial-gradient(circle at 88% 85%, rgba(232, 220, 201, .10), transparent 40%), var(--textura), var(--bordo); color: var(--bege); }
+    /* Moda: linho */
+    .fundo-moda { background: repeating-linear-gradient(0deg, rgba(17, 13, 10, .04) 0 1px, transparent 1px 4px), repeating-linear-gradient(90deg, rgba(17, 13, 10, .035) 0 1px, transparent 1px 5px), var(--creme-2); color: var(--tinta); }
+    /* Gastronomia: toalha xadrez */
+    .fundo-gastronomia { background: repeating-linear-gradient(0deg, rgba(232, 220, 201, .055) 0 26px, transparent 26px 52px), repeating-linear-gradient(90deg, rgba(232, 220, 201, .055) 0 26px, transparent 26px 52px), var(--petroleo); color: var(--bege); }
+    /* Tecnologia: rede de pontos */
+    .fundo-tecnologia { background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='260' height='260'%3E%3Cg stroke='%23d2bea6' stroke-opacity='.16' fill='none'%3E%3Cpath d='M20 40L110 90L200 30L250 130L160 200L60 170Z M110 90L160 200 M110 90L60 170 M200 30L160 200'/%3E%3C/g%3E%3Cg fill='%23d2bea6' fill-opacity='.28'%3E%3Ccircle cx='20' cy='40' r='3'/%3E%3Ccircle cx='110' cy='90' r='4'/%3E%3Ccircle cx='200' cy='30' r='3'/%3E%3Ccircle cx='250' cy='130' r='3'/%3E%3Ccircle cx='160' cy='200' r='4'/%3E%3Ccircle cx='60' cy='170' r='3'/%3E%3C/g%3E%3C/svg%3E"), #232a1b; color: var(--bege); }
+    .fundo-beleza h3, .fundo-gastronomia h3, .fundo-tecnologia h3, .fundo-beleza .grupo h3, .fundo-gastronomia .grupo h3, .fundo-tecnologia .grupo h3 { color: var(--bege); }
+    .fundo-beleza .frase-grupo, .fundo-gastronomia .frase-grupo, .fundo-tecnologia .frase-grupo { color: rgba(232, 220, 201, .78); }
+    .fundo-beleza .ver-grupo, .fundo-gastronomia .ver-grupo, .fundo-tecnologia .ver-grupo { color: var(--bege); border-color: rgba(232, 220, 201, .7); }
+    .fundo-beleza .ver-grupo:hover, .fundo-gastronomia .ver-grupo:hover, .fundo-tecnologia .ver-grupo:hover { background: var(--bege); color: var(--tinta); }
+    .fundo-beleza .trabalho .formato, .fundo-gastronomia .trabalho .formato, .fundo-tecnologia .trabalho .formato { color: #f2dc9b; }
+    .fundo-beleza :focus-visible, .fundo-gastronomia :focus-visible, .fundo-tecnologia :focus-visible { outline-color: var(--bege); }
     /* Nichos: frase curta e CTA mais visível */
     .grupo { align-items: flex-end; }
     .frase-grupo { margin: 4px 0 0; font-size: .9rem; color: var(--tinta-suave); }
@@ -1009,6 +1031,10 @@
 
       /* Trabalhos: 3 vídeos por linha */
       .galeria { grid-template-columns: repeat(3, 1fr); gap: 10px; }
+      .galeria-interna { grid-template-columns: repeat(3, 1fr); gap: 10px; }
+      .bloco-nicho, .galeria-nicho { padding: 16px 12px 18px; }
+      .bloco-nicho .grupo { margin-bottom: 12px; }
+      .marca-dagua { width: 150px; height: 150px; top: -20px; right: -16px; }
       .grupo { margin-top: 10px; padding-top: 12px; }
       .grupo h3 { font-size: 1.3rem; }
       .ver-grupo { font-size: .66rem; letter-spacing: .08em; }
@@ -1660,19 +1686,26 @@
         <div class="midia g6"><img src="https://i.ytimg.com/vi/${esc(v.id)}/oardefault.jpg" alt="" loading="lazy" onerror="if(this.dataset.f){this.remove()}else{this.dataset.f=1;this.src='https://i.ytimg.com/vi/${esc(v.id)}/hqdefault.jpg'}"><span class="play" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M6 4l14 8-14 8z"/></svg></span></div>
         <div class="info"><h3>${esc(titulo)}</h3><span class="formato">${esc(rotulo)}</span></div></button></li>`;
     }
+    // Ícone grande e bem transparente no canto de cada nicho, como marca d'água
+    function marcaDagua(id, tag = "li") {
+      const ic = icones[id];
+      return ic ? `<${tag} class="marca-dagua" aria-hidden="true"><svg viewBox="0 0 24 24">${ic.d.map(d => `<path d="${d}"/>`).join("")}</svg></${tag}>` : "";
+    }
     function desenhaGaleria() {
       if (estado.nicho === "todos") {
         galeria.innerHTML = nichos.filter(n => videos.some(v => v.nicho === n.id)).map(n => {
           const total = videos.filter(v => v.nicho === n.id).length;
-          return `<li class="grupo"><div><h3>${esc(n.nome)}</h3>${n.frase ? `<p class="frase-grupo">${esc(n.frase)}</p>` : ""}</div><button type="button" class="ver-grupo" data-ir="${esc(n.id)}">Ver os ${total} vídeos →</button></li>` + vitrineDoNicho(n).map(cardVideo).join("");
+          return `<li class="bloco-nicho fundo-${esc(n.id)}">${marcaDagua(n.id, "span")}<div class="grupo"><div><h3>${esc(n.nome)}</h3>${n.frase ? `<p class="frase-grupo">${esc(n.frase)}</p>` : ""}</div><button type="button" class="ver-grupo" data-ir="${esc(n.id)}">Ver os ${total} vídeos →</button></div><ul class="galeria-interna">${vitrineDoNicho(n).map(cardVideo).join("")}</ul></li>`;
         }).join("");
+        galeria.className = "galeria";
         botaoMais.hidden = true;
         subfiltros.hidden = true;
         subfiltros.innerHTML = "";
         return;
       }
       const lista = videosVisiveis();
-      galeria.innerHTML = lista.slice(0, estado.limite).map(cardVideo).join("");
+      galeria.className = `galeria galeria-nicho fundo-${estado.nicho}`;
+      galeria.innerHTML = marcaDagua(estado.nicho) + lista.slice(0, estado.limite).map(cardVideo).join("");
       const faltam = lista.length - estado.limite;
       botaoMais.hidden = faltam <= 0;
       botaoMais.textContent = `Ver mais vídeos (${Math.max(faltam, 0)})`;
