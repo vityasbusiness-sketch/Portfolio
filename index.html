@@ -901,6 +901,17 @@
     .dica-nicho { margin: -22px 0 26px; font-size: .84rem; color: var(--tinta-suave); }
     .dica-nicho span { color: var(--bordo); margin-right: 4px; }
     .dica-nicho[hidden] { display: none; }
+    /* Funil: vídeo grande no topo do card, com a etapa por cima */
+    .cabeca-funil { display: block; padding: 0; }
+    .cabeca-funil .mini-video { display: block; width: 100%; aspect-ratio: 4 / 5; border: 0; border-radius: 0; overflow: hidden; }
+    .cabeca-funil .mini-video img { object-position: 50% 30%; transition: transform .6s ease; }
+    .cabeca-funil .mini-video:hover img { transform: scale(1.04); }
+    .cabeca-funil .mini-video::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(17,13,10,0) 45%, var(--cor) 100%); }
+    .cabeca-funil .mini-video .play { z-index: 2; width: 64px; height: 64px; box-shadow: 0 0 0 8px rgba(232, 220, 201, .25); }
+    .cabeca-funil .mini-video .play svg { width: 20px; height: 20px; margin-left: 3px; }
+    .cabeca-funil .selo-video { z-index: 2; top: 14px; bottom: auto; left: auto; right: 14px; transform: none; font-size: .7rem; padding: 5px 10px; }
+    .faixa-etapa { position: relative; z-index: 2; display: flex; align-items: center; gap: 12px; margin-top: -78px; padding: 0 20px 16px; color: var(--bege); pointer-events: none; }
+    .cabeca-funil::before { z-index: 3; }
     /* Nichos: frase curta e CTA mais visível */
     .grupo { align-items: flex-end; }
     .frase-grupo { margin: 4px 0 0; font-size: .9rem; color: var(--tinta-suave); }
@@ -1006,6 +1017,7 @@
       .funil-grade { grid-auto-flow: column; grid-auto-columns: 84%; grid-template-columns: none; gap: 12px; overflow-x: auto; scroll-snap-type: x mandatory; scrollbar-width: none; padding-bottom: 6px; }
       .funil-grade::-webkit-scrollbar { display: none; }
       .etapa-funil { scroll-snap-align: start; }
+      .cabeca-funil .mini-video { aspect-ratio: 1 / 1; }
       .corpo-funil { padding: 16px; }
       .porque { font-size: .84rem; }
       .funil-combo { flex-direction: column; align-items: stretch; padding: 16px; font-size: .88rem; }
@@ -1059,12 +1071,12 @@
         <ul>
           <li><a href="#sobre">Sobre</a></li>
           <li><a href="#destaques">Destaques</a></li>
+          <li><a href="#funil">Funil</a></li>
           <li><a href="#trabalhos">Trabalhos</a></li>
           <li><a href="#fotos">Fotos</a></li>
-          <li><a href="#entrega">Entrega</a></li>
-          <li><a href="#funil">Funil</a></li>
-          <li><a href="#pacotes">Pacotes</a></li>
           <li><a href="#numeros">Números</a></li>
+          <li><a href="#entrega">Entrega</a></li>
+          <li><a href="#pacotes">Pacotes</a></li>
           <li><a href="#contato">Contato</a></li>
         </ul>
       </nav>
@@ -1187,6 +1199,25 @@
       </div>
     </section>
 
+    <!-- ============ FUNIL: um vídeo pra cada etapa ============ -->
+    <section class="funil papel" id="funil" aria-labelledby="titulo-funil">
+      <div class="container">
+        <div class="cabeca-secao revelar">
+          <div>
+            <p class="rotulo">Estratégia</p>
+            <h2 class="titulo-secao" id="titulo-funil">Um vídeo pra cada etapa do <em>funil</em>.</h2>
+          </div>
+          <p class="apoio">Nem todo vídeo tem o mesmo trabalho. Uns atraem, outros convencem, outros fecham a venda. Eu roteirizo pensando em onde a sua marca precisa de força.</p>
+        </div>
+        <!-- As etapas vêm do array "funil" no script -->
+        <ol class="funil-grade" id="listaFunil"></ol>
+        <div class="funil-combo revelar">
+          <p><b>Funil completo no pacote Performance:</b> 3 vídeos criativos, um pra cada etapa, com 90 dias de direito de uso em anúncios.</p>
+          <a class="botao botao-primario" id="ctaFunil" target="_blank" rel="noopener" href="#pacotes">Quero o funil completo</a>
+        </div>
+      </div>
+    </section>
+
     <!-- ============ 4. TRABALHOS POR NICHO ============ -->
     <section class="papel" id="trabalhos" aria-labelledby="titulo-trabalhos">
       <div class="container">
@@ -1227,60 +1258,6 @@
       </div>
     </section>
 
-    <!-- ============ ENTREGA: o caminho depois do sim ============ -->
-    <section class="entrega" id="entrega" aria-labelledby="titulo-entrega">
-      <div class="container">
-        <div class="cabeca-secao revelar">
-          <div>
-            <p class="rotulo">Entrega</p>
-            <h2 class="titulo-secao" id="titulo-entrega">O caminho de uma campanha <em>depois do sim</em>.</h2>
-          </div>
-          <p class="apoio">Um processo fixo, pra você saber exatamente o que acontece em cada etapa e o que recebe no final.</p>
-        </div>
-        <!-- As etapas e os itens da pasta vêm dos arrays "etapas" e "pastaDrive" no script -->
-        <ol class="etapas revelar" id="listaEtapas"></ol>
-        <div class="painel-pasta revelar">
-          <h3 class="painel-titulo">Na pasta do <em>Drive</em> vai</h3>
-          <ul class="pasta-drive" id="listaPasta"></ul>
-        </div>
-      </div>
-    </section>
-
-    <!-- ============ FUNIL: um vídeo pra cada etapa ============ -->
-    <section class="funil papel" id="funil" aria-labelledby="titulo-funil">
-      <div class="container">
-        <div class="cabeca-secao revelar">
-          <div>
-            <p class="rotulo">Estratégia</p>
-            <h2 class="titulo-secao" id="titulo-funil">Um vídeo pra cada etapa do <em>funil</em>.</h2>
-          </div>
-          <p class="apoio">Nem todo vídeo tem o mesmo trabalho. Uns atraem, outros convencem, outros fecham a venda. Eu roteirizo pensando em onde a sua marca precisa de força.</p>
-        </div>
-        <!-- As etapas vêm do array "funil" no script -->
-        <ol class="funil-grade" id="listaFunil"></ol>
-        <div class="funil-combo revelar">
-          <p><b>Funil completo no pacote Performance:</b> 3 vídeos criativos, um pra cada etapa, com 90 dias de direito de uso em anúncios.</p>
-          <a class="botao botao-primario" id="ctaFunil" target="_blank" rel="noopener" href="#pacotes">Quero o funil completo</a>
-        </div>
-      </div>
-    </section>
-
-    <!-- ============ PACOTES ============ -->
-    <section class="pacotes papel" id="pacotes" aria-labelledby="titulo-pacotes">
-      <div class="container">
-        <div class="cabeca-secao revelar">
-          <div>
-            <p class="rotulo">Investimento</p>
-            <h2 class="titulo-secao" id="titulo-pacotes">Pacotes pra sua marca <em>começar</em>.</h2>
-          </div>
-          <p class="apoio">Pacotes fechados pra facilitar sua decisão. Nichos ou exclusividade sob medida? Só chamar.</p>
-        </div>
-        <!-- Os pacotes vêm do array "pacotes" no script -->
-        <ul class="pacotes-grade" id="listaPacotes"></ul>
-        <p class="pacotes-dica">Arraste pro lado para ver os outros pacotes →</p>
-      </div>
-    </section>
-
     <!-- ============ 6. NÚMEROS E DEPOIMENTOS ============ -->
     <section class="papel" id="numeros" aria-labelledby="titulo-numeros">
       <div class="container">
@@ -1308,6 +1285,41 @@
           </div>
           <ul class="depoimentos" id="listaDepoimentos" tabindex="0" aria-label="Depoimentos de clientes, role para o lado para ver mais"></ul>
         </div>
+      </div>
+    </section>
+
+    <!-- ============ ENTREGA: o caminho depois do sim ============ -->
+    <section class="entrega" id="entrega" aria-labelledby="titulo-entrega">
+      <div class="container">
+        <div class="cabeca-secao revelar">
+          <div>
+            <p class="rotulo">Entrega</p>
+            <h2 class="titulo-secao" id="titulo-entrega">O caminho de uma campanha <em>depois do sim</em>.</h2>
+          </div>
+          <p class="apoio">Um processo fixo, pra você saber exatamente o que acontece em cada etapa e o que recebe no final.</p>
+        </div>
+        <!-- As etapas e os itens da pasta vêm dos arrays "etapas" e "pastaDrive" no script -->
+        <ol class="etapas revelar" id="listaEtapas"></ol>
+        <div class="painel-pasta revelar">
+          <h3 class="painel-titulo">Na pasta do <em>Drive</em> vai</h3>
+          <ul class="pasta-drive" id="listaPasta"></ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ PACOTES ============ -->
+    <section class="pacotes papel" id="pacotes" aria-labelledby="titulo-pacotes">
+      <div class="container">
+        <div class="cabeca-secao revelar">
+          <div>
+            <p class="rotulo">Investimento</p>
+            <h2 class="titulo-secao" id="titulo-pacotes">Pacotes pra sua marca <em>começar</em>.</h2>
+          </div>
+          <p class="apoio">Pacotes fechados pra facilitar sua decisão. Nichos ou exclusividade sob medida? Só chamar.</p>
+        </div>
+        <!-- Os pacotes vêm do array "pacotes" no script -->
+        <ul class="pacotes-grade" id="listaPacotes"></ul>
+        <p class="pacotes-dica">Arraste pro lado para ver os outros pacotes →</p>
       </div>
     </section>
 
@@ -1835,12 +1847,14 @@
     document.getElementById("listaFunil").innerHTML = funil.map((f, i) => `
       <li class="etapa-funil etapa-${i + 1} revelar">
         <div class="cabeca-funil">
-          <span class="numero-funil" aria-hidden="true">0${i + 1}</span>
-          <div class="titulos-funil">
-            <p class="etapa-nome">${esc(f.etapa)} de funil</p>
-            <h3>${esc(f.verbo)}</h3>
-          </div>
           ${f.video ? `<button type="button" class="mini-video" data-video="${esc(f.video)}" aria-label="Assistir exemplo: ${esc(f.exemplo)}"><img src="https://i.ytimg.com/vi/${esc(f.video)}/oardefault.jpg" alt="" loading="lazy" onerror="if(this.dataset.f){this.remove()}else{this.dataset.f=1;this.src='https://i.ytimg.com/vi/${esc(f.video)}/hqdefault.jpg'}"><span class="play" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M6 4l14 8-14 8z"/></svg></span>${f.selo ? `<span class="selo-video">${esc(f.selo)}</span>` : ""}</button>` : ""}
+          <div class="faixa-etapa">
+            <span class="numero-funil" aria-hidden="true">0${i + 1}</span>
+            <div class="titulos-funil">
+              <p class="etapa-nome">${esc(f.etapa)} de funil</p>
+              <h3>${esc(f.verbo)}</h3>
+            </div>
+          </div>
         </div>
         <div class="corpo-funil">
           <p class="publico"><span aria-hidden="true">→</span> ${esc(f.publico)}</p>
