@@ -251,8 +251,8 @@
     .figurinhas { display: flex; gap: 22px; justify-content: center; margin-top: 16px; }
     .figurinha { margin: 0; display: grid; justify-items: center; gap: 2px; }
     .figurinha .bicho {
-      width: 88px; height: 88px; object-fit: contain;
-      filter: drop-shadow(0 6px 8px rgba(53,1,7,.3));
+      width: 92px; height: 92px; object-fit: contain; border-radius: 50%;
+      filter: drop-shadow(0 6px 8px rgba(53,1,7,.28));
       transition: transform .2s ease;
     }
     .figurinha:nth-child(1) .bicho { transform: rotate(-8deg); }
@@ -350,7 +350,7 @@
 
       /* marcas */
       .marcas-titulo { font-size: 2rem; }
-      .esteira { margin: 10px 0 0; padding: 11px 0; }
+      .esteira { margin: 14px calc(50% - 50vw - 20px) 0; padding: 12px 0; }
       .esteira-trilho span { font-size: 1.6rem; }
 
       /* make artística */
@@ -385,7 +385,7 @@
       .numero span { margin-top: 0; }
 
       /* linha do tempo: linha no meio, cards alternando os lados */
-      .cabeca-tempo { text-align: center; padding-top: 14px; }
+      .cabeca-tempo { text-align: center; padding-top: 14px; min-height: 300px; }
       .cabeca-tempo .fotinhos { position: absolute; inset: 0 0 auto 0; margin: 0; justify-content: space-between; pointer-events: none; }
       .cabeca-tempo .fotinhos .polaroid { width: 170px; max-width: none; pointer-events: auto; }
       .cabeca-tempo .fotinhos .polaroid:first-child { transform: rotate(-7deg); }
@@ -413,7 +413,7 @@
       .bastidores { grid-template-columns: auto 1fr auto; }
       .bastidores h3 { grid-row: auto; }
       .bastidores .figurinhas { margin-top: 0; }
-      .figurinha .bicho { width: 104px; height: 104px; }
+      .figurinha .bicho { width: 110px; height: 110px; }
 
       /* contato centralizado, botões em linha */
       .contato { margin: 90px calc(50% - 50vw) 0; padding: 64px 32px 30px; }
