@@ -1,0 +1,717 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Yasmin Caetano · @caetyas_</title>
+  <meta name="description" content="UGC creator, influenciadora, estudante de nutrição e artista desde sempre. Portfólio, parcerias, cupons e a minha história num lugar só.">
+  <meta name="theme-color" content="#350107">
+
+  <link rel="canonical" href="https://vityasbusiness-sketch.github.io/Portfolio/links/">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="pt_BR">
+  <meta property="og:title" content="Yasmin Caetano · @caetyas_">
+  <meta property="og:description" content="Portfólio UGC, parcerias, cupons e a minha história num lugar só.">
+  <meta property="og:url" content="https://vityasbusiness-sketch.github.io/Portfolio/links/">
+  <meta property="og:image" content="https://vityasbusiness-sketch.github.io/Portfolio/fotos/compartilhar.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;700&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700&family=Fraunces:ital,opsz,wght@0,9..144,300..700;1,9..144,300..600&display=swap" rel="stylesheet">
+
+  <style>
+    /* ============ PALETA CAETYAS_ (Guia Visual, out/2026) ============ */
+    :root {
+      --bordo: #350107;
+      --vermelho: #48050E;
+      --bege: #EDE5D7;
+      --verde: #2D3823;
+      --azul: #113F54;
+
+      --papel: #F6F1E8;          /* cards claros */
+      --bege-2: #E2D6C3;         /* bege mais fundo */
+      --rosado: #E9CFC4;         /* bege puxado pro vinho */
+      --salvia: #C9CDB5;         /* bege puxado pro verde */
+      --nevoa: #C5D3D6;          /* bege puxado pro azul */
+      --tinta: #1E0B0C;
+      --tinta-suave: #5B4644;
+      --linha: rgba(53, 1, 7, .14);
+
+      --serif: "Fraunces", Georgia, serif;
+      --sans: "DM Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+      --mao: "Caveat", "Patrick Hand", cursive;
+
+      --raio: 22px;
+      --sombra: 0 1px 2px rgba(53,1,7,.06), 0 14px 30px -18px rgba(53,1,7,.45);
+      --textura: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.08'/%3E%3C/svg%3E");
+      --largura: 480px;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; }
+    html { scroll-behavior: smooth; scroll-padding-top: 70px; -webkit-text-size-adjust: 100%; }
+    body {
+      margin: 0;
+      background: var(--bege) var(--textura);
+      color: var(--tinta);
+      font-family: var(--sans);
+      font-size: 16px;
+      line-height: 1.55;
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+      padding-bottom: calc(96px + env(safe-area-inset-bottom));
+    }
+    img { max-width: 100%; display: block; }
+    a { color: inherit; text-decoration: none; }
+    button { font: inherit; color: inherit; cursor: pointer; }
+    h1, h2, h3 { font-family: var(--serif); font-weight: 400; margin: 0; line-height: 1.02; letter-spacing: -.015em; }
+    h1 em, h2 em, h3 em { font-style: italic; }
+    p { margin: 0; }
+    :focus-visible { outline: 2px solid var(--azul); outline-offset: 3px; border-radius: 6px; }
+
+    .pagina { max-width: var(--largura); margin: 0 auto; padding: 0 18px; }
+    section { margin-top: 56px; }
+
+    .mao { font-family: var(--mao); font-weight: 700; }
+    .etiqueta {
+      display: inline-block; font-size: .72rem; font-weight: 700; letter-spacing: .02em;
+      background: #E9B949; color: var(--bordo); padding: 5px 12px; border-radius: 999px;
+      transform: rotate(-3deg); box-shadow: 0 6px 14px -8px rgba(53,1,7,.5);
+    }
+    .chip { display: inline-block; font-size: .8rem; font-weight: 600; padding: 6px 13px; border-radius: 999px; }
+
+    /* ============ FAIXA DA BLACK ============ */
+    .faixa-black {
+      position: sticky; top: 0; z-index: 30;
+      background: var(--bordo); color: var(--bege);
+      font-size: .82rem; display: flex; gap: 10px; align-items: center; justify-content: center;
+      padding: 9px 14px; flex-wrap: wrap; text-align: center;
+    }
+    .faixa-black b { background: var(--bege); color: var(--bordo); font-size: .66rem; letter-spacing: .12em; padding: 3px 8px; border-radius: 4px; }
+    .faixa-black a { text-decoration: underline; text-underline-offset: 3px; font-weight: 700; color: #F2C9A0; }
+    .faixa-black[hidden] { display: none; }
+
+    /* ============ CAPA ============ */
+    .topo { display: flex; justify-content: space-between; align-items: center; padding: 18px 0 6px; }
+    .monograma {
+      font-family: var(--serif); font-size: 1.5rem; font-style: italic; color: var(--bordo);
+      display: flex; align-items: center; gap: 6px;
+    }
+    .monograma svg { width: 14px; height: 14px; fill: var(--bordo); }
+    .arroba { font-size: .82rem; font-weight: 700; background: var(--papel); border: 1px solid var(--linha); padding: 6px 12px; border-radius: 999px; }
+
+    .capa-foto { position: relative; margin: 18px 6px 0; }
+    .polaroid {
+      background: var(--papel); padding: 10px 10px 58px; border-radius: 6px;
+      transform: rotate(-2.2deg); box-shadow: 0 2px 4px rgba(0,0,0,.08), 0 26px 40px -22px rgba(53,1,7,.7);
+    }
+    .polaroid img { width: 100%; aspect-ratio: 4/4.6; object-fit: cover; object-position: 50% 22%; border-radius: 3px; }
+    .polaroid .legenda { position: absolute; left: 0; right: 0; bottom: 14px; text-align: center; font-family: var(--mao); font-size: 1.5rem; color: var(--vermelho); }
+    .fita {
+      position: absolute; width: 110px; height: 30px; background: rgba(201,205,181,.82);
+      top: -12px; left: 50%; transform: translateX(-50%) rotate(-5deg);
+      box-shadow: 0 2px 4px rgba(0,0,0,.06);
+      clip-path: polygon(3% 0, 97% 4%, 100% 50%, 97% 100%, 2% 96%, 0 50%);
+    }
+    .selo-estrela {
+      position: absolute; right: 8px; top: 22px; width: 88px; height: 88px; display: grid; place-items: center;
+      transform: rotate(10deg);
+    }
+    .selo-estrela svg { position: absolute; inset: 0; width: 100%; height: 100%; fill: var(--azul); }
+    .selo-estrela span { position: relative; font-family: var(--mao); color: var(--bege); font-size: 1.02rem; line-height: .9; text-align: center; transform: rotate(-8deg); }
+    .nome {
+      position: absolute; left: -4px; bottom: 74px;
+      background: var(--verde); color: var(--bege); border-radius: 999px;
+      padding: 10px 22px 12px; font-family: var(--serif); font-size: 1.85rem; transform: rotate(-3deg);
+      box-shadow: 0 16px 24px -14px rgba(0,0,0,.6);
+    }
+    .nome em { font-style: italic; color: #F2C9A0; }
+    .nome .etiqueta { position: absolute; left: 18px; bottom: -14px; font-family: var(--sans); font-size: .7rem; }
+
+    .intro { margin-top: 34px; }
+    .intro h1 { font-size: 2.15rem; color: var(--bordo); }
+    .intro h1 em { color: var(--vermelho); }
+    .intro p { margin-top: 14px; color: var(--tinta-suave); }
+
+    /* ============ BOTÕES DE LINK ============ */
+    .links { display: grid; gap: 12px; margin-top: 28px; }
+    .link {
+      display: flex; align-items: center; gap: 14px; padding: 16px 18px; border-radius: var(--raio);
+      box-shadow: var(--sombra); transition: transform .18s ease;
+    }
+    .link:active { transform: scale(.98); }
+    @media (hover: hover) { .link:hover { transform: translateY(-2px) rotate(-.4deg); } }
+    .link .icone {
+      flex: none; width: 42px; height: 42px; border-radius: 50%; display: grid; place-items: center;
+      background: rgba(255,255,255,.55); border: 1px solid rgba(53,1,7,.12);
+    }
+    .link .icone svg { width: 20px; height: 20px; stroke: currentColor; fill: none; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+    .link b { display: block; font-size: 1.02rem; line-height: 1.2; }
+    .link small { display: block; font-size: .82rem; opacity: .75; margin-top: 2px; }
+    .link .seta { margin-left: auto; font-size: 1.2rem; }
+    .l-bege { background: var(--papel); color: var(--bordo); }
+    .l-rosado { background: var(--rosado); color: var(--bordo); }
+    .l-salvia { background: var(--salvia); color: var(--verde); }
+    .l-nevoa { background: var(--nevoa); color: var(--azul); }
+    .l-bordo { background: var(--bordo); color: var(--bege); }
+    .l-bordo .icone { background: rgba(237,229,215,.12); border-color: rgba(237,229,215,.2); }
+    .l-black { position: relative; }
+    .l-black .etiqueta { position: absolute; right: 14px; top: -10px; }
+
+    .redes-mini { display: flex; gap: 10px; justify-content: center; margin-top: 18px; }
+    .redes-mini a {
+      font-size: .85rem; font-weight: 600; padding: 9px 16px; border-radius: 999px; border: 1.5px solid var(--bordo); color: var(--bordo);
+    }
+
+    /* ============ MARCAS ============ */
+    .marcas-titulo { font-family: var(--mao); font-size: 1.8rem; color: var(--vermelho); text-align: center; }
+    .esteira {
+      margin: 10px -18px 0; background: var(--verde); color: var(--bege); transform: rotate(-1.5deg);
+      overflow: hidden; padding: 13px 0; box-shadow: 0 16px 26px -18px rgba(0,0,0,.6);
+    }
+    .esteira-trilho { display: flex; width: max-content; animation: correr 46s linear infinite; }
+    .esteira-trilho span { font-family: var(--serif); font-size: 1.3rem; white-space: nowrap; padding: 0 14px; display: flex; align-items: center; gap: 28px; }
+    .esteira-trilho span::after { content: "✦"; font-size: .8rem; color: #F2C9A0; }
+    @keyframes correr { to { transform: translateX(-50%); } }
+    @media (prefers-reduced-motion: reduce) { .esteira-trilho { animation: none; } }
+
+    .numeros { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 34px; }
+    .numero { border-radius: 18px; padding: 16px 16px 14px; }
+    .numero strong { display: block; font-family: var(--serif); font-size: 2.2rem; line-height: 1; font-weight: 400; }
+    .numero span { display: block; margin-top: 6px; font-size: .82rem; line-height: 1.3; }
+
+    /* ============ CABEÇALHO DE SEÇÃO ============ */
+    .cabeca { position: relative; }
+    .cabeca .mao { font-size: 1.35rem; color: var(--vermelho); display: block; margin-bottom: 2px; }
+    .cabeca h2 { font-size: 2.5rem; color: var(--bordo); }
+    .cabeca h2 em { color: var(--vermelho); }
+    .cabeca p { margin-top: 10px; color: var(--tinta-suave); }
+
+    /* ============ PORTFÓLIO ============ */
+    .abas { display: flex; gap: 8px; overflow-x: auto; margin: 18px -18px 0; padding: 4px 18px 6px; scrollbar-width: none; }
+    .abas::-webkit-scrollbar { display: none; }
+    .aba {
+      flex: none; border: 1.5px solid var(--bordo); background: transparent; color: var(--bordo);
+      border-radius: 999px; padding: 8px 16px; font-weight: 600; font-size: .9rem;
+    }
+    .aba[aria-selected="true"] { background: var(--bordo); color: var(--bege); }
+    .aba small { opacity: .7; font-weight: 500; margin-left: 4px; }
+    .frase-nicho { margin-top: 12px; font-size: .92rem; color: var(--tinta-suave); min-height: 1.5em; }
+
+    .trilho-videos { display: flex; gap: 12px; overflow-x: auto; scroll-snap-type: x mandatory; margin: 14px -18px 0; padding: 4px 18px 14px; scrollbar-width: none; }
+    .trilho-videos::-webkit-scrollbar { display: none; }
+    .card-video { flex: none; width: 46%; max-width: 200px; scroll-snap-align: start; background: none; border: 0; padding: 0; text-align: left; }
+    .card-video .midia {
+      position: relative; aspect-ratio: 9/16; border-radius: 16px; overflow: hidden;
+      background: linear-gradient(160deg, var(--rosado), var(--bege-2)); box-shadow: var(--sombra);
+    }
+    .card-video img { width: 100%; height: 100%; object-fit: cover; }
+    .card-video .play {
+      position: absolute; right: 10px; bottom: 10px; width: 36px; height: 36px; border-radius: 50%;
+      background: var(--bege); display: grid; place-items: center;
+    }
+    .card-video .play svg { width: 14px; height: 14px; fill: var(--bordo); margin-left: 2px; }
+    .card-video .marca { display: block; margin-top: 9px; font-weight: 700; font-size: .95rem; line-height: 1.2; }
+    .card-video .formato { display: inline-block; margin-top: 5px; font-size: .72rem; font-weight: 600; background: var(--verde); color: var(--bege); padding: 3px 10px; border-radius: 999px; }
+    .card-video .formato:empty { display: none; }
+    .ver-tudo { display: flex; justify-content: center; margin-top: 4px; }
+    .botao {
+      display: inline-flex; align-items: center; justify-content: center; gap: 10px; width: 100%;
+      border-radius: 999px; padding: 15px 22px; font-weight: 700; font-size: 1rem; border: 0;
+    }
+    .botao-bordo { background: var(--bordo); color: var(--bege); }
+    .botao-claro { background: #F2C9A0; color: var(--bordo); }
+    .botao-contorno { background: transparent; border: 1.5px solid rgba(237,229,215,.5); color: var(--bege); }
+
+    /* ============ CUPONS ============ */
+    .cupons { display: grid; gap: 14px; margin-top: 20px; }
+    .cupom {
+      position: relative; background: var(--papel); border: 2px dashed rgba(53,1,7,.28); border-radius: 18px;
+      padding: 18px; display: flex; align-items: center; gap: 12px;
+    }
+    .cupom .etiqueta { position: absolute; left: 12px; top: -12px; }
+    .cupom b { display: block; font-size: 1.02rem; color: var(--bordo); }
+    .cupom code { display: block; font-family: var(--sans); font-weight: 700; letter-spacing: .14em; font-size: .88rem; margin-top: 4px; color: var(--tinta); }
+    .cupom small { display: block; font-size: .78rem; color: var(--tinta-suave); margin-top: 3px; }
+    .cupom .acoes { margin-left: auto; display: grid; gap: 7px; flex: none; }
+    .cupom .acoes button, .cupom .acoes a { border-radius: 999px; padding: 8px 15px; font-size: .82rem; font-weight: 700; text-align: center; }
+    .cupom .acoes button { background: var(--verde); color: var(--bege); border: 0; }
+    .cupom .acoes a { border: 1.5px solid var(--linha); }
+
+    /* ============ VITRINE ============ */
+    .vitrine { background: var(--verde); color: var(--bege); border-radius: 28px; padding: 26px 22px; position: relative; overflow: hidden; }
+    .vitrine .mao { color: #F2C9A0; font-size: 1.3rem; }
+    .vitrine h2 { font-size: 2.4rem; color: var(--bege); }
+    .vitrine h2 em { color: #F2C9A0; }
+    .vitrine p { margin-top: 10px; opacity: .85; }
+    .itens { display: grid; gap: 10px; margin-top: 18px; }
+    .item { display: flex; align-items: center; gap: 12px; background: rgba(237,229,215,.08); border: 1px solid rgba(237,229,215,.18); border-radius: 16px; padding: 12px 14px; }
+    .item .cat { font-size: .7rem; letter-spacing: .1em; text-transform: uppercase; opacity: .7; }
+    .item b { display: block; font-size: .98rem; }
+    .item .seta { margin-left: auto; }
+
+    /* ============ HISTÓRIA ============ */
+    .historia-foto { position: relative; margin: 26px 30px 0 12px; }
+    .historia-foto .polaroid { transform: rotate(2.4deg); padding-bottom: 50px; }
+    .historia-foto .polaroid img { aspect-ratio: 4/4.4; object-position: 50% 20%; }
+    .historia-foto .fita { left: 22%; transform: rotate(-12deg); background: rgba(233,207,196,.85); }
+
+    .conceito { margin-top: 30px; background: var(--bordo); color: var(--bege); border-radius: 28px; padding: 26px 22px; position: relative; }
+    .conceito .chip { background: #F2C9A0; color: var(--bordo); }
+    .conceito h3 { font-size: 2.1rem; margin-top: 14px; }
+    .conceito h3 em { color: #F2C9A0; }
+    .conceito p { margin-top: 12px; opacity: .9; }
+    .conceito .assinatura { font-family: var(--mao); font-size: 1.6rem; color: #F2C9A0; margin-top: 14px; display: block; }
+    .conceito .estrela { position: absolute; right: 18px; top: -18px; width: 46px; height: 46px; fill: #E9B949; transform: rotate(12deg); }
+
+    .facetas { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 22px; }
+    .facetas .chip:nth-child(4n+1) { background: var(--verde); color: var(--bege); }
+    .facetas .chip:nth-child(4n+2) { background: var(--rosado); color: var(--bordo); }
+    .facetas .chip:nth-child(4n+3) { background: var(--nevoa); color: var(--azul); }
+    .facetas .chip:nth-child(4n+4) { background: var(--bordo); color: var(--bege); }
+
+    .linha-tempo { position: relative; margin-top: 30px; padding-left: 30px; }
+    .linha-tempo::before { content: ""; position: absolute; left: 9px; top: 8px; bottom: 8px; border-left: 2px dotted rgba(72,5,14,.45); }
+    .marco { position: relative; border-radius: 22px; padding: 18px 18px 16px; margin-bottom: 14px; box-shadow: var(--sombra); }
+    .marco::before {
+      content: ""; position: absolute; left: -29px; top: 22px; width: 16px; height: 16px; border-radius: 50%;
+      background: var(--bege); border: 3px solid var(--vermelho);
+    }
+    .marco .quando { display: inline-block; font-family: var(--mao); font-size: 1.35rem; line-height: 1; color: var(--vermelho); }
+    .marco h3 { font-size: 1.45rem; margin-top: 6px; color: var(--bordo); }
+    .marco p { margin-top: 8px; font-size: .94rem; color: var(--tinta-suave); }
+    .marco p b { color: var(--tinta); }
+    .marco .doodle { position: absolute; right: 14px; top: 12px; font-size: 1.6rem; }
+
+    .bastidores { margin-top: 18px; background: var(--papel); border-radius: 22px; padding: 20px; box-shadow: var(--sombra); }
+    .bastidores h3 { font-size: 1.5rem; color: var(--bordo); }
+    .bastidores p { margin-top: 8px; color: var(--tinta-suave); font-size: .94rem; }
+    .patas { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 12px; }
+    .patas span { font-family: var(--mao); font-size: 1.3rem; background: var(--bege); border: 1px dashed var(--linha); padding: 2px 12px; border-radius: 10px; color: var(--verde); }
+
+    /* ============ CONTATO ============ */
+    .contato { background: var(--bordo); color: var(--bege); border-radius: 30px 30px 0 0; margin: 60px -18px 0; padding: 40px 22px 34px; position: relative; }
+    .contato .mao { color: #F2C9A0; font-size: 1.35rem; }
+    .contato h2 { font-size: 2.8rem; }
+    .contato h2 em { color: #F2C9A0; }
+    .contato p { margin-top: 12px; opacity: .88; }
+    .contato .botoes { display: grid; gap: 11px; margin-top: 24px; }
+    .copiar-email { display: block; margin: 14px auto 0; background: none; border: 0; text-decoration: underline; text-underline-offset: 3px; font-size: .86rem; opacity: .8; color: var(--bege); }
+    .rodape { text-align: center; margin-top: 34px; font-family: var(--mao); font-size: 1.35rem; color: #F2C9A0; }
+    .rodape a { text-decoration: underline; text-underline-offset: 3px; }
+    .contato .estrela { position: absolute; right: 22px; top: -24px; width: 52px; height: 52px; fill: #E9B949; transform: rotate(-10deg); }
+
+    /* ============ BARRA DE BAIXO ============ */
+    .barra {
+      position: fixed; left: 50%; transform: translateX(-50%); bottom: calc(10px + env(safe-area-inset-bottom)); z-index: 40;
+      width: min(calc(100% - 20px), 460px);
+      background: rgba(246,241,232,.94); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
+      border: 1px solid var(--linha); border-radius: 26px; box-shadow: 0 14px 34px -14px rgba(53,1,7,.5);
+      display: flex; justify-content: space-around; align-items: flex-end; padding: 8px 6px 7px;
+    }
+    .barra a { display: grid; justify-items: center; gap: 3px; font-size: .68rem; font-weight: 600; color: var(--tinta-suave); flex: 1; padding: 2px 0; }
+    .barra a svg { width: 21px; height: 21px; stroke: currentColor; fill: none; stroke-width: 1.7; stroke-linecap: round; stroke-linejoin: round; }
+    .barra a.ativo { color: var(--bordo); }
+    .barra a.ativo::after { content: ""; width: 4px; height: 4px; border-radius: 50%; background: var(--vermelho); }
+    .barra a.centro { margin-top: -26px; color: var(--bordo); }
+    .barra a.centro .bolha {
+      width: 56px; height: 56px; border-radius: 50%; background: var(--bordo); display: grid; place-items: center;
+      border: 4px solid var(--bege); box-shadow: 0 10px 18px -8px rgba(53,1,7,.7);
+    }
+    .barra a.centro svg { stroke: var(--bege); }
+    .barra a[hidden] { display: none; }
+
+    /* ============ PLAYER ============ */
+    .modal { position: fixed; inset: 0; z-index: 60; background: rgba(30,11,12,.88); display: none; align-items: center; justify-content: center; padding: 20px; }
+    .modal.aberto { display: flex; }
+    .modal .quadro { position: relative; width: min(100%, 380px); aspect-ratio: 9/16; max-height: 82vh; border-radius: 18px; overflow: hidden; background: #000; }
+    .modal iframe { width: 100%; height: 100%; border: 0; }
+    .modal .fechar { position: absolute; top: max(14px, env(safe-area-inset-top)); right: 14px; width: 44px; height: 44px; border-radius: 50%; border: 0; background: var(--bege); color: var(--bordo); font-size: 1.6rem; line-height: 1; }
+
+    .aviso { position: fixed; left: 50%; bottom: 110px; transform: translateX(-50%) translateY(20px); opacity: 0; background: var(--verde); color: var(--bege); padding: 10px 18px; border-radius: 999px; font-size: .88rem; font-weight: 600; transition: .25s; z-index: 70; pointer-events: none; }
+    .aviso.mostrar { opacity: 1; transform: translateX(-50%) translateY(0); }
+
+    .revelar { opacity: 0; transform: translateY(18px); transition: opacity .6s ease, transform .6s ease; }
+    .revelar.visivel { opacity: 1; transform: none; }
+    @media (prefers-reduced-motion: reduce) { .revelar { opacity: 1; transform: none; transition: none; } }
+  </style>
+</head>
+<body>
+
+  <!-- Faixa da Black: some sozinha depois da data (configure em BLACK_FRIDAY lá embaixo) -->
+  <div class="faixa-black" id="faixaBlack" hidden>
+    <b>BLACK FRIDAY</b>
+    <span id="textoBlack">é daqui a poucos dias</span>
+    <a id="linkBlack" href="https://vityasbusiness-sketch.github.io/black-friday/" target="_blank" rel="noopener">reservar agenda →</a>
+  </div>
+
+  <main class="pagina">
+
+    <!-- ============ CAPA ============ -->
+    <header id="inicio">
+      <div class="topo">
+        <span class="monograma"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 0c.9 6.4 5.6 11.1 12 12-6.4.9-11.1 5.6-12 12-.9-6.4-5.6-11.1-12-12C6.4 11.1 11.1 6.4 12 0z"/></svg>caetyas_</span>
+        <a class="arroba" href="https://instagram.com/caetyas_" target="_blank" rel="noopener">@caetyas_</a>
+      </div>
+
+      <div class="capa-foto">
+        <div class="polaroid">
+          <span class="fita" aria-hidden="true"></span>
+          <img src="../fotos/capa-celular.webp" alt="Yasmin Caetano sorrindo, com o rosto apoiado na mão, segurando um drink" fetchpriority="high">
+          <span class="legenda">the creative collector</span>
+        </div>
+        <div class="selo-estrela" aria-hidden="true">
+          <svg viewBox="0 0 100 100"><path d="M50 0l9 22 22-9-9 22 22 9-22 9 9 22-22-9-9 22-9-22-22 9 9-22-22-9 22-9-9-22 22 9z"/></svg>
+          <span>criada<br>pra criar</span>
+        </div>
+        <div class="nome">Oi, eu sou a <em>Yasmin</em><span class="etiqueta">mas pode chamar de Mima Artista</span></div>
+      </div>
+
+      <div class="intro revelar">
+        <h1>UGC creator, influenciadora, estudante de nutrição e <em>artista desde sempre.</em></h1>
+        <p>Transformo produto em conceito visual, com cenário, referência e narrativa. Aqui tem tudo: portfólio, parcerias, cupons e um pouco da minha história.</p>
+      </div>
+
+      <nav class="links" aria-label="Links principais">
+        <a class="link l-bordo l-black revelar" id="cardBlack" href="https://vityasbusiness-sketch.github.io/black-friday/" target="_blank" rel="noopener" hidden>
+          <span class="etiqueta">vagas limitadas</span>
+          <span class="icone"><svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M16 3v4M8 3v4M3 10h18"/></svg></span>
+          <span><b>Agenda de Black Friday</b><small>pacotes especiais pra sua marca</small></span><span class="seta">→</span>
+        </a>
+        <a class="link l-bege revelar" href="https://vityasbusiness-sketch.github.io/Portfolio/" target="_blank" rel="noopener">
+          <span class="icone"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="4"/><path d="M10 8.5l5 3.5-5 3.5z"/></svg></span>
+          <span><b>Meu portfólio UGC</b><small>vídeos, fotos, cases e pacotes</small></span><span class="seta">→</span>
+        </a>
+        <a class="link l-rosado revelar" data-zap="Oi, Yasmin! Vim pelo seu link e quero conversar sobre uma parceria." href="#">
+          <span class="icone"><svg viewBox="0 0 24 24"><path d="M21 12a8.5 8.5 0 0 1-12.6 7.4L3 21l1.6-5.2A8.5 8.5 0 1 1 21 12z"/></svg></span>
+          <span><b>Parcerias UGC e publis</b><small>fala comigo no WhatsApp</small></span><span class="seta">→</span>
+        </a>
+        <a class="link l-salvia revelar" href="https://vityasbusiness-sketch.github.io/Portfolio/lar/" target="_blank" rel="noopener">
+          <span class="icone"><svg viewBox="0 0 24 24"><path d="M3 11l9-7 9 7"/><path d="M5 10v10h14V10"/><path d="M10 20v-5h4v5"/></svg></span>
+          <span><b>Construindo meu lar do zero</b><small>projeto pra marcas de casa, decor e pet</small></span><span class="seta">→</span>
+        </a>
+      </nav>
+
+      <div class="redes-mini revelar">
+        <a href="https://instagram.com/caetyas_" target="_blank" rel="noopener">Instagram</a>
+        <a href="https://www.tiktok.com/@caetyas_" target="_blank" rel="noopener">TikTok</a>
+        <a href="mailto:vityasbusiness@gmail.com">E-mail</a>
+      </div>
+    </header>
+
+    <!-- ============ MARCAS E NÚMEROS ============ -->
+    <section aria-label="Marcas e números">
+      <p class="marcas-titulo">marcas com quem já criei</p>
+      <div class="esteira" aria-hidden="true"><div class="esteira-trilho" id="esteira"></div></div>
+
+      <div class="numeros">
+        <div class="numero revelar" style="background:var(--rosado);color:var(--bordo)"><strong id="nMarcas">+40</strong><span>marcas atendidas</span></div>
+        <div class="numero revelar" style="background:var(--nevoa);color:var(--azul)"><strong>4,6M</strong><span>curtidas no TikTok</span></div>
+        <div class="numero revelar" style="background:var(--salvia);color:var(--verde)"><strong>+12M</strong><span>views num único vídeo de make artística</span></div>
+        <div class="numero revelar" style="background:var(--bordo);color:var(--bege)"><strong>R$ 0,10</strong><span>por visita ao perfil num anúncio que criei</span></div>
+      </div>
+    </section>
+
+    <!-- ============ PORTFÓLIO ============ -->
+    <section id="portfolio">
+      <div class="cabeca revelar">
+        <span class="mao">aperta o play</span>
+        <h2>Cada nicho, uma <em>linguagem</em></h2>
+        <p>Alguns vídeos que criei pra marcas. Toque pra assistir aqui mesmo.</p>
+      </div>
+      <div class="abas" id="abas" role="tablist" aria-label="Nichos"></div>
+      <p class="frase-nicho" id="fraseNicho"></p>
+      <div class="trilho-videos" id="trilhoVideos"></div>
+      <div class="ver-tudo"><a class="botao botao-bordo" href="https://vityasbusiness-sketch.github.io/Portfolio/#trabalhos" target="_blank" rel="noopener">Ver o portfólio completo →</a></div>
+    </section>
+
+    <!-- ============ CUPONS (aparece quando tiver cupom cadastrado) ============ -->
+    <section id="cupons" hidden>
+      <div class="cabeca revelar">
+        <span class="mao">desconto de amiga</span>
+        <h2>Meus <em>cupons</em></h2>
+        <p>Copia o código e usa na finalização da compra, no site da marca.</p>
+      </div>
+      <div class="cupons" id="listaCupons"></div>
+    </section>
+
+    <!-- ============ VITRINE (aparece quando tiver item cadastrado) ============ -->
+    <section id="vitrine" hidden>
+      <div class="vitrine revelar">
+        <span class="mao">vitrine da Mima</span>
+        <h2>Coisas que eu <em>uso</em></h2>
+        <p>Equipamento, make, skincare e o que mais entra no meu dia a dia de verdade.</p>
+        <div class="itens" id="listaVitrine"></div>
+      </div>
+    </section>
+
+    <!-- ============ HISTÓRIA ============ -->
+    <section id="historia">
+      <div class="cabeca revelar">
+        <span class="mao">prazer, yasmin</span>
+        <h2>Da make artística ao <em>UGC</em></h2>
+        <p>Cada caminho que eu fiz virou repertório. É isso que entra nos meus vídeos.</p>
+      </div>
+
+      <div class="historia-foto revelar">
+        <div class="polaroid">
+          <span class="fita" aria-hidden="true"></span>
+          <img src="../fotos/sobre.webp" alt="Yasmin sorrindo, sentada num restaurante com plantas e luz vermelha ao fundo" loading="lazy">
+          <span class="legenda">Natal, RN ☀</span>
+        </div>
+      </div>
+
+      <div class="facetas revelar">
+        <span class="chip">UGC creator</span>
+        <span class="chip">Influenciadora</span>
+        <span class="chip">Estudante de nutrição</span>
+        <span class="chip">Maquiagem artística</span>
+        <span class="chip">Design e social media</span>
+        <span class="chip">Pinta e desenha</span>
+      </div>
+
+      <div class="conceito revelar">
+        <svg class="estrela" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 0c.9 6.4 5.6 11.1 12 12-6.4.9-11.1 5.6-12 12-.9-6.4-5.6-11.1-12-12C6.4 11.1 11.1 6.4 12 0z"/></svg>
+        <span class="chip">o conceito</span>
+        <h3>The Creative <em>Collector</em></h3>
+        <p>Eu coleciono referências: luz, textura, cor, cena, memória. Meu olhar foi treinado na maquiagem artística, e é ele que transforma um produto em conceito visual, mostrando o que existe além da embalagem.</p>
+        <span class="assinatura">Yasmin Caetano</span>
+      </div>
+
+      <div class="linha-tempo">
+        <article class="marco revelar" style="background:var(--papel)">
+          <span class="doodle" aria-hidden="true">🌊</span>
+          <span class="quando">o começo</span>
+          <h3>De Recife pra Natal</h3>
+          <p>Nasci em Recife (amo!) e moro em Natal há mais de 8 anos. Desde pequena pinto e desenho, por isso os amigos me chamam de <b>Mima Artista</b>.</p>
+        </article>
+        <article class="marco revelar" style="background:var(--rosado)">
+          <span class="doodle" aria-hidden="true">🎨</span>
+          <span class="quando">na pandemia</span>
+          <h3>A maquiagem artística</h3>
+          <p>Comecei a fazer <b>efeitos especiais com material caseiro</b>, cola e papel higiênico, reproduzindo trends. Foi ali que treinei o olhar pra luz, textura e composição.</p>
+        </article>
+        <article class="marco revelar" style="background:var(--nevoa)">
+          <span class="doodle" aria-hidden="true">🚀</span>
+          <span class="quando">o viral</span>
+          <h3>"I'm Mad at Disney"</h3>
+          <p>Uma trend de make que passou de <b>12 milhões de visualizações</b> e trouxe a maior parte de quem me acompanha hoje.</p>
+        </article>
+        <article class="marco revelar" style="background:var(--salvia)">
+          <span class="doodle" aria-hidden="true">📦</span>
+          <span class="quando">as primeiras parcerias</span>
+          <h3>Das lentes à SHEIN</h3>
+          <p>As primeiras marcas vieram pelas makes: lentes de contato de fora e a <b>SHEIN</b>, que é parceira até hoje.</p>
+        </article>
+        <article class="marco revelar" style="background:var(--bege-2)">
+          <span class="doodle" aria-hidden="true">🎬</span>
+          <span class="quando">a virada</span>
+          <h3>Descobri o UGC</h3>
+          <p>Estudei com a Rafaela Chagas, fiz a mentoria da Camila Bertolin e juntei tudo: <b>estética, roteiro e estratégia</b> pra cada etapa do funil.</p>
+        </article>
+        <article class="marco revelar" style="background:var(--papel)">
+          <span class="doodle" aria-hidden="true">✦</span>
+          <span class="quando">hoje</span>
+          <h3>+40 marcas e contando</h3>
+          <p>Beleza, moda, gastronomia, tecnologia e agora casa. Em paralelo, estudo <b>Nutrição na UFRN</b>, e isso também entra nos meus roteiros como conexão real.</p>
+        </article>
+      </div>
+
+      <div class="bastidores revelar">
+        <h3>Minha equipe de bastidores</h3>
+        <p>Amo bicho desde criança. Toda gravação aqui em casa tem plateia (e, às vezes, participação especial).</p>
+        <div class="patas"><span>Maya 🐈</span><span>Mel, a Bafuda 🐈</span><span>Maggie 🐕‍🦺</span></div>
+      </div>
+    </section>
+
+    <!-- ============ CONTATO ============ -->
+    <section class="contato" id="conversar">
+      <svg class="estrela" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 0c.9 6.4 5.6 11.1 12 12-6.4.9-11.1 5.6-12 12-.9-6.4-5.6-11.1-12-12C6.4 11.1 11.1 6.4 12 0z"/></svg>
+      <span class="mao">parceria, UGC, publi ou só um oi</span>
+      <h2>Bora <em>criar juntos?</em></h2>
+      <p>Me conta a marca, o produto e o objetivo. Eu respondo com uma ideia de roteiro e o orçamento.</p>
+      <div class="botoes">
+        <a class="botao botao-claro" data-zap="Oi, Yasmin! Vim pelo seu link e quero conversar sobre uma parceria." href="#">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M21 12a8.5 8.5 0 0 1-12.6 7.4L3 21l1.6-5.2A8.5 8.5 0 1 1 21 12z"/></svg>
+          Chamar no WhatsApp
+        </a>
+        <a class="botao botao-contorno" href="https://ig.me/m/caetyas_" target="_blank" rel="noopener">Mandar DM no Instagram</a>
+        <a class="botao botao-contorno" href="mailto:vityasbusiness@gmail.com?subject=Parceria%20com%20a%20Yasmin">Mandar e-mail</a>
+      </div>
+      <button class="copiar-email" type="button" data-copiar="vityasbusiness@gmail.com">copiar e-mail</button>
+      <p class="rodape">feito pela Mima, <a href="https://instagram.com/caetyas_" target="_blank" rel="noopener">@caetyas_</a></p>
+    </section>
+  </main>
+
+  <!-- ============ BARRA DE BAIXO ============ -->
+  <nav class="barra" aria-label="Seções">
+    <a href="#inicio" class="ativo" data-secao="inicio"><svg viewBox="0 0 24 24"><path d="M3 11l9-7 9 7"/><path d="M5 10v10h14V10"/></svg>Início</a>
+    <a href="#portfolio" data-secao="portfolio"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="4"/><path d="M10 8.5l5 3.5-5 3.5z"/></svg>Portfólio</a>
+    <a href="#conversar" class="centro" data-secao="conversar"><span class="bolha"><svg viewBox="0 0 24 24"><path d="M21 12a8.5 8.5 0 0 1-12.6 7.4L3 21l1.6-5.2A8.5 8.5 0 1 1 21 12z"/></svg></span>Conversar</a>
+    <a href="#cupons" data-secao="cupons" id="navCupons" hidden><svg viewBox="0 0 24 24"><path d="M3 8a2 2 0 0 0 2-2h14a2 2 0 0 0 2 2v8a2 2 0 0 0-2 2H5a2 2 0 0 0-2-2z"/><path d="M10 6v12" stroke-dasharray="2 2"/></svg>Cupons</a>
+    <a href="#historia" data-secao="historia"><svg viewBox="0 0 24 24"><path d="M4 4h6a3 3 0 0 1 2 1 3 3 0 0 1 2-1h6v15h-6a2 2 0 0 0-2 2 2 2 0 0 0-2-2H4z"/></svg>História</a>
+  </nav>
+
+  <div class="modal" id="modal" role="dialog" aria-modal="true" aria-label="Vídeo">
+    <button class="fechar" id="fecharModal" type="button" aria-label="Fechar">×</button>
+    <div class="quadro" id="quadro"></div>
+  </div>
+  <div class="aviso" id="aviso" role="status">Copiado!</div>
+
+  <script>
+    /* =====================================================================
+       SEUS DADOS: edite aqui, sem mexer no resto.
+       ===================================================================== */
+
+    const WHATSAPP = "5581989857308";
+
+    // Faixa e card da Black. Somem sozinhos depois de "ate".
+    const BLACK_FRIDAY = { data: "2026-11-27", ate: "2026-12-01", link: "https://vityasbusiness-sketch.github.io/black-friday/" };
+
+    // Cupons. Enquanto a lista estiver vazia, a seção e o botão "Cupons" ficam escondidos.
+    // Exemplo: { marca: "Nome da marca", codigo: "CAETYAS10", detalhe: "10% off no site", link: "https://...", embaixadora: true }
+    const CUPONS = [];
+
+    // Vitrine "Coisas que eu uso". Vazia = seção escondida.
+    // Exemplo: { categoria: "Equipamento", nome: "Ring light X", link: "https://..." }
+    const VITRINE = [];
+
+    // Marcas da esteira.
+    const MARCAS = ["Shein", "Amazon", "Mercado Livre", "Garnier", "L'Oréal Elseve", "Dove", "Pantene", "Sallve", "Principia", "CBSkin", "Medicube", "Sheglam", "Dermacol", "Sace Lady", "Farinha Láctea", "Kind", "Domidona", "Gocase", "Acer", "Saint-Germain", "Bombado", "Camarão na Telha", "Cookitos", "Revien", "Ollie"];
+    const TOTAL_MARCAS = 40; // número do card "marcas atendidas"
+
+    // Vídeos por nicho (códigos do YouTube Shorts, os mesmos do portfólio).
+    // marca e formato: o site lê sozinho o título do YouTube ("Marca • Formato").
+    const NICHOS = [
+      { id: "beleza", nome: "Beleza", frase: "Textura, luz e brilho real em cada frame, do cabelo à make.",
+        videos: ["SpHDfJ-BWOk", "mYr7VDvsxYo", "pvpWG6x2ucA", "mwWG5L3VRW4", "BsOCinxvmbw", "ZzVcJfGI3fE", "4-GFwHONjUY", "pp8ShpId7lo"] },
+      { id: "moda", nome: "Moda", frase: "Looks com narrativa e movimento, pra peça ganhar contexto.",
+        videos: ["hcnZV7lxfaI", "xZuFjGpek0M", "6jdHd0K3b_4", "eQKGJGUUxA8", "54a_MPOI124", "3forMuneVmo"] },
+      { id: "gastronomia", nome: "Gastronomia", frase: "Ambiente, prato e experiência pra dar vontade de ir até lá.",
+        videos: ["GMK9yJPUJbk", "KHrjhYwHz_w", "fZKi578gXLc", "RsC91pApMrA", "Gi5gqFu8oX4", "5L0vDLj5ubs"] },
+      { id: "tecnologia", nome: "Tecnologia", frase: "Unboxing, setup e demonstração de uso no dia a dia.",
+        videos: ["_lm4xX2D5RA", "o6m2-1l1U0w", "HNMgo5j_ONY", "1z5ZKTFDaag", "9MmKGwZTexQ"] }
+    ];
+
+    /* ===================================================================== */
+
+    const $ = s => document.querySelector(s);
+    const esc = t => String(t).replace(/[&<>"']/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
+
+    // WhatsApp
+    document.querySelectorAll("[data-zap]").forEach(a => {
+      a.href = "https://wa.me/" + WHATSAPP + "?text=" + encodeURIComponent(a.dataset.zap);
+      a.target = "_blank"; a.rel = "noopener";
+    });
+
+    // Black Friday
+    (function () {
+      const hoje = new Date(); hoje.setHours(0, 0, 0, 0);
+      const data = new Date(BLACK_FRIDAY.data + "T00:00:00");
+      const ate = new Date(BLACK_FRIDAY.ate + "T00:00:00");
+      if (hoje >= ate) return;
+      const dias = Math.round((data - hoje) / 86400000);
+      $("#textoBlack").textContent = dias > 1 ? `é daqui a ${dias} dias` : dias === 1 ? "é amanhã" : "tá rolando";
+      $("#linkBlack").href = BLACK_FRIDAY.link;
+      $("#cardBlack").href = BLACK_FRIDAY.link;
+      $("#faixaBlack").hidden = false;
+      $("#cardBlack").hidden = false;
+    })();
+
+    // Marcas
+    $("#esteira").innerHTML = [...MARCAS, ...MARCAS].map(m => `<span>${esc(m)}</span>`).join("");
+    $("#nMarcas").textContent = "+" + TOTAL_MARCAS;
+
+    // Portfólio
+    const titulos = {};
+    function capa(id) {
+      return `<img src="https://i.ytimg.com/vi/${esc(id)}/oardefault.jpg" alt="" loading="lazy" onerror="if(this.dataset.f){this.remove()}else{this.dataset.f=1;this.src='https://i.ytimg.com/vi/${esc(id)}/hqdefault.jpg'}">`;
+    }
+    function mostrarNicho(n) {
+      document.querySelectorAll(".aba").forEach(b => b.setAttribute("aria-selected", b.dataset.id === n.id));
+      $("#fraseNicho").textContent = n.frase;
+      const trilho = $("#trilhoVideos");
+      trilho.innerHTML = n.videos.map(id => `
+        <button class="card-video" type="button" data-video="${esc(id)}" aria-label="Assistir vídeo">
+          <span class="midia">${capa(id)}<span class="play" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M6 4l14 8-14 8z"/></svg></span></span>
+          <span class="marca" data-marca="${esc(id)}">&nbsp;</span>
+          <span class="formato" data-formato="${esc(id)}"></span>
+        </button>`).join("");
+      trilho.scrollLeft = 0;
+      n.videos.forEach(preencherTitulo);
+    }
+    function aplicarTitulo(id, t) {
+      const partes = t.split(/\s*[•|·]\s*/);
+      const m = document.querySelector(`[data-marca="${CSS.escape(id)}"]`);
+      const f = document.querySelector(`[data-formato="${CSS.escape(id)}"]`);
+      if (m) m.textContent = partes[0] || "";
+      if (f) f.textContent = partes[1] || "";
+    }
+    function preencherTitulo(id) {
+      if (titulos[id] !== undefined) return aplicarTitulo(id, titulos[id]);
+      fetch("https://noembed.com/embed?url=" + encodeURIComponent("https://www.youtube.com/watch?v=" + id))
+        .then(r => r.json()).then(d => { titulos[id] = d.title || ""; aplicarTitulo(id, titulos[id]); })
+        .catch(() => {});
+    }
+    $("#abas").innerHTML = NICHOS.map(n => `<button class="aba" role="tab" type="button" data-id="${n.id}">${esc(n.nome)}<small>${n.videos.length}</small></button>`).join("");
+    $("#abas").addEventListener("click", e => {
+      const b = e.target.closest(".aba"); if (!b) return;
+      mostrarNicho(NICHOS.find(n => n.id === b.dataset.id));
+    });
+    mostrarNicho(NICHOS[0]);
+
+    // Player
+    const modal = $("#modal"), quadro = $("#quadro");
+    document.addEventListener("click", e => {
+      const v = e.target.closest("[data-video]"); if (!v) return;
+      const id = encodeURIComponent(v.dataset.video);
+      quadro.innerHTML = `<iframe src="https://www.youtube-nocookie.com/embed/${id}?autoplay=1&playsinline=1&rel=0&loop=1&playlist=${id}" allow="autoplay; encrypted-media; picture-in-picture" allowfullscreen title="Vídeo"></iframe>`;
+      modal.classList.add("aberto"); document.body.style.overflow = "hidden";
+    });
+    function fechar() { modal.classList.remove("aberto"); quadro.innerHTML = ""; document.body.style.overflow = ""; }
+    $("#fecharModal").addEventListener("click", fechar);
+    modal.addEventListener("click", e => { if (e.target === modal) fechar(); });
+    document.addEventListener("keydown", e => { if (e.key === "Escape") fechar(); });
+
+    // Copiar
+    function avisar(t) { const a = $("#aviso"); a.textContent = t; a.classList.add("mostrar"); clearTimeout(avisar.t); avisar.t = setTimeout(() => a.classList.remove("mostrar"), 1800); }
+    async function copiar(texto) {
+      try { await navigator.clipboard.writeText(texto); }
+      catch { const t = document.createElement("textarea"); t.value = texto; document.body.appendChild(t); t.select(); document.execCommand("copy"); t.remove(); }
+      avisar("Copiado: " + texto);
+    }
+    document.addEventListener("click", e => { const b = e.target.closest("[data-copiar]"); if (b) copiar(b.dataset.copiar); });
+
+    // Cupons
+    if (CUPONS.length) {
+      $("#listaCupons").innerHTML = CUPONS.map(c => `
+        <div class="cupom revelar">
+          ${c.embaixadora ? '<span class="etiqueta">sou embaixadora</span>' : ""}
+          <div><b>${esc(c.marca)}</b><code>${esc(c.codigo)}</code>${c.detalhe ? `<small>${esc(c.detalhe)}</small>` : ""}</div>
+          <div class="acoes"><button type="button" data-copiar="${esc(c.codigo)}">copiar</button>${c.link ? `<a href="${esc(c.link)}" target="_blank" rel="noopener">ir pro site ↗</a>` : ""}</div>
+        </div>`).join("");
+      $("#cupons").hidden = false; $("#navCupons").hidden = false;
+    }
+
+    // Vitrine
+    if (VITRINE.length) {
+      $("#listaVitrine").innerHTML = VITRINE.map(i => `
+        <a class="item" href="${esc(i.link || "#")}" target="_blank" rel="noopener">
+          <span><span class="cat">${esc(i.categoria || "")}</span><b>${esc(i.nome)}</b></span><span class="seta">↗</span>
+        </a>`).join("");
+      $("#vitrine").hidden = false;
+    }
+
+    // Animação ao rolar + item ativo da barra
+    const io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { e.target.classList.add("visivel"); io.unobserve(e.target); } }), { threshold: .12 });
+    document.querySelectorAll(".revelar").forEach(el => io.observe(el));
+
+    const secoes = ["inicio", "portfolio", "cupons", "historia", "conversar"].map(id => document.getElementById(id)).filter(s => s && !s.hidden);
+    const barra = document.querySelectorAll(".barra a");
+    const ioNav = new IntersectionObserver(es => es.forEach(e => {
+      if (e.isIntersecting) barra.forEach(a => a.classList.toggle("ativo", a.dataset.secao === e.target.id));
+    }), { rootMargin: "-45% 0px -50% 0px" });
+    secoes.forEach(s => ioNav.observe(s));
+  </script>
+</body>
+</html>
