@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <title>Yasmin Caetano · @caetyas_</title>
-  <meta name="description" content="UGC creator, influenciadora, estudante de nutrição e artista desde sempre. Portfólio, parcerias, cupons e a minha história num lugar só.">
+  <meta name="description" content="UGC creator, influenciadora e artista desde sempre. Portfólio, parcerias, cupons e a minha história num lugar só.">
   <meta name="theme-color" content="#350107">
 
   <link rel="canonical" href="https://vityasbusiness-sketch.github.io/Portfolio/links/">
@@ -229,7 +229,9 @@
     .numero strong { display: block; font-family: var(--serif); font-size: 2.1rem; line-height: 1; font-weight: 400; }
     .numero span { display: block; margin-top: 6px; font-size: .8rem; line-height: 1.3; }
 
-    .linha-tempo { position: relative; margin-top: 34px; padding-left: 30px; }
+    .cabeca-tempo { margin-top: 56px; padding-top: 34px; border-top: 1.5px dashed rgba(72,5,14,.3); position: relative; }
+    .cabeca-tempo::before { content: "✦"; position: absolute; top: -15px; left: 50%; transform: translateX(-50%); background: var(--bege); color: var(--vermelho); padding: 0 12px; font-size: 1.1rem; }
+    .linha-tempo { position: relative; margin-top: 28px; padding-left: 30px; }
     .linha-tempo::before { content: ""; position: absolute; left: 9px; top: 8px; bottom: 8px; border-left: 2px dotted rgba(72,5,14,.45); }
     .marco { position: relative; border-radius: 20px; padding: 18px 18px 16px; margin-bottom: 14px; box-shadow: var(--sombra); }
     .marco::before { content: ""; position: absolute; left: -29px; top: 22px; width: 16px; height: 16px; border-radius: 50%; background: var(--bege); border: 3px solid var(--vermelho); }
@@ -244,7 +246,7 @@
     .bastidores p { margin-top: 8px; color: var(--tinta-suave); font-size: .94rem; }
     .patas { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 12px; }
     .patas span { display: inline-flex; align-items: center; gap: 7px; font-family: var(--mao); font-size: 1.3rem; background: var(--bege); border: 1px dashed var(--linha); padding: 3px 12px 3px 6px; border-radius: 8px; color: var(--verde); }
-    .patas .bicho { width: 28px; height: 28px; }
+    .patas .bicho { width: 34px; height: 34px; }
 
     /* ============ CONTATO ============ */
     .contato { background: var(--bordo); color: var(--bege); margin: 60px -18px 0; padding: 44px 22px 34px; position: relative; text-align: center; }
@@ -303,8 +305,8 @@
 
       /* capa: texto na esquerda, colagem na direita */
       .hero { display: grid; grid-template-columns: minmax(0, .85fr) minmax(0, 1.15fr); gap: 70px; align-items: center; min-height: calc(100svh - 150px); padding: 10px 0 30px; }
-      .colagem { margin: 0 40px 0 0; max-width: 400px; justify-self: end; width: 100%; }
-      .colagem .principal img { aspect-ratio: 4/4.6; }
+      .colagem { margin: 0 40px 0 0; max-width: 430px; justify-self: end; width: 100%; }
+      .colagem .principal img { aspect-ratio: 4/5.3; }
       .selo-estrela { width: 124px; height: 124px; right: -30px; top: -34px; }
       .selo-estrela span { font-size: 1.08rem; }
       .bilhete { right: auto; left: -30px; bottom: 40px; }
@@ -354,7 +356,9 @@
       .numero span { margin-top: 0; }
 
       /* linha do tempo: linha no meio, cards alternando os lados */
-      .linha-tempo { margin-top: 56px; padding-left: 0; display: grid; grid-template-columns: 1fr 1fr; column-gap: 76px; }
+      .cabeca-tempo { margin-top: 72px; text-align: center; }
+      .cabeca-tempo p { margin-left: auto; margin-right: auto; max-width: 52ch; }
+      .linha-tempo { margin-top: 36px; padding-left: 0; display: grid; grid-template-columns: 1fr 1fr; column-gap: 76px; }
       .linha-tempo::before { left: 50%; top: 0; bottom: 0; transform: translateX(-1px); }
       .marco { margin-bottom: 0; padding: 16px 20px 14px; }
       .marco:nth-child(odd) { grid-column: 1; }
@@ -429,7 +433,7 @@
         <div class="hero-texto">
           <div class="intro revelar">
             <span class="mao">prazer ✦</span>
-            <h1>UGC creator, influenciadora, estudante de nutrição e <em>artista desde sempre.</em></h1>
+            <h1>UGC creator, influenciadora e <em>artista desde sempre.</em></h1>
             <p>Transformo produto em conceito visual, com cenário, referência e narrativa. Aqui tem tudo: portfólio, parcerias, cupons e um pouco da minha história.</p>
           </div>
 
@@ -538,6 +542,12 @@
         </div>
       </div>
 
+      <div class="cabeca cabeca-tempo revelar">
+        <span class="mao">como eu cheguei até aqui</span>
+        <h2>Linha do <em>tempo</em></h2>
+        <p>Dos desenhos de criança às +40 marcas: cada fase deixou alguma coisa no meu jeito de criar.</p>
+      </div>
+
       <div class="linha-tempo">
         <article class="marco revelar" style="background:var(--papel)">
           <span class="doodle" aria-hidden="true">🌊</span>
@@ -580,7 +590,27 @@
       <div class="bastidores revelar">
         <h3>Minha equipe de bastidores</h3>
         <p>Amo bicho desde criança. Toda gravação aqui em casa tem plateia (e, às vezes, participação especial).</p>
-        <div class="patas"><span><svg class="bicho" viewBox="0 0 40 40" aria-hidden="true"><path d="M8 6l7 8h10l7-8 1 15c0 9-6 15-13 15S7 30 7 21z" fill="#9A9C9E"/><path d="M14 26c2-3 10-3 12 0 0 4-3 6-6 6s-6-2-6-6z" fill="#F3EFEA"/><path d="M17 12l1 4M20 11v5M23 12l-1 4M9 19l4 1M9 23l4-1M31 19l-4 1M31 23l-4-1" stroke="#4A4C50" stroke-width="1.6" stroke-linecap="round"/><circle cx="15" cy="21" r="1.8" fill="#2D3823"/><circle cx="25" cy="21" r="1.8" fill="#2D3823"/><path d="M19 25h2l-1 1.4z" fill="#D98C8C"/></svg>Maya</span><span><svg class="bicho" viewBox="0 0 40 40" aria-hidden="true"><path d="M8 6l7 8h10l7-8 1 15c0 9-6 15-13 15S7 30 7 21z" fill="#F6F1E8"/><path d="M8 6l7 8h5v4c-3 2-6 5-6 9-4-1-7-3-7-6z" fill="#D9853B"/><path d="M32 6l-7 8h-4v5c3 1 6 3 7 6 3-1 5-3 5-5z" fill="#2A1B18"/><circle cx="15" cy="21" r="1.8" fill="#2D3823"/><circle cx="25" cy="21" r="1.8" fill="#2D3823"/><path d="M19 25h2l-1 1.4z" fill="#D98C8C"/><path d="M8 6l7 8h10l7-8 1 15c0 9-6 15-13 15S7 30 7 21z" fill="none" stroke="#C9B9A6" stroke-width="1"/></svg>Mel</span><span><svg class="bicho" viewBox="0 0 40 40" aria-hidden="true"><path d="M10 10c3-4 17-4 20 0 2 3 3 9 2 15-1 7-6 11-12 11S9 32 8 25c-1-6 0-12 2-15z" fill="#1E1A1A"/><path d="M10 9C5 9 3 17 5 23c1 2 4 1 5-1l1-10zM30 9c5 0 7 8 5 14-1 2-4 1-5-1l-1-10z" fill="#3A3232"/><ellipse cx="20" cy="27" rx="6" ry="4.5" fill="#3A3232"/><ellipse cx="20" cy="25" rx="2.4" ry="1.7" fill="#0E0B0B"/><path d="M18.5 30.5c0 3 3 3 3 0z" fill="#E58B9A"/><circle cx="15" cy="19" r="1.9" fill="#EDE5D7"/><circle cx="25" cy="19" r="1.9" fill="#EDE5D7"/><circle cx="15.3" cy="19.2" r="1.1" fill="#0E0B0B"/><circle cx="25.3" cy="19.2" r="1.1" fill="#0E0B0B"/></svg>Maggie</span></div>
+        <div class="patas"><span><svg class="bicho" viewBox="0 0 48 48" aria-hidden="true"><defs><clipPath id="cMaya"><ellipse cx="24" cy="28" rx="16" ry="14"/></clipPath><radialGradient id="gMaya" cx=".5" cy=".35" r=".7"><stop offset="0" stop-color="#B4B7BC"/><stop offset="1" stop-color="#7E8288"/></radialGradient></defs>
+<path d="M9 22 10 5l12 11z" fill="#7E8288"/><path d="M39 22 38 5 26 16z" fill="#7E8288"/><path d="M12 17l1-8 6 6z" fill="#E8B7B4"/><path d="M36 17l-1-8-6 6z" fill="#E8B7B4"/>
+<ellipse cx="24" cy="28" rx="16" ry="14" fill="url(#gMaya)"/>
+<g clip-path="url(#cMaya)" fill="none" stroke="#55585D" stroke-width="1.7" stroke-linecap="round"><path d="M20 15c.5 3 .5 5 0 7M24 14v8M28 15c-.5 3-.5 5 0 7M8 25c3 0 5 .5 7 2M8 30c3-.5 5 0 6 1M40 25c-3 0-5 .5-7 2M40 30c-3-.5-5 0-6 1"/></g>
+<path d="M24 29c-4 0-8 2.5-8 6.5S19.5 42 24 42s8-2.5 8-6.5S28 29 24 29z" fill="#F4F1EC"/>
+<ellipse cx="17.5" cy="26" rx="3" ry="3.4" fill="#9DB46A"/><ellipse cx="30.5" cy="26" rx="3" ry="3.4" fill="#9DB46A"/><ellipse cx="17.5" cy="26.3" rx=".9" ry="2.8" fill="#1A1A1A"/><ellipse cx="30.5" cy="26.3" rx=".9" ry="2.8" fill="#1A1A1A"/><circle cx="18.6" cy="24.8" r=".8" fill="#fff"/><circle cx="31.6" cy="24.8" r=".8" fill="#fff"/>
+<path d="M22.3 32h3.4L24 34z" fill="#D98A8F" stroke="#C47379" stroke-width=".6" stroke-linejoin="round"/><path d="M24 34v1.3c-.6 1-1.8 1.2-2.6.6M24 35.3c.6 1 1.8 1.2 2.6.6" fill="none" stroke="#6E6A66" stroke-width=".8" stroke-linecap="round"/>
+<path d="M19 34l-9-1M19 35.5l-8.5 1.5M29 34l9-1M29 35.5l8.5 1.5" stroke="#fff" stroke-width=".55" opacity=".9"/></svg>Maya</span><span><svg class="bicho" viewBox="0 0 48 48" aria-hidden="true"><defs><clipPath id="cMel"><ellipse cx="24" cy="28" rx="16" ry="14"/></clipPath></defs>
+<path d="M9 22 10 5l12 11z" fill="#D27A2E"/><path d="M39 22 38 5 26 16z" fill="#2A211F"/><path d="M12 17l1-8 6 6z" fill="#EDB1A8"/><path d="M36 17l-1-8-6 6z" fill="#5A4642"/>
+<ellipse cx="24" cy="28" rx="16" ry="14" fill="#FAF6F0"/>
+<g clip-path="url(#cMel)"><path d="M6 10h18c1 5 0 10-3 13-4 3-9 4-15 3z" fill="#D27A2E"/><path d="M42 10H26c-1 4-.5 8 2 11 3 2 8 3 14 2z" fill="#2A211F"/><path d="M6 32c4-1 7 1 8 4l-8 4z" fill="#2A211F" opacity=".9"/></g>
+<ellipse cx="17.5" cy="26" rx="3" ry="3.4" fill="#D9A43A"/><ellipse cx="30.5" cy="26" rx="3" ry="3.4" fill="#D9A43A"/><ellipse cx="17.5" cy="26.3" rx=".9" ry="2.8" fill="#1A1A1A"/><ellipse cx="30.5" cy="26.3" rx=".9" ry="2.8" fill="#1A1A1A"/><circle cx="18.6" cy="24.8" r=".8" fill="#fff"/><circle cx="31.6" cy="24.8" r=".8" fill="#fff"/>
+<path d="M22.3 32h3.4L24 34z" fill="#E59A9E" stroke="#CF8086" stroke-width=".6" stroke-linejoin="round"/><path d="M24 34v1.3c-.6 1-1.8 1.2-2.6.6M24 35.3c.6 1 1.8 1.2 2.6.6" fill="none" stroke="#8A7E78" stroke-width=".8" stroke-linecap="round"/>
+<path d="M19 34l-9-1M19 35.5l-8.5 1.5M29 34l9-1M29 35.5l8.5 1.5" stroke="#B9AEA6" stroke-width=".55"/></svg>Mel</span><span><svg class="bicho" viewBox="0 0 48 48" aria-hidden="true"><defs><radialGradient id="gMag" cx=".5" cy=".35" r=".7"><stop offset="0" stop-color="#3A3434"/><stop offset="1" stop-color="#171313"/></radialGradient></defs>
+<ellipse cx="24" cy="24" rx="13.5" ry="14" fill="url(#gMag)"/>
+<path d="M12 13c-5 0-8 6-7.5 13 .3 4 2.5 6 4.5 5.5 2-.6 3-4 3.5-8z" fill="#100D0D"/><path d="M36 13c5 0 8 6 7.5 13-.3 4-2.5 6-4.5 5.5-2-.6-3-4-3.5-8z" fill="#100D0D"/>
+<ellipse cx="24" cy="33" rx="8.5" ry="7" fill="#2B2525"/>
+<ellipse cx="18.2" cy="23.5" rx="2.6" ry="2.7" fill="#5A3A26"/><ellipse cx="29.8" cy="23.5" rx="2.6" ry="2.7" fill="#5A3A26"/><circle cx="18.2" cy="23.7" r="1.6" fill="#0B0909"/><circle cx="29.8" cy="23.7" r="1.6" fill="#0B0909"/><circle cx="19" cy="22.7" r=".8" fill="#fff"/><circle cx="30.6" cy="22.7" r=".8" fill="#fff"/>
+<path d="M20.5 29.5c0-1.6 1.6-2.4 3.5-2.4s3.5.8 3.5 2.4c0 1.4-1.6 2.6-3.5 2.6s-3.5-1.2-3.5-2.6z" fill="#0A0808"/><ellipse cx="22.8" cy="28.7" rx="1" ry=".55" fill="#6B6363"/>
+<path d="M24 32v1.8c-1 1.6-3 1.8-4.2.8M24 33.8c1 1.6 3 1.8 4.2.8" fill="none" stroke="#0A0808" stroke-width=".9" stroke-linecap="round"/>
+<path d="M22 35.2c0 3 .9 4.6 2 4.6s2-1.6 2-4.6z" fill="#E68A9A"/><path d="M24 35.5v3.5" stroke="#C96B7C" stroke-width=".5"/></svg>Maggie</span></div>
       </div>
     </section>
 
@@ -598,7 +628,7 @@
         <a class="botao botao-contorno" href="mailto:vityasbusiness@gmail.com?subject=Parceria%20com%20a%20Yasmin">Mandar e-mail</a>
       </div>
       <button class="copiar-email" type="button" data-copiar="vityasbusiness@gmail.com">copiar e-mail</button>
-      <p class="rodape">feito pela Mima, <a href="https://instagram.com/caetyas_" target="_blank" rel="noopener">@caetyas_</a></p>
+      <p class="rodape">feito por Mima, <a href="https://instagram.com/caetyas_" target="_blank" rel="noopener">@caetyas_</a></p>
     </section>
   </main>
 
