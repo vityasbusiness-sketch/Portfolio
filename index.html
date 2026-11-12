@@ -912,6 +912,29 @@
     .cabeca-funil .selo-video { z-index: 2; top: 14px; bottom: auto; left: auto; right: 14px; transform: none; font-size: .7rem; padding: 5px 10px; }
     .faixa-etapa { position: relative; z-index: 2; display: flex; align-items: center; gap: 12px; margin-top: -78px; padding: 0 20px 16px; color: var(--bege); pointer-events: none; }
     .cabeca-funil::before { z-index: 3; }
+    /* Funil v3: compacto, vídeo inteiro (9:16) ao lado do texto */
+    .fc { --cor: var(--verde); display: flex; flex-direction: column; background: var(--papel); border-radius: var(--raio-g); box-shadow: var(--sombra); overflow: hidden; }
+    .fc.etapa-2 { --cor: var(--petroleo); } .fc.etapa-3 { --cor: var(--bordo); }
+    .fc-topo { position: relative; display: flex; align-items: center; gap: 12px; padding: 14px 18px; background: var(--cor); color: var(--bege); }
+    .fc-topo::after { content: ""; position: absolute; bottom: 0; left: 50%; transform: translateX(-50%); height: 3px; background: rgba(232, 220, 201, .6); border-radius: 3px 3px 0 0; }
+    .etapa-1 .fc-topo::after { width: 100%; } .etapa-2 .fc-topo::after { width: 62%; } .etapa-3 .fc-topo::after { width: 28%; }
+    .fc-num { font-family: var(--serif); font-style: italic; font-size: 2rem; line-height: 1; opacity: .5; }
+    .fc-etapa { margin: 0; font-size: .6rem; font-weight: 600; letter-spacing: .2em; text-transform: uppercase; opacity: .8; }
+    .fc h3 { margin: 0; font-size: 1.55rem; font-style: italic; color: var(--bege); }
+    .fc-corpo { display: grid; grid-template-columns: 104px 1fr; gap: 16px; padding: 16px 18px 18px; align-items: start; }
+    .fc-video { position: relative; width: 104px; aspect-ratio: 9 / 16; border: 0; padding: 0; border-radius: var(--raio); overflow: hidden; cursor: pointer; background: var(--preto); box-shadow: 0 8px 18px -8px rgba(17, 13, 10, .5); }
+    .fc-video img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; transition: transform .5s ease; }
+    .fc-video:hover img { transform: scale(1.05); }
+    .fc-video::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, transparent 55%, rgba(17, 13, 10, .75)); }
+    .fc-video .play { width: 36px; height: 36px; z-index: 2; }
+    .fc-video .play svg { width: 12px; height: 12px; margin-left: 2px; fill: var(--bordo); }
+    .fc-marca { position: absolute; z-index: 2; left: 0; right: 0; bottom: 8px; text-align: center; font: 700 .64rem/1.2 var(--sans); color: var(--bege); letter-spacing: .04em; }
+    .fc-publico { margin: 0 0 6px; font-size: .84rem; font-weight: 700; color: var(--cor); line-height: 1.35; }
+    .fc-porque { margin: 0 0 12px; font-size: .84rem; line-height: 1.5; color: var(--tinta-suave); }
+    .fc-porque strong { color: var(--tinta); background: linear-gradient(transparent 62%, rgba(242, 220, 155, .75) 62%); }
+    .fc-chips { display: flex; flex-wrap: wrap; gap: 5px; list-style: none; margin: 0; padding: 0; }
+    .fc-chips li { padding: 3px 9px; border-radius: 999px; border: 1px solid var(--cor); color: var(--cor); font-size: .68rem; font-weight: 600; }
+    .fc .extra-funil { margin-top: 10px; font-size: .74rem; }
     /* Nichos: frase curta e CTA mais visível */
     .grupo { align-items: flex-end; }
     .frase-grupo { margin: 4px 0 0; font-size: .9rem; color: var(--tinta-suave); }
@@ -1017,7 +1040,9 @@
       .funil-grade { grid-auto-flow: column; grid-auto-columns: 84%; grid-template-columns: none; gap: 12px; overflow-x: auto; scroll-snap-type: x mandatory; scrollbar-width: none; padding-bottom: 6px; }
       .funil-grade::-webkit-scrollbar { display: none; }
       .etapa-funil { scroll-snap-align: start; }
-      .cabeca-funil .mini-video { aspect-ratio: 1 / 1; }
+      .fc { scroll-snap-align: start; }
+      .fc-corpo { grid-template-columns: 96px 1fr; gap: 12px; padding: 14px; }
+      .fc-video { width: 96px; }
       .corpo-funil { padding: 16px; }
       .porque { font-size: .84rem; }
       .funil-combo { flex-direction: column; align-items: stretch; padding: 16px; font-size: .88rem; }
@@ -1522,18 +1547,18 @@
     // video: código do YouTube (o que vem depois de "shorts/"). Deixe "" e o card aparece sem vídeo.
     const funil = [
       { etapa: "Topo", verbo: "Atrair", publico: "Quem ainda não conhece a sua marca",
-        porque: "**Sensorial e cinematográfico**: o produto entra no meio da experiência, sem cara de anúncio, e desperta desejo em quem só está rolando o feed.",
+        porque: "**Sensorial e cinematográfico**: o produto entra na experiência, sem cara de anúncio.",
         formatos: ["Storytelling", "Experiência", "Estética"], metrica: "Alcance e visualizações",
-        video: "mYr7VDvsxYo", exemplo: "Néctar · Trufa Branca na praia", selo: "" },
+        video: "mYr7VDvsxYo", exemplo: "Néctar", selo: "" },
       { etapa: "Meio", verbo: "Convencer", publico: "Quem já viu, mas ainda tem dúvida",
-        porque: "**Promessa, teste e prova**: o produto funcionando na prática, aprovado depois de horas de uso, respondendo às dúvidas antes delas aparecerem.",
+        porque: "**Promessa, teste e prova**: o produto funcionando na prática, aprovado depois de horas de uso.",
         formatos: ["Demonstração", "Problema x solução", "Review"], metrica: "Retenção, salvamentos e visitas ao perfil",
-        video: "SpHDfJ-BWOk", exemplo: "Sace Lady · delineador carimbo", selo: "",
-        extra: { video: "hcnZV7lxfaI", texto: "Ajudar a escolher: Domidona, o mesmo sapato em vários looks" } },
+        video: "SpHDfJ-BWOk", exemplo: "Sace Lady", selo: "",
+        extra: { video: "hcnZV7lxfaI", texto: "+ Ajudar a escolher: Domidona" } },
       { etapa: "Fundo", verbo: "Converter", publico: "Quem está pronto pra comprar",
-        porque: "**Objeção no gancho, prova na tela e oferta clara**: cupom, frete e parcelas escritos, fechando com a chamada pra comprar agora.",
+        porque: "**Objeção, prova e oferta clara**: cupom, frete e parcelas na tela, fechando com a compra.",
         formatos: ["Oferta", "Prova", "Chamada pra ação"], metrica: "Cliques, vendas e custo por resultado",
-        video: "_lm4xX2D5RA", exemplo: "Mercado Livre · campanha de oferta", selo: "" }
+        video: "_lm4xX2D5RA", exemplo: "Mercado Livre", selo: "" }
     ];
 
     // Etapas da seção "Entrega". prazo: deixe "" para não mostrar, ou escreva ex: "3 dias".
@@ -1845,24 +1870,16 @@
     // Funil
     const negrito = s => esc(s).replace(/\*\*(.+?)\*\*/g, "<strong>$1</strong>");
     document.getElementById("listaFunil").innerHTML = funil.map((f, i) => `
-      <li class="etapa-funil etapa-${i + 1} revelar">
-        <div class="cabeca-funil">
-          ${f.video ? `<button type="button" class="mini-video" data-video="${esc(f.video)}" aria-label="Assistir exemplo: ${esc(f.exemplo)}"><img src="https://i.ytimg.com/vi/${esc(f.video)}/oardefault.jpg" alt="" loading="lazy" onerror="if(this.dataset.f){this.remove()}else{this.dataset.f=1;this.src='https://i.ytimg.com/vi/${esc(f.video)}/hqdefault.jpg'}"><span class="play" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M6 4l14 8-14 8z"/></svg></span>${f.selo ? `<span class="selo-video">${esc(f.selo)}</span>` : ""}</button>` : ""}
-          <div class="faixa-etapa">
-            <span class="numero-funil" aria-hidden="true">0${i + 1}</span>
-            <div class="titulos-funil">
-              <p class="etapa-nome">${esc(f.etapa)} de funil</p>
-              <h3>${esc(f.verbo)}</h3>
-            </div>
+      <li class="fc etapa-${i + 1} revelar">
+        <div class="fc-topo"><span class="fc-num" aria-hidden="true">0${i + 1}</span><div><p class="fc-etapa">${esc(f.etapa)} de funil</p><h3>${esc(f.verbo)}</h3></div></div>
+        <div class="fc-corpo">
+          ${f.video ? `<button type="button" class="fc-video mini-video" data-video="${esc(f.video)}" aria-label="Assistir exemplo: ${esc(f.exemplo)}"><img src="https://i.ytimg.com/vi/${esc(f.video)}/oardefault.jpg" alt="" loading="lazy" onerror="if(this.dataset.f){this.remove()}else{this.dataset.f=1;this.src='https://i.ytimg.com/vi/${esc(f.video)}/hqdefault.jpg'}"><span class="play" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M6 4l14 8-14 8z"/></svg></span><span class="fc-marca">${esc(f.exemplo)}</span></button>` : ""}
+          <div class="fc-texto">
+            <p class="fc-publico">${esc(f.publico)}</p>
+            <p class="fc-porque">${negrito(f.porque)}</p>
+            <ul class="fc-chips" aria-label="Formatos">${f.formatos.map(x => `<li>${esc(x)}</li>`).join("")}</ul>
+            ${f.extra ? `<button type="button" class="extra-funil" data-video="${esc(f.extra.video)}">${esc(f.extra.texto)}</button>` : ""}
           </div>
-        </div>
-        <div class="corpo-funil">
-          <p class="publico"><span aria-hidden="true">→</span> ${esc(f.publico)}</p>
-          <p class="porque">${negrito(f.porque)}</p>
-          <ul class="chips" aria-label="Formatos">${f.formatos.map(x => `<li>${esc(x)}</li>`).join("")}</ul>
-          <p class="metrica"><span>O que medir</span>${esc(f.metrica)}</p>
-          ${f.exemplo ? `<p class="exemplo-funil">Exemplo no vídeo: <b>${esc(f.exemplo)}</b></p>` : ""}
-          ${f.extra ? `<button type="button" class="extra-funil" data-video="${esc(f.extra.video)}"><span class="play-mini" aria-hidden="true">▶</span>${esc(f.extra.texto)}</button>` : ""}
         </div>
       </li>`).join("");
     document.getElementById("listaFunil").addEventListener("click", e => {
