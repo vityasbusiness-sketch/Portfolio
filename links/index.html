@@ -175,7 +175,7 @@
     .mural { display: flex; gap: 14px; overflow-x: auto; scroll-snap-type: x mandatory; margin: 18px -18px 0; padding: 18px 18px 24px; scrollbar-width: none; }
     .mural::-webkit-scrollbar { display: none; }
     .mural .polaroid { flex: none; width: 62%; max-width: 240px; scroll-snap-align: center; padding: 8px 8px 42px; }
-    .mural .polaroid img { aspect-ratio: 4/5; }
+    .mural .polaroid img { aspect-ratio: 4/5; object-position: 50% 20%; }
     .mural .polaroid .legenda { font-size: 1.2rem; bottom: 8px; }
     .mural .polaroid:nth-child(odd) { transform: rotate(-2.5deg); }
     .mural .polaroid:nth-child(even) { transform: rotate(2deg) translateY(10px); }
@@ -239,6 +239,12 @@
     .marco h3 { font-size: 1.45rem; margin-top: 6px; color: var(--bordo); }
     .marco p { margin-top: 8px; font-size: .94rem; color: var(--tinta-suave); }
     .marco p b { color: var(--tinta); }
+    .fotinhos { display: flex; gap: 12px; margin-top: 14px; }
+    .fotinhos .polaroid { margin: 0; width: 46%; max-width: 150px; padding: 6px 6px 30px; }
+    .fotinhos .polaroid img { aspect-ratio: 1; object-position: 50% 25%; }
+    .fotinhos .polaroid .legenda { font-size: 1rem; bottom: 6px; }
+    .fotinhos .polaroid:first-child { transform: rotate(-4deg); }
+    .fotinhos .polaroid:last-child { transform: rotate(3deg) translateY(4px); }
     .marco .doodle { position: absolute; right: 14px; top: 12px; font-size: 1.5rem; }
 
     .bastidores { margin-top: 18px; background: var(--papel) var(--pautado); border-radius: 6px; padding: 20px; box-shadow: var(--sombra); transform: rotate(-.6deg); }
@@ -372,6 +378,7 @@
       .marco:nth-child(even)::before { left: -47px; }
       .marco:nth-child(odd) { text-align: right; }
       .marco:nth-child(odd) .doodle { right: auto; left: 14px; }
+      .marco:nth-child(odd) .fotinhos { justify-content: flex-end; }
       .marco h3 { font-size: 1.45rem; }
       .marco p { font-size: .9rem; margin-top: 6px; }
       .bastidores { margin: 30px auto 0; max-width: 760px; display: grid; grid-template-columns: auto 1fr; gap: 4px 24px; align-items: center; padding: 18px 24px; }
@@ -554,6 +561,10 @@
           <span class="quando">o começo</span>
           <h3>De Recife pra Natal</h3>
           <p>Nasci em Recife (amo!) e moro em Natal há mais de 8 anos. Desde pequena pinto e desenho, por isso os amigos me chamam de <b>Mima Artista</b>.</p>
+          <div class="fotinhos">
+            <figure class="polaroid"><img src="makes/infancia-1.webp" alt="Yasmin bebê fazendo biquinho" loading="lazy"><figcaption class="legenda">biquinho de fábrica</figcaption></figure>
+            <figure class="polaroid"><img src="makes/infancia-2.webp" alt="Yasmin criança sorrindo com chocolate na boca" loading="lazy"><figcaption class="legenda">chocolate &gt; tudo</figcaption></figure>
+          </div>
         </article>
         <article class="marco revelar" style="background:var(--rosado)">
           <span class="doodle" aria-hidden="true">🎨</span>
@@ -655,7 +666,11 @@
 
     // Fotos das makes artísticas (ficam na pasta links/makes). Vazia = seção escondida.
     // Exemplo: { src: "makes/make-01.webp", legenda: "Mad at Disney", alt: "Make artística de ..." }
-    const MAKES = [];
+    const MAKES = [
+      { src: "makes/make-avatar.webp", legenda: "Na'vi, de Avatar", alt: "Yasmin com make artística de Na'vi: pele azul, orelhas pontudas e pintinhas brilhantes" },
+      { src: "makes/make-coringa.webp", legenda: "Coringa", alt: "Yasmin com make artística de Coringa, com tatuagens desenhadas e boca pintada na mão" },
+      { src: "makes/make-tigre.webp", legenda: "Tigresa", alt: "Yasmin com make artística de tigre, com listras e olhos amarelos" }
+    ];
 
     // Cupons. Vazia = seção e botão "Cupons" escondidos.
     // Exemplo: { marca: "Nome da marca", codigo: "CAETYAS10", detalhe: "10% off no site", link: "https://...", embaixadora: true }
