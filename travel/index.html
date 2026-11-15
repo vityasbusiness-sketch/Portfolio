@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>UGC Travel · Yasmin Caetano</title>
 <meta name="description" content="Vídeos e fotos UGC para hotéis, pousadas, resorts e chalés. Conteúdo que faz o hóspede se imaginar aí antes de reservar.">
-<meta name="theme-color" content="#f7d86a">
+<meta name="theme-color" content="#ede5d7">
 <meta property="og:type" content="website">
 <meta property="og:locale" content="pt_BR">
 <meta property="og:title" content="UGC Travel · Yasmin Caetano">
@@ -19,15 +19,17 @@
   /* Clima de cartão-postal (inspirado no Visit Kalkan). Bordô só em títulos e detalhes. */
   :root {
     color-scheme: light;
-    --creme: #fbf5ea;
-    --areia: #f3e7d3;
-    --sol: #f7d86a;
-    --sol-claro: #fbe9a6;
-    --ceu: #bcd7f2;
-    --ceu-claro: #e4effa;
-    --mar: #1f5f86;
-    --oliva: #6b7826;
-    --laranja: #e5582a;
+    --creme: #f7f2ea;
+    --areia: #ede5d7;          /* bege da paleta CAETYAS_ */
+    --areia-2: #e3d7c3;
+    --sol: #d9b26f;            /* caramelo: só em detalhes */
+    --sol-claro: #ede5d7;
+    --ceu: #c5d6dc;            /* azul petróleo bem clarinho */
+    --ceu-claro: #e4ecee;
+    --mar: #113f54;            /* azul da paleta */
+    --oliva: #2d3823;          /* verde da paleta */
+    --salvia: #8e9a78;
+    --laranja: #b0643f;        /* terracota suave, só em notas */
     --bordo: #6e0f1e;
     --tinta: #3a1a14;
     --tinta-suave: #6b4e44;
@@ -79,7 +81,7 @@
   /* ===== CAPA: cartão-postal ===== */
   .capa { position: relative; padding: clamp(70px, 10vw, 120px) 0 clamp(60px, 8vw, 96px); overflow: hidden; background: var(--mar); }
   .capa picture img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
-  .postal { position: relative; z-index: 1; width: min(760px, 100%); margin: 0 auto; background: #fcf7ec; border-radius: 6px; box-shadow: 0 30px 60px -24px rgba(10,30,50,.6); transform: rotate(-3deg); padding: clamp(16px, 2.6vw, 26px); display: grid; grid-template-columns: minmax(0, .9fr) minmax(0, 1.1fr); gap: clamp(16px, 3vw, 30px); }
+  .postal { position: relative; z-index: 1; width: min(760px, 100%); margin: 0 auto; background: #f7f2ea; border-radius: 6px; box-shadow: 0 30px 60px -24px rgba(10,30,50,.6); transform: rotate(-3deg); padding: clamp(16px, 2.6vw, 26px); display: grid; grid-template-columns: minmax(0, .9fr) minmax(0, 1.1fr); gap: clamp(16px, 3vw, 30px); }
   .postal::before { content: ""; position: absolute; inset: 8px; border: 1.5px dashed rgba(110,15,30,.22); border-radius: 4px; pointer-events: none; }
   .postal-foto { position: relative; }
   .postal-foto img { width: 100%; aspect-ratio: 4/5; object-fit: cover; border-radius: 3px; }
@@ -95,7 +97,7 @@
   .capa .acoes { display: flex; gap: 10px; flex-wrap: wrap; }
 
   /* ===== EXPLORE (amarelo) ===== */
-  .explore { background: var(--sol); }
+  .explore { background: var(--areia); }
   .icones { list-style: none; padding: 0; margin: 40px auto 0; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 30px 16px; max-width: 900px; }
   .icones a { display: flex; flex-direction: column; align-items: center; gap: 12px; text-decoration: none; font-size: .78rem; font-weight: 700; letter-spacing: .16em; text-transform: uppercase; color: var(--tinta); text-align: center; }
   .icones svg { width: 58px; height: 58px; transition: transform .25s; }
@@ -122,7 +124,7 @@
   .faixa { background: var(--oliva); color: var(--creme); overflow: hidden; padding: 13px 0; }
   .trilho { display: flex; width: max-content; animation: corre 45s linear infinite; }
   .trilho span { font-size: .82rem; font-weight: 800; letter-spacing: .2em; text-transform: uppercase; white-space: nowrap; display: flex; align-items: center; }
-  .trilho span::after { content: ""; width: 22px; height: 22px; margin: 0 28px; background: radial-gradient(circle, var(--sol) 0 4px, transparent 5px), conic-gradient(from 0deg, var(--sol-claro) 0 10%, transparent 10% 20%, var(--sol-claro) 20% 30%, transparent 30% 40%, var(--sol-claro) 40% 50%, transparent 50% 60%, var(--sol-claro) 60% 70%, transparent 70% 80%, var(--sol-claro) 80% 90%, transparent 90%); border-radius: 50%; }
+  .trilho span::after { content: "✦"; color: var(--sol); font-size: 1rem; margin: 0 26px; }
   @keyframes corre { to { transform: translateX(-50%); } }
 
   /* ===== OLHAR (galeria de polaroids) ===== */
@@ -144,7 +146,7 @@
   .etapa-num { width: 42px; height: 42px; border-radius: 50%; display: grid; place-items: center; font-weight: 800; color: var(--tinta); }
   .etapa:nth-child(1) .etapa-num { background: var(--sol); }
   .etapa:nth-child(2) .etapa-num { background: var(--ceu); }
-  .etapa:nth-child(3) .etapa-num { background: #f6b49b; }
+  .etapa:nth-child(3) .etapa-num { background: var(--salvia); color: #fff; }
   .formato { align-self: flex-start; background: var(--mar); color: #fff; border-radius: 999px; padding: 4px 12px; font-size: .72rem; font-weight: 700; letter-spacing: .06em; }
   .refs { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 6px; }
   .refs figure { margin: 0; position: relative; aspect-ratio: 9/16; border-radius: 10px; overflow: hidden; background: var(--ceu); }
@@ -158,7 +160,7 @@
 
   /* ===== QUEM APARECE (laranja + creme) ===== */
   .pessoas { padding: 0; display: grid; grid-template-columns: minmax(0, .85fr) minmax(0, 1.15fr); }
-  .pessoas-foto { background: var(--laranja); display: grid; place-items: center; padding: 60px 24px; }
+  .pessoas-foto { background: var(--oliva); display: grid; place-items: center; padding: 60px 24px; }
   .moldura-arredondada { position: relative; width: min(340px, 82%); background: #fff; padding: 10px; border-radius: 22px; box-shadow: var(--sombra); }
   .moldura-arredondada img { width: 100%; aspect-ratio: 4/5; object-fit: cover; border-radius: 14px; }
   .balao { position: absolute; right: -26px; bottom: 34px; background: var(--sol); color: var(--bordo); border-radius: 999px; padding: 7px 14px; font-size: .72rem; font-weight: 800; letter-spacing: .1em; text-transform: uppercase; transform: rotate(-6deg); box-shadow: 0 6px 14px -6px rgba(0,0,0,.35); }
@@ -170,7 +172,7 @@
   .tipo p { font-size: .9rem; color: var(--tinta-suave); }
 
   /* ===== O QUE EU REGISTRO (amarelo claro) ===== */
-  .registro { background: var(--sol-claro); }
+  .registro { background: var(--areia); }
   .momentos { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 16px; margin-top: 40px; }
   .momento { background: var(--creme); border-radius: 18px; padding: 20px; display: flex; flex-direction: column; gap: 8px; }
   .momento svg { width: 40px; height: 40px; }
@@ -202,26 +204,28 @@
   .pacote { position: relative; border-radius: 10px; padding: 26px 24px 24px; display: flex; flex-direction: column; gap: 12px; background: #fff; box-shadow: 0 1px 2px rgba(58,26,20,.06), 0 18px 36px -24px rgba(58,26,20,.45); }
   .pacote::before { content: ""; position: absolute; left: 0; right: 0; top: 0; height: 10px; border-radius: 10px 10px 0 0; background: repeating-linear-gradient(90deg, var(--cor, var(--ceu)) 0 14px, transparent 14px 22px); }
   .pacote:nth-child(1) { --cor: var(--ceu); }
-  .pacote:nth-child(2) { --cor: var(--bordo); background: var(--sol); transform: translateY(-10px); }
-  .pacote:nth-child(3) { --cor: var(--laranja); }
+  .pacote:nth-child(2) { --cor: var(--sol); background: var(--oliva); color: var(--creme); transform: translateY(-10px); }
+  .pacote:nth-child(2) h3, .pacote:nth-child(2) .preco { color: var(--creme); }
+  .pacote:nth-child(2) .selo-p { color: var(--sol) !important; }
+  .pacote:nth-child(3) { --cor: var(--salvia); }
   .pacote .selo-p { font-size: .68rem; font-weight: 800; letter-spacing: .2em; text-transform: uppercase; color: var(--mar); }
   .pacote:nth-child(2) .selo-p { color: var(--bordo); }
   .pacote h3 { font-size: 1.7rem; }
   .pacote .pra { font-size: .9rem; color: var(--tinta-suave); }
-  .pacote:nth-child(2) .pra { color: var(--tinta); }
+  .pacote:nth-child(2) .pra { color: #d9dccd; }
   .pacote ul { margin: 0; padding: 0; list-style: none; display: grid; gap: 6px; font-size: .92rem; }
   .pacote li { padding-left: 22px; position: relative; }
   .pacote li::before { content: "☀"; position: absolute; left: 0; color: var(--laranja); font-size: .85rem; top: 1px; }
   .pacote .preco { margin-top: auto; padding-top: 14px; border-top: 1.5px dashed var(--linha); font-family: var(--titulo); font-weight: 800; font-variation-settings: "SOFT" 100; font-size: 1.9rem; color: var(--bordo); line-height: 1.05; }
   .pacote .preco small { display: block; font-family: var(--sans); font-weight: 500; font-size: .8rem; color: var(--tinta-suave); margin-top: 4px; }
-  .pacote:nth-child(2) .preco small { color: var(--tinta); }
+  .pacote:nth-child(2) .preco small { color: #d9dccd; }
   .avulsos { margin-top: 20px; display: grid; grid-template-columns: auto repeat(3, minmax(0, 1fr)); gap: 10px; align-items: stretch; }
   .avulsos > b { font-size: .68rem; font-weight: 800; letter-spacing: .2em; text-transform: uppercase; color: var(--bordo); align-self: center; padding-right: 8px; }
   .avulso { background: var(--areia); border-radius: 12px; padding: 12px 14px; display: flex; justify-content: space-between; gap: 10px; align-items: baseline; font-size: .9rem; }
   .avulso strong { font-family: var(--titulo); font-weight: 800; font-variation-settings: "SOFT" 100; font-size: 1.15rem; white-space: nowrap; color: var(--bordo); }
   .avulso small { display: block; color: var(--tinta-suave); font-size: .78rem; }
-  .maior { margin-top: 20px; border-radius: 18px; padding: clamp(20px, 3vw, 28px); background: var(--oliva); color: var(--creme); display: flex; justify-content: space-between; align-items: center; gap: 20px; flex-wrap: wrap; }
-  .maior h3 { color: var(--sol); font-size: 1.5rem; }
+  .maior { margin-top: 20px; border-radius: 18px; padding: clamp(20px, 3vw, 28px); background: var(--mar); color: var(--creme); display: flex; justify-content: space-between; align-items: center; gap: 20px; flex-wrap: wrap; }
+  .maior h3 { color: var(--areia); font-size: 1.5rem; }
   .maior p { font-size: .95rem; margin-top: 6px; max-width: 60ch; }
   .condicoes { margin-top: 30px; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); border-top: 1.5px dashed var(--linha); }
   .condicoes div { padding: 14px 16px 14px 0; border-bottom: 1.5px dashed var(--linha); }
@@ -266,7 +270,7 @@
   .final::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(20,40,60,.25), rgba(20,30,45,.55)); }
   .final .wrap { position: relative; z-index: 1; }
   .final .sub-titulo { color: #fff; }
-  .final h2 { color: var(--sol); font-size: clamp(2.2rem, 6vw, 3.8rem); max-width: 18ch; margin: 14px auto 0; text-shadow: 0 3px 18px rgba(0,0,0,.25); }
+  .final h2 { color: var(--areia); font-size: clamp(2.2rem, 6vw, 3.8rem); max-width: 18ch; margin: 14px auto 0; text-shadow: 0 3px 18px rgba(0,0,0,.25); }
   .final .acoes { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; margin-top: 30px; }
   .final .dados { margin-top: 22px; font-size: .9rem; display: flex; gap: 6px 22px; justify-content: center; flex-wrap: wrap; text-shadow: 0 1px 6px rgba(0,0,0,.4); }
   footer { text-align: center; padding: 24px var(--gutter); font-size: .78rem; color: var(--tinta-suave); }
@@ -350,7 +354,7 @@
       <div class="postal-texto">
         <div class="selos" aria-hidden="true">
           <svg class="carimbo" viewBox="0 0 100 100"><defs><path id="circ" d="M50 50 m-36 0 a36 36 0 1 1 72 0 a36 36 0 1 1 -72 0"/></defs><circle cx="50" cy="50" r="44" fill="none" stroke="#6e0f1e" stroke-width="2" opacity=".55"/><circle cx="50" cy="50" r="30" fill="none" stroke="#6e0f1e" stroke-width="1.5" opacity=".55"/><text font-family="Plus Jakarta Sans, sans-serif" font-size="9.5" font-weight="800" letter-spacing="2.5" fill="#6e0f1e" opacity=".6"><textPath href="#circ">NATAL · RIO GRANDE DO NORTE ·</textPath></text><path d="M30 52 q10 -8 20 0 t20 0" fill="none" stroke="#6e0f1e" stroke-width="2" opacity=".5"/><path d="M30 60 q10 -8 20 0 t20 0" fill="none" stroke="#6e0f1e" stroke-width="2" opacity=".5"/></svg>
-          <svg viewBox="0 0 74 88"><rect x="2" y="2" width="70" height="84" rx="2" fill="#fcf7ec" stroke="#6e0f1e" stroke-width="2" stroke-dasharray="4 3"/><rect x="9" y="9" width="56" height="70" fill="#bcd7f2"/><circle cx="48" cy="26" r="9" fill="#f7d86a"/><path d="M9 62 q14 -10 28 0 t28 0 v17 H9z" fill="#1f5f86"/><path d="M27 66 c0 -14 2 -24 6 -32" stroke="#6b4e44" stroke-width="2.5" fill="none"/><path d="M33 34 c-8 -2 -14 2 -16 6 c6 -3 11 -3 16 -6z M33 34 c6 -6 13 -6 17 -3 c-6 0 -11 1 -17 3z M33 34 c-2 -7 -8 -10 -13 -10 c5 3 9 6 13 10z M33 34 c3 -7 9 -9 13 -8 c-5 2 -9 4 -13 8z" fill="#6b7826"/></svg>
+          <svg viewBox="0 0 74 88"><rect x="2" y="2" width="70" height="84" rx="2" fill="#f7f2ea" stroke="#6e0f1e" stroke-width="2" stroke-dasharray="4 3"/><rect x="9" y="9" width="56" height="70" fill="#c5d6dc"/><circle cx="48" cy="26" r="9" fill="#d9b26f"/><path d="M9 62 q14 -10 28 0 t28 0 v17 H9z" fill="#113f54"/><path d="M27 66 c0 -14 2 -24 6 -32" stroke="#6b4e44" stroke-width="2.5" fill="none"/><path d="M33 34 c-8 -2 -14 2 -16 6 c6 -3 11 -3 16 -6z M33 34 c6 -6 13 -6 17 -3 c-6 0 -11 1 -17 3z M33 34 c-2 -7 -8 -10 -13 -10 c5 3 9 6 13 10z M33 34 c3 -7 9 -9 13 -8 c-5 2 -9 4 -13 8z" fill="#2d3823"/></svg>
         </div>
         <div>
           <h1>O hóspede reserva o que <span>consegue sentir.</span></h1>
@@ -372,14 +376,14 @@
     <h2>Comece por aqui</h2>
     <p class="sub-titulo">Tudo o que a sua hospedagem precisa saber</p>
     <ul class="icones">
-      <li><a href="#olhar"><svg viewBox="0 0 60 60" aria-hidden="true"><rect x="8" y="18" width="44" height="30" rx="6" fill="#fcf7ec" stroke="#3a1a14" stroke-width="2.5"/><rect x="21" y="12" width="18" height="8" rx="2" fill="#e5582a" stroke="#3a1a14" stroke-width="2.5"/><circle cx="30" cy="33" r="9" fill="#bcd7f2" stroke="#3a1a14" stroke-width="2.5"/><circle cx="44" cy="25" r="2" fill="#3a1a14"/></svg>O meu olhar</a></li>
-      <li><a href="#funil"><svg viewBox="0 0 60 60" aria-hidden="true"><rect x="17" y="6" width="26" height="48" rx="6" fill="#fcf7ec" stroke="#3a1a14" stroke-width="2.5"/><path d="M26 23 l11 7 -11 7z" fill="#e5582a" stroke="#3a1a14" stroke-width="2" stroke-linejoin="round"/><line x1="26" y1="48" x2="34" y2="48" stroke="#3a1a14" stroke-width="2.5" stroke-linecap="round"/></svg>Os vídeos</a></li>
-      <li><a href="#pessoas"><svg viewBox="0 0 60 60" aria-hidden="true"><circle cx="22" cy="22" r="8" fill="#f6b49b" stroke="#3a1a14" stroke-width="2.5"/><circle cx="40" cy="24" r="7" fill="#bcd7f2" stroke="#3a1a14" stroke-width="2.5"/><path d="M8 50 c0 -10 6 -16 14 -16 s14 6 14 16z" fill="#fcf7ec" stroke="#3a1a14" stroke-width="2.5"/><path d="M30 50 c1 -9 5 -14 10 -14 s12 5 12 14z" fill="#f7d86a" stroke="#3a1a14" stroke-width="2.5"/></svg>Quem aparece</a></li>
-      <li><a href="#registro"><svg viewBox="0 0 60 60" aria-hidden="true"><circle cx="30" cy="30" r="11" fill="#fcf7ec" stroke="#3a1a14" stroke-width="2.5"/><g stroke="#e5582a" stroke-width="3" stroke-linecap="round"><line x1="30" y1="6" x2="30" y2="13"/><line x1="30" y1="47" x2="30" y2="54"/><line x1="6" y1="30" x2="13" y2="30"/><line x1="47" y1="30" x2="54" y2="30"/><line x1="13" y1="13" x2="18" y2="18"/><line x1="42" y1="42" x2="47" y2="47"/><line x1="47" y1="13" x2="42" y2="18"/><line x1="18" y1="42" x2="13" y2="47"/></g></svg>O que registro</a></li>
-      <li><a href="#prova"><svg viewBox="0 0 60 60" aria-hidden="true"><path d="M10 46 h40" stroke="#3a1a14" stroke-width="2.5" stroke-linecap="round"/><rect x="14" y="30" width="8" height="16" fill="#bcd7f2" stroke="#3a1a14" stroke-width="2.5"/><rect x="26" y="22" width="8" height="24" fill="#f7d86a" stroke="#3a1a14" stroke-width="2.5"/><rect x="38" y="12" width="8" height="34" fill="#e5582a" stroke="#3a1a14" stroke-width="2.5"/></svg>Resultados</a></li>
-      <li><a href="#parceria"><svg viewBox="0 0 60 60" aria-hidden="true"><path d="M8 18 h44 v8 a5 5 0 0 0 0 10 v8 H8 v-8 a5 5 0 0 0 0 -10z" fill="#fcf7ec" stroke="#3a1a14" stroke-width="2.5" stroke-linejoin="round"/><line x1="38" y1="20" x2="38" y2="42" stroke="#e5582a" stroke-width="2.5" stroke-dasharray="3 3"/><path d="M16 27 h14 M16 34 h10" stroke="#3a1a14" stroke-width="2.5" stroke-linecap="round"/></svg>Parceria</a></li>
-      <li><a href="#processo"><svg viewBox="0 0 60 60" aria-hidden="true"><path d="M30 54 s-16 -15 -16 -28 a16 16 0 0 1 32 0 c0 13 -16 28 -16 28z" fill="#e5582a" stroke="#3a1a14" stroke-width="2.5"/><circle cx="30" cy="26" r="6" fill="#fcf7ec" stroke="#3a1a14" stroke-width="2.5"/></svg>Como funciona</a></li>
-      <li><a href="#contato"><svg viewBox="0 0 60 60" aria-hidden="true"><path d="M10 14 h40 a4 4 0 0 1 4 4 v20 a4 4 0 0 1 -4 4 H26 l-10 8 v-8 h-6 a4 4 0 0 1 -4 -4 V18 a4 4 0 0 1 4 -4z" fill="#bcd7f2" stroke="#3a1a14" stroke-width="2.5" stroke-linejoin="round"/><circle cx="22" cy="28" r="2.5" fill="#3a1a14"/><circle cx="30" cy="28" r="2.5" fill="#3a1a14"/><circle cx="38" cy="28" r="2.5" fill="#3a1a14"/></svg>WhatsApp</a></li>
+      <li><a href="#olhar"><svg viewBox="0 0 60 60" aria-hidden="true"><rect x="8" y="18" width="44" height="30" rx="6" fill="#f7f2ea" stroke="#3a1a14" stroke-width="2.5"/><rect x="21" y="12" width="18" height="8" rx="2" fill="#b0643f" stroke="#3a1a14" stroke-width="2.5"/><circle cx="30" cy="33" r="9" fill="#c5d6dc" stroke="#3a1a14" stroke-width="2.5"/><circle cx="44" cy="25" r="2" fill="#3a1a14"/></svg>O meu olhar</a></li>
+      <li><a href="#funil"><svg viewBox="0 0 60 60" aria-hidden="true"><rect x="17" y="6" width="26" height="48" rx="6" fill="#f7f2ea" stroke="#3a1a14" stroke-width="2.5"/><path d="M26 23 l11 7 -11 7z" fill="#b0643f" stroke="#3a1a14" stroke-width="2" stroke-linejoin="round"/><line x1="26" y1="48" x2="34" y2="48" stroke="#3a1a14" stroke-width="2.5" stroke-linecap="round"/></svg>Os vídeos</a></li>
+      <li><a href="#pessoas"><svg viewBox="0 0 60 60" aria-hidden="true"><circle cx="22" cy="22" r="8" fill="#c9b49a" stroke="#3a1a14" stroke-width="2.5"/><circle cx="40" cy="24" r="7" fill="#c5d6dc" stroke="#3a1a14" stroke-width="2.5"/><path d="M8 50 c0 -10 6 -16 14 -16 s14 6 14 16z" fill="#f7f2ea" stroke="#3a1a14" stroke-width="2.5"/><path d="M30 50 c1 -9 5 -14 10 -14 s12 5 12 14z" fill="#d9b26f" stroke="#3a1a14" stroke-width="2.5"/></svg>Quem aparece</a></li>
+      <li><a href="#registro"><svg viewBox="0 0 60 60" aria-hidden="true"><circle cx="30" cy="30" r="11" fill="#f7f2ea" stroke="#3a1a14" stroke-width="2.5"/><g stroke="#b0643f" stroke-width="3" stroke-linecap="round"><line x1="30" y1="6" x2="30" y2="13"/><line x1="30" y1="47" x2="30" y2="54"/><line x1="6" y1="30" x2="13" y2="30"/><line x1="47" y1="30" x2="54" y2="30"/><line x1="13" y1="13" x2="18" y2="18"/><line x1="42" y1="42" x2="47" y2="47"/><line x1="47" y1="13" x2="42" y2="18"/><line x1="18" y1="42" x2="13" y2="47"/></g></svg>O que registro</a></li>
+      <li><a href="#prova"><svg viewBox="0 0 60 60" aria-hidden="true"><path d="M10 46 h40" stroke="#3a1a14" stroke-width="2.5" stroke-linecap="round"/><rect x="14" y="30" width="8" height="16" fill="#c5d6dc" stroke="#3a1a14" stroke-width="2.5"/><rect x="26" y="22" width="8" height="24" fill="#d9b26f" stroke="#3a1a14" stroke-width="2.5"/><rect x="38" y="12" width="8" height="34" fill="#b0643f" stroke="#3a1a14" stroke-width="2.5"/></svg>Resultados</a></li>
+      <li><a href="#parceria"><svg viewBox="0 0 60 60" aria-hidden="true"><path d="M8 18 h44 v8 a5 5 0 0 0 0 10 v8 H8 v-8 a5 5 0 0 0 0 -10z" fill="#f7f2ea" stroke="#3a1a14" stroke-width="2.5" stroke-linejoin="round"/><line x1="38" y1="20" x2="38" y2="42" stroke="#b0643f" stroke-width="2.5" stroke-dasharray="3 3"/><path d="M16 27 h14 M16 34 h10" stroke="#3a1a14" stroke-width="2.5" stroke-linecap="round"/></svg>Parceria</a></li>
+      <li><a href="#processo"><svg viewBox="0 0 60 60" aria-hidden="true"><path d="M30 54 s-16 -15 -16 -28 a16 16 0 0 1 32 0 c0 13 -16 28 -16 28z" fill="#b0643f" stroke="#3a1a14" stroke-width="2.5"/><circle cx="30" cy="26" r="6" fill="#f7f2ea" stroke="#3a1a14" stroke-width="2.5"/></svg>Como funciona</a></li>
+      <li><a href="#contato"><svg viewBox="0 0 60 60" aria-hidden="true"><path d="M10 14 h40 a4 4 0 0 1 4 4 v20 a4 4 0 0 1 -4 4 H26 l-10 8 v-8 h-6 a4 4 0 0 1 -4 -4 V18 a4 4 0 0 1 4 -4z" fill="#c5d6dc" stroke="#3a1a14" stroke-width="2.5" stroke-linejoin="round"/><circle cx="22" cy="28" r="2.5" fill="#3a1a14"/><circle cx="30" cy="28" r="2.5" fill="#3a1a14"/><circle cx="38" cy="28" r="2.5" fill="#3a1a14"/></svg>WhatsApp</a></li>
     </ul>
     <div class="numeros">
       <div><strong>+39</strong><span>marcas atendidas</span></div>
@@ -400,7 +404,7 @@
   <div class="listras">
     <figure class="foto-presa">
       <svg class="clipe" viewBox="0 0 22 60" aria-hidden="true"><path d="M6 52 V12 a5 5 0 0 1 10 0 v36 a3 3 0 0 1 -6 0 V16" fill="none" stroke="#8a8f99" stroke-width="2.5" stroke-linecap="round"/></svg>
-      <svg class="folha" viewBox="0 0 80 110" aria-hidden="true"><path d="M40 104 C40 70 42 40 50 8" stroke="#6b7826" stroke-width="3" fill="none"/><g fill="#6b7826"><path d="M42 80 c-14 -2 -24 -10 -28 -18 c12 2 22 8 28 18z"/><path d="M44 62 c12 -4 22 -2 28 4 c-10 2 -20 0 -28 -4z"/><path d="M45 46 c-12 -4 -20 -12 -22 -20 c10 4 18 10 22 20z"/><path d="M48 30 c10 -6 18 -6 24 -2 c-8 4 -16 4 -24 2z"/></g></svg>
+      <svg class="folha" viewBox="0 0 80 110" aria-hidden="true"><path d="M40 104 C40 70 42 40 50 8" stroke="#2d3823" stroke-width="3" fill="none"/><g fill="#2d3823"><path d="M42 80 c-14 -2 -24 -10 -28 -18 c12 2 22 8 28 18z"/><path d="M44 62 c12 -4 22 -2 28 4 c-10 2 -20 0 -28 -4z"/><path d="M45 46 c-12 -4 -20 -12 -22 -20 c10 4 18 10 22 20z"/><path d="M48 30 c10 -6 18 -6 24 -2 c-8 4 -16 4 -24 2z"/></g></svg>
       <img src="img/eu-jardim.webp" alt="Yasmin sentada à mesa num jardim tropical com piscina ao fundo">
       <figcaption>oi, eu sou a Yasmin!</figcaption>
     </figure>
@@ -431,18 +435,18 @@
 <section class="pessoas" id="pessoas">
   <div class="pessoas-foto">
     <figure class="moldura-arredondada" style="margin:0">
-      <img src="img/casal.webp" alt="Yasmin e o namorado numa selfie ao sol">
-      <span class="balao">quem vai comigo!</span>
+      <img src="img/areia.webp" alt="Yasmin de vestido branco num deck de frente pro mar">
+      <span class="balao">depende da vibe!</span>
     </figure>
   </div>
   <div class="pessoas-texto">
     <h2>O seu hóspede precisa se ver na tela</h2>
-    <p class="sub-titulo">Viagem de verdade, não tour de corretor</p>
-    <p class="lead">Eu levo junto quem combina com o público da hospedagem, e sempre vou com alguém de apoio pra gravar. Assim eu apareço nas cenas e o vídeo fica com cara de viagem.</p>
+    <p class="sub-titulo">Quem vai comigo depende da vibe do lugar</p>
+    <p class="lead">Não levo ninguém só pra segurar a câmera. Quem vai comigo entra na cena porque combina com o público de vocês: <b>se a hospedagem é romântica, vou com o meu namorado</b>; se é pra família, a cena é de família; se é de amigas, vou com amigas.</p>
     <div class="tipos">
-      <div class="tipo"><svg viewBox="0 0 46 46" aria-hidden="true"><circle cx="23" cy="23" r="21" fill="#f6b49b"/><path d="M23 33 s-10 -6 -10 -13 a5 5 0 0 1 10 -2 a5 5 0 0 1 10 2 c0 7 -10 13 -10 13z" fill="#6e0f1e"/></svg><div><b>Casal</b><p>Pousadas românticas, chalés e suítes com banheira. Clima de escapada.</p></div></div>
-      <div class="tipo"><svg viewBox="0 0 46 46" aria-hidden="true"><circle cx="23" cy="23" r="21" fill="#f7d86a"/><circle cx="17" cy="19" r="4" fill="#6e0f1e"/><circle cx="29" cy="19" r="4" fill="#6e0f1e"/><circle cx="23" cy="27" r="3" fill="#6e0f1e"/><path d="M11 36 c1 -6 4 -9 6 -9 s5 3 6 9z M23 36 c1 -6 4 -9 6 -9 s5 3 6 9z" fill="#6e0f1e"/></svg><div><b>Família</b><p>Resorts e hotéis com estrutura pra criança. Quem tem filho quer ver filho se divertindo.</p></div></div>
-      <div class="tipo"><svg viewBox="0 0 46 46" aria-hidden="true"><circle cx="23" cy="23" r="21" fill="#bcd7f2"/><path d="M14 30 l4 -14 4 14z M24 30 l4 -14 4 14z" fill="#6e0f1e"/><path d="M12 32 h22" stroke="#6e0f1e" stroke-width="2.5" stroke-linecap="round"/></svg><div><b>Amigas</b><p>Hotéis de praia, day use e roteiros. Leve, divertido e com muita foto.</p></div></div>
+      <div class="tipo"><svg viewBox="0 0 46 46" aria-hidden="true"><circle cx="23" cy="23" r="21" fill="#c9b49a"/><path d="M23 33 s-10 -6 -10 -13 a5 5 0 0 1 10 -2 a5 5 0 0 1 10 2 c0 7 -10 13 -10 13z" fill="#6e0f1e"/></svg><div><b>Casal</b><p>Pousadas românticas, chalés e suítes com banheira. Clima de escapada.</p></div></div>
+      <div class="tipo"><svg viewBox="0 0 46 46" aria-hidden="true"><circle cx="23" cy="23" r="21" fill="#d9b26f"/><circle cx="17" cy="19" r="4" fill="#6e0f1e"/><circle cx="29" cy="19" r="4" fill="#6e0f1e"/><circle cx="23" cy="27" r="3" fill="#6e0f1e"/><path d="M11 36 c1 -6 4 -9 6 -9 s5 3 6 9z M23 36 c1 -6 4 -9 6 -9 s5 3 6 9z" fill="#6e0f1e"/></svg><div><b>Família</b><p>Resorts e hotéis com estrutura pra criança. Quem tem filho quer ver filho se divertindo.</p></div></div>
+      <div class="tipo"><svg viewBox="0 0 46 46" aria-hidden="true"><circle cx="23" cy="23" r="21" fill="#c5d6dc"/><path d="M14 30 l4 -14 4 14z M24 30 l4 -14 4 14z" fill="#6e0f1e"/><path d="M12 32 h22" stroke="#6e0f1e" stroke-width="2.5" stroke-linecap="round"/></svg><div><b>Amigas</b><p>Hotéis de praia, day use e roteiros. Leve, divertido e com muita foto.</p></div></div>
     </div>
   </div>
 </section>
@@ -451,7 +455,7 @@
   <div class="wrap">
     <h2>Eu vivo a experiência completa</h2>
     <p class="sub-titulo">E registro tudo</p>
-    <p class="lead">Por isso a parceria inclui as diárias com as refeições e as experiências do local.</p>
+    <p class="lead">Por isso o ideal é viver tudo o que vocês oferecem: as diárias, as refeições e as experiências do local.</p>
     <div class="momentos" id="momentos" style="text-align:left"></div>
     <p class="nota">o que eu não vivo, eu não consigo mostrar ☀</p>
   </div>
@@ -490,27 +494,25 @@
     <div class="centro">
       <h2>Formatos de parceria</h2>
       <p class="sub-titulo">Escolham o que faz sentido pra vocês</p>
-      <p class="lead">Em todos eles eu me hospedo com as refeições incluídas e entrego os arquivos editados, prontos pra usar.</p>
+      <p class="lead">A hospedagem cobre a experiência que eu vou mostrar. O investimento é pelo conteúdo: <b>no mínimo 3 vídeos por estadia</b>, pra cada vinda render material de verdade pra vocês.</p>
     </div>
     <div class="pacotes" id="pacotes"></div>
     <div class="avulsos">
-      <b>Peças avulsas</b>
-      <div class="avulso"><span>Vídeo produzido<small>roteiro, gravação e edição</small></span><strong>R$ 300</strong></div>
-      <div class="avulso"><span>Vídeo lo-fi<small>câmera na mão, edição simples</small></span><strong>R$ 180</strong></div>
+      <b>Adicionais</b>
+      <div class="avulso"><span>Vídeo extra<small>roteiro, gravação e edição</small></span><strong>R$ 300</strong></div>
       <div class="avulso"><span>Variação de gancho<small>mesmo vídeo, abertura nova</small></span><strong>R$ 50</strong></div>
+      <div class="avulso"><span>+ 10 fotos editadas<small>feed, site e plataformas</small></span><strong>R$ 150</strong></div>
     </div>
     <div class="maior">
-      <div><h3>Resort ou hotel maior?</h3><p>Mais estrutura pede mais conteúdo: a gente monta uma proposta sob medida, com cenas de família e mais dias de gravação.</p></div>
+      <div><h3>Resort ou hotel maior?</h3><p>Mais estrutura pede mais conteúdo: a gente monta uma proposta sob medida, com mais dias de gravação e mais cenas.</p></div>
       <a class="botao branco" id="zapValor" href="https://wa.me/5581989857308" target="_blank" rel="noopener">Montar minha proposta</a>
     </div>
     <div class="condicoes">
-      <div><b>Hóspedes</b><p>Casal + 1 apoio de gravação, ou família, conforme o porte do local.</p></div>
-      <div><b>Datas</b><p>De preferência de segunda a quinta, quando a ocupação é menor.</p></div>
-      <div><b>Incluso na estadia</b><p>Diárias, refeições e as experiências do local.</p></div>
+      <div><b>A estadia</b><p>O ideal é a experiência completa: diárias, refeições e o que o local oferece. Eu só mostro o que vivo.</p></div>
       <div><b>Prazo</b><p>Arquivos em até 7 dias depois da estadia.</p></div>
       <div><b>Ajustes</b><p>1 rodada inclusa por vídeo.</p></div>
       <div><b>Uso de imagem</b><p>Vitalício nas suas redes e site. Anúncio pelo prazo do pacote.</p></div>
-      <div><b>Pagamento</b><p>Nos formatos com cachê: 50% pra fechar e 50% na entrega.</p></div>
+      <div><b>Pagamento</b><p>50% pra fechar e 50% na entrega.</p></div>
       <div><b>Stories</b><p>Bônus: stories no meu perfil durante a estadia.</p></div>
       <div><b>Collab</b><p>Post em collab no meu perfil sem custo adicional, se vocês quiserem.</p></div>
     </div>
@@ -542,10 +544,12 @@
     <ul class="depoimentos" id="listaDep" tabindex="0" aria-label="Depoimentos de marcas, role pro lado pra ver mais"></ul>
     <div class="faq">
       <details><summary>Preciso que você poste no seu perfil?</summary><p>Não. UGC é conteúdo pra hospedagem usar nos próprios canais. Os stories durante a estadia e o post em collab são bônus, se vocês quiserem.</p></details>
-      <details><summary>Quantas pessoas vão?</summary><p>Depende do porte do lugar: normalmente eu, meu namorado e uma pessoa de apoio pra gravar. Em resorts e hotéis de família, posso levar a família pra captar cenas com criança.</p></details>
+      <details><summary>Quem vai com você?</summary><p>Depende da vibe da hospedagem. Em lugar romântico vou com o meu namorado, em hotel de família a cena é de família, e assim por diante. A gente combina antes, junto com o roteiro.</p></details>
+      <details><summary>Quem escolhe as datas?</summary><p>Vocês. Eu me adapto ao calendário da hospedagem.</p></details>
       <details><summary>Vocês podem escolher o que aparece?</summary><p>Sim. O roteiro é aprovado antes da viagem, e se tiver um diferencial que vocês querem destacar (spa, restaurante, vista), ele entra como protagonista.</p></details>
       <details><summary>Atende fora de Natal?</summary><p>Sim. Natal e o litoral potiguar ficam perto, e pra outros destinos a gente combina o deslocamento.</p></details>
-      <details><summary>E se for um Airbnb ou chalé pequeno?</summary><p>Funciona do mesmo jeito: menos estrutura pra mostrar, mais foco em clima, detalhe e experiência. A gente ajusta o pacote ao tamanho do lugar.</p></details>
+      <details><summary>Por que no mínimo 3 vídeos?</summary><p>Porque uma estadia rende muito mais do que um vídeo. Com 3, vocês têm uma peça pra cada etapa da reserva (desejo, confiança e decisão) e conseguem testar o que funciona melhor em anúncio.</p></details>
+      <details><summary>E se for um Airbnb ou chalé pequeno?</summary><p>Funciona do mesmo jeito: menos estrutura pra mostrar, mais foco em clima, detalhe e experiência.</p></details>
     </div>
   </div>
 </section>
@@ -626,10 +630,11 @@
     // { id: "CODIGO", titulo: "Marca · produto", uso: "Na hospedagem: piscina" },
   ];
 
+  // Todos os pacotes incluem a hospedagem completa (diárias + refeições + experiências).
   const PACOTES = [
-    { selo: "Permuta", nome: "Experiência", pra: "Hospedagem de 2 a 3 diárias, com refeições.", itens: ["3 vídeos (Reels / TikTok)", "10 fotos editadas", "Uso no perfil, site e stories", "Bônus: stories no @caetyas_"], preco: "Permuta", nota: "equivale a R$ 1.100 em conteúdo" },
-    { selo: "Recomendado · híbrido", nome: "Experiência + Ads", pra: "Hospedagem completa + cachê.", itens: ["4 vídeos, 1 em versão anúncio com 3 ganchos", "15 fotos editadas", "Uso orgânico + anúncio por 90 dias", "Bônus: stories no @caetyas_"], preco: "R$ 590", nota: "+ hospedagem · equivale a R$ 1.700" },
-    { selo: "Pago", nome: "Sob medida", pra: "Vocês escolhem as entregas.", itens: ["Vídeos e fotos à la carte", "Anúncio pelo prazo combinado", "Hospedagem no período de gravação", "Orçamento fechado por escrito"], preco: "a partir de R$ 300", nota: "por vídeo, veja as peças avulsas" }
+    { selo: "Orgânico", nome: "Presença", pra: "Pro perfil, site e plataformas de reserva.", itens: ["3 vídeos orgânicos (Reels / TikTok)", "15 fotos editadas", "Uso vitalício nas redes e no site", "Bônus: stories no @caetyas_ na estadia"], preco: "R$ 900", nota: "+ hospedagem completa" },
+    { selo: "Recomendado · tráfego pago", nome: "Funil completo", pra: "Pra quem quer vender diária com anúncio.", itens: ["3 vídeos estratégicos: desejo, confiança e decisão", "3 ganchos em cada vídeo (9 criativos pra testar)", "15 fotos editadas", "Uso em anúncio por 90 dias", "Bônus: stories no @caetyas_ na estadia"], preco: "R$ 1.390", nota: "+ hospedagem completa" },
+    { selo: "Orgânico + tráfego pago", nome: "Temporada", pra: "Conteúdo pra meses, no perfil e nos anúncios.", itens: ["3 vídeos orgânicos", "3 vídeos de funil com 3 ganchos cada", "25 fotos editadas", "Uso em anúncio por 6 meses", "Bônus: stories no @caetyas_ na estadia"], preco: "R$ 2.190", nota: "+ hospedagem completa" }
   ];
 
   const DEPOIMENTOS = [
@@ -664,14 +669,14 @@
   </article>`).join("");
 
   const ICONES = {
-    chave: '<circle cx="14" cy="20" r="8" fill="#f7d86a" stroke="#3a1a14" stroke-width="2.2"/><path d="M21 20 h15 v6 M30 20 v5" stroke="#3a1a14" stroke-width="2.2" fill="none" stroke-linecap="round"/>',
-    cama: '<rect x="4" y="18" width="32" height="12" rx="3" fill="#bcd7f2" stroke="#3a1a14" stroke-width="2.2"/><rect x="7" y="13" width="10" height="6" rx="2" fill="#fcf7ec" stroke="#3a1a14" stroke-width="2.2"/><path d="M6 30 v4 M34 30 v4" stroke="#3a1a14" stroke-width="2.2" stroke-linecap="round"/>',
-    cafe: '<path d="M8 16 h20 v8 a8 8 0 0 1 -8 8 h-4 a8 8 0 0 1 -8 -8z" fill="#f6b49b" stroke="#3a1a14" stroke-width="2.2"/><path d="M28 18 a4 4 0 0 1 0 8" fill="none" stroke="#3a1a14" stroke-width="2.2"/><path d="M14 6 q2 3 0 6 M20 6 q2 3 0 6" stroke="#e5582a" stroke-width="2" fill="none" stroke-linecap="round"/>',
-    drink: '<path d="M8 8 h24 l-12 14z" fill="#f7d86a" stroke="#3a1a14" stroke-width="2.2" stroke-linejoin="round"/><path d="M20 22 v10 M14 34 h12" stroke="#3a1a14" stroke-width="2.2" stroke-linecap="round"/><circle cx="28" cy="8" r="3.5" fill="#e5582a"/>',
-    boia: '<circle cx="20" cy="20" r="14" fill="#e5582a" stroke="#3a1a14" stroke-width="2.2"/><circle cx="20" cy="20" r="6" fill="#fbf5ea" stroke="#3a1a14" stroke-width="2.2"/><path d="M20 6 v8 M20 26 v8 M6 20 h8 M26 20 h8" stroke="#fcf7ec" stroke-width="3.5"/>',
-    barco: '<path d="M6 26 h28 l-4 7 H10z" fill="#bcd7f2" stroke="#3a1a14" stroke-width="2.2" stroke-linejoin="round"/><path d="M20 24 V6 l10 15z" fill="#fcf7ec" stroke="#3a1a14" stroke-width="2.2" stroke-linejoin="round"/>',
-    palmeira: '<path d="M20 36 c0 -10 1 -18 3 -24" stroke="#6b4e44" stroke-width="2.6" fill="none"/><path d="M23 12 c-7 -3 -14 0 -16 5 c6 -3 11 -3 16 -5z M23 12 c5 -6 12 -6 15 -2 c-6 0 -10 0 -15 2z M23 12 c-1 -6 -6 -9 -11 -9 c4 3 8 5 11 9z" fill="#6b7826"/><path d="M8 36 h24" stroke="#f7d86a" stroke-width="3" stroke-linecap="round"/>',
-    sol: '<path d="M4 28 h32" stroke="#1f5f86" stroke-width="2.2" stroke-linecap="round"/><path d="M10 28 a10 10 0 0 1 20 0z" fill="#e5582a" stroke="#3a1a14" stroke-width="2.2"/><path d="M8 33 h24 M13 37 h14" stroke="#1f5f86" stroke-width="2.2" stroke-linecap="round"/>'
+    chave: '<circle cx="14" cy="20" r="8" fill="#d9b26f" stroke="#3a1a14" stroke-width="2.2"/><path d="M21 20 h15 v6 M30 20 v5" stroke="#3a1a14" stroke-width="2.2" fill="none" stroke-linecap="round"/>',
+    cama: '<rect x="4" y="18" width="32" height="12" rx="3" fill="#c5d6dc" stroke="#3a1a14" stroke-width="2.2"/><rect x="7" y="13" width="10" height="6" rx="2" fill="#f7f2ea" stroke="#3a1a14" stroke-width="2.2"/><path d="M6 30 v4 M34 30 v4" stroke="#3a1a14" stroke-width="2.2" stroke-linecap="round"/>',
+    cafe: '<path d="M8 16 h20 v8 a8 8 0 0 1 -8 8 h-4 a8 8 0 0 1 -8 -8z" fill="#c9b49a" stroke="#3a1a14" stroke-width="2.2"/><path d="M28 18 a4 4 0 0 1 0 8" fill="none" stroke="#3a1a14" stroke-width="2.2"/><path d="M14 6 q2 3 0 6 M20 6 q2 3 0 6" stroke="#b0643f" stroke-width="2" fill="none" stroke-linecap="round"/>',
+    drink: '<path d="M8 8 h24 l-12 14z" fill="#d9b26f" stroke="#3a1a14" stroke-width="2.2" stroke-linejoin="round"/><path d="M20 22 v10 M14 34 h12" stroke="#3a1a14" stroke-width="2.2" stroke-linecap="round"/><circle cx="28" cy="8" r="3.5" fill="#b0643f"/>',
+    boia: '<circle cx="20" cy="20" r="14" fill="#b0643f" stroke="#3a1a14" stroke-width="2.2"/><circle cx="20" cy="20" r="6" fill="#fbf5ea" stroke="#3a1a14" stroke-width="2.2"/><path d="M20 6 v8 M20 26 v8 M6 20 h8 M26 20 h8" stroke="#f7f2ea" stroke-width="3.5"/>',
+    barco: '<path d="M6 26 h28 l-4 7 H10z" fill="#c5d6dc" stroke="#3a1a14" stroke-width="2.2" stroke-linejoin="round"/><path d="M20 24 V6 l10 15z" fill="#f7f2ea" stroke="#3a1a14" stroke-width="2.2" stroke-linejoin="round"/>',
+    palmeira: '<path d="M20 36 c0 -10 1 -18 3 -24" stroke="#6b4e44" stroke-width="2.6" fill="none"/><path d="M23 12 c-7 -3 -14 0 -16 5 c6 -3 11 -3 16 -5z M23 12 c5 -6 12 -6 15 -2 c-6 0 -10 0 -15 2z M23 12 c-1 -6 -6 -9 -11 -9 c4 3 8 5 11 9z" fill="#2d3823"/><path d="M8 36 h24" stroke="#d9b26f" stroke-width="3" stroke-linecap="round"/>',
+    sol: '<path d="M4 28 h32" stroke="#113f54" stroke-width="2.2" stroke-linecap="round"/><path d="M10 28 a10 10 0 0 1 20 0z" fill="#b0643f" stroke="#3a1a14" stroke-width="2.2"/><path d="M8 33 h24 M13 37 h14" stroke="#113f54" stroke-width="2.2" stroke-linecap="round"/>'
   };
   $("#momentos").innerHTML = MOMENTOS.map(m => `<div class="momento"><svg viewBox="0 0 40 40" aria-hidden="true">${ICONES[m[2]]}</svg><b>${esc(m[0])}</b><p>${esc(m[1])}</p></div>`).join("");
 
