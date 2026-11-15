@@ -60,7 +60,7 @@
     main > section:not(.sobre):not(.pessoas) { padding: 64px 0 36px; }
     .duas-caixas .maior { flex-wrap: nowrap; }
     .duas-caixas .botao { padding: 12px 16px; white-space: nowrap; }
-    .barra { display: none; }
+    .barra { display: none !important; }
     main > section > .wrap { width: min(var(--largura), 100% - 2 * var(--gutter)); }
     .sobre, .pessoas { display: grid !important; grid-template-rows: 1fr; }
     .sobre-texto, .pessoas-texto { align-self: center; }
@@ -141,7 +141,7 @@
   @keyframes corre { to { transform: translateX(-50%); } }
 
   /* ===== OLHAR (galeria de polaroids) ===== */
-  .polaroids { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: clamp(14px, 2.5vw, 28px); margin: 34px auto 0; max-width: calc((100vh - 370px) * 1.4); }
+  .polaroids { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: clamp(14px, 2.5vw, 28px); margin: 34px auto 0; max-width: max(620px, calc((100vh - 370px) * 1.4)); }
   .polaroids figure { margin: 0; background: #fff; padding: 9px 9px 40px; box-shadow: var(--sombra); position: relative; transition: transform .3s; }
   .polaroids figure:nth-child(odd) { transform: rotate(-2.2deg); }
   .polaroids figure:nth-child(even) { transform: rotate(2deg) translateY(10px); }
@@ -161,10 +161,16 @@
   .etapa:nth-child(2) .etapa-num { background: var(--ceu); }
   .etapa:nth-child(3) .etapa-num { background: var(--salvia); color: #fff; }
   .formato { align-self: flex-start; background: var(--mar); color: #fff; border-radius: 999px; padding: 4px 12px; font-size: .72rem; font-weight: 700; letter-spacing: .06em; }
-  .refs { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 6px; width: 100%; max-width: max(230px, calc((100vh - 640px) * 1.72)); margin-inline: auto; }
+  .refs { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 6px; width: 100%; max-width: max(300px, calc((100vh - 600px) * 1.72)); margin-inline: auto; }
   .refs figure { margin: 0; position: relative; aspect-ratio: 9/16; border-radius: 10px; overflow: hidden; background: var(--ceu); }
   .refs video { width: 100%; height: 100%; object-fit: cover; }
-  .ref-tag { position: absolute; left: 5px; top: 5px; background: rgba(255,255,255,.92); color: var(--tinta); font-size: .5rem; font-weight: 800; letter-spacing: .12em; text-transform: uppercase; padding: 3px 6px; border-radius: 4px; }
+  .ref-play { position: absolute; inset: 0; border: 0; background: transparent; width: 100%; padding: 0; }
+  .ref-play span { position: absolute; left: 50%; top: 50%; width: 34px; height: 34px; margin: -17px 0 0 -17px; border-radius: 50%; background: rgba(247,242,234,.9); color: var(--bordo); font-size: .62rem; display: grid; place-items: center; opacity: 0; transition: opacity .2s; }
+  .refs figure.pausado .ref-play span { opacity: 1; }
+  .refs figure:hover .ref-play span { opacity: 1; }
+  .ref-som { position: absolute; right: 5px; bottom: 5px; width: 28px; height: 28px; border-radius: 50%; border: 0; background: rgba(0,0,0,.55); color: #fff; font-size: .78rem; display: grid; place-items: center; padding: 0; z-index: 1; }
+  .ref-aviso { font-size: .7rem; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: var(--laranja); margin-top: -2px; }
+  .ref-tag { position: absolute; left: 5px; top: 5px; z-index: 1; background: var(--sol); color: var(--bordo); font-size: .52rem; font-weight: 800; letter-spacing: .12em; text-transform: uppercase; padding: 3px 6px; border-radius: 4px; }
   .etapa q { font-family: var(--titulo); font-variation-settings: "SOFT" 100; font-style: italic; font-size: 1.12rem; line-height: 1.3; color: var(--tinta); }
   .etapa .obj { border-top: 1.5px dashed var(--linha); padding-top: 12px; font-size: .88rem; color: var(--tinta-suave); }
   .etapa .obj b { display: block; font-size: .62rem; letter-spacing: .18em; text-transform: uppercase; color: var(--bordo); margin-bottom: 2px; }
@@ -194,9 +200,9 @@
   .registro .nota { margin-top: 22px; text-align: center; font-size: 1.9rem; color: var(--bordo); }
 
   /* ===== CASE ===== */
-  .case { display: grid; grid-template-columns: auto minmax(0, 1fr); gap: clamp(24px, 5vw, 56px); align-items: center; margin-top: 40px; background: var(--ceu-claro); border-radius: 26px; padding: clamp(20px, 4vw, 40px); position: relative; }
+  .case { display: grid; grid-template-columns: minmax(180px, 240px) minmax(0, 1fr); gap: clamp(24px, 5vw, 56px); align-items: center; margin-top: 40px; background: var(--ceu-claro); border-radius: 26px; padding: clamp(20px, 4vw, 40px); position: relative; }
   .video { border: 0; padding: 0; background: none; display: block; width: 100%; }
-  .case .tela { height: min(440px, calc(100vh - 390px)); width: auto; }
+  .case .tela { width: 100%; }
   .tela { position: relative; display: block; aspect-ratio: 9/16; border-radius: 18px; overflow: hidden; background: var(--mar); border: 6px solid #fff; box-shadow: var(--sombra); transform: rotate(-3deg); }
   .tela img { width: 100%; height: 100%; object-fit: cover; }
   .play { position: absolute; left: 50%; top: 50%; width: 58px; height: 58px; margin: -29px 0 0 -29px; border-radius: 50%; background: var(--sol); display: grid; place-items: center; }
@@ -207,7 +213,7 @@
   .case-numeros strong { display: block; font-family: var(--titulo); font-weight: 800; font-variation-settings: "SOFT" 100; font-size: clamp(1.35rem, 3.4vw, 1.9rem); color: var(--mar); line-height: 1.1; }
   .case-numeros span { font-size: .78rem; color: var(--tinta-suave); }
   .etiqueta { display: inline-block; background: var(--sol); color: var(--bordo); font-size: .66rem; font-weight: 800; letter-spacing: .16em; text-transform: uppercase; padding: 5px 10px; border-radius: 4px; transform: rotate(-2deg); margin-bottom: 12px; }
-  .meus-titulo { margin-top: 36px; font-size: 1.5rem; }
+  .mais-port { margin-top: 26px; }
   .meus-videos { display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 14px; margin-top: 16px; }
   .meus-videos .tela { transform: none; }
   .meus-videos b { display: block; margin-top: 8px; font-size: .92rem; }
@@ -232,6 +238,11 @@
   .pacote li { padding-left: 22px; position: relative; }
   .pacote li::before { content: "☀"; position: absolute; left: 0; color: var(--laranja); font-size: .85rem; top: 1px; }
   .pacote .preco { margin-top: auto; padding-top: 14px; border-top: 1.5px dashed var(--linha); font-family: var(--titulo); font-weight: 800; font-variation-settings: "SOFT" 100; font-size: 1.6rem; color: var(--bordo); line-height: 1.05; }
+  .pacote .de { display: flex; align-items: center; gap: 8px; font-family: var(--sans); font-size: .8rem; color: var(--tinta-suave); margin-bottom: 4px; }
+  .pacote:nth-child(2) .de { color: #d9dccd; }
+  .pacote .de i { font-style: normal; font-weight: 800; background: var(--sol); color: var(--bordo); border-radius: 999px; padding: 2px 8px; font-size: .7rem; }
+  .pac-botao { margin-top: 8px; width: 100%; padding: 12px 16px; }
+  .pacote:nth-child(2) .pac-botao { background: var(--sol); color: var(--bordo); }
   .pacote .preco small { display: block; font-family: var(--sans); font-weight: 500; font-size: .8rem; color: var(--tinta-suave); margin-top: 4px; }
   .pacote:nth-child(2) .preco small { color: #d9dccd; }
   .avulsos { margin-top: 14px; display: grid; grid-template-columns: auto repeat(3, minmax(0, 1fr)); gap: 10px; align-items: stretch; }
@@ -239,6 +250,9 @@
   .avulso { background: var(--areia); border-radius: 12px; padding: 12px 14px; display: flex; justify-content: space-between; gap: 10px; align-items: baseline; font-size: .9rem; }
   .avulso strong { font-family: var(--titulo); font-weight: 800; font-variation-settings: "SOFT" 100; font-size: 1.15rem; white-space: nowrap; color: var(--bordo); }
   .avulso small { display: block; color: var(--tinta-suave); font-size: .78rem; }
+  .extras { display: flex; flex-wrap: wrap; justify-content: center; gap: 6px 22px; margin-top: 14px; font-size: .86rem; color: var(--tinta-suave); }
+  .extras b { font-size: .64rem; font-weight: 800; letter-spacing: .2em; text-transform: uppercase; color: var(--bordo); align-self: center; }
+  .extras strong { color: var(--bordo); }
   .duas-caixas { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-top: 16px; }
   .duas-caixas .maior { margin-top: 0; }
   .duas-caixas.um { grid-template-columns: 1fr; }
@@ -359,7 +373,7 @@
 
 <header class="topo">
   <div class="wrap">
-    <nav class="menu esq" aria-label="Seções"><a href="#olhar">O meu olhar</a><a href="#funil">Os vídeos</a></nav>
+    <nav class="menu esq" aria-label="Seções"><a href="#prova">Resultados</a><a href="#meus">Meus vídeos</a><a href="#funil">Pra vocês</a></nav>
     <a class="selo-logo" href="#topo" aria-label="Início"><span><b>UGC<br>Travel</b><small>Yasmin Caetano</small></span></a>
     <nav class="menu dir" aria-label="Contratar"><a href="#parceria">Parceria</a><a class="pill-topo" id="zapTopo" href="https://wa.me/5581989857308" target="_blank" rel="noopener">Falar comigo</a></nav>
   </div>
@@ -396,27 +410,9 @@
 </section>
 
 <main>
-<section class="explore centro" id="explore">
-  <div class="wrap">
-    <h2>Comece por aqui</h2>
-    <p class="sub-titulo">Tudo o que a sua hospedagem precisa saber</p>
-    <ul class="icones">
-      <li><a href="#olhar"><svg viewBox="0 0 60 60" aria-hidden="true"><rect x="8" y="18" width="44" height="30" rx="6" fill="#f7f2ea" stroke="#3a1a14" stroke-width="2.5"/><rect x="21" y="12" width="18" height="8" rx="2" fill="#b0643f" stroke="#3a1a14" stroke-width="2.5"/><circle cx="30" cy="33" r="9" fill="#c5d6dc" stroke="#3a1a14" stroke-width="2.5"/><circle cx="44" cy="25" r="2" fill="#3a1a14"/></svg>O meu olhar</a></li>
-      <li><a href="#funil"><svg viewBox="0 0 60 60" aria-hidden="true"><rect x="17" y="6" width="26" height="48" rx="6" fill="#f7f2ea" stroke="#3a1a14" stroke-width="2.5"/><path d="M26 23 l11 7 -11 7z" fill="#b0643f" stroke="#3a1a14" stroke-width="2" stroke-linejoin="round"/><line x1="26" y1="48" x2="34" y2="48" stroke="#3a1a14" stroke-width="2.5" stroke-linecap="round"/></svg>Os vídeos</a></li>
-      <li><a href="#pessoas"><svg viewBox="0 0 60 60" aria-hidden="true"><circle cx="22" cy="22" r="8" fill="#c9b49a" stroke="#3a1a14" stroke-width="2.5"/><circle cx="40" cy="24" r="7" fill="#c5d6dc" stroke="#3a1a14" stroke-width="2.5"/><path d="M8 50 c0 -10 6 -16 14 -16 s14 6 14 16z" fill="#f7f2ea" stroke="#3a1a14" stroke-width="2.5"/><path d="M30 50 c1 -9 5 -14 10 -14 s12 5 12 14z" fill="#d9b26f" stroke="#3a1a14" stroke-width="2.5"/></svg>Quem aparece</a></li>
-      <li><a href="#registro"><svg viewBox="0 0 60 60" aria-hidden="true"><circle cx="30" cy="30" r="11" fill="#f7f2ea" stroke="#3a1a14" stroke-width="2.5"/><g stroke="#b0643f" stroke-width="3" stroke-linecap="round"><line x1="30" y1="6" x2="30" y2="13"/><line x1="30" y1="47" x2="30" y2="54"/><line x1="6" y1="30" x2="13" y2="30"/><line x1="47" y1="30" x2="54" y2="30"/><line x1="13" y1="13" x2="18" y2="18"/><line x1="42" y1="42" x2="47" y2="47"/><line x1="47" y1="13" x2="42" y2="18"/><line x1="18" y1="42" x2="13" y2="47"/></g></svg>O que registro</a></li>
-      <li><a href="#prova"><svg viewBox="0 0 60 60" aria-hidden="true"><path d="M10 46 h40" stroke="#3a1a14" stroke-width="2.5" stroke-linecap="round"/><rect x="14" y="30" width="8" height="16" fill="#c5d6dc" stroke="#3a1a14" stroke-width="2.5"/><rect x="26" y="22" width="8" height="24" fill="#d9b26f" stroke="#3a1a14" stroke-width="2.5"/><rect x="38" y="12" width="8" height="34" fill="#b0643f" stroke="#3a1a14" stroke-width="2.5"/></svg>Resultados</a></li>
-      <li><a href="#parceria"><svg viewBox="0 0 60 60" aria-hidden="true"><path d="M8 18 h44 v8 a5 5 0 0 0 0 10 v8 H8 v-8 a5 5 0 0 0 0 -10z" fill="#f7f2ea" stroke="#3a1a14" stroke-width="2.5" stroke-linejoin="round"/><line x1="38" y1="20" x2="38" y2="42" stroke="#b0643f" stroke-width="2.5" stroke-dasharray="3 3"/><path d="M16 27 h14 M16 34 h10" stroke="#3a1a14" stroke-width="2.5" stroke-linecap="round"/></svg>Parceria</a></li>
-      <li><a href="#processo"><svg viewBox="0 0 60 60" aria-hidden="true"><path d="M30 54 s-16 -15 -16 -28 a16 16 0 0 1 32 0 c0 13 -16 28 -16 28z" fill="#b0643f" stroke="#3a1a14" stroke-width="2.5"/><circle cx="30" cy="26" r="6" fill="#f7f2ea" stroke="#3a1a14" stroke-width="2.5"/></svg>Como funciona</a></li>
-      <li><a href="#contato"><svg viewBox="0 0 60 60" aria-hidden="true"><path d="M10 14 h40 a4 4 0 0 1 4 4 v20 a4 4 0 0 1 -4 4 H26 l-10 8 v-8 h-6 a4 4 0 0 1 -4 -4 V18 a4 4 0 0 1 4 -4z" fill="#c5d6dc" stroke="#3a1a14" stroke-width="2.5" stroke-linejoin="round"/><circle cx="22" cy="28" r="2.5" fill="#3a1a14"/><circle cx="30" cy="28" r="2.5" fill="#3a1a14"/><circle cx="38" cy="28" r="2.5" fill="#3a1a14"/></svg>WhatsApp</a></li>
-    </ul>
-    <div class="numeros">
-      <div><strong>+39</strong><span>marcas atendidas</span></div>
-      <div><strong>70,9 mil</strong><span>views num único vídeo</span></div>
-      <div><strong>R$ 0,10</strong><span>por visita ao perfil, em anúncio</span></div>
-    </div>
-  </div>
-</section>
+<!-- ===== VER: quem é e o que entrega ===== -->
+
+<div class="faixa" aria-hidden="true"><div class="trilho" id="trilho"></div></div>
 
 <section class="sobre" id="sobre">
   <div class="sobre-texto">
@@ -424,7 +420,7 @@
     <p class="sub-titulo">Nordestina, com o litoral no quintal</p>
     <p class="lead">Sou criadora UGC e influenciadora, baseada em Natal há mais de 8 anos. Já criei pra mais de 39 marcas, de Garnier e Dove a SHEIN, Amazon e Mercado Livre.</p>
     <p class="lead">Na hotelaria, o meu trabalho é mostrar não só onde o hóspede vai ficar, mas <b>como ele vai se sentir ali</b>: com estética que valoriza o espaço, roteiro que vende sem parecer anúncio e um olhar de quem conhece o destino.</p>
-    <div class="publico"><div><strong>86,5%</strong><span>mulheres no Instagram</span></div><div><strong>58%</strong><span>entre 18 e 34 anos</span></div><div><strong>4,6M</strong><span>curtidas no TikTok</span></div></div>
+    <div class="publico"><div><strong>+39</strong><span>marcas atendidas</span></div><div><strong>86,5%</strong><span>mulheres no Instagram</span></div><div><strong>58%</strong><span>entre 18 e 34 anos</span></div><div><strong>4,6M</strong><span>curtidas no TikTok</span></div></div>
     <div class="vivencias"><span>Natal · RN</span><span>Pipa · Gostoso · Genipabu</span><span>Estudante de Nutrição</span><span>Maquiadora artística</span><span>@caetyas_</span></div>
   </div>
   <div class="listras">
@@ -437,55 +433,7 @@
   </div>
 </section>
 
-<div class="faixa" aria-hidden="true"><div class="trilho" id="trilho"></div></div>
-
-<section id="olhar" class="centro">
-  <div class="wrap">
-    <h2>O meu olhar</h2>
-    <p class="sub-titulo">Fotos minhas, nada aqui é referência</p>
-    <p class="lead">Hotéis, praias e passeios por onde passei. É esse olhar que eu levo pra sua hospedagem.</p>
-    <div class="polaroids" id="mood"></div>
-  </div>
-</section>
-
-<section class="funil centro" id="funil">
-  <div class="wrap">
-    <h2>Cada vídeo tem uma função</h2>
-    <p class="sub-titulo">Do "eu quero estar aí" ao "vou reservar"</p>
-    <p class="lead">A mesma estadia vira conteúdo pra cada etapa da reserva, pro orgânico e pro tráfego pago.</p>
-    <div class="etapas" id="funilCards" style="text-align:left"></div>
-    <p class="aviso-ref">Os vídeos marcados como referência são trechos de outros criadores, aqui só pra mostrar a linguagem de cada etapa.</p>
-  </div>
-</section>
-
-<section class="pessoas" id="pessoas">
-  <div class="pessoas-foto">
-    <figure class="moldura-arredondada" style="margin:0">
-      <img src="img/areia.webp" alt="Yasmin de vestido branco num deck de frente pro mar">
-      <span class="balao">depende da vibe!</span>
-    </figure>
-  </div>
-  <div class="pessoas-texto">
-    <h2>O seu hóspede precisa se ver na tela</h2>
-    <p class="sub-titulo">Quem vai comigo depende da vibe do lugar</p>
-    <p class="lead">Não levo ninguém só pra segurar a câmera. Quem vai comigo entra na cena porque combina com o público de vocês: <b>se a hospedagem é romântica, vou com o meu namorado</b>; se é pra família, a cena é de família; se é de amigas, vou com amigas.</p>
-    <div class="tipos">
-      <div class="tipo"><svg viewBox="0 0 46 46" aria-hidden="true"><circle cx="23" cy="23" r="21" fill="#c9b49a"/><path d="M23 33 s-10 -6 -10 -13 a5 5 0 0 1 10 -2 a5 5 0 0 1 10 2 c0 7 -10 13 -10 13z" fill="#6e0f1e"/></svg><div><b>Casal</b><p>Pousadas românticas, chalés e suítes com banheira. Clima de escapada.</p></div></div>
-      <div class="tipo"><svg viewBox="0 0 46 46" aria-hidden="true"><circle cx="23" cy="23" r="21" fill="#d9b26f"/><circle cx="17" cy="19" r="4" fill="#6e0f1e"/><circle cx="29" cy="19" r="4" fill="#6e0f1e"/><circle cx="23" cy="27" r="3" fill="#6e0f1e"/><path d="M11 36 c1 -6 4 -9 6 -9 s5 3 6 9z M23 36 c1 -6 4 -9 6 -9 s5 3 6 9z" fill="#6e0f1e"/></svg><div><b>Família</b><p>Resorts e hotéis com estrutura pra criança. Quem tem filho quer ver filho se divertindo.</p></div></div>
-      <div class="tipo"><svg viewBox="0 0 46 46" aria-hidden="true"><circle cx="23" cy="23" r="21" fill="#c5d6dc"/><path d="M14 30 l4 -14 4 14z M24 30 l4 -14 4 14z" fill="#6e0f1e"/><path d="M12 32 h22" stroke="#6e0f1e" stroke-width="2.5" stroke-linecap="round"/></svg><div><b>Amigas</b><p>Hotéis de praia, day use e roteiros. Leve, divertido e com muita foto.</p></div></div>
-    </div>
-  </div>
-</section>
-
-<section class="registro centro" id="registro">
-  <div class="wrap">
-    <h2>Eu vivo a experiência completa</h2>
-    <p class="sub-titulo">E registro tudo</p>
-    <p class="lead">Por isso o ideal é viver tudo o que vocês oferecem: as diárias, as refeições e as experiências do local.</p>
-    <div class="momentos" id="momentos" style="text-align:left"></div>
-    <p class="nota">o que eu não vivo, eu não consigo mostrar ☀</p>
-  </div>
-</section>
+<!-- ===== CONFIAR: prova, vídeos, olhar, depoimentos ===== -->
 
 <section id="prova">
   <div class="wrap">
@@ -511,29 +459,87 @@
         </div>
       </div>
     </div>
-    <div id="meusVideos" hidden><h3 class="meus-titulo">Vídeos que eu já criei</h3><div class="meus-videos" id="videos"></div></div>
   </div>
 </section>
 
-<section class="parceria" id="parceria">
+<section id="meus" class="centro" style="background:var(--areia)">
   <div class="wrap">
-    <div class="centro">
-      <h2>Formatos de parceria</h2>
-      <p class="sub-titulo">Escolham o que faz sentido pra vocês</p>
-      <p class="lead">A hospedagem cobre a experiência. O investimento é pelo conteúdo: <b>no mínimo 3 vídeos por estadia</b>.</p>
+    <h2>Vídeos que eu já criei</h2>
+    <p class="sub-titulo">Toque pra assistir aqui mesmo</p>
+    <p class="lead">Uma seleção com clima de praia e de viagem. Tenho mais vídeos de beleza, moda, gastronomia e tecnologia no meu portfólio completo.</p>
+    <div class="meus-videos" id="videos"></div>
+    <a class="botao contorno mais-port" href="../#trabalhos">Ver todos os vídeos no portfólio</a>
+  </div>
+</section>
+
+<section id="olhar" class="centro">
+  <div class="wrap">
+    <h2>O meu olhar</h2>
+    <p class="sub-titulo">Fotos minhas, nada aqui é referência</p>
+    <p class="lead">Hotéis, praias e passeios por onde passei. É esse olhar que eu levo pra sua hospedagem.</p>
+    <div class="polaroids" id="mood"></div>
+  </div>
+</section>
+
+<section id="depoimentos" style="background:var(--areia)">
+  <div class="wrap">
+    <h2>O que as marcas falam</h2>
+    <p class="sub-titulo">Quem já criou comigo</p>
+    <div class="depos-topo"><div class="setas"><button class="seta-car" id="depAnt" type="button" aria-label="Depoimentos anteriores">←</button><button class="seta-car" id="depProx" type="button" aria-label="Mais depoimentos">→</button></div></div>
+    <div class="lado-a-lado">
+    <ul class="depoimentos" id="listaDep" tabindex="0" aria-label="Depoimentos de marcas, role pro lado pra ver mais"></ul>
+    <div class="faq">
+      <details><summary>Preciso que você poste no seu perfil?</summary><p>Não. UGC é conteúdo pra hospedagem usar nos próprios canais. Os stories durante a estadia e o post em collab são bônus, se vocês quiserem.</p></details>
+      <details><summary>Quem vai com você?</summary><p>Depende da vibe da hospedagem. Em lugar romântico vou com o meu namorado, em hotel de família a cena é de família, e assim por diante. A gente combina antes, junto com o roteiro.</p></details>
+      <details><summary>Quem escolhe as datas?</summary><p>Vocês. Eu me adapto ao calendário da hospedagem.</p></details>
+      <details><summary>Vocês podem escolher o que aparece?</summary><p>Sim. O roteiro é aprovado antes da viagem, e se tiver um diferencial que vocês querem destacar (spa, restaurante, vista), ele entra como protagonista.</p></details>
+      <details><summary>Atende fora de Natal?</summary><p>Sim. Natal e o litoral potiguar ficam perto, e pra outros destinos a gente combina o deslocamento.</p></details>
+      <details><summary>Por que no mínimo 3 vídeos?</summary><p>Porque uma estadia rende muito mais do que um vídeo. Com 3, vocês têm uma peça pra cada etapa da reserva (desejo, confiança e decisão) e conseguem testar o que funciona melhor em anúncio.</p></details>
+      <details><summary>E pra resort ou hotel maior?</summary><p>Mais estrutura pede mais conteúdo: a gente monta uma proposta sob medida, com mais dias de gravação e mais cenas.</p></details>
+      <details><summary>E se for um Airbnb ou chalé pequeno?</summary><p>Funciona do mesmo jeito: menos estrutura pra mostrar, mais foco em clima, detalhe e experiência.</p></details>
     </div>
-    <div class="pacotes" id="pacotes"></div>
-    <div class="avulsos">
-      <b>Adicionais</b>
-      <div class="avulso"><span>Vídeo extra<small>roteiro, gravação e edição</small></span><strong>R$ 300</strong></div>
-      <div class="avulso"><span>Variação de gancho<small>mesmo vídeo, abertura nova</small></span><strong>R$ 50</strong></div>
-      <div class="avulso"><span>+ 10 fotos editadas<small>feed, site e plataformas</small></span><strong>R$ 150</strong></div>
     </div>
-    <div class="duas-caixas um">
-    <div class="maior" style="background:var(--oliva)">
-      <div><h3>Quer ver antes de fechar?</h3><p>Me manda o @ da sua hospedagem que eu monto uma ideia de roteiro pra vocês, sem compromisso.</p></div>
-      <a class="botao branco" id="zapRoteiro" href="https://wa.me/5581989857308" target="_blank" rel="noopener">Quero um roteiro</a>
     </div>
+  </div>
+</section>
+
+<!-- ===== CONTRATAR: o que eu crio pra vocês, como funciona, pacotes ===== -->
+
+<section class="funil centro" id="funil">
+  <div class="wrap">
+    <h2>Cada vídeo tem uma função</h2>
+    <p class="sub-titulo">Do "eu quero estar aí" ao "vou reservar"</p>
+    <p class="lead">A mesma estadia vira conteúdo pra cada etapa da reserva, pro orgânico e pro tráfego pago.</p>
+    <div class="etapas" id="funilCards" style="text-align:left"></div>
+    <p class="aviso-ref">Os vídeos marcados como referência são trechos de outros criadores, aqui só pra mostrar a linguagem de cada etapa.</p>
+  </div>
+</section>
+
+<section class="registro centro" id="registro">
+  <div class="wrap">
+    <h2>Eu vivo a experiência completa</h2>
+    <p class="sub-titulo">E registro tudo</p>
+    <p class="lead">Por isso o ideal é viver tudo o que vocês oferecem: as diárias, as refeições e as experiências do local.</p>
+    <div class="momentos" id="momentos" style="text-align:left"></div>
+    <p class="nota">o que eu não vivo, eu não consigo mostrar ☀</p>
+  </div>
+</section>
+
+<section class="pessoas" id="pessoas">
+  <div class="pessoas-foto">
+    <figure class="moldura-arredondada" style="margin:0">
+      <img src="img/areia.webp" alt="Yasmin de vestido branco num deck de frente pro mar">
+      <span class="balao">depende da vibe!</span>
+    </figure>
+  </div>
+  <div class="pessoas-texto">
+    <h2>O seu hóspede precisa se ver na tela</h2>
+    <p class="sub-titulo">Quem vai comigo depende da vibe do lugar</p>
+    <p class="lead">Não levo ninguém só pra segurar a câmera. Quem vai comigo entra na cena porque combina com o público de vocês: <b>se a hospedagem é romântica, vou com o meu namorado</b>; se é pra família, a cena é de família; se é de amigas, vou com amigas.</p>
+    <div class="tipos">
+      <div class="tipo"><svg viewBox="0 0 46 46" aria-hidden="true"><circle cx="23" cy="23" r="21" fill="#c9b49a"/><path d="M23 33 s-10 -6 -10 -13 a5 5 0 0 1 10 -2 a5 5 0 0 1 10 2 c0 7 -10 13 -10 13z" fill="#6e0f1e"/></svg><div><b>Casal</b><p>Pousadas românticas, chalés e suítes com banheira. Clima de escapada.</p></div></div>
+      <div class="tipo"><svg viewBox="0 0 46 46" aria-hidden="true"><circle cx="23" cy="23" r="21" fill="#d9b26f"/><circle cx="17" cy="19" r="4" fill="#6e0f1e"/><circle cx="29" cy="19" r="4" fill="#6e0f1e"/><circle cx="23" cy="27" r="3" fill="#6e0f1e"/><path d="M11 36 c1 -6 4 -9 6 -9 s5 3 6 9z M23 36 c1 -6 4 -9 6 -9 s5 3 6 9z" fill="#6e0f1e"/></svg><div><b>Família</b><p>Resorts e hotéis com estrutura pra criança. Quem tem filho quer ver filho se divertindo.</p></div></div>
+      <div class="tipo"><svg viewBox="0 0 46 46" aria-hidden="true"><circle cx="23" cy="23" r="21" fill="#c5d6dc"/><path d="M14 30 l4 -14 4 14z M24 30 l4 -14 4 14z" fill="#6e0f1e"/><path d="M12 32 h22" stroke="#6e0f1e" stroke-width="2.5" stroke-linecap="round"/></svg><div><b>Amigas</b><p>Hotéis de praia, day use e roteiros. Leve, divertido e com muita foto.</p></div></div>
     </div>
   </div>
 </section>
@@ -563,23 +569,19 @@
   </div>
 </section>
 
-<section id="depoimentos">
+<section class="parceria" id="parceria">
   <div class="wrap">
-    <h2>O que as marcas falam</h2>
-    <p class="sub-titulo">Quem já criou comigo</p>
-    <div class="depos-topo"><div class="setas"><button class="seta-car" id="depAnt" type="button" aria-label="Depoimentos anteriores">←</button><button class="seta-car" id="depProx" type="button" aria-label="Mais depoimentos">→</button></div></div>
-    <div class="lado-a-lado">
-    <ul class="depoimentos" id="listaDep" tabindex="0" aria-label="Depoimentos de marcas, role pro lado pra ver mais"></ul>
-    <div class="faq">
-      <details><summary>Preciso que você poste no seu perfil?</summary><p>Não. UGC é conteúdo pra hospedagem usar nos próprios canais. Os stories durante a estadia e o post em collab são bônus, se vocês quiserem.</p></details>
-      <details><summary>Quem vai com você?</summary><p>Depende da vibe da hospedagem. Em lugar romântico vou com o meu namorado, em hotel de família a cena é de família, e assim por diante. A gente combina antes, junto com o roteiro.</p></details>
-      <details><summary>Quem escolhe as datas?</summary><p>Vocês. Eu me adapto ao calendário da hospedagem.</p></details>
-      <details><summary>Vocês podem escolher o que aparece?</summary><p>Sim. O roteiro é aprovado antes da viagem, e se tiver um diferencial que vocês querem destacar (spa, restaurante, vista), ele entra como protagonista.</p></details>
-      <details><summary>Atende fora de Natal?</summary><p>Sim. Natal e o litoral potiguar ficam perto, e pra outros destinos a gente combina o deslocamento.</p></details>
-      <details><summary>Por que no mínimo 3 vídeos?</summary><p>Porque uma estadia rende muito mais do que um vídeo. Com 3, vocês têm uma peça pra cada etapa da reserva (desejo, confiança e decisão) e conseguem testar o que funciona melhor em anúncio.</p></details>
-      <details><summary>E pra resort ou hotel maior?</summary><p>Mais estrutura pede mais conteúdo: a gente monta uma proposta sob medida, com mais dias de gravação e mais cenas.</p></details>
-      <details><summary>E se for um Airbnb ou chalé pequeno?</summary><p>Funciona do mesmo jeito: menos estrutura pra mostrar, mais foco em clima, detalhe e experiência.</p></details>
+    <div class="centro">
+      <h2>Formatos de parceria</h2>
+      <p class="sub-titulo">Escolham o que faz sentido pra vocês</p>
+      <p class="lead"><b>Condição de lançamento</b> pras primeiras hospedagens parceiras. Mínimo de 3 vídeos por estadia.</p>
     </div>
+    <div class="pacotes" id="pacotes"></div>
+    <p class="extras"><b>Adicionais</b><span>Vídeo extra <strong>R$ 300</strong></span><span>Variação de gancho <strong>R$ 50</strong></span><span>+10 fotos editadas <strong>R$ 150</strong></span></p>
+    <div class="duas-caixas um">
+    <div class="maior" style="background:var(--oliva)">
+      <div><h3>Quer ver antes de fechar?</h3><p>Me manda o @ da sua hospedagem que eu monto uma ideia de roteiro pra vocês, sem compromisso.</p></div>
+      <a class="botao branco" id="zapRoteiro" href="https://wa.me/5581989857308" target="_blank" rel="noopener">Quero um roteiro</a>
     </div>
     </div>
   </div>
@@ -660,8 +662,8 @@
   // Se um não aparecer, troque a regra pelo código do vídeo: { id: "CODIGO", nome: "Néctar" }.
   const MEUS_VIDEOS = [
     { nome: "Néctar", busca: /n[eé]ctar/i },
-    { nome: "Domidona · 3 looks", busca: /domidona/i, e: /look/i },
-    { nome: "Domidona · saída de praia", busca: /domidona/i, e: /sa[ií]da|praia/i },
+    { nome: "Domidona · Storytelling", busca: /domidona/i, e: /storytelling/i },
+    { nome: "Domidona · Review", busca: /domidona/i, e: /review/i },
     { nome: "Saint-Germain", busca: /saint.?germain/i },
     { nome: "Ollie", busca: /oll?ie\b|\boli\b/i },
     { nome: "CBSKIN", busca: /cb.?skin/i }
@@ -670,9 +672,9 @@
 
   // Todos os pacotes incluem a hospedagem completa (diárias + refeições + experiências).
   const PACOTES = [
-    { selo: "Orgânico", nome: "Presença", pra: "Pro perfil, site e plataformas de reserva.", itens: ["3 vídeos orgânicos (Reels / TikTok)", "15 fotos editadas", "Uso vitalício nas redes e no site"], preco: "R$ 900", nota: "+ hospedagem completa" },
-    { selo: "Recomendado · tráfego pago", nome: "Funil completo", pra: "Pra quem quer vender diária com anúncio.", itens: ["3 vídeos estratégicos: desejo, confiança e decisão", "3 ganchos em cada vídeo (9 criativos pra testar)", "15 fotos editadas", "Uso em anúncio por 90 dias"], preco: "R$ 1.390", nota: "+ hospedagem completa" },
-    { selo: "Orgânico + tráfego pago", nome: "Temporada", pra: "Conteúdo pra meses, no perfil e nos anúncios.", itens: ["3 vídeos orgânicos", "3 vídeos de funil com 3 ganchos cada", "25 fotos editadas", "Uso em anúncio por 6 meses"], preco: "R$ 2.190", nota: "+ hospedagem completa" }
+    { selo: "Orgânico", de: "R$ 900", desconto: "-25%", nome: "Presença", pra: "Pro perfil, site e plataformas de reserva.", itens: ["3 vídeos orgânicos (Reels / TikTok)", "15 fotos editadas", "Uso vitalício nas redes e no site"], preco: "R$ 675", nota: "+ hospedagem completa" },
+    { selo: "Recomendado · tráfego pago", de: "R$ 1.390", desconto: "-30%", nome: "Funil completo", pra: "Pra quem quer vender diária com anúncio.", itens: ["3 vídeos estratégicos: desejo, confiança e decisão", "3 ganchos em cada vídeo (9 criativos pra testar)", "15 fotos editadas", "Uso em anúncio por 90 dias"], preco: "R$ 970", nota: "+ hospedagem completa" },
+    { selo: "Orgânico + tráfego pago", de: "R$ 2.190", desconto: "-30%", nome: "Temporada", pra: "Conteúdo pra meses, no perfil e nos anúncios.", itens: ["3 vídeos orgânicos", "3 vídeos de funil com 3 ganchos cada", "25 fotos editadas", "Uso em anúncio por 6 meses"], preco: "R$ 1.530", nota: "+ hospedagem completa" }
   ];
 
   const DEPOIMENTOS = [
@@ -701,10 +703,27 @@
   $("#funilCards").innerHTML = FUNIL.map((f, i) => `<article class="etapa">
     <div class="etapa-topo"><span class="etapa-nome">${esc(f.etapa)}</span><span class="etapa-num">0${i + 1}</span></div>
     <span class="formato">${esc(f.formato)}</span>
-    <div class="refs">${f.refs.map(r => `<figure><video src="vid/${esc(r)}.mp4" poster="vid/${esc(r)}.jpg" autoplay muted loop playsinline preload="auto" aria-label="Vídeo de referência da etapa ${esc(f.etapa)}"></video><span class="ref-tag">referência</span></figure>`).join("")}</div>
+    <p class="ref-aviso">Referências de outros criadores · toque pra pausar</p>
+    <div class="refs">${f.refs.map(r => `<figure><video src="vid/${esc(r)}.mp4" poster="vid/${esc(r)}.jpg" autoplay muted loop playsinline preload="auto" aria-label="Vídeo de referência da etapa ${esc(f.etapa)}"></video><span class="ref-tag">referência</span><button type="button" class="ref-play" aria-label="Pausar"><span>❚❚</span></button><button type="button" class="ref-som" aria-label="Ativar som">🔇</button></figure>`).join("")}</div>
     <q>${esc(f.gancho)}</q>
     <p class="obj"><b>Objetivo</b>${esc(f.obj)}</p>
   </article>`).join("");
+
+
+  // Controles dos vídeos de referência: tocar/pausar e som (um com som por vez)
+  document.querySelectorAll(".refs figure").forEach(fig => {
+    const v = fig.querySelector("video"), pl = fig.querySelector(".ref-play"), som = fig.querySelector(".ref-som");
+    pl.addEventListener("click", () => {
+      if (v.paused) { v.play(); fig.classList.remove("pausado"); pl.setAttribute("aria-label", "Pausar"); pl.firstChild.textContent = "❚❚"; }
+      else { v.pause(); fig.classList.add("pausado"); pl.setAttribute("aria-label", "Tocar"); pl.firstChild.textContent = "▶"; }
+    });
+    som.addEventListener("click", () => {
+      const ligar = v.muted;
+      document.querySelectorAll(".refs video").forEach(o => { o.muted = true; });
+      document.querySelectorAll(".ref-som").forEach(b => { b.textContent = "🔇"; b.setAttribute("aria-label", "Ativar som"); });
+      if (ligar) { v.muted = false; v.play(); fig.classList.remove("pausado"); som.textContent = "🔊"; som.setAttribute("aria-label", "Tirar som"); }
+    });
+  });
 
   const ICONES = {
     chave: '<circle cx="14" cy="20" r="8" fill="#d9b26f" stroke="#3a1a14" stroke-width="2.2"/><path d="M21 20 h15 v6 M30 20 v5" stroke="#3a1a14" stroke-width="2.2" fill="none" stroke-linecap="round"/>',
@@ -731,18 +750,18 @@
       const v = lista.find(x => !usados.has(x.id) && m.busca.test(x.t) && (!m.e || m.e.test(x.t)));
       if (!v) return null; usados.add(v.id); return { id: v.id, nome: m.nome };
     }).filter(Boolean);
-    if (!achados.length) return;
+    if (!achados.length) { $("#videos").remove(); return; }
     $("#videos").innerHTML = achados.map(v => `<button type="button" class="video" data-video="${esc(v.id)}" aria-label="Assistir: ${esc(v.nome)}">
       <span class="tela"><img src="https://i.ytimg.com/vi/${esc(v.id)}/oardefault.jpg" alt="" loading="lazy" data-fallback="${esc(v.id)}"><span class="play">${playSvg}</span></span>
       <b>${esc(v.nome)}</b></button>`).join("");
     ligaFallback($("#videos"));
-    $("#meusVideos").hidden = false;
   });
 
   $("#pacotes").innerHTML = PACOTES.map(p => `<article class="pacote">
     <span class="selo-p">${esc(p.selo)}</span><h3>${esc(p.nome)}</h3><p class="pra">${esc(p.pra)}</p>
     <ul>${p.itens.map(i => `<li>${esc(i)}</li>`).join("")}</ul>
-    <div class="preco">${esc(p.preco)}<small>${esc(p.nota)}</small></div></article>`).join("");
+    <div class="preco">${p.de ? `<span class="de"><s>${esc(p.de)}</s><i>${esc(p.desconto)}</i></span>` : ""}${esc(p.preco)}<small>${esc(p.nota)}</small></div>
+    <a class="botao pac-botao" target="_blank" rel="noopener" href="https://wa.me/${WHATSAPP}?text=${encodeURIComponent(`Oi, Yasmin! Vi sua proposta de UGC Travel e quero o pacote ${p.nome} pra nossa hospedagem.`)}">Quero esse pacote</a></article>`).join("");
 
   const listaDep = $("#listaDep");
   listaDep.innerHTML = DEPOIMENTOS.map(d => `<li><figure class="depoimento"><blockquote>${esc(d.texto)}</blockquote><figcaption><b>${esc(d.nome)}</b><span>${esc(d.nicho)}</span></figcaption></figure></li>`).join("");
