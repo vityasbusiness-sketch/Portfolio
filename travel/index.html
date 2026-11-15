@@ -1,0 +1,825 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>UGC Travel · Yasmin Caetano</title>
+<meta name="description" content="Vídeos e fotos UGC para hotéis, pousadas, resorts e chalés. Conteúdo que faz o hóspede se imaginar aí antes de reservar.">
+<meta name="theme-color" content="#2f030a">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="pt_BR">
+<meta property="og:title" content="UGC Travel · Yasmin Caetano">
+<meta property="og:description" content="Conteúdo que faz o hóspede se imaginar aí antes de reservar.">
+<meta property="og:url" content="https://vityasbusiness-sketch.github.io/Portfolio/travel/">
+<meta property="og:image" content="https://vityasbusiness-sketch.github.io/Portfolio/travel/img/capa.webp">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..800;1,9..144,300..600&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Caveat:wght@500;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    color-scheme: light;
+    --creme: #ebe1d4;
+    --papel: #f4ece1;
+    --tinta: #1b120e;
+    --tinta-suave: #5a4a40;
+    --bordo: #4d0510;
+    --bordo-escuro: #2f030a;
+    --verde: #3f4a2a;
+    --madeira: #a47148;
+    --ambar: #d9772f;
+    --ambar-claro: #f0b37e;
+    --linha: rgba(27, 18, 14, .14);
+    --serif: "Fraunces", Georgia, "Times New Roman", serif;
+    --sans: "Plus Jakarta Sans", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+    --mao: "Caveat", "Comic Sans MS", cursive;
+    --sombra: 0 1px 2px rgba(27,18,14,.06), 0 14px 34px -16px rgba(27,18,14,.35);
+    --largura: 1120px;
+    --gutter: clamp(16px, 5vw, 40px);
+    --textura: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.08'/%3E%3C/svg%3E");
+  }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } *, *::before, *::after { transition: none !important; animation: none !important; } }
+  body { margin: 0; background: var(--creme) var(--textura); color: var(--tinta); font-family: var(--sans); font-size: 16px; line-height: 1.55; padding-bottom: 76px; }
+  img { max-width: 100%; display: block; }
+  h1, h2, h3 { font-family: var(--serif); font-weight: 400; line-height: 1.06; margin: 0; letter-spacing: -.01em; text-wrap: balance; }
+  h2 { font-size: clamp(2rem, 5.4vw, 3.1rem); }
+  h2 em, h3 em { font-style: italic; color: var(--bordo); }
+  p { margin: 0; }
+  a { color: inherit; }
+  button { font: inherit; color: inherit; cursor: pointer; }
+  :focus-visible { outline: 2px solid var(--ambar); outline-offset: 3px; }
+  .wrap { width: min(var(--largura), 100% - 2 * var(--gutter)); margin-inline: auto; }
+  section { padding: clamp(56px, 9vw, 96px) 0; }
+  .olho { font-size: .72rem; font-weight: 700; letter-spacing: .22em; text-transform: uppercase; color: var(--bordo); margin-bottom: 14px; }
+  .lead { max-width: 58ch; color: var(--tinta-suave); margin-top: 14px; font-size: 1.02rem; }
+  .nota { font-family: var(--mao); font-size: 1.5rem; line-height: 1.1; color: var(--bordo); }
+  .botao { display: inline-flex; align-items: center; justify-content: center; gap: 10px; padding: 15px 24px; border-radius: 999px; border: 0; background: var(--bordo); color: var(--papel); font-weight: 600; text-decoration: none; font-size: .95rem; transition: transform .2s, background .2s; }
+  .botao:hover { background: var(--bordo-escuro); transform: translateY(-1px); }
+  .botao.claro { background: var(--papel); color: var(--bordo); }
+  .botao.vazado { background: transparent; color: var(--papel); box-shadow: inset 0 0 0 1.5px rgba(244,236,225,.7); }
+  .botao.linha { background: transparent; color: var(--bordo); box-shadow: inset 0 0 0 1.5px var(--bordo); }
+  .escuro { background: var(--bordo); color: var(--papel); }
+  .escuro .olho { color: var(--ambar-claro); }
+  .escuro h2 em, .escuro h3 em { color: var(--ambar-claro); }
+  .escuro .lead { color: #e6d3c1; }
+  .papel { background: var(--papel); }
+
+  /* ===== 1. CAPA ===== */
+  .capa { position: relative; color: var(--papel); background: #120806; padding: 0; overflow: hidden; }
+  .capa picture img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: left center; }
+  .capa::after { content: ""; position: absolute; inset: 0; background: linear-gradient(90deg, rgba(18,8,6,0) 25%, rgba(18,8,6,.85) 58%); }
+  .capa .wrap { position: relative; z-index: 1; min-height: min(78vh, 680px); display: flex; flex-direction: column; justify-content: center; align-items: flex-end; padding: 64px 0; }
+  .capa-texto { width: min(520px, 100%); }
+  .capa .rotulo { font-size: .72rem; letter-spacing: .22em; text-transform: uppercase; color: var(--ambar-claro); font-weight: 700; }
+  .capa h1 { font-size: clamp(3rem, 8.5vw, 5.8rem); line-height: .92; margin-top: 14px; }
+  .capa h1 .mao { font-family: var(--mao); font-weight: 700; font-size: .55em; color: var(--ambar-claro); display: block; transform: rotate(-3deg); margin-bottom: -.04em; }
+  .capa h1 b { font-weight: 600; }
+  .capa .sub { margin-top: 20px; font-size: clamp(1.02rem, 2.2vw, 1.18rem); color: #f1e2d2; }
+  .capa .acoes { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 26px; }
+  .numeros-capa { display: flex; gap: clamp(18px, 4vw, 36px); margin-top: 30px; flex-wrap: wrap; }
+  .numeros-capa strong { display: block; font-family: var(--serif); font-weight: 400; font-size: clamp(1.6rem, 3.4vw, 2.3rem); color: var(--ambar-claro); line-height: 1; font-variant-numeric: tabular-nums; }
+  .numeros-capa span { font-size: .78rem; color: #d9c6b4; }
+  .faixa { background: var(--bordo); color: var(--papel); overflow: hidden; padding: 14px 0; }
+  .trilho { display: flex; width: max-content; animation: corre 60s linear infinite; }
+  .trilho span { font-family: var(--serif); font-style: italic; font-size: 1.1rem; padding: 0 22px; white-space: nowrap; opacity: .9; }
+  .trilho span::after { content: "✦"; font-style: normal; font-size: .7rem; color: var(--ambar-claro); margin-left: 44px; }
+  @keyframes corre { to { transform: translateX(-50%); } }
+
+  /* ===== 2. CONTEXTO + SÉRIE ===== */
+  .contexto { display: grid; grid-template-columns: minmax(0, 1.15fr) minmax(0, .85fr); gap: clamp(28px, 5vw, 64px); align-items: center; }
+  .contexto .lead strong { color: var(--tinta); font-weight: 600; }
+  .polaroid { background: #fbf7f1; padding: 12px 12px 46px; box-shadow: var(--sombra); position: relative; transform: rotate(2.5deg); max-width: 340px; margin: 0 auto; }
+  .polaroid img { aspect-ratio: 4/5; object-fit: cover; width: 100%; }
+  .polaroid figcaption { position: absolute; bottom: 8px; left: 0; right: 0; text-align: center; font-family: var(--mao); font-size: 1.5rem; color: var(--bordo); }
+  .fita { position: absolute; width: 96px; height: 26px; background: rgba(217,119,47,.45); top: -12px; left: 50%; transform: translateX(-50%) rotate(-4deg); }
+  .etapas-serie { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 14px; margin-top: 44px; }
+  .etapa { background: var(--papel); border-radius: 16px; padding: 20px; }
+  .etapa .n { font-family: var(--serif); font-style: italic; font-size: 2rem; color: var(--ambar); line-height: 1; }
+  .etapa h3 { font-size: 1.3rem; margin-top: 8px; }
+  .etapa p { font-size: .92rem; color: var(--tinta-suave); margin-top: 6px; }
+  .mood-bloco { margin-top: 56px; }
+  .mood-topo { display: flex; justify-content: space-between; align-items: end; gap: 16px; flex-wrap: wrap; }
+  .mood-topo h3 { font-size: clamp(1.6rem, 4vw, 2.2rem); }
+  .paleta { display: flex; border-radius: 10px; overflow: hidden; min-width: min(420px, 100%); }
+  .paleta div { flex: 1; min-height: 40px; padding: 6px; display: flex; align-items: flex-end; font-size: .64rem; font-weight: 600; letter-spacing: .04em; }
+  .mood { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 10px; margin-top: 16px; }
+  .mood figure { aspect-ratio: 4 / 5; }
+  .mood figure { margin: 0; position: relative; overflow: hidden; border-radius: 8px; }
+  .mood img { width: 100%; height: 100%; object-fit: cover; }
+  .mood figure.alto { grid-row: span 2; }
+  .mood figcaption { position: absolute; left: 8px; bottom: 8px; background: var(--papel); color: var(--bordo); font-family: var(--mao); font-size: 1.2rem; line-height: 1; padding: 4px 8px; transform: rotate(-2deg); }
+
+  /* ===== 3. EPISÓDIOS (escuro verde) ===== */
+  .serie { background: var(--verde); color: var(--papel); }
+  .serie .olho { color: var(--ambar-claro); }
+  .serie .lead { color: #d8dcc8; }
+  .serie h2 em { color: var(--ambar-claro); }
+  .eps-ex { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 14px; margin-top: 30px; align-items: start; }
+  .ep-card { border-radius: 16px; padding: 20px; background: rgba(244,236,225,.07); border: 1px solid rgba(244,236,225,.16); display: flex; flex-direction: column; gap: 8px; }
+  .ep-card .num { font-size: .7rem; font-weight: 700; letter-spacing: .2em; text-transform: uppercase; color: #e7c39c; }
+  .ep-card h3 { font-size: 1.35rem; }
+  .ep-card p { font-size: .9rem; color: #d8dcc8; }
+  .ep-card.destaque { background: var(--papel); color: var(--tinta); border-color: var(--papel); }
+  .ep-card.destaque .num { color: var(--bordo); }
+  .ep-card.destaque p { color: var(--tinta-suave); }
+  .checklist { list-style: none; padding: 0; margin: 4px 0 0; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 5px; }
+  .checklist .mais-itens { grid-column: 1 / -1; font-size: .82rem; color: var(--tinta-suave); padding: 2px 4px; font-style: italic; }
+  .checklist button { width: 100%; display: flex; align-items: center; gap: 8px; text-align: left; border: 1px solid var(--linha); background: #fbf7f1; border-radius: 9px; padding: 6px 8px; font-size: .84rem; transition: background .2s, border-color .2s; }
+  .checklist .caixa { width: 15px; height: 15px; flex: none; border: 1.5px solid var(--verde); border-radius: 5px; display: grid; place-items: center; font-size: .75rem; color: var(--papel); }
+  .checklist button[aria-pressed="true"] .caixa { background: var(--verde); }
+  .checklist button[aria-pressed="true"] span:last-child { text-decoration: line-through; color: var(--tinta-suave); }
+  .checklist button.sua { border-color: var(--ambar); background: #fbeee0; }
+  .checklist button.sua::after { content: "sua vaga"; margin-left: auto; font-size: .55rem; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; background: var(--ambar); color: #fff; border-radius: 999px; padding: 2px 7px; white-space: nowrap; }
+  .nota-lista { font-family: var(--mao); font-size: 1.35rem !important; color: var(--bordo) !important; line-height: 1.1; margin-top: 4px; }
+  .ciclo { margin-top: 26px; display: flex; align-items: center; gap: 14px 20px; flex-wrap: wrap; }
+  .ciclo p { font-family: var(--serif); font-size: 1.2rem; }
+  .ciclo p span { font-family: var(--sans); font-size: .72rem; font-weight: 700; letter-spacing: .16em; text-transform: uppercase; color: var(--ambar-claro); margin-left: 8px; }
+  .comodos { display: flex; flex-wrap: wrap; gap: 8px; }
+  .comodos span { border: 1px solid rgba(244,236,225,.35); border-radius: 999px; padding: 7px 14px; font-size: .88rem; transition: background .2s, color .2s; }
+  .comodos span.sim { background: var(--ambar); border-color: var(--ambar); color: #fff; font-weight: 600; }
+  .comodos span.fim { border-style: dashed; }
+  .regras { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 14px; margin-top: 22px; }
+  .regras div { border-top: 1px solid rgba(244,236,225,.3); padding-top: 12px; }
+  .regras b { display: block; font-family: var(--serif); font-weight: 400; font-size: 1.2rem; color: var(--ambar-claro); }
+  .regras p { font-size: .88rem; color: #e1e4d6; margin-top: 4px; }
+
+  /* ===== 4. O QUE A MARCA GANHA ===== */
+  .ganhos { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 14px; margin-top: 32px; }
+  .ganho { background: var(--papel); border-radius: 16px; padding: 20px; display: flex; flex-direction: column; gap: 8px; }
+  .ganho .n { font-family: var(--serif); font-style: italic; font-size: 2rem; line-height: 1; color: var(--ambar); }
+  .ganho h3 { font-size: 1.2rem; }
+  .ganho p { color: var(--tinta-suave); font-size: .9rem; }
+
+  .publico { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; margin-top: 30px; }
+  .rede { background: var(--creme); border-radius: 18px; padding: clamp(20px, 3vw, 28px); display: grid; gap: 18px; }
+  .rede-topo { display: flex; justify-content: space-between; align-items: baseline; gap: 10px; }
+  .rede-topo b { font-family: var(--serif); font-weight: 400; font-size: 1.5rem; }
+  .rede-topo span { font-size: .8rem; color: var(--tinta-suave); }
+  .destaques-rede { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 10px; }
+  .destaques-rede strong { display: block; font-family: var(--serif); font-weight: 400; font-size: clamp(1.6rem, 4vw, 2.3rem); color: var(--bordo); line-height: 1; font-variant-numeric: tabular-nums; }
+  .destaques-rede span { font-size: .8rem; color: var(--tinta-suave); }
+  .barras { list-style: none; margin: 0; padding: 0; display: grid; gap: 8px; }
+  .barras li { display: grid; grid-template-columns: 48px 1fr 48px; gap: 10px; align-items: center; font-size: .85rem; }
+  .barras i { height: 8px; border-radius: 99px; background: linear-gradient(90deg, var(--verde) var(--v), rgba(27,18,14,.08) var(--v)); }
+  .barras b { text-align: right; font-weight: 600; font-variant-numeric: tabular-nums; }
+  .fonte-dados { margin-top: 14px; font-size: .8rem; color: var(--tinta-suave); }
+
+  /* ===== 5. QUEM CRIA ===== */
+  .quem { display: grid; grid-template-columns: minmax(0, .8fr) minmax(0, 1.3fr); gap: clamp(28px, 6vw, 72px); align-items: center; }
+  .quem .polaroid { transform: rotate(-2.5deg); }
+  .vivencias { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 20px; }
+  .vivencias span { border: 1px solid rgba(244,236,225,.35); border-radius: 999px; padding: 6px 13px; font-size: .86rem; color: #f1e2d2; }
+  .diferenciais { list-style: none; padding: 0; margin: 24px 0 0; display: grid; gap: 12px; }
+  .diferenciais li { padding-left: 24px; position: relative; color: #f1e2d2; }
+  .diferenciais li::before { content: "✦"; position: absolute; left: 0; color: var(--ambar-claro); }
+  .diferenciais b { color: var(--papel); }
+
+  /* ===== 6. DESTAQUES ===== */
+  .case { display: grid; grid-template-columns: minmax(0, 250px) minmax(0, 1fr); gap: clamp(22px, 4vw, 44px); align-items: center; background: var(--bordo); color: var(--papel); border-radius: 20px; padding: clamp(20px, 3.5vw, 36px); margin-top: 30px; }
+  .case .olho { color: var(--ambar-claro); }
+  .case h3 { font-size: clamp(1.6rem, 4vw, 2.2rem); }
+  .case h3 em { color: var(--ambar-claro); }
+  .case p { color: #e6d3c1; margin-top: 10px; font-size: .95rem; max-width: 56ch; }
+  .numeros { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px 12px; margin-top: 20px; }
+  .numeros strong { display: block; font-family: var(--serif); font-weight: 400; font-size: clamp(1.35rem, 3.6vw, 2rem); color: var(--ambar-claro); font-variant-numeric: tabular-nums; line-height: 1.1; }
+  .numeros span { font-size: .78rem; color: #d9c6b4; }
+  .videos { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 14px; margin-top: 18px; }
+  .video { border: 0; padding: 0; background: none; text-align: left; display: flex; flex-direction: column; gap: 8px; width: 100%; }
+  .video .tela { position: relative; aspect-ratio: 9/16; border-radius: 12px; overflow: hidden; background: var(--verde); width: 100%; display: block; }
+  .video img { width: 100%; height: 100%; object-fit: cover; transition: transform .4s; }
+  .video:hover img { transform: scale(1.04); }
+  .play { position: absolute; left: 50%; top: 50%; width: 54px; height: 54px; margin: -27px 0 0 -27px; border-radius: 50%; background: rgba(244,236,225,.92); display: grid; place-items: center; }
+  .play svg { width: 18px; height: 18px; margin-left: 3px; fill: var(--bordo); }
+  .video b { font-size: .92rem; display: block; }
+  .video small { display: block; color: var(--verde); font-weight: 600; font-size: .8rem; line-height: 1.35; }
+  .mais { margin-top: 20px; }
+
+  /* ===== 7. PLANO DO NICHO ===== */
+  .nichos { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 10px; margin-top: 30px; }
+  .nicho { border: 1.5px solid var(--linha); background: var(--papel); border-radius: 14px; padding: 14px 16px; text-align: left; display: flex; justify-content: space-between; align-items: center; gap: 10px; transition: border-color .2s, background .2s, color .2s; }
+  .nicho b { font-weight: 600; font-size: .98rem; }
+  .nicho small { display: block; color: var(--tinta-suave); font-size: .8rem; margin-top: 2px; }
+  .nicho .seta { font-size: 1.2rem; color: var(--bordo); flex: none; }
+  .nicho:hover { border-color: var(--bordo); }
+  .nicho[aria-pressed="true"] { background: var(--bordo); color: var(--papel); border-color: var(--bordo); }
+  .nicho[aria-pressed="true"] small, .nicho[aria-pressed="true"] .seta { color: #e6d3c1; }
+  .plano { margin-top: 26px; scroll-margin-top: 16px; }
+  .plano-vazio { border: 2px dashed var(--linha); border-radius: 18px; padding: 28px; text-align: center; color: var(--tinta-suave); }
+  .plano-topo { background: var(--verde); color: var(--papel); border-radius: 18px 18px 0 0; padding: clamp(22px, 4vw, 34px); display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 20px; align-items: end; }
+  .plano-topo .olho { color: var(--ambar-claro); margin-bottom: 8px; }
+  .plano-topo h3 { font-size: clamp(1.6rem, 4.2vw, 2.4rem); }
+  .plano-topo h3 em { color: var(--ambar-claro); }
+  .plano-topo p { margin-top: 10px; color: #e1e4d6; max-width: 62ch; }
+  .plano-corpo { background: var(--papel); border-radius: 0 0 18px 18px; padding: clamp(22px, 4vw, 34px); display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: clamp(20px, 4vw, 40px); box-shadow: var(--sombra); }
+  .bloco .rotulo { font-size: .7rem; font-weight: 700; letter-spacing: .2em; text-transform: uppercase; color: var(--bordo); margin-bottom: 10px; }
+  .bloco ul { margin: 0; padding: 0; list-style: none; display: grid; gap: 8px; }
+  .bloco ul li { padding-left: 20px; position: relative; font-size: .95rem; }
+  .bloco ul li::before { content: "✦"; position: absolute; left: 0; color: var(--ambar); font-size: .8rem; top: 2px; }
+  .tags { display: flex; flex-wrap: wrap; gap: 6px; }
+  .tags span { background: var(--verde); color: var(--papel); border-radius: 999px; padding: 5px 11px; font-size: .82rem; }
+  .ideias-old { list-style: none; padding: 0; margin: 0; display: grid; }
+  .ideias li { display: grid; grid-template-columns: auto 1fr; gap: 12px; padding: 12px 0; border-bottom: 1px solid var(--linha); }
+  .ideias li:first-child { padding-top: 0; }
+  .ideias li:last-child { border-bottom: 0; }
+  .ideias .n { font-family: var(--serif); font-style: italic; color: var(--bordo); font-size: 1.3rem; line-height: 1; }
+  .ideias q { font-family: var(--serif); font-size: 1.06rem; }
+  .ideias small { display: block; font-size: .72rem; font-weight: 600; letter-spacing: .12em; text-transform: uppercase; color: var(--verde); margin-top: 4px; }
+  .roteiro { grid-column: 1 / -1; }
+  .frames { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; max-width: 600px; }
+  .frame { aspect-ratio: 9/14; border-radius: 14px; background: linear-gradient(160deg, var(--verde), #2a3119); color: var(--papel); padding: 14px; display: flex; flex-direction: column; justify-content: space-between; }
+  .frame:nth-child(2) { background: linear-gradient(160deg, var(--madeira), #6e4426); }
+  .frame:nth-child(3) { background: linear-gradient(160deg, var(--bordo), var(--bordo-escuro)); }
+  .frame .tempo { font-size: .68rem; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; opacity: .85; }
+  .frame .cena { font-size: clamp(.78rem, 2.2vw, .92rem); line-height: 1.35; }
+  .frame .na-tela { font-family: var(--mao); font-size: clamp(1.05rem, 3.4vw, 1.45rem); line-height: 1.05; background: var(--papel); color: var(--bordo); padding: 6px 8px; transform: rotate(-2deg); align-self: flex-start; }
+  .plano-cta { grid-column: 1 / -1; display: flex; gap: 12px; flex-wrap: wrap; align-items: center; }
+  .plano-cta p { color: var(--tinta-suave); font-size: .9rem; }
+
+  .grupo-titulo { font-size: .7rem; font-weight: 700; letter-spacing: .2em; text-transform: uppercase; color: var(--tinta-suave); margin: 26px 0 -16px; }
+  .plano-intro { grid-column: 1 / -1; display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr); gap: clamp(18px, 3vw, 32px); align-items: start; }
+  .mini-mood { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); grid-auto-rows: 120px; gap: 6px; }
+  .mini-mood img { width: 100%; height: 100%; object-fit: cover; border-radius: 6px; }
+  .mini-mood img:first-child { grid-column: span 2; grid-row: span 2; }
+  .mini-mood.vazio { display: grid; place-items: center; grid-template-columns: 1fr; border: 2px dashed var(--linha); border-radius: 12px; min-height: 246px; text-align: center; padding: 20px; }
+  .cenario p { color: var(--tinta-suave); font-size: .95rem; margin-top: 8px; }
+  .cenario .tags { margin-top: 10px; }
+  .pilares { grid-column: 1 / -1; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 10px; }
+  .pilar { background: var(--creme); border-radius: 14px; padding: 16px; }
+  .pilar span { font-size: .66rem; font-weight: 700; letter-spacing: .18em; text-transform: uppercase; color: var(--verde); }
+  .pilar b { display: block; font-family: var(--serif); font-weight: 400; font-size: 1.2rem; margin-top: 4px; }
+  .pilar p { font-size: .88rem; color: var(--tinta-suave); margin-top: 4px; }
+  .funil { grid-column: 1 / -1; }
+  .funil-topo { display: flex; justify-content: space-between; align-items: end; gap: 12px; flex-wrap: wrap; margin-bottom: 14px; }
+  .funil-topo h4 { margin: 0; font-family: var(--serif); font-weight: 400; font-size: clamp(1.4rem, 3.4vw, 1.9rem); }
+  .funil-topo h4 em { color: var(--bordo); }
+  .funil-topo p { font-size: .85rem; color: var(--tinta-suave); }
+  .videos-funil { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; }
+  .vf { border-radius: 18px; padding: 22px; background: #fbf7f1; border: 1px solid var(--linha); display: flex; flex-direction: column; gap: 14px; }
+  .vf-topo { display: flex; align-items: baseline; gap: 12px; }
+  .vf-num { font-family: var(--serif); font-style: italic; font-size: 2.4rem; line-height: .9; color: var(--ambar); }
+  .vf-etapa { font-family: var(--serif); font-size: 1.35rem; }
+  .vf-formato { align-self: flex-start; background: var(--verde); color: var(--papel); border-radius: 999px; padding: 4px 11px; font-size: .74rem; font-weight: 600; }
+  .vf q { font-family: var(--serif); font-style: italic; font-size: 1.12rem; line-height: 1.3; color: var(--tinta); }
+  .vf-obj { border-top: 1px solid var(--linha); padding-top: 12px; }
+  .vf-obj span { display: block; font-size: .62rem; font-weight: 700; letter-spacing: .16em; text-transform: uppercase; color: var(--tinta-suave); margin-bottom: 3px; }
+  .vf-obj p { font-size: .88rem; }
+  .vf .sensacao { margin-top: auto; font-family: var(--mao); font-size: 1.35rem; color: var(--bordo); line-height: 1.1; }
+  .funil-passos { display: flex; gap: 8px; align-items: center; font-size: .74rem; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; color: var(--tinta-suave); }
+  .funil-passos i { font-style: normal; color: var(--ambar); }
+  .adapta { grid-column: 1 / -1; display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 14px; }
+  .adapta > div { border-radius: 14px; padding: 18px; background: var(--verde); color: var(--papel); }
+  .adapta > div:last-child { background: var(--creme); color: var(--tinta); }
+  .adapta b { font-family: var(--serif); font-weight: 400; font-size: 1.2rem; display: block; }
+  .adapta p { font-size: .9rem; margin-top: 6px; opacity: .9; }
+  .adapta .tags span { background: var(--bordo); }
+
+  /* ===== 8. FORMATOS ===== */
+  .formatos { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 12px; margin-top: 30px; }
+  .formato { border-top: 1.5px solid var(--bordo); padding-top: 12px; }
+  .formato b { font-family: var(--serif); font-weight: 400; font-size: 1.2rem; display: block; }
+  .formato p { font-size: .88rem; color: var(--tinta-suave); margin-top: 4px; }
+
+  /* ===== 9. INVESTIMENTO ===== */
+  .pacotes { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; margin-top: 30px; align-items: stretch; }
+  .pacote { border-radius: 18px; padding: 24px; background: var(--creme); display: flex; flex-direction: column; gap: 12px; }
+  .pacote.destaque { background: var(--bordo); color: var(--papel); }
+  .pacote .selo-p { font-size: .7rem; font-weight: 700; letter-spacing: .2em; text-transform: uppercase; color: var(--bordo); }
+  .pacote.destaque .selo-p { color: var(--ambar-claro); }
+  .pacote h3 { font-size: 1.6rem; }
+  .pacote .pra { font-size: .9rem; color: var(--tinta-suave); }
+  .pacote.destaque .pra { color: #e6d3c1; }
+  .pacote ul { margin: 0; padding-left: 18px; font-size: .92rem; display: grid; gap: 4px; }
+  .pacote li.serie-item { list-style: "✦  "; color: var(--verde); font-weight: 600; }
+  .pacote.destaque li.serie-item { color: var(--ambar-claro); }
+  .pacote .preco { margin-top: auto; padding-top: 14px; border-top: 1px solid var(--linha); font-family: var(--serif); font-size: 2rem; font-variant-numeric: tabular-nums; }
+  .pacote.destaque .preco { border-color: rgba(244,236,225,.25); }
+  .avulsos { margin-top: 16px; display: grid; grid-template-columns: auto repeat(3, minmax(0, 1fr)); gap: 10px; align-items: stretch; }
+  .avulsos > b { font-size: .7rem; font-weight: 700; letter-spacing: .2em; text-transform: uppercase; color: var(--bordo); align-self: center; padding-right: 8px; }
+  .avulso { background: var(--creme); border-radius: 12px; padding: 12px 14px; display: flex; justify-content: space-between; gap: 10px; align-items: baseline; font-size: .9rem; }
+  .avulso strong { font-family: var(--serif); font-weight: 400; font-size: 1.15rem; white-space: nowrap; font-variant-numeric: tabular-nums; }
+  .avulso small { display: block; color: var(--tinta-suave); font-size: .78rem; }
+  .alto-valor { margin-top: 16px; border-radius: 18px; padding: clamp(20px, 3vw, 28px); background: var(--verde); color: var(--papel); display: flex; justify-content: space-between; align-items: center; gap: 20px; flex-wrap: wrap; }
+  .alto-valor h3 { font-size: 1.4rem; }
+  .alto-valor h3 em { color: var(--ambar-claro); }
+  .alto-valor p { color: #e1e4d6; font-size: .95rem; margin-top: 6px; max-width: 60ch; }
+  .condicoes { margin-top: 28px; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 0; border-top: 1px solid var(--linha); }
+  .condicoes div { padding: 14px 16px 14px 0; border-bottom: 1px solid var(--linha); }
+  .condicoes b { font-size: .7rem; font-weight: 700; letter-spacing: .18em; text-transform: uppercase; color: var(--bordo); display: block; }
+  .condicoes p { font-size: .92rem; margin-top: 4px; }
+
+  /* ===== 10. ENTREGA ===== */
+  .passos { list-style: none; padding: 0; margin: 30px 0 0; display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 14px; counter-reset: p; }
+  .passos li { border-top: 1.5px solid var(--bordo); padding-top: 12px; counter-increment: p; }
+  .passos li::before { content: "0" counter(p); font-family: var(--serif); font-style: italic; color: var(--bordo); font-size: 1.6rem; display: block; }
+  .passos b { display: block; margin-top: 4px; }
+  .passos p { font-size: .88rem; color: var(--tinta-suave); margin-top: 4px; }
+  .pasta { margin-top: 30px; background: var(--papel); border-radius: 18px; padding: clamp(20px, 3vw, 28px); }
+  .pasta h3 { font-size: 1.5rem; }
+  .pasta ul { list-style: none; padding: 0; margin: 16px 0 0; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 12px; }
+  .pasta li { background: var(--creme); border-radius: 12px; padding: 14px; }
+  .pasta li b { display: block; }
+  .pasta li span { font-size: .85rem; color: var(--tinta-suave); }
+
+  /* ===== 11. DEPOIMENTOS + FAQ ===== */
+  .depos-topo { display: flex; justify-content: flex-end; margin: -40px 0 18px; }
+  .setas { display: flex; gap: 8px; }
+  .seta-car { width: 44px; height: 44px; border-radius: 50%; border: 1px solid var(--linha); background: transparent; font-size: 1.1rem; }
+  .seta-car:hover:not(:disabled) { background: var(--tinta); color: var(--creme); }
+  .seta-car:disabled { opacity: .3; cursor: default; }
+  .depoimentos { display: grid; grid-auto-flow: column; grid-auto-columns: calc((100% - 22px) / 2); gap: 22px; list-style: none; margin: 0; padding: 0 0 4px; overflow-x: auto; scroll-snap-type: x mandatory; scrollbar-width: none; overscroll-behavior-x: contain; }
+  .depoimentos::-webkit-scrollbar { display: none; }
+  .depoimentos li { display: flex; scroll-snap-align: start; }
+  .depoimento { flex: 1; display: flex; flex-direction: column; margin: 0; padding: clamp(22px, 2.6vw, 32px); border: 1px solid var(--linha); border-radius: 8px; }
+  .depoimento blockquote { flex: 1; margin: 0 0 18px; font-family: var(--serif); font-size: clamp(1.02rem, 1.4vw, 1.2rem); line-height: 1.45; font-weight: 300; }
+  .depoimento blockquote::before { content: "\201C"; display: block; font-size: 2.4rem; line-height: .6; color: var(--verde); margin-bottom: 6px; font-style: italic; }
+  .depoimento figcaption { display: flex; align-items: center; gap: 14px; font-size: .92rem; }
+  .depoimento .avatar { width: 38px; height: 38px; border-radius: 50%; flex: none; background: linear-gradient(140deg, #d2bea6, var(--bordo)); }
+  .depoimento figcaption b { display: block; font-weight: 600; }
+  .depoimento figcaption span { color: var(--tinta-suave); }
+  .depos blockquote { margin: 0; background: var(--papel); border-radius: 14px; padding: 20px; font-family: var(--serif); font-size: 1.05rem; line-height: 1.4; }
+  .depos cite { display: block; margin-top: 10px; font-family: var(--sans); font-style: normal; font-size: .76rem; font-weight: 600; letter-spacing: .1em; text-transform: uppercase; color: var(--bordo); }
+  .faq { margin-top: 52px; display: grid; gap: 10px; max-width: 820px; }
+  .faq details { background: var(--papel); border-radius: 12px; padding: 0 18px; }
+  .faq summary { cursor: pointer; padding: 16px 0; font-weight: 600; list-style: none; display: flex; justify-content: space-between; gap: 12px; }
+  .faq summary::-webkit-details-marker { display: none; }
+  .faq summary::after { content: "+"; font-family: var(--serif); font-size: 1.4rem; line-height: 1; color: var(--bordo); }
+  .faq details[open] summary::after { content: "–"; }
+  .faq details p { padding: 0 0 16px; color: var(--tinta-suave); font-size: .95rem; }
+
+  /* ===== 12. CONTATO ===== */
+  .contato { background: var(--bordo-escuro); color: var(--papel); }
+  .contato-grid { display: grid; grid-template-columns: minmax(0, 1.3fr) minmax(0, .8fr); gap: clamp(28px, 5vw, 60px); align-items: center; }
+  .contato .olho { color: var(--ambar-claro); }
+  .contato h2 em { color: var(--ambar-claro); }
+  .contato .lead { color: #d9c6b4; }
+  .contato .acoes { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 26px; }
+  .contato .dados { margin-top: 22px; font-size: .9rem; color: #d9c6b4; display: grid; gap: 4px; }
+  footer { text-align: center; padding: 26px var(--gutter); font-size: .78rem; color: var(--tinta-suave); }
+
+  .barra { position: fixed; left: 0; right: 0; bottom: 0; z-index: 10; background: rgba(47,3,10,.96); color: var(--papel); padding: 12px var(--gutter); display: flex; justify-content: space-between; align-items: center; gap: 12px; transform: translateY(110%); transition: transform .3s; }
+  .barra.visivel { transform: none; }
+  .barra p { font-size: .85rem; line-height: 1.25; color: #ead9c8; }
+  .barra p b { color: var(--papel); }
+  .barra .botao { padding: 11px 18px; flex: none; }
+
+  /* PLAYER */
+  .fundo-video { position: fixed; inset: 0; z-index: 50; background: rgba(17,13,10,.86); display: grid; place-items: center; opacity: 0; visibility: hidden; transition: opacity .25s, visibility .25s; padding: 60px 16px 16px; }
+  .fundo-video.aberto { opacity: 1; visibility: visible; }
+  .card-player { position: relative; width: min(92vw, calc((100vh - 110px) * 9 / 16), 420px); }
+  .moldura { position: relative; aspect-ratio: 9/16; background: #110d0a; border-radius: 10px; overflow: hidden; }
+  .moldura iframe { position: absolute; left: 0; top: -60px; width: 100%; height: calc(100% + 120px); border: 0; pointer-events: none; }
+  .toque { position: absolute; inset: 0; z-index: 2; border: 0; background: transparent; width: 100%; }
+  .toque .icone { position: absolute; top: 50%; left: 50%; width: 72px; height: 72px; margin: -36px 0 0 -36px; border-radius: 50%; background: rgba(244,236,225,.92); display: grid; place-items: center; opacity: 0; transition: opacity .25s; }
+  .toque .icone svg { width: 22px; height: 22px; margin-left: 4px; fill: var(--bordo); }
+  .moldura.pausado .icone { opacity: 1; }
+  .som { position: absolute; z-index: 3; left: 12px; bottom: 12px; padding: 8px 14px; border-radius: 999px; border: 1px solid rgba(244,236,225,.5); background: rgba(17,13,10,.55); color: var(--papel); font-size: .78rem; font-weight: 600; }
+  .fechar { position: absolute; top: -50px; right: 0; width: 40px; height: 40px; border-radius: 50%; border: 0; background: var(--papel); color: var(--tinta); font-size: 1.3rem; line-height: 1; }
+
+  @media (max-width: 960px) {
+    .ganhos, .formatos { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .eps-ex { grid-template-columns: 1fr; }
+    .pacotes { grid-template-columns: 1fr; }
+    .passos { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+    .nichos { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+
+    .pasta ul { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .avulsos { grid-template-columns: 1fr; }
+    .condicoes { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  }
+  @media (max-width: 720px) {
+    .capa::after { background: linear-gradient(180deg, rgba(18,8,6,0) 30%, rgba(18,8,6,.92) 62%); }
+    .capa picture img { object-position: center top; }
+    .capa .wrap { min-height: 0; padding: 62vh 0 40px; align-items: stretch; }
+    .publico, .contexto, .quem, .case, .plano-corpo, .contato-grid, .plano-intro, .adapta { grid-template-columns: 1fr; }
+    .pilares, .videos-funil { grid-template-columns: 1fr; }
+    .plano-topo { grid-template-columns: 1fr; }
+    .polaroid { max-width: 250px; }
+    .regras, .etapas-serie { grid-template-columns: 1fr; }
+    .videos { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .case .video { max-width: 220px; }
+    .contato .polaroid { display: none; }
+    .mood { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .passos { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  }
+  @media (max-width: 440px) {
+    .depoimentos { grid-auto-columns: 88%; }
+    .nichos, .ganhos, .formatos, .condicoes, .pasta ul { grid-template-columns: 1fr; }
+    .numeros { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .frame { padding: 10px; }
+    .barra p { font-size: .78rem; }
+  }
+  /* ===== TRAVEL: ajustes desta página ===== */
+  .capa { background: var(--bordo-escuro); }
+  .capa::after { display: none; }
+  .capa-grid { display: grid; grid-template-columns: minmax(0, 1.05fr) minmax(0, .95fr); gap: clamp(28px, 5vw, 64px); align-items: center; min-height: min(86vh, 760px); padding: 56px 0; }
+  .capa-foto { position: relative; justify-self: center; width: min(440px, 100%); }
+  .capa-foto img { width: 100%; aspect-ratio: 4/5; object-fit: cover; border-radius: 4px; box-shadow: 0 30px 60px -30px rgba(0,0,0,.7); }
+  .capa-foto .carimbo { position: absolute; left: -18px; bottom: 26px; background: var(--papel); color: var(--bordo); font-family: var(--mao); font-size: 1.6rem; line-height: 1; padding: 8px 14px; transform: rotate(-4deg); box-shadow: var(--sombra); }
+  .capa .wrap { display: block; min-height: 0; padding: 0; }
+  .capa .capa-texto { width: auto; }
+  .capa h1 { font-size: clamp(2.8rem, 7vw, 5rem); }
+  .capa h1 em { font-style: italic; color: var(--ambar-claro); }
+  .capa h1 .mao { margin-bottom: .12em; }
+  .mood figure.ref figcaption, .ref-tag { background: var(--tinta); color: var(--papel); font-family: var(--sans); font-size: .62rem; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; padding: 4px 8px; transform: none; }
+  .aviso-ref { margin-top: 14px; font-size: .82rem; color: var(--tinta-suave); }
+  .serie .aviso-ref { color: #c9cfb6; }
+  .vf { color: var(--tinta); }
+  .vf .refs { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 6px; }
+  .vf .refs figure { margin: 0; position: relative; aspect-ratio: 9/16; border-radius: 8px; overflow: hidden; background: var(--verde); }
+  .vf .refs img { width: 100%; height: 100%; object-fit: cover; }
+  .vf .refs .ref-tag { position: absolute; left: 4px; top: 4px; font-size: .5rem; letter-spacing: .1em; padding: 3px 5px; border-radius: 3px; }
+  .pessoas-cards { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 14px; margin-top: 40px; }
+  .momentos { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 14px; margin-top: 32px; }
+  .momento { border-top: 1.5px solid var(--bordo); padding-top: 12px; }
+  .momento b { font-family: var(--serif); font-weight: 400; font-size: 1.25rem; display: block; }
+  .momento p { font-size: .88rem; color: var(--tinta-suave); margin-top: 4px; }
+  .fecho { margin-top: 30px; }
+  .pacote .vale { font-size: .85rem; color: var(--tinta-suave); }
+  .pacote.destaque .vale { color: #e6d3c1; }
+  .pacote .preco small { display: block; font-family: var(--sans); font-size: .78rem; color: var(--tinta-suave); margin-top: 2px; }
+  .pacote.destaque .preco small { color: #e6d3c1; }
+  @media (max-width: 960px) { .momentos { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+  @media (max-width: 720px) {
+    .capa-grid { grid-template-columns: 1fr; min-height: 0; padding: 40px 0 48px; }
+    .capa-foto { order: -1; width: min(340px, 86%); }
+    .capa .wrap { padding: 0; min-height: 0; align-items: stretch; }
+    .pessoas-cards { grid-template-columns: 1fr; }
+    .vf .refs { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  }
+  @media (max-width: 440px) { .momentos { grid-template-columns: 1fr 1fr; } }
+</style>
+</head>
+<body>
+
+<header class="capa" id="topo">
+  <div class="wrap">
+    <div class="capa-grid">
+      <div class="capa-texto">
+        <p class="rotulo">Yasmin Caetano · UGC Travel · Hotelaria</p>
+        <h1><span class="mao">pra hotéis e pousadas</span>O hóspede reserva o que <em>consegue sentir</em>.</h1>
+        <p class="sub">Crio vídeos e fotos que mostram como é estar na sua hospedagem: a chegada, o café, a piscina, o fim de tarde. Conteúdo pro perfil, pro site e pros anúncios de vocês.</p>
+        <div class="acoes">
+          <a class="botao claro" href="#funil">Ver os vídeos que eu crio</a>
+          <a class="botao vazado" href="#parceria">Formatos de parceria</a>
+        </div>
+        <div class="numeros-capa">
+          <div><strong>+39</strong><span>marcas atendidas</span></div>
+          <div><strong>70,9 mil</strong><span>views num único vídeo</span></div>
+          <div><strong>R$ 0,10</strong><span>por visita ao perfil, em anúncio</span></div>
+        </div>
+      </div>
+      <figure class="capa-foto"><img src="img/capa.webp" alt="Yasmin em Ponta Negra ao entardecer, com o Morro do Careca ao fundo"><figcaption class="carimbo">Natal · RN</figcaption></figure>
+    </div>
+  </div>
+</header>
+<div class="faixa" aria-label="Marcas atendidas"><div class="trilho" id="trilho"></div></div>
+
+<main>
+<!-- ================= VER ================= -->
+<section id="olhar">
+  <div class="wrap">
+    <div class="mood-topo">
+      <div>
+        <div class="olho">O meu olhar</div>
+        <h2>Lugares vistos do jeito que <em>dá vontade de ir</em>.</h2>
+        <p class="lead">Fotos minhas, de hotéis, praias e passeios por onde passei. Nada aqui é referência: é o olhar que eu levo pra sua hospedagem.</p>
+      </div>
+    </div>
+    <div class="mood" id="mood"></div>
+  </div>
+</section>
+
+<!-- ================= CONFIAR ================= -->
+<section class="serie" id="funil">
+  <div class="wrap">
+    <div class="olho">Os vídeos</div>
+    <h2>Cada vídeo tem uma função <em>na reserva</em>.</h2>
+    <p class="lead">Do "eu quero estar aí" até o "vou reservar". A mesma estadia vira conteúdo pra cada etapa, pro orgânico e pro tráfego pago.</p>
+    <div class="videos-funil" id="funilCards" style="margin-top:30px"></div>
+    <p class="aviso-ref">As imagens marcadas como referência são de vídeos de outros criadores. Estão aqui só pra mostrar a linguagem de cada etapa.</p>
+  </div>
+</section>
+
+<section id="pessoas">
+  <div class="wrap">
+    <div class="contexto">
+      <div>
+        <div class="olho">Quem aparece</div>
+        <h2>O seu hóspede precisa <em>se ver na tela</em>.</h2>
+        <p class="lead">Eu levo junto quem combina com o público da hospedagem. Casal pra pousada romântica, família pra resort, amigas pra hotel de praia.</p>
+        <p class="lead"><strong>Sempre vou com alguém de apoio pra gravar</strong>, então eu apareço nas cenas e o vídeo fica com cara de viagem de verdade, não de tour de corretor.</p>
+      </div>
+      <figure class="polaroid"><span class="fita" aria-hidden="true"></span><img src="img/casal.webp" alt="Yasmin e o namorado numa selfie ao sol"><figcaption>quem vai comigo</figcaption></figure>
+    </div>
+    <div class="pessoas-cards">
+      <div class="etapa"><span class="n">a dois</span><h3>Casal</h3><p>Pousadas românticas, chalés e suítes com banheira. Clima de escapada.</p></div>
+      <div class="etapa"><span class="n">em família</span><h3>Família</h3><p>Resorts e hotéis com estrutura pra criança. Quem tem filho quer ver filho se divertindo.</p></div>
+      <div class="etapa"><span class="n">entre amigas</span><h3>Amigas</h3><p>Hotéis de praia, day use e roteiros. Leve, divertido e com muita foto.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="papel" id="experiencia">
+  <div class="wrap">
+    <div class="olho">O que eu registro</div>
+    <h2>Eu vivo a experiência completa. <em>E registro tudo</em>.</h2>
+    <p class="lead">Por isso a parceria inclui as diárias com as refeições e as experiências do local. O que eu não vivo, eu não consigo mostrar.</p>
+    <div class="momentos">
+      <div class="momento"><b>Chegada</b><p>Recepção, primeira impressão, o "uau" da porta do quarto.</p></div>
+      <div class="momento"><b>Quarto</b><p>Cama, banheiro, vista da janela e os detalhes da decoração.</p></div>
+      <div class="momento"><b>Café da manhã</b><p>A mesa posta, os sabores da casa, o ritual sem pressa.</p></div>
+      <div class="momento"><b>Almoço e jantar</b><p>Restaurante, drinks e pratos que viram motivo de viagem.</p></div>
+      <div class="momento"><b>Lazer</b><p>Piscina, spa, redário, áreas comuns e o que tem pra fazer.</p></div>
+      <div class="momento"><b>Experiências</b><p>Passeios, atividades e o que só existe aí.</p></div>
+      <div class="momento"><b>Destino</b><p>A praia, a cidade e o que fica perto da hospedagem.</p></div>
+      <div class="momento"><b>Fim de tarde</b><p>Pôr do sol, luz dourada e a noite no hotel.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="escuro" id="quem">
+  <div class="wrap quem">
+    <figure class="polaroid"><span class="fita" aria-hidden="true"></span><img src="img/eu-jardim.webp" alt="Yasmin sentada à mesa num jardim tropical com piscina ao fundo"><figcaption>prazer, Yasmin</figcaption></figure>
+    <div>
+      <div class="olho">Quem cria</div>
+      <h2>Olhar de maquiadora, <em>roteiro</em> de estrategista.</h2>
+      <p class="lead">Sou Yasmin Caetano, criadora UGC e influenciadora, nordestina e baseada em Natal. Já criei pra mais de 39 marcas, de Garnier e Dove a SHEIN, Amazon e Mercado Livre.</p>
+      <div class="vivencias"><span>Natal · RN</span><span>Litoral potiguar</span><span>Estudante de Nutrição</span><span>Maquiadora artística</span><span>@caetyas_</span></div>
+      <ul class="diferenciais">
+        <li><b>Estética que valoriza o espaço.</b> Luz, textura e enquadramento que fazem o lugar parecer o que ele vale.</li>
+        <li><b>Roteiro que vende sem parecer anúncio.</b> Gancho de curiosidade, prova real e chamada pra reservar.</li>
+        <li><b>Conheço o destino.</b> Moro em Natal há mais de 8 anos e chego fácil a Pipa, São Miguel do Gostoso, Genipabu e Maracajaú.</li>
+        <li><b>Gastronomia com propriedade.</b> Estudo Nutrição: café da manhã e restaurante saem com conteúdo, não só com estética.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section id="destaques">
+  <div class="wrap">
+    <div class="olho">Prova</div>
+    <h2>Antes da hotelaria, <em>já existia performance</em>.</h2>
+    <p class="lead">Toque pra assistir aqui mesmo. Os primeiros vídeos de hospedagem do meu portfólio vão ser feitos com os primeiros parceiros, e esse é o olhar que eles recebem.</p>
+    <div class="case">
+      <button type="button" class="video" data-video="GMK9yJPUJbk" aria-label="Assistir ao vídeo do Bombado">
+        <span class="tela"><img src="https://i.ytimg.com/vi/GMK9yJPUJbk/oardefault.jpg" alt="" data-fallback="GMK9yJPUJbk"><span class="play"><svg viewBox="0 0 24 24"><path d="M6 4l14 8-14 8z"/></svg></span></span>
+      </button>
+      <div>
+        <div class="olho">Case · Bombado · tráfego pago</div>
+        <h3>Uma visita que virou <em>anúncio</em>.</h3>
+        <p>Em vez de apresentar o cardápio, mostrei ambiente, comida e experiência com cara de visita real. É a mesma lógica de um vídeo de hospedagem: o lugar dentro de uma vivência.</p>
+        <div class="numeros">
+          <div><strong>70.900</strong><span>visualizações</span></div>
+          <div><strong>33.505</strong><span>pessoas alcançadas</span></div>
+          <div><strong>2.281</strong><span>interações</span></div>
+          <div><strong>1.891</strong><span>novos seguidores</span></div>
+          <div><strong>R$ 0,10</strong><span>por visita ao perfil</span></div>
+          <div><strong>R$ 359</strong><span>investidos</span></div>
+        </div>
+      </div>
+    </div>
+    <div class="videos" id="videos"></div>
+    <a class="botao linha mais" href="../#trabalhos">Ver todos os vídeos no portfólio</a>
+  </div>
+</section>
+
+<!-- ================= CONTRATAR ================= -->
+<section class="papel" id="parceria">
+  <div class="wrap">
+    <div class="olho">Formatos de parceria</div>
+    <h2>Escolham o formato que <em>faz sentido pra vocês</em>.</h2>
+    <p class="lead">Em todos eles eu me hospedo com as refeições incluídas e entrego os arquivos editados, prontos pra usar.</p>
+    <div class="pacotes" id="pacotes"></div>
+    <div class="avulsos">
+      <b>Peças avulsas</b>
+      <div class="avulso"><span>Vídeo produzido<small>roteiro, gravação e edição</small></span><strong>R$ 300</strong></div>
+      <div class="avulso"><span>Vídeo lo-fi<small>câmera na mão, edição simples</small></span><strong>R$ 180</strong></div>
+      <div class="avulso"><span>Variação de gancho<small>mesmo vídeo, abertura nova</small></span><strong>R$ 50</strong></div>
+    </div>
+    <div class="alto-valor">
+      <div><h3>Resort ou hotel <em>maior</em>?</h3><p>Mais estrutura pede mais conteúdo: a gente monta uma proposta sob medida, com cenas de família e mais dias de gravação.</p></div>
+      <a class="botao claro" id="zapValor" href="https://wa.me/5581989857308" target="_blank" rel="noopener">Montar minha proposta</a>
+    </div>
+    <div class="condicoes">
+      <div><b>Hóspedes</b><p>Casal + 1 apoio de gravação, ou família, conforme o porte do local.</p></div>
+      <div><b>Datas</b><p>De preferência de segunda a quinta, quando a ocupação é menor.</p></div>
+      <div><b>Incluso na estadia</b><p>Diárias, refeições e as experiências do local.</p></div>
+      <div><b>Prazo</b><p>Arquivos em até 7 dias depois da estadia.</p></div>
+      <div><b>Ajustes</b><p>1 rodada inclusa por vídeo.</p></div>
+      <div><b>Uso de imagem</b><p>Vitalício nas suas redes e site. Anúncio pelo prazo do pacote.</p></div>
+      <div><b>Pagamento</b><p>Nos formatos com cachê: 50% pra fechar e 50% na entrega.</p></div>
+      <div><b>Stories</b><p>Bônus: stories no meu perfil durante a estadia.</p></div>
+      <div><b>Collab</b><p>Post em collab no meu perfil sem custo adicional, se vocês quiserem.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="entrega">
+  <div class="wrap">
+    <div class="olho">Depois do sim</div>
+    <h2>Um processo fixo, <em>sem surpresa</em>.</h2>
+    <ol class="passos">
+      <li><b>Conversa</b><p>Entendo o público, os diferenciais e o objetivo.</p></li>
+      <li><b>Roteiro</b><p>Ideias e ganchos pra vocês aprovarem antes da viagem.</p></li>
+      <li><b>Estadia</b><p>Gravo vivendo a experiência, do check-in ao check-out.</p></li>
+      <li><b>Edição</b><p>Cor, cortes, legendas e música no ritmo de cada vídeo.</p></li>
+      <li><b>Entrega</b><p>Pasta no Drive, sempre no mesmo padrão.</p></li>
+    </ol>
+    <div class="pasta">
+      <h3>Na pasta do <em>Drive</em> vai</h3>
+      <ul>
+        <li><b>Roteiro</b><span>A versão aprovada.</span></li>
+        <li><b>Vídeo com legenda</b><span>Pronto pra postar.</span></li>
+        <li><b>Vídeo sem legenda</b><span>Pra editar e rodar em anúncio.</span></li>
+        <li><b>Fotos editadas</b><span>Pro feed, site e plataformas de reserva.</span></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section class="papel" id="depoimentos">
+  <div class="wrap">
+    <div class="olho">Quem já criou comigo</div>
+    <h2>O que as marcas <em>falam</em>.</h2>
+    <div class="depos-topo"><div class="setas"><button class="seta-car" id="depAnt" type="button" aria-label="Depoimentos anteriores">←</button><button class="seta-car" id="depProx" type="button" aria-label="Mais depoimentos">→</button></div></div>
+    <ul class="depoimentos" id="listaDep" tabindex="0" aria-label="Depoimentos de marcas, role pro lado pra ver mais"></ul>
+    <div class="faq">
+      <details><summary>Preciso que você poste no seu perfil?</summary><p>Não. UGC é conteúdo pra hospedagem usar nos próprios canais. Os stories durante a estadia e o post em collab são bônus, se vocês quiserem.</p></details>
+      <details><summary>Quantas pessoas vão?</summary><p>Depende do porte do lugar: normalmente eu, meu namorado e uma pessoa de apoio pra gravar. Em resorts e hotéis de família, posso levar a família pra captar cenas com criança.</p></details>
+      <details><summary>Vocês podem escolher o que aparece?</summary><p>Sim. O roteiro é aprovado antes da viagem, e se tiver um diferencial que vocês querem destacar (spa, restaurante, vista), ele entra como protagonista.</p></details>
+      <details><summary>Atende fora de Natal?</summary><p>Sim. Natal e o litoral potiguar ficam perto, e pra outros destinos a gente combina o deslocamento.</p></details>
+      <details><summary>E se for um Airbnb ou chalé pequeno?</summary><p>Funciona do mesmo jeito: menos estrutura pra mostrar, mais foco em clima, detalhe e experiência. A gente ajusta o pacote ao tamanho do lugar.</p></details>
+    </div>
+  </div>
+</section>
+</main>
+
+<section class="contato" id="contato">
+  <div class="wrap contato-grid">
+    <div>
+      <div class="olho">Vamos criar?</div>
+      <h2>Uma experiência que o seu hóspede <em>queira viver</em>.</h2>
+      <p class="lead">Me conta sobre a sua hospedagem. Eu te respondo com as ideias de roteiro e o formato que faz mais sentido pra vocês.</p>
+      <div class="acoes">
+        <a class="botao claro" id="zap" href="https://wa.me/5581989857308" target="_blank" rel="noopener">Chamar no WhatsApp</a>
+        <a class="botao vazado" href="https://instagram.com/caetyas_" target="_blank" rel="noopener">@caetyas_</a>
+      </div>
+      <div class="dados"><span>WhatsApp (81) 98985-7308</span><span>vityasbusiness@gmail.com</span></div>
+    </div>
+    <figure class="polaroid"><span class="fita" aria-hidden="true"></span><img src="img/eu-drink.webp" alt="Yasmin à noite num jardim com guarda-chuvas coloridos e um drink"><figcaption>até já!</figcaption></figure>
+  </div>
+</section>
+
+<footer>Yasmin Caetano · UGC Travel · Natal RN · Imagens marcadas como referência são de outros criadores.</footer>
+
+<div class="barra" id="barra">
+  <p><b>UGC Travel · Yasmin Caetano</b><br>Parcerias abertas pra hotéis e pousadas</p>
+  <a class="botao claro" id="zapBarra" href="https://wa.me/5581989857308" target="_blank" rel="noopener">Falar comigo</a>
+</div>
+
+<div class="fundo-video" id="fundoVideo" aria-hidden="true">
+  <div class="card-player" role="dialog" aria-modal="true" aria-label="Vídeo">
+    <button class="fechar" id="fecharVideo" type="button" aria-label="Fechar vídeo">×</button>
+    <div class="moldura" id="moldura"></div>
+  </div>
+</div>
+
+<script>
+  /* ====== SEUS DADOS (edite aqui) ====== */
+  const WHATSAPP = "5581989857308";
+  const MSG = "Oi, Yasmin! Vi sua proposta de UGC Travel e quero conversar sobre uma parceria pra nossa hospedagem.";
+
+  const MARCAS = ["Shein", "Amazon", "Shopee", "Mercado Livre", "Dove", "Pantene", "Garnier", "Tresemmé", "Lux", "Sallve", "Principia", "Bepantol Derma", "CBSkin", "Sheglam", "Dermacol", "Farinha Láctea", "Kind", "Domidona", "Gocase", "Acer", "Bombado", "Camarão na Telha", "Cookitos", "Ollie", "Hydratta"];
+
+  // Fotos minhas (pasta img). legenda = bilhetinho escrito à mão.
+  const MOOD = [
+    { src: "hotel", legenda: "hotel", alt: "Yasmin sentada na borda da piscina de um hotel" },
+    { src: "lazer", legenda: "área de lazer", alt: "Piscina com palmeira e o prédio do hotel ao fundo" },
+    { src: "areia", legenda: "pé na areia", alt: "Yasmin de vestido branco num deck de frente pro mar" },
+    { src: "passeio", legenda: "passeio", alt: "Yasmin diante de um cajueiro gigante" },
+    { src: "destino", legenda: "destino", alt: "Praia com o Morro do Careca e céu azul" },
+    { src: "litoral", legenda: "litoral", alt: "Yasmin caminhando numa praia de areia branca" },
+    { src: "viagem", legenda: "viagem", alt: "Yasmin em frente ao Museu do Amanhã, no Rio" },
+    { src: "tarde", legenda: "fim de tarde", alt: "Pôr do sol na praia com prédios ao fundo" }
+  ];
+
+  // As 3 etapas. refs = imagens de referência (vídeos de outros criadores).
+  const FUNIL = [
+    { etapa: "Desejo", formato: "Sensorial · sem fala · 20–30s", gancho: "POV: você finalmente tirou um dia pra não fazer absolutamente nada.", obj: "Fazer o público se imaginar dentro da hospedagem.", sensacao: "eu quero estar aí",
+      refs: [["ref-des1", "Mulher de chapéu numa banheira no meio da mata"], ["ref-des2", "Mulher relaxando numa banheira ao ar livre"], ["ref-des3", "Mulher num chalé de madeira com escada"]] },
+    { etapa: "Confiança", formato: "Tour narrado · 30–60s", gancho: "Antes de reservar essa pousada, olha esses 3 detalhes.", obj: "Responder às dúvidas antes da reserva, com detalhes reais.", sensacao: "é tudo isso mesmo",
+      refs: [["ref-con1", "Mulher na varanda olhando a vista da baía"], ["ref-con2", "Casal cozinhando numa casa de temporada"], ["ref-con3", "Mulher numa banheira de imersão no jardim"]] },
+    { etapa: "Decisão", formato: "UGC Ad · 15–30s · 3 ganchos", gancho: "Me explica como esse lugar existe a 30 minutos de Natal.", obj: "Transformar atenção em reserva, com benefício, preço e chamada.", sensacao: "vou reservar",
+      refs: [["ref-dec1", "Vídeo em lista mostrando a casa equipada"], ["ref-dec4", "Casal de roupão com o preço da diária na tela"], ["ref-dec3", "Prato regional com o preço na tela"]] }
+  ];
+
+  // Meus vídeos (código do YouTube) e onde esse olhar entra numa hospedagem.
+  const VIDEOS = [
+    { id: "KHrjhYwHz_w", nicho: "Gastronomia", uso: "Na hospedagem: restaurante e café" },
+    { id: "pvpWG6x2ucA", nicho: "Skincare", uso: "Na hospedagem: spa e banheira" },
+    { id: "mYr7VDvsxYo", nicho: "Bodycare", uso: "Na hospedagem: quarto e enxoval" },
+    { id: "eQKGJGUUxA8", nicho: "Acessórios", uso: "Na hospedagem: lifestyle" }
+  ];
+
+  const PACOTES = [
+    { selo: "Permuta", nome: "Experiência", pra: "Hospedagem de 2 a 3 diárias, com refeições.", itens: ["3 vídeos (Reels / TikTok)", "10 fotos editadas", "Uso no perfil, site e stories", "Bônus: stories no @caetyas_"], preco: "Permuta", nota: "equivale a R$ 1.100 em conteúdo", destaque: false },
+    { selo: "Recomendado · híbrido", nome: "Experiência + Ads", pra: "Hospedagem completa + cachê.", itens: ["4 vídeos, 1 em versão anúncio com 3 ganchos", "15 fotos editadas", "Uso orgânico + anúncio por 90 dias", "Bônus: stories no @caetyas_"], preco: "R$ 590", nota: "+ hospedagem · equivale a R$ 1.700", destaque: true },
+    { selo: "Pago", nome: "Sob medida", pra: "Vocês escolhem as entregas.", itens: ["Vídeos e fotos à la carte", "Anúncio pelo prazo combinado", "Hospedagem no período de gravação", "Orçamento fechado por escrito"], preco: "a partir de R$ 300", nota: "por vídeo, veja as peças avulsas", destaque: false }
+  ];
+
+  const DEPOIMENTOS = [
+    { texto: "Ótima construção do roteiro, com uma abordagem natural e criativa. Adoramos os takes externos! O conteúdo ficou natural, dinâmico e super alinhado ao briefing.", nome: "Domidona", nicho: "Moda" },
+    { texto: "Era um vídeo desse mesmo que estava imaginando, ficou muito bom de verdade. Até a qualidade do brilho ficou top. Esse vídeo vai ser um dos que vão bombar mesmo no patrocínio.", nome: "Bombado", nicho: "Gastronomia" },
+    { texto: "Foi muito positivo. O vídeo ficou exatamente como eu gostaria. Trazer a pegada família, seu roteiro foi muito bem escrito, apresentou a fachada, mostrou detalhes, falou de pontos positivos.", nome: "Camarão na Telha", nicho: "Gastronomia" },
+    { texto: "Oi Yasmin, bom dia. Ficou muito bom, gostei demais. Espero estender nossa parceria com conteúdos futuros. Parabéns pelo seu trabalho!", nome: "DeliCookies", nicho: "Gastronomia" },
+    { texto: "Passando pra agradecer o trabalho, muito bom, gostei de verdade. Gosto dessas coisas não tão enfeitadas, mas também com um toquezinho de capricho.", nome: "Matutos", nicho: "Gastronomia" },
+    { texto: "Gratidão pelo registro, somos gratos por tanto carinho em mostrar nossa loja e nossos produtos! E parabéns pela estética do vídeo, ficou incrível.", nome: "Cookitos", nicho: "Gastronomia" }
+  ];
+
+  /* ====== fim dos dados ====== */
+
+  const $ = s => document.querySelector(s);
+  const esc = s => String(s).replace(/[&<>"']/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
+  const playSvg = '<svg viewBox="0 0 24 24"><path d="M6 4l14 8-14 8z"/></svg>';
+  const capa = id => `<img src="https://i.ytimg.com/vi/${esc(id)}/oardefault.jpg" alt="" loading="lazy" data-fallback="${esc(id)}">`;
+  const zap = `https://wa.me/${WHATSAPP}?text=${encodeURIComponent(MSG)}`;
+  ["#zap", "#zapBarra", "#zapValor"].forEach(s => { const a = $(s); if (a) a.href = zap; });
+
+  $("#trilho").innerHTML = [...MARCAS, ...MARCAS].map(m => `<span>${esc(m)}</span>`).join("");
+
+  $("#mood").innerHTML = MOOD.map(m => `<figure><img src="img/${esc(m.src)}.webp" alt="${esc(m.alt)}" loading="lazy">${m.legenda ? `<figcaption>${esc(m.legenda)}</figcaption>` : ""}</figure>`).join("");
+
+  $("#funilCards").innerHTML = FUNIL.map((f, i) => `<article class="vf">
+    <div class="vf-topo"><span class="vf-num">0${i + 1}</span><span class="vf-etapa">${esc(f.etapa)}</span></div>
+    <span class="vf-formato">${esc(f.formato)}</span>
+    <div class="refs">${f.refs.map(r => `<figure><img src="img/${esc(r[0])}.webp" alt="Referência: ${esc(r[1])}" loading="lazy"><span class="ref-tag">referência</span></figure>`).join("")}</div>
+    <q>${esc(f.gancho)}</q>
+    <div class="vf-obj"><span>Objetivo</span><p>${esc(f.obj)}</p></div>
+    <p class="sensacao">${esc(f.sensacao)}</p>
+  </article>`).join("");
+
+  $("#videos").innerHTML = VIDEOS.map(v => `<button type="button" class="video" data-video="${esc(v.id)}" aria-label="Assistir vídeo de ${esc(v.nicho)}">
+    <span class="tela">${capa(v.id)}<span class="play">${playSvg}</span></span>
+    <span><b>${esc(v.nicho)}</b><small>${esc(v.uso)}</small></span></button>`).join("");
+  document.querySelectorAll("img[data-fallback]").forEach(img => img.addEventListener("error", () => {
+    if (!img.dataset.f) { img.dataset.f = 1; img.src = `https://i.ytimg.com/vi/${img.dataset.fallback}/hqdefault.jpg`; }
+  }));
+
+  $("#pacotes").innerHTML = PACOTES.map(p => `<article class="pacote${p.destaque ? " destaque" : ""}">
+    <span class="selo-p">${esc(p.selo)}</span><h3>${esc(p.nome)}</h3><p class="pra">${esc(p.pra)}</p>
+    <ul>${p.itens.map(i => `<li>${esc(i)}</li>`).join("")}</ul>
+    <div class="preco">${esc(p.preco)}<small>${esc(p.nota)}</small></div></article>`).join("");
+
+  const listaDep = $("#listaDep");
+  listaDep.innerHTML = DEPOIMENTOS.map(d => `<li><figure class="depoimento"><blockquote>${esc(d.texto)}</blockquote><figcaption><span class="avatar" aria-hidden="true"></span><div><b>${esc(d.nome)}</b><span>${esc(d.nicho)}</span></div></figcaption></figure></li>`).join("");
+  const atualizaSetas = () => { const fim = listaDep.scrollWidth - listaDep.clientWidth; $("#depAnt").disabled = listaDep.scrollLeft <= 2; $("#depProx").disabled = listaDep.scrollLeft >= fim - 2; };
+  const passo = () => (listaDep.querySelector("li") || { offsetWidth: 300 }).offsetWidth + 22;
+  $("#depAnt").addEventListener("click", () => listaDep.scrollBy({ left: -passo(), behavior: "smooth" }));
+  $("#depProx").addEventListener("click", () => listaDep.scrollBy({ left: passo(), behavior: "smooth" }));
+  listaDep.addEventListener("scroll", atualizaSetas, { passive: true });
+  window.addEventListener("resize", atualizaSetas); atualizaSetas();
+
+  const barra = $("#barra");
+  new IntersectionObserver(([en]) => barra.classList.toggle("visivel", !en.isIntersecting)).observe($("#topo"));
+
+  // Player na própria página
+  const fundo = $("#fundoVideo"), moldura = $("#moldura");
+  const toqueCel = window.matchMedia("(pointer: coarse)").matches;
+  const player = { el: null, tocando: false, mudo: false };
+  let focoAntes = null;
+  const comando = f => player.el && player.el.contentWindow && player.el.contentWindow.postMessage(JSON.stringify({ event: "command", func: f, args: [] }), "*");
+  function abreVideo(id) {
+    focoAntes = document.activeElement;
+    Object.assign(player, { tocando: true, mudo: toqueCel });
+    const cod = encodeURIComponent(id);
+    const origem = location.protocol.startsWith("http") ? `&origin=${encodeURIComponent(location.origin)}` : "";
+    moldura.innerHTML = `<iframe src="https://www.youtube-nocookie.com/embed/${cod}?autoplay=1&mute=${player.mudo ? 1 : 0}&controls=0&rel=0&playsinline=1&iv_load_policy=3&disablekb=1&fs=0&loop=1&playlist=${cod}&enablejsapi=1${origem}" title="Vídeo da Yasmin Caetano" allow="autoplay; encrypted-media; picture-in-picture" tabindex="-1"></iframe>
+      <button type="button" class="toque" id="toque" aria-label="Pausar o vídeo"><span class="icone" aria-hidden="true">${playSvg}</span></button>
+      <button type="button" class="som" id="som">${player.mudo ? "Ativar som" : "Tirar som"}</button>`;
+    player.el = moldura.querySelector("iframe");
+    moldura.classList.remove("pausado");
+    $("#toque").addEventListener("click", () => {
+      player.tocando = !player.tocando; comando(player.tocando ? "playVideo" : "pauseVideo");
+      moldura.classList.toggle("pausado", !player.tocando);
+    });
+    $("#som").addEventListener("click", e => {
+      player.mudo = !player.mudo; comando(player.mudo ? "mute" : "unMute");
+      e.currentTarget.textContent = player.mudo ? "Ativar som" : "Tirar som";
+    });
+    fundo.classList.add("aberto"); fundo.setAttribute("aria-hidden", "false");
+    $("#fecharVideo").focus();
+  }
+  function fechaVideo() {
+    fundo.classList.remove("aberto"); fundo.setAttribute("aria-hidden", "true");
+    moldura.innerHTML = ""; player.el = null;
+    if (focoAntes && focoAntes.focus) focoAntes.focus();
+  }
+  document.addEventListener("click", e => { const v = e.target.closest("[data-video]"); if (v) abreVideo(v.dataset.video); });
+  $("#fecharVideo").addEventListener("click", fechaVideo);
+  fundo.addEventListener("click", e => { if (e.target === fundo) fechaVideo(); });
+  document.addEventListener("keydown", e => { if (e.key === "Escape" && fundo.classList.contains("aberto")) fechaVideo(); });
+
+</script>
+</body>
+</html>
