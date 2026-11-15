@@ -126,7 +126,7 @@
   .publico span { font-size: .76rem; color: var(--tinta-suave); }
   .vivencias { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 22px; }
   .vivencias span { border: 1.5px solid var(--bordo); color: var(--bordo); border-radius: 999px; padding: 5px 13px; font-size: .8rem; font-weight: 600; }
-  .listras { background: repeating-linear-gradient(90deg, var(--ceu) 0 46px, var(--creme) 46px 92px); position: relative; overflow: hidden; min-height: 460px; }
+  .listras { background: repeating-linear-gradient(90deg, var(--oliva) 0 46px, #364329 46px 92px); position: relative; overflow: hidden; min-height: 460px; }
   .foto-presa { position: absolute; top: 50%; left: 50%; height: var(--h, 440px); aspect-ratio: 4/5.4; max-width: 82%; translate: -50% -50%; margin: 0; background: #fff; padding: 12px 12px 48px; box-shadow: var(--sombra); transform: rotate(3deg); }
   .foto-presa img { width: 100%; height: 100%; object-fit: cover; }
   .foto-presa figcaption { position: absolute; left: 0; right: 0; bottom: 8px; text-align: center; font-family: var(--mao); font-size: 1.6rem; color: var(--bordo); }
@@ -179,7 +179,7 @@
 
   /* ===== QUEM APARECE (laranja + creme) ===== */
   .pessoas { padding: 0; display: grid; grid-template-columns: minmax(0, .85fr) minmax(0, 1.15fr); }
-  .pessoas-foto { background: repeating-linear-gradient(90deg, var(--oliva) 0 46px, #364329 46px 92px); position: relative; min-height: 440px; }
+  .pessoas-foto { background: repeating-linear-gradient(90deg, var(--ceu) 0 46px, var(--creme) 46px 92px); position: relative; min-height: 440px; }
   .moldura-arredondada { position: absolute; top: 50%; left: 50%; height: var(--h, 420px); translate: -50% -50%; aspect-ratio: 4/5; max-width: 82%; background: #fff; padding: 10px; border-radius: 22px; box-shadow: var(--sombra); }
   .moldura-arredondada img { width: 100%; height: 100%; object-fit: cover; border-radius: 14px; }
   .balao { position: absolute; right: -26px; bottom: 34px; background: var(--sol); color: var(--bordo); border-radius: 999px; padding: 7px 14px; font-size: .72rem; font-weight: 800; letter-spacing: .1em; text-transform: uppercase; transform: rotate(-6deg); box-shadow: 0 6px 14px -6px rgba(0,0,0,.35); }
@@ -387,7 +387,7 @@
   <div class="wrap">
     <article class="postal">
       <div class="postal-foto">
-        <img src="img/capa.webp" alt="Yasmin em Ponta Negra ao entardecer, com o Morro do Careca ao fundo">
+        <img src="img/areia.webp" alt="Yasmin de vestido branco num deck de frente pro mar">
         <span class="assinatura">Natal</span>
       </div>
       <div class="postal-texto">
@@ -418,10 +418,10 @@
   <div class="sobre-texto">
     <h2>Prazer, Yasmin</h2>
     <p class="sub-titulo">Nordestina, com o litoral no quintal</p>
-    <p class="lead">Sou criadora UGC e influenciadora, baseada em Natal há mais de 8 anos. Já criei pra mais de 39 marcas, de Garnier e Dove a SHEIN, Amazon e Mercado Livre.</p>
+    <p class="lead">Sou criadora UGC e influenciadora, recifense morando em Natal. Já criei pra mais de 39 marcas, de Garnier e Dove a SHEIN, Amazon e Mercado Livre.</p>
     <p class="lead">Na hotelaria, o meu trabalho é mostrar não só onde o hóspede vai ficar, mas <b>como ele vai se sentir ali</b>: com estética que valoriza o espaço, roteiro que vende sem parecer anúncio e um olhar de quem conhece o destino.</p>
     <div class="publico"><div><strong>+39</strong><span>marcas atendidas</span></div><div><strong>86,5%</strong><span>mulheres no Instagram</span></div><div><strong>58%</strong><span>entre 18 e 34 anos</span></div><div><strong>4,6M</strong><span>curtidas no TikTok</span></div></div>
-    <div class="vivencias"><span>Natal · RN</span><span>Pipa · Gostoso · Genipabu</span><span>Estudante de Nutrição</span><span>Maquiadora artística</span><span>@caetyas_</span></div>
+    <div class="vivencias"><span>Natal · RN</span><span>Estudante de Nutrição</span><span>Maquiadora artística</span><span>@caetyas_</span></div>
   </div>
   <div class="listras">
     <figure class="foto-presa">
@@ -528,7 +528,7 @@
 <section class="pessoas" id="pessoas">
   <div class="pessoas-foto">
     <figure class="moldura-arredondada" style="margin:0">
-      <img src="img/areia.webp" alt="Yasmin de vestido branco num deck de frente pro mar">
+      <img src="img/capa.webp" alt="Yasmin em Ponta Negra ao entardecer, com o Morro do Careca ao fundo">
       <span class="balao">depende da vibe!</span>
     </figure>
   </div>
@@ -629,7 +629,7 @@
   const MOOD = [
     { src: "hotel", legenda: "hotel", alt: "Yasmin sentada na borda da piscina de um hotel" },
     { src: "lazer", legenda: "área de lazer", alt: "Piscina com palmeira e o prédio do hotel ao fundo" },
-    { src: "areia", legenda: "pé na areia", alt: "Yasmin de vestido branco num deck de frente pro mar" },
+    { src: "varanda", legenda: "pôr do sol", alt: "Yasmin numa varanda de frente pro mar ao entardecer" },
     { src: "passeio", legenda: "passeio", alt: "Yasmin diante de um cajueiro gigante" },
     { src: "destino", legenda: "destino", alt: "Praia com o Morro do Careca e céu azul" },
     { src: "litoral", legenda: "litoral", alt: "Yasmin caminhando numa praia de areia branca" },
