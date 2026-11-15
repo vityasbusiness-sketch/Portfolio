@@ -4,8 +4,8 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>UGC Travel · Yasmin Caetano</title>
-<meta name="description" content="Vídeos e fotos UGC para hotéis, pousadas, resorts e chalés. Conteúdo que faz o hóspede se imaginar aí antes de reservar.">
-<meta name="theme-color" content="#ede5d7">
+<meta name="description" content="Vídeos, fotos e carrosséis UGC para hotéis, pousadas, resorts e chalés. Conteúdo que faz o hóspede se imaginar aí antes de reservar.">
+<meta name="theme-color" content="#f6f1e8">
 <meta property="og:type" content="website">
 <meta property="og:locale" content="pt_BR">
 <meta property="og:title" content="UGC Travel · Yasmin Caetano">
@@ -14,569 +14,531 @@
 <meta property="og:image" content="https://vityasbusiness-sketch.github.io/Portfolio/travel/img/fundo-capa.webp">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght,SOFT@9..144,400..900,0..100&family=Caveat:wght@600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..600;1,9..144,300..500&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Caveat:wght@600&display=swap" rel="stylesheet">
 <style>
-  /* Clima de cartão-postal (inspirado no Visit Kalkan). Bordô só em títulos e detalhes. */
+  /* Revista de viagem + cartão-postal. Paleta CAETYAS_: bege, verde, azul petróleo; bordô só nas letras.
+     Cada seção cabe numa tela de computador (min-height: 100vh). */
   :root {
     color-scheme: light;
-    --creme: #f7f2ea;
-    --areia: #ede5d7;          /* bege da paleta CAETYAS_ */
-    --areia-2: #e3d7c3;
-    --sol: #d9b26f;            /* caramelo: só em detalhes */
-    --sol-claro: #ede5d7;
-    --ceu: #c5d6dc;            /* azul petróleo bem clarinho */
-    --ceu-claro: #e4ecee;
-    --mar: #113f54;            /* azul da paleta */
-    --oliva: #2d3823;          /* verde da paleta */
+    --creme: #f6f1e8;
+    --bege: #ede5d7;
+    --areia: #e2d5c1;
+    --verde: #2d3823;
+    --verde-2: #3b4a2f;
     --salvia: #8e9a78;
-    --laranja: #b0643f;        /* terracota suave, só em notas */
-    --bordo: #6e0f1e;
-    --tinta: #3a1a14;
-    --tinta-suave: #6b4e44;
-    --linha: rgba(58, 26, 20, .14);
-    --titulo: "Fraunces", Georgia, serif;
+    --azul: #113f54;
+    --azul-claro: #dfe8ea;
+    --caramelo: #c9a06a;
+    --bordo: #5a0e18;
+    --tinta: #231a15;
+    --tinta-suave: #5f5048;
+    --linha: rgba(35, 26, 21, .14);
+    --serif: "Fraunces", Georgia, "Times New Roman", serif;
     --sans: "Plus Jakarta Sans", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
     --mao: "Caveat", "Comic Sans MS", cursive;
-    --sombra: 0 2px 4px rgba(58,26,20,.08), 0 18px 40px -18px rgba(58,26,20,.45);
-    --largura: 1140px;
-    --gutter: clamp(18px, 5vw, 40px);
+    --sombra: 0 1px 2px rgba(35,26,21,.06), 0 22px 44px -26px rgba(35,26,21,.5);
+    --largura: 1180px;
+    --gutter: clamp(20px, 5vw, 48px);
+    --nav: 64px;
   }
   * { box-sizing: border-box; }
-  html { scroll-behavior: smooth; }
+  html { scroll-behavior: smooth; scroll-padding-top: var(--nav); }
   @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } *, *::before, *::after { animation: none !important; transition: none !important; } }
-  body { margin: 0; background: var(--creme); color: var(--tinta); font-family: var(--sans); font-size: 16px; line-height: 1.6; padding-bottom: 76px; }
-  img { max-width: 100%; display: block; }
+  body { margin: 0; background: var(--creme); color: var(--tinta); font-family: var(--sans); font-size: 15px; line-height: 1.6; }
+  img, video { max-width: 100%; display: block; }
   a { color: inherit; }
   button { font: inherit; color: inherit; cursor: pointer; }
   p { margin: 0; }
-  h1, h2, h3 { margin: 0; font-family: var(--titulo); font-weight: 800; font-variation-settings: "SOFT" 100, "opsz" 72; line-height: 1.02; letter-spacing: -.01em; color: var(--bordo); text-wrap: balance; }
-  h2 { font-size: clamp(2.1rem, 5.4vw, 3.4rem); }
-  h3 { font-size: 1.35rem; }
-  :focus-visible { outline: 3px solid var(--laranja); outline-offset: 3px; }
+  h1, h2, h3 { margin: 0; font-family: var(--serif); font-weight: 400; line-height: 1.04; letter-spacing: -.015em; color: var(--bordo); text-wrap: balance; }
+  h1 em, h2 em, h3 em { font-style: italic; font-weight: 300; }
+  h2 { font-size: clamp(2rem, 4vw, 3.1rem); }
+  :focus-visible { outline: 2px solid var(--caramelo); outline-offset: 3px; }
   .wrap { width: min(var(--largura), 100% - 2 * var(--gutter)); margin-inline: auto; }
-  section { padding: clamp(60px, 9vw, 104px) 0; }
-  .sub-titulo { font-size: .74rem; font-weight: 700; letter-spacing: .24em; text-transform: uppercase; color: var(--bordo); margin-top: 12px; }
-  .centro { text-align: center; }
-  .centro .lead { margin-inline: auto; }
-  .lead { max-width: 56ch; margin-top: 18px; color: var(--tinta-suave); font-size: 1.02rem; }
-  .lead b { color: var(--tinta); }
-  .nota { font-family: var(--mao); font-weight: 700; font-size: 1.6rem; line-height: 1.05; color: var(--laranja); }
-  .botao { display: inline-flex; align-items: center; justify-content: center; gap: 8px; padding: 14px 24px; border-radius: 999px; border: 0; background: var(--bordo); color: var(--creme); font-weight: 700; font-size: .78rem; letter-spacing: .14em; text-transform: uppercase; text-decoration: none; transition: transform .2s, background .2s; }
-  .botao:hover { transform: translateY(-2px); }
-  .botao.branco { background: #fff; color: var(--bordo); }
-  .botao.contorno { background: transparent; color: var(--bordo); box-shadow: inset 0 0 0 2px var(--bordo); }
 
-  /* ===== TOPO ===== */
-  .topo { background: var(--creme); position: relative; z-index: 3; }
-  .topo .wrap { display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; gap: 16px; padding: 12px 0; }
-  .menu { display: flex; gap: clamp(14px, 2.4vw, 28px); font-family: var(--titulo); font-variation-settings: "SOFT" 100; font-weight: 500; color: var(--bordo); font-size: .98rem; }
-  .menu a { text-decoration: none; }
-  .menu a:hover { color: var(--laranja); }
-  .menu.dir { justify-content: flex-end; align-items: center; }
-  .selo-logo { width: 96px; height: 96px; border-radius: 50%; background: var(--sol); display: grid; place-items: center; text-align: center; text-decoration: none; box-shadow: inset 0 0 0 3px var(--creme), inset 0 0 0 5px var(--bordo); margin-bottom: -34px; transform: rotate(-6deg); }
-  .selo-logo b { font-family: var(--mao); font-size: 1.75rem; line-height: .82; color: var(--bordo); display: block; }
-  .selo-logo small { font-size: .5rem; font-weight: 800; letter-spacing: .18em; text-transform: uppercase; color: var(--mar); display: block; margin-top: 4px; }
-  .pill-topo { border: 1.5px solid var(--bordo); border-radius: 999px; padding: 8px 16px; font-family: var(--sans); font-size: .72rem; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; }
+  /* Cada seção = uma tela */
+  .tela-cheia { min-height: 100vh; min-height: 100svh; display: flex; align-items: center; padding: calc(var(--nav) + 28px) 0 40px; }
+  .tela-cheia > .wrap { width: min(var(--largura), 100% - 2 * var(--gutter)); }
 
-  /* ===== CAPA: cartão-postal ===== */
-  .capa { position: relative; padding: clamp(70px, 10vw, 120px) 0 clamp(60px, 8vw, 96px); overflow: hidden; background: var(--mar); }
-  .capa picture img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
-  .postal { position: relative; z-index: 1; width: min(760px, 100%); margin: 0 auto; background: #f7f2ea; border-radius: 6px; box-shadow: 0 30px 60px -24px rgba(10,30,50,.6); transform: rotate(-3deg); padding: clamp(16px, 2.6vw, 26px); display: grid; grid-template-columns: minmax(0, .9fr) minmax(0, 1.1fr); gap: clamp(16px, 3vw, 30px); }
-  .postal::before { content: ""; position: absolute; inset: 8px; border: 1.5px dashed rgba(110,15,30,.22); border-radius: 4px; pointer-events: none; }
-  .postal-foto { position: relative; }
-  .postal-foto img { width: 100%; aspect-ratio: 4/5; object-fit: cover; border-radius: 3px; }
-  .postal-foto .assinatura { position: absolute; left: 10px; top: 8px; font-family: var(--mao); font-size: 2rem; color: var(--sol); text-shadow: 0 2px 6px rgba(0,0,0,.35); transform: rotate(-8deg); line-height: 1; }
-  .postal-texto { display: flex; flex-direction: column; justify-content: space-between; gap: 16px; border-left: 1.5px solid rgba(110,15,30,.18); padding-left: clamp(14px, 2.6vw, 26px); position: relative; }
-  .selos { display: flex; justify-content: flex-end; gap: 8px; align-items: flex-start; }
-  .selos svg { width: 74px; height: 88px; }
-  .selos .carimbo { width: 92px; height: 92px; margin-right: -20px; margin-top: 18px; transform: rotate(-12deg); }
-  .capa h1 { font-size: clamp(1.9rem, 4.4vw, 2.9rem); }
-  .capa h1 span { color: var(--laranja); }
-  .capa .linhas { font-size: .7rem; font-weight: 700; letter-spacing: .2em; text-transform: uppercase; color: var(--bordo); margin-top: 10px; }
-  .capa .sub { font-size: .95rem; color: var(--tinta-suave); }
-  .capa .acoes { display: flex; gap: 10px; flex-wrap: wrap; }
+  .cap { display: flex; align-items: center; gap: 14px; font-size: .7rem; font-weight: 700; letter-spacing: .24em; text-transform: uppercase; color: var(--tinta-suave); margin-bottom: 16px; }
+  .cap b { font-family: var(--serif); font-style: italic; font-weight: 400; font-size: 1rem; letter-spacing: 0; text-transform: none; color: var(--caramelo); }
+  .cap::after { content: ""; flex: 0 0 48px; height: 1px; background: currentColor; opacity: .5; }
+  .lead { max-width: 52ch; margin-top: 16px; color: var(--tinta-suave); font-size: 1rem; }
+  .lead b { color: var(--tinta); font-weight: 600; }
+  .mao { font-family: var(--mao); font-size: 1.5rem; line-height: 1; color: var(--caramelo); }
+  .cabeca { display: flex; justify-content: space-between; align-items: flex-end; gap: 24px 40px; flex-wrap: wrap; margin-bottom: clamp(24px, 3.5vh, 40px); }
+  .cabeca .lead { margin-top: 0; max-width: 42ch; }
 
-  /* ===== EXPLORE (amarelo) ===== */
-  .explore { background: var(--areia); }
-  .icones { list-style: none; padding: 0; margin: 40px auto 0; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 30px 16px; max-width: 900px; }
-  .icones a { display: flex; flex-direction: column; align-items: center; gap: 12px; text-decoration: none; font-size: .78rem; font-weight: 700; letter-spacing: .16em; text-transform: uppercase; color: var(--tinta); text-align: center; }
-  .icones svg { width: 58px; height: 58px; transition: transform .25s; }
-  .icones a:hover svg { transform: rotate(-8deg) scale(1.08); }
-  .numeros { display: flex; justify-content: center; gap: clamp(20px, 6vw, 70px); flex-wrap: wrap; margin-top: 50px; padding-top: 30px; border-top: 1.5px dashed rgba(110,15,30,.3); }
-  .numeros div { text-align: center; }
-  .numeros strong { display: block; font-family: var(--titulo); font-weight: 800; font-variation-settings: "SOFT" 100; font-size: clamp(1.8rem, 4vw, 2.5rem); color: var(--bordo); line-height: 1; }
-  .numeros span { font-size: .8rem; color: var(--tinta); }
+  .botao { display: inline-flex; align-items: center; justify-content: center; gap: 8px; padding: 14px 24px; border-radius: 999px; border: 0; background: var(--verde); color: var(--creme); font-weight: 600; font-size: .86rem; letter-spacing: .02em; text-decoration: none; transition: transform .2s, background .2s; }
+  .botao:hover { transform: translateY(-2px); background: var(--verde-2); }
+  .botao.claro { background: var(--creme); color: var(--verde); }
+  .botao.linha { background: transparent; color: var(--verde); box-shadow: inset 0 0 0 1.5px var(--verde); }
+  .botao.linha-clara { background: transparent; color: var(--creme); box-shadow: inset 0 0 0 1.5px rgba(246,241,232,.6); }
 
-  /* ===== SOBRE + LISTRAS ===== */
-  .sobre { padding: 0; display: grid; grid-template-columns: minmax(0, 1.05fr) minmax(0, .95fr); }
-  .sobre-texto { padding: clamp(60px, 8vw, 100px) clamp(24px, 6vw, 80px); align-self: center; }
-  .sobre-texto p.lead { font-size: .98rem; }
-  .vivencias { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 22px; }
-  .vivencias span { border: 1.5px solid var(--bordo); color: var(--bordo); border-radius: 999px; padding: 5px 13px; font-size: .8rem; font-weight: 600; }
-  .listras { background: repeating-linear-gradient(90deg, var(--ceu) 0 46px, var(--creme) 46px 92px); display: grid; place-items: center; padding: 60px 24px; position: relative; overflow: hidden; }
-  .foto-presa { position: relative; background: #fff; padding: 12px 12px 48px; box-shadow: var(--sombra); transform: rotate(4deg); width: min(330px, 80%); }
-  .foto-presa img { width: 100%; aspect-ratio: 4/5; object-fit: cover; }
-  .foto-presa figcaption { position: absolute; left: 0; right: 0; bottom: 8px; text-align: center; font-family: var(--mao); font-size: 1.6rem; color: var(--bordo); }
-  .clipe { position: absolute; top: -22px; right: 34px; width: 22px; height: 60px; transform: rotate(10deg); }
-  .folha { position: absolute; left: -38px; bottom: 40px; width: 80px; height: 110px; transform: rotate(-20deg); }
+  /* ===== NAV ===== */
+  .nav { position: fixed; inset: 0 0 auto; z-index: 20; height: var(--nav); background: rgba(246,241,232,.86); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); border-bottom: 1px solid var(--linha); }
+  .nav .wrap { height: 100%; display: flex; align-items: center; justify-content: space-between; gap: 20px; }
+  .marca { text-decoration: none; display: flex; align-items: baseline; gap: 10px; }
+  .marca b { font-family: var(--serif); font-weight: 400; font-size: 1.25rem; color: var(--bordo); letter-spacing: -.01em; }
+  .marca span { font-size: .62rem; font-weight: 700; letter-spacing: .22em; text-transform: uppercase; color: var(--tinta-suave); }
+  .links { display: flex; gap: clamp(14px, 2.2vw, 30px); align-items: center; font-size: .84rem; }
+  .links a { text-decoration: none; color: var(--tinta-suave); }
+  .links a:hover { color: var(--bordo); }
+  .links .botao { padding: 10px 18px; font-size: .78rem; color: var(--creme); }
 
-  /* ===== FAIXA ===== */
-  .faixa { background: var(--oliva); color: var(--creme); overflow: hidden; padding: 13px 0; }
-  .trilho { display: flex; width: max-content; animation: corre 45s linear infinite; }
-  .trilho span { font-size: .82rem; font-weight: 800; letter-spacing: .2em; text-transform: uppercase; white-space: nowrap; display: flex; align-items: center; }
-  .trilho span::after { content: "✦"; color: var(--sol); font-size: 1rem; margin: 0 26px; }
+  /* ===== 1. CAPA ===== */
+  .capa { background: var(--creme); }
+  .capa-grid { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, .95fr); gap: clamp(30px, 5vw, 80px); align-items: center; }
+  .capa h1 { font-size: clamp(2.6rem, 5.6vw, 4.6rem); line-height: .98; }
+  .capa .lead { font-size: 1.05rem; }
+  .capa .acoes { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 30px; }
+  .capa-numeros { display: flex; gap: clamp(22px, 4vw, 44px); margin-top: 38px; padding-top: 22px; border-top: 1px solid var(--linha); }
+  .capa-numeros strong { display: block; font-family: var(--serif); font-weight: 400; font-size: clamp(1.5rem, 2.6vw, 2rem); color: var(--azul); line-height: 1; }
+  .capa-numeros span { font-size: .76rem; color: var(--tinta-suave); }
+  .capa-fotos { position: relative; justify-self: center; width: min(430px, 100%); }
+  .arco { width: 100%; aspect-ratio: 3/4; object-fit: cover; border-radius: 999px 999px 6px 6px; max-height: calc(100vh - var(--nav) - 110px); }
+  .postal-mini { position: absolute; left: -64px; bottom: 34px; width: 210px; background: #fbf8f2; padding: 10px 10px 12px; border-radius: 4px; box-shadow: var(--sombra); transform: rotate(-5deg); }
+  .postal-mini img { width: 100%; aspect-ratio: 1; object-fit: cover; border-radius: 2px; }
+  .postal-mini p { font-family: var(--mao); font-size: 1.35rem; color: var(--bordo); line-height: 1; margin-top: 8px; padding-left: 2px; }
+  .carimbo { position: absolute; right: -34px; top: 28px; width: 112px; height: 112px; transform: rotate(10deg); opacity: .85; }
+
+  .faixa { background: var(--verde); color: var(--bege); overflow: hidden; padding: 14px 0; }
+  .trilho { display: flex; width: max-content; animation: corre 60s linear infinite; }
+  .trilho span { font-family: var(--serif); font-style: italic; font-size: 1.05rem; white-space: nowrap; display: flex; align-items: center; }
+  .trilho span::after { content: "✦"; font-style: normal; font-size: .7rem; color: var(--caramelo); margin: 0 26px; }
   @keyframes corre { to { transform: translateX(-50%); } }
 
-  /* ===== OLHAR (galeria de polaroids) ===== */
-  .polaroids { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: clamp(14px, 2.5vw, 28px); margin-top: 46px; }
-  .polaroids figure { margin: 0; background: #fff; padding: 9px 9px 40px; box-shadow: var(--sombra); position: relative; transition: transform .3s; }
-  .polaroids figure:nth-child(odd) { transform: rotate(-2.2deg); }
-  .polaroids figure:nth-child(even) { transform: rotate(2deg) translateY(10px); }
-  .polaroids figure:hover { transform: rotate(0) scale(1.03); z-index: 1; }
-  .polaroids img { width: 100%; aspect-ratio: 4/5; object-fit: cover; }
-  .polaroids figcaption { position: absolute; left: 0; right: 0; bottom: 6px; text-align: center; font-family: var(--mao); font-size: 1.45rem; color: var(--bordo); }
-  .fita { position: absolute; width: 70px; height: 20px; top: -10px; left: 50%; transform: translateX(-50%) rotate(-3deg); background: rgba(247,216,106,.8); }
+  /* ===== 2. SOBRE ===== */
+  .sobre { background: var(--bege); }
+  .sobre-grid { display: grid; grid-template-columns: minmax(0, .8fr) minmax(0, 1.2fr); gap: clamp(30px, 6vw, 90px); align-items: center; }
+  .retrato { position: relative; }
+  .retrato img { width: 100%; aspect-ratio: 4/5; object-fit: cover; border-radius: 4px; max-height: calc(100vh - var(--nav) - 120px); }
+  .retrato .mao { position: absolute; right: -14px; bottom: -18px; background: var(--creme); padding: 6px 14px; transform: rotate(-3deg); box-shadow: var(--sombra); color: var(--bordo); }
+  .tags { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 22px; }
+  .tags span { border: 1px solid var(--linha); background: var(--creme); border-radius: 999px; padding: 5px 13px; font-size: .78rem; color: var(--tinta-suave); }
+  .publico { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 12px; margin-top: 28px; padding-top: 22px; border-top: 1px solid var(--linha); }
+  .publico strong { display: block; font-family: var(--serif); font-weight: 400; font-size: 1.7rem; color: var(--azul); line-height: 1; }
+  .publico span { font-size: .74rem; color: var(--tinta-suave); line-height: 1.35; display: block; margin-top: 4px; }
+  .fonte { font-size: .72rem; color: var(--tinta-suave); margin-top: 10px; opacity: .8; }
 
-  /* ===== VÍDEOS POR ETAPA (céu) ===== */
-  .funil { background: var(--ceu-claro); }
-  .etapas { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 18px; margin-top: 40px; }
-  .etapa { background: #fff; border-radius: 20px; padding: 22px; display: flex; flex-direction: column; gap: 14px; box-shadow: 0 1px 2px rgba(31,95,134,.08), 0 16px 34px -22px rgba(31,95,134,.5); }
-  .etapa-topo { display: flex; align-items: center; justify-content: space-between; gap: 10px; }
-  .etapa-nome { font-family: var(--titulo); font-weight: 800; font-variation-settings: "SOFT" 100; font-size: 1.6rem; color: var(--bordo); }
-  .etapa-num { width: 42px; height: 42px; border-radius: 50%; display: grid; place-items: center; font-weight: 800; color: var(--tinta); }
-  .etapa:nth-child(1) .etapa-num { background: var(--sol); }
-  .etapa:nth-child(2) .etapa-num { background: var(--ceu); }
-  .etapa:nth-child(3) .etapa-num { background: var(--salvia); color: #fff; }
-  .formato { align-self: flex-start; background: var(--mar); color: #fff; border-radius: 999px; padding: 4px 12px; font-size: .72rem; font-weight: 700; letter-spacing: .06em; }
-  .refs { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 6px; }
-  .refs figure { margin: 0; position: relative; aspect-ratio: 9/16; border-radius: 10px; overflow: hidden; background: var(--ceu); }
-  .refs img { width: 100%; height: 100%; object-fit: cover; }
-  .ref-tag { position: absolute; left: 5px; top: 5px; background: rgba(255,255,255,.92); color: var(--tinta); font-size: .5rem; font-weight: 800; letter-spacing: .12em; text-transform: uppercase; padding: 3px 6px; border-radius: 4px; }
-  .etapa q { font-family: var(--titulo); font-variation-settings: "SOFT" 100; font-style: italic; font-size: 1.12rem; line-height: 1.3; color: var(--tinta); }
-  .etapa .obj { border-top: 1.5px dashed var(--linha); padding-top: 12px; font-size: .88rem; color: var(--tinta-suave); }
-  .etapa .obj b { display: block; font-size: .62rem; letter-spacing: .18em; text-transform: uppercase; color: var(--bordo); margin-bottom: 2px; }
-  .etapa .nota { margin-top: auto; }
-  .aviso-ref { margin-top: 18px; font-size: .82rem; color: var(--tinta-suave); text-align: center; }
+  /* ===== 3. OLHAR ===== */
+  .olhar { background: var(--creme); }
+  .galeria { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; grid-template-rows: repeat(2, minmax(0, 1fr)); gap: 12px; height: min(560px, calc(100vh - var(--nav) - 260px)); min-height: 360px; }
+  .galeria figure { margin: 0; position: relative; overflow: hidden; border-radius: 4px; }
+  .galeria figure.grande { grid-row: span 2; }
+  .galeria img { width: 100%; height: 100%; object-fit: cover; transition: transform .6s; }
+  .galeria figure:hover img { transform: scale(1.04); }
+  .galeria figcaption { position: absolute; left: 12px; bottom: 10px; color: #fff; font-family: var(--serif); font-style: italic; font-size: 1rem; text-shadow: 0 1px 8px rgba(0,0,0,.45); }
 
-  /* ===== QUEM APARECE (laranja + creme) ===== */
-  .pessoas { padding: 0; display: grid; grid-template-columns: minmax(0, .85fr) minmax(0, 1.15fr); }
-  .pessoas-foto { background: var(--oliva); display: grid; place-items: center; padding: 60px 24px; }
-  .moldura-arredondada { position: relative; width: min(340px, 82%); background: #fff; padding: 10px; border-radius: 22px; box-shadow: var(--sombra); }
-  .moldura-arredondada img { width: 100%; aspect-ratio: 4/5; object-fit: cover; border-radius: 14px; }
-  .balao { position: absolute; right: -26px; bottom: 34px; background: var(--sol); color: var(--bordo); border-radius: 999px; padding: 7px 14px; font-size: .72rem; font-weight: 800; letter-spacing: .1em; text-transform: uppercase; transform: rotate(-6deg); box-shadow: 0 6px 14px -6px rgba(0,0,0,.35); }
-  .pessoas-texto { padding: clamp(60px, 8vw, 100px) clamp(24px, 6vw, 80px); align-self: center; }
-  .tipos { display: grid; gap: 12px; margin-top: 26px; }
-  .tipo { display: grid; grid-template-columns: 46px 1fr; gap: 14px; align-items: start; }
-  .tipo svg { width: 46px; height: 46px; }
-  .tipo b { font-family: var(--titulo); font-variation-settings: "SOFT" 100; font-weight: 800; color: var(--bordo); font-size: 1.15rem; display: block; }
-  .tipo p { font-size: .9rem; color: var(--tinta-suave); }
+  /* ===== 4. FUNIL (vídeos) ===== */
+  .funil { background: var(--azul); color: var(--bege); }
+  .funil h2 { color: var(--creme); }
+  .funil .cap { color: #b9c9cf; }
+  .funil .lead { color: #c6d3d8; }
+  .etapas { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: clamp(16px, 2.4vw, 32px); align-items: start; }
+  .clipes { justify-items: center; }
+  .clipe { width: auto; height: min(340px, calc(100vh - var(--nav) - 500px)); min-height: 220px; max-height: none !important; }
+  .etapa { display: flex; flex-direction: column; gap: 12px; }
+  .etapa-topo { display: flex; align-items: baseline; gap: 12px; border-bottom: 1px solid rgba(237,229,215,.25); padding-bottom: 10px; }
+  .etapa-topo i { font-family: var(--serif); font-size: 1.1rem; color: var(--caramelo); }
+  .etapa-topo b { font-family: var(--serif); font-weight: 400; font-size: 1.6rem; color: var(--creme); }
+  .etapa-topo span { margin-left: auto; font-size: .68rem; letter-spacing: .1em; text-transform: uppercase; color: #b9c9cf; }
+  .clipes { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+  .clipe { position: relative; aspect-ratio: 9/16; border-radius: 10px; overflow: hidden; background: #0c2f3f; max-height: calc(100vh - var(--nav) - 420px); }
+  .clipe video { width: 100%; height: 100%; object-fit: cover; }
+  .clipe .ref { position: absolute; left: 6px; top: 6px; background: rgba(17,63,84,.82); color: var(--bege); font-size: .56rem; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; padding: 3px 7px; border-radius: 3px; }
+  .etapa q { font-family: var(--serif); font-style: italic; font-weight: 300; font-size: 1.08rem; line-height: 1.3; color: var(--creme); }
+  .etapa p { font-size: .84rem; color: #c6d3d8; }
+  .aviso { margin-top: 18px; font-size: .74rem; color: #a9bcc3; }
 
-  /* ===== O QUE EU REGISTRO (amarelo claro) ===== */
-  .registro { background: var(--areia); }
-  .momentos { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 16px; margin-top: 40px; }
-  .momento { background: var(--creme); border-radius: 18px; padding: 20px; display: flex; flex-direction: column; gap: 8px; }
-  .momento svg { width: 40px; height: 40px; }
-  .momento b { font-family: var(--titulo); font-variation-settings: "SOFT" 100; font-weight: 800; color: var(--bordo); font-size: 1.15rem; }
-  .momento p { font-size: .86rem; color: var(--tinta-suave); }
-  .registro .nota { margin-top: 30px; text-align: center; font-size: 1.9rem; color: var(--bordo); }
+  /* ===== 5. CARROSSÉIS ===== */
+  .carrosseis { background: var(--bege); }
+  .modelos { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: clamp(18px, 3vw, 40px); }
+  .modelo { display: flex; flex-direction: column; gap: 8px; }
+  .post { position: relative; background: var(--creme); border-radius: 10px; box-shadow: var(--sombra); overflow: hidden; max-width: min(100%, calc((100vh - var(--nav) - 470px) * .8)); width: 100%; margin-inline: auto; }
+  .post-topo { display: flex; align-items: center; gap: 8px; padding: 8px 10px; font-size: .7rem; font-weight: 600; }
+  .post-topo i { width: 22px; height: 22px; border-radius: 50%; background: var(--azul); display: block; }
+  .post-topo small { margin-left: auto; color: var(--tinta-suave); font-weight: 500; }
+  .slides { display: flex; overflow-x: auto; scroll-snap-type: x mandatory; scrollbar-width: none; }
+  .slides::-webkit-scrollbar { display: none; }
+  .slide { flex: 0 0 100%; scroll-snap-align: start; aspect-ratio: 4/5; position: relative; overflow: hidden; }
+  .slide img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+  .slide .vela { position: absolute; inset: 0; background: linear-gradient(180deg, rgba(20,15,12,0) 35%, rgba(20,15,12,.68)); }
+  .slide .txt { position: absolute; left: 14px; right: 14px; bottom: 14px; color: #fff; }
+  .slide .txt small { display: block; font-size: .56rem; font-weight: 700; letter-spacing: .2em; text-transform: uppercase; opacity: .85; margin-bottom: 4px; }
+  .slide .txt b { font-family: var(--serif); font-weight: 400; font-size: 1.3rem; line-height: 1.05; display: block; }
+  .slide .txt b em { font-style: italic; font-weight: 300; }
+  .slide.texto { background: var(--creme); display: flex; flex-direction: column; justify-content: center; padding: 22px; }
+  .slide.texto.verde { background: var(--verde); color: var(--bege); }
+  .slide.texto.azul { background: var(--azul); color: var(--bege); }
+  .slide.texto .n { font-family: var(--serif); font-style: italic; color: var(--caramelo); font-size: 2rem; line-height: 1; }
+  .slide.texto b { font-family: var(--serif); font-weight: 400; font-size: 1.25rem; line-height: 1.1; margin-top: 8px; color: inherit; }
+  .slide.texto p { font-size: .8rem; margin-top: 8px; opacity: .85; }
+  .slide.texto ul { margin: 10px 0 0; padding: 0; list-style: none; display: grid; gap: 6px; font-size: .8rem; }
+  .slide.texto li::before { content: "✓  "; color: var(--caramelo); font-weight: 700; }
+  .pontos { display: flex; justify-content: center; gap: 5px; padding: 8px 0 10px; }
+  .pontos i { width: 6px; height: 6px; border-radius: 50%; background: var(--areia); }
+  .pontos i.on { background: var(--azul); }
+  .seta-post { position: absolute; top: 50%; width: 30px; height: 30px; margin-top: -15px; border-radius: 50%; border: 0; background: rgba(246,241,232,.9); color: var(--tinta); font-size: .9rem; display: grid; place-items: center; box-shadow: 0 2px 8px rgba(0,0,0,.2); }
+  .seta-post.prox { right: 8px; } .seta-post.ant { left: 8px; }
+  .modelo h3 { font-size: 1.2rem; }
+  .modelo .etiq { font-size: .64rem; font-weight: 700; letter-spacing: .18em; text-transform: uppercase; color: var(--azul); }
+  .modelo p.desc { font-size: .84rem; color: var(--tinta-suave); }
 
-  /* ===== CASE ===== */
-  .case { display: grid; grid-template-columns: minmax(0, 260px) minmax(0, 1fr); gap: clamp(24px, 5vw, 56px); align-items: center; margin-top: 40px; background: var(--ceu-claro); border-radius: 26px; padding: clamp(20px, 4vw, 40px); position: relative; }
-  .video { border: 0; padding: 0; background: none; display: block; width: 100%; }
-  .tela { position: relative; display: block; aspect-ratio: 9/16; border-radius: 18px; overflow: hidden; background: var(--mar); border: 6px solid #fff; box-shadow: var(--sombra); transform: rotate(-3deg); }
-  .tela img { width: 100%; height: 100%; object-fit: cover; }
-  .play { position: absolute; left: 50%; top: 50%; width: 58px; height: 58px; margin: -29px 0 0 -29px; border-radius: 50%; background: var(--sol); display: grid; place-items: center; }
-  .play svg { width: 20px; height: 20px; margin-left: 3px; fill: var(--bordo); }
-  .case h3 { font-size: clamp(1.6rem, 3.6vw, 2.2rem); }
-  .case p { color: var(--tinta-suave); margin-top: 10px; max-width: 56ch; }
-  .case-numeros { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 18px 14px; margin-top: 22px; }
-  .case-numeros strong { display: block; font-family: var(--titulo); font-weight: 800; font-variation-settings: "SOFT" 100; font-size: clamp(1.35rem, 3.4vw, 1.9rem); color: var(--mar); line-height: 1.1; }
-  .case-numeros span { font-size: .78rem; color: var(--tinta-suave); }
-  .etiqueta { display: inline-block; background: var(--sol); color: var(--bordo); font-size: .66rem; font-weight: 800; letter-spacing: .16em; text-transform: uppercase; padding: 5px 10px; border-radius: 4px; transform: rotate(-2deg); margin-bottom: 12px; }
-  .meus-videos { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 18px; margin-top: 30px; }
-  .meus-videos .tela { transform: none; }
-  .meus-videos b { display: block; margin-top: 8px; font-size: .92rem; }
-  .meus-videos small { display: block; color: var(--mar); font-weight: 600; font-size: .8rem; }
+  /* ===== 6. EXPERIÊNCIA ===== */
+  .experiencia { background: var(--creme); }
+  .exp-grid { display: grid; grid-template-columns: minmax(0, .85fr) minmax(0, 1.15fr); gap: clamp(30px, 6vw, 80px); align-items: center; }
+  .dupla { position: relative; height: min(600px, calc(100vh - var(--nav) - 100px)); }
+  .dupla img { position: absolute; object-fit: cover; border-radius: 4px; }
+  .dupla img:first-child { left: 0; top: 0; width: 72%; height: 80%; }
+  .dupla img:last-child { right: 0; bottom: 0; width: 52%; height: 50%; border: 8px solid var(--creme); }
+  .momentos { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0 30px; margin-top: 24px; }
+  .momentos div { padding: 11px 0; border-top: 1px solid var(--linha); display: grid; grid-template-columns: 28px 1fr; gap: 0 10px; }
+  .momentos i { font-family: var(--serif); font-size: .9rem; color: var(--caramelo); }
+  .momentos b { font-family: var(--serif); font-weight: 400; font-size: 1.08rem; color: var(--bordo); }
+  .momentos p { grid-column: 2; font-size: .8rem; color: var(--tinta-suave); }
+  .vibe { margin-top: 22px; background: var(--bege); border-radius: 12px; padding: 16px 18px; font-size: .88rem; color: var(--tinta-suave); }
+  .vibe b { color: var(--tinta); }
 
-  /* ===== PARCERIA ===== */
+  /* ===== 7. PROVA ===== */
+  .prova { background: var(--verde); color: var(--bege); }
+  .prova h2 { color: var(--creme); }
+  .prova .cap { color: #b9c0ab; }
+  .prova-grid { display: grid; grid-template-columns: minmax(0, 260px) minmax(0, 1fr); gap: clamp(30px, 6vw, 80px); align-items: center; }
+  .video-btn { border: 0; padding: 0; background: none; display: block; width: 100%; }
+  .tela-video { position: relative; display: block; aspect-ratio: 9/16; border-radius: 14px; overflow: hidden; background: #1e271a; max-height: calc(100vh - var(--nav) - 120px); }
+  .tela-video img { width: 100%; height: 100%; object-fit: cover; }
+  .play { position: absolute; left: 50%; top: 50%; width: 58px; height: 58px; margin: -29px 0 0 -29px; border-radius: 50%; background: rgba(246,241,232,.92); display: grid; place-items: center; }
+  .play svg { width: 18px; height: 18px; margin-left: 3px; fill: var(--verde); }
+  .prova .lead { color: #d3d7c6; }
+  .numeros { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 22px 18px; margin-top: 30px; padding-top: 24px; border-top: 1px solid rgba(237,229,215,.22); }
+  .numeros strong { display: block; font-family: var(--serif); font-weight: 400; font-size: clamp(1.6rem, 3vw, 2.3rem); color: var(--caramelo); line-height: 1; }
+  .numeros span { font-size: .78rem; color: #c3c9b4; }
+  .marcas-linha { margin-top: 26px; font-size: .8rem; color: #c3c9b4; }
+  .marcas-linha b { color: var(--creme); font-weight: 600; }
+
+  /* ===== 8. PACOTES ===== */
   .parceria { background: var(--creme); }
-  .pacotes { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 18px; margin-top: 44px; align-items: stretch; }
-  .pacote { position: relative; border-radius: 10px; padding: 26px 24px 24px; display: flex; flex-direction: column; gap: 12px; background: #fff; box-shadow: 0 1px 2px rgba(58,26,20,.06), 0 18px 36px -24px rgba(58,26,20,.45); }
-  .pacote::before { content: ""; position: absolute; left: 0; right: 0; top: 0; height: 10px; border-radius: 10px 10px 0 0; background: repeating-linear-gradient(90deg, var(--cor, var(--ceu)) 0 14px, transparent 14px 22px); }
-  .pacote:nth-child(1) { --cor: var(--ceu); }
-  .pacote:nth-child(2) { --cor: var(--sol); background: var(--oliva); color: var(--creme); transform: translateY(-10px); }
-  .pacote:nth-child(2) h3, .pacote:nth-child(2) .preco { color: var(--creme); }
-  .pacote:nth-child(2) .selo-p { color: var(--sol) !important; }
-  .pacote:nth-child(3) { --cor: var(--salvia); }
-  .pacote .selo-p { font-size: .68rem; font-weight: 800; letter-spacing: .2em; text-transform: uppercase; color: var(--mar); }
-  .pacote:nth-child(2) .selo-p { color: var(--bordo); }
-  .pacote h3 { font-size: 1.7rem; }
-  .pacote .pra { font-size: .9rem; color: var(--tinta-suave); }
-  .pacote:nth-child(2) .pra { color: #d9dccd; }
-  .pacote ul { margin: 0; padding: 0; list-style: none; display: grid; gap: 6px; font-size: .92rem; }
-  .pacote li { padding-left: 22px; position: relative; }
-  .pacote li::before { content: "☀"; position: absolute; left: 0; color: var(--laranja); font-size: .85rem; top: 1px; }
-  .pacote .preco { margin-top: auto; padding-top: 14px; border-top: 1.5px dashed var(--linha); font-family: var(--titulo); font-weight: 800; font-variation-settings: "SOFT" 100; font-size: 1.9rem; color: var(--bordo); line-height: 1.05; }
-  .pacote .preco small { display: block; font-family: var(--sans); font-weight: 500; font-size: .8rem; color: var(--tinta-suave); margin-top: 4px; }
-  .pacote:nth-child(2) .preco small { color: #d9dccd; }
-  .avulsos { margin-top: 20px; display: grid; grid-template-columns: auto repeat(3, minmax(0, 1fr)); gap: 10px; align-items: stretch; }
-  .avulsos > b { font-size: .68rem; font-weight: 800; letter-spacing: .2em; text-transform: uppercase; color: var(--bordo); align-self: center; padding-right: 8px; }
-  .avulso { background: var(--areia); border-radius: 12px; padding: 12px 14px; display: flex; justify-content: space-between; gap: 10px; align-items: baseline; font-size: .9rem; }
-  .avulso strong { font-family: var(--titulo); font-weight: 800; font-variation-settings: "SOFT" 100; font-size: 1.15rem; white-space: nowrap; color: var(--bordo); }
-  .avulso small { display: block; color: var(--tinta-suave); font-size: .78rem; }
-  .maior { margin-top: 20px; border-radius: 18px; padding: clamp(20px, 3vw, 28px); background: var(--mar); color: var(--creme); display: flex; justify-content: space-between; align-items: center; gap: 20px; flex-wrap: wrap; }
-  .maior h3 { color: var(--areia); font-size: 1.5rem; }
-  .maior p { font-size: .95rem; margin-top: 6px; max-width: 60ch; }
-  .condicoes { margin-top: 30px; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); border-top: 1.5px dashed var(--linha); }
-  .condicoes div { padding: 14px 16px 14px 0; border-bottom: 1.5px dashed var(--linha); }
-  .condicoes b { font-size: .66rem; font-weight: 800; letter-spacing: .18em; text-transform: uppercase; color: var(--mar); display: block; }
-  .condicoes p { font-size: .92rem; margin-top: 4px; }
+  .pacotes { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; align-items: stretch; }
+  .pacote { border: 1px solid var(--linha); border-radius: 14px; padding: 24px 22px; display: flex; flex-direction: column; gap: 10px; background: #fbf8f2; }
+  .pacote.destaque { background: var(--verde); color: var(--bege); border-color: var(--verde); box-shadow: var(--sombra); }
+  .pacote .selo { font-size: .64rem; font-weight: 700; letter-spacing: .2em; text-transform: uppercase; color: var(--azul); }
+  .pacote.destaque .selo { color: var(--caramelo); }
+  .pacote h3 { font-size: 1.6rem; }
+  .pacote.destaque h3 { color: var(--creme); }
+  .pacote .pra { font-size: .84rem; color: var(--tinta-suave); }
+  .pacote.destaque .pra { color: #cfd4c2; }
+  .pacote ul { margin: 4px 0 0; padding: 0; list-style: none; display: grid; gap: 6px; font-size: .85rem; }
+  .pacote li { padding-left: 18px; position: relative; }
+  .pacote li::before { content: "—"; position: absolute; left: 0; color: var(--caramelo); }
+  .pacote .preco { margin-top: auto; padding-top: 14px; border-top: 1px solid var(--linha); font-family: var(--serif); font-size: 2rem; color: var(--bordo); line-height: 1; }
+  .pacote.destaque .preco { color: var(--creme); border-color: rgba(237,229,215,.22); }
+  .pacote .preco small { display: block; font-family: var(--sans); font-size: .74rem; color: var(--tinta-suave); margin-top: 6px; }
+  .pacote.destaque .preco small { color: #cfd4c2; }
+  .extras { display: flex; flex-wrap: wrap; gap: 8px 22px; align-items: center; margin-top: 18px; font-size: .84rem; color: var(--tinta-suave); }
+  .extras b { font-size: .64rem; font-weight: 700; letter-spacing: .2em; text-transform: uppercase; color: var(--bordo); }
+  .extras span strong { color: var(--tinta); font-weight: 600; }
+  .gratis { margin-top: 18px; display: flex; justify-content: space-between; align-items: center; gap: 16px; flex-wrap: wrap; background: var(--azul-claro); border-radius: 14px; padding: 16px 20px; }
+  .gratis p { font-size: .9rem; color: var(--tinta-suave); max-width: 64ch; }
+  .gratis p b { font-family: var(--serif); font-weight: 400; font-size: 1.15rem; color: var(--bordo); display: block; }
 
-  /* ===== PROCESSO (listras) ===== */
-  .processo { background: repeating-linear-gradient(90deg, var(--ceu-claro) 0 46px, var(--creme) 46px 92px); }
-  .passos { list-style: none; padding: 0; margin: 40px 0 0; display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 14px; counter-reset: p; }
-  .passos li { background: #fff; border-radius: 16px; padding: 18px; counter-increment: p; box-shadow: 0 14px 30px -24px rgba(31,95,134,.6); }
-  .passos li::before { content: "0" counter(p); display: grid; place-items: center; width: 38px; height: 38px; border-radius: 50%; background: var(--sol); font-weight: 800; color: var(--bordo); margin-bottom: 10px; }
-  .passos b { font-family: var(--titulo); font-variation-settings: "SOFT" 100; color: var(--bordo); font-size: 1.1rem; }
-  .passos p { font-size: .86rem; color: var(--tinta-suave); margin-top: 4px; }
-  .pasta { margin-top: 18px; background: #fff; border-radius: 18px; padding: 20px 22px; display: flex; gap: 12px 26px; flex-wrap: wrap; align-items: center; font-size: .9rem; }
-  .pasta b { font-family: var(--titulo); font-variation-settings: "SOFT" 100; color: var(--bordo); font-size: 1.1rem; }
-  .pasta span::before { content: "✓ "; color: var(--oliva); font-weight: 800; }
+  /* ===== 9. COMO FUNCIONA ===== */
+  .processo { background: var(--bege); }
+  .passos { list-style: none; padding: 0; margin: 0; display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 18px; counter-reset: p; }
+  .passos li { counter-increment: p; border-top: 1px solid var(--tinta); padding-top: 14px; }
+  .passos li::before { content: "0" counter(p); font-family: var(--serif); font-style: italic; color: var(--caramelo); font-size: 1.5rem; display: block; line-height: 1; margin-bottom: 8px; }
+  .passos b { font-family: var(--serif); font-weight: 400; font-size: 1.2rem; color: var(--bordo); }
+  .passos p { font-size: .84rem; color: var(--tinta-suave); margin-top: 4px; }
+  .condicoes { margin-top: clamp(28px, 5vh, 50px); display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 0 30px; }
+  .condicoes div { padding: 13px 0; border-top: 1px solid var(--linha); }
+  .condicoes b { font-size: .64rem; font-weight: 700; letter-spacing: .2em; text-transform: uppercase; color: var(--azul); display: block; }
+  .condicoes p { font-size: .88rem; margin-top: 3px; }
 
-  /* ===== DEPOIMENTOS + FAQ ===== */
-  .depos-topo { display: flex; justify-content: flex-end; margin: -46px 0 18px; }
-  .setas { display: flex; gap: 8px; }
-  .seta-car { width: 44px; height: 44px; border-radius: 50%; border: 1.5px solid var(--bordo); background: transparent; color: var(--bordo); font-size: 1.1rem; }
-  .seta-car:disabled { opacity: .3; cursor: default; }
-  .depoimentos { display: grid; grid-auto-flow: column; grid-auto-columns: calc((100% - 22px) / 2); gap: 22px; list-style: none; margin: 0; padding: 4px 0; overflow-x: auto; scroll-snap-type: x mandatory; scrollbar-width: none; }
-  .depoimentos::-webkit-scrollbar { display: none; }
-  .depoimentos li { display: flex; scroll-snap-align: start; }
-  .depoimento { flex: 1; margin: 0; padding: 26px; border-radius: 18px; background: #fff; display: flex; flex-direction: column; box-shadow: 0 14px 30px -24px rgba(58,26,20,.5); }
-  .depoimento blockquote { flex: 1; margin: 0 0 16px; font-family: var(--titulo); font-variation-settings: "SOFT" 100; font-weight: 400; font-size: 1.08rem; line-height: 1.45; }
-  .depoimento blockquote::before { content: "\201C"; display: block; font-size: 2.6rem; line-height: .6; color: var(--laranja); margin-bottom: 6px; }
-  .depoimento figcaption b { display: block; color: var(--bordo); }
-  .depoimento figcaption span { font-size: .85rem; color: var(--tinta-suave); }
-  .faq { margin-top: 48px; display: grid; gap: 10px; max-width: 820px; }
-  .faq details { background: var(--areia); border-radius: 14px; padding: 0 18px; }
-  .faq summary { cursor: pointer; padding: 16px 0; font-weight: 700; list-style: none; display: flex; justify-content: space-between; gap: 12px; }
+  /* ===== 10. DEPOIMENTOS + FAQ ===== */
+  .vozes { background: var(--creme); }
+  .vozes-grid { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: clamp(30px, 6vw, 80px); align-items: start; }
+  .depo { position: relative; min-height: 230px; }
+  .depo blockquote { margin: 0; font-family: var(--serif); font-weight: 300; font-size: clamp(1.25rem, 2.2vw, 1.6rem); line-height: 1.35; color: var(--tinta); }
+  .depo blockquote::before { content: "\201C"; display: block; font-size: 3.2rem; line-height: .5; color: var(--caramelo); margin-bottom: 10px; }
+  .depo cite { display: block; margin-top: 16px; font-style: normal; font-size: .82rem; color: var(--tinta-suave); }
+  .depo cite b { color: var(--bordo); font-weight: 600; }
+  .depo-nav { display: flex; gap: 8px; margin-top: 22px; align-items: center; }
+  .depo-nav button { width: 40px; height: 40px; border-radius: 50%; border: 1px solid var(--linha); background: transparent; }
+  .depo-nav span { font-size: .78rem; color: var(--tinta-suave); margin-left: 6px; }
+  .faq { display: grid; gap: 0; }
+  .faq details { border-top: 1px solid var(--linha); }
+  .faq details:last-child { border-bottom: 1px solid var(--linha); }
+  .faq summary { cursor: pointer; padding: 14px 0; font-weight: 600; font-size: .92rem; list-style: none; display: flex; justify-content: space-between; gap: 12px; }
   .faq summary::-webkit-details-marker { display: none; }
-  .faq summary::after { content: "+"; font-family: var(--titulo); font-size: 1.4rem; line-height: 1; color: var(--laranja); }
+  .faq summary::after { content: "+"; font-family: var(--serif); font-size: 1.3rem; line-height: 1; color: var(--caramelo); }
   .faq details[open] summary::after { content: "–"; }
-  .faq details p { padding: 0 0 16px; color: var(--tinta-suave); font-size: .95rem; }
+  .faq details p { padding: 0 0 14px; color: var(--tinta-suave); font-size: .88rem; }
 
-  /* ===== FINAL (foto de fundo) ===== */
-  .final { position: relative; overflow: hidden; color: #fff; text-align: center; padding: clamp(110px, 16vw, 190px) 0; }
+  /* ===== 11. FINAL ===== */
+  .final { position: relative; overflow: hidden; color: var(--creme); text-align: center; }
   .final picture img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
-  .final::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(20,40,60,.25), rgba(20,30,45,.55)); }
+  .final::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(17,63,84,.35), rgba(17,30,25,.62)); }
   .final .wrap { position: relative; z-index: 1; }
-  .final .sub-titulo { color: #fff; }
-  .final h2 { color: var(--areia); font-size: clamp(2.2rem, 6vw, 3.8rem); max-width: 18ch; margin: 14px auto 0; text-shadow: 0 3px 18px rgba(0,0,0,.25); }
+  .final .cap { justify-content: center; color: var(--bege); }
+  .final .cap::after { display: none; }
+  .final h2 { color: var(--creme); font-size: clamp(2.4rem, 5.6vw, 4.4rem); max-width: 16ch; margin: 0 auto; }
+  .final .lead { color: #eee6da; margin: 18px auto 0; text-align: center; }
   .final .acoes { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; margin-top: 30px; }
-  .final .dados { margin-top: 22px; font-size: .9rem; display: flex; gap: 6px 22px; justify-content: center; flex-wrap: wrap; text-shadow: 0 1px 6px rgba(0,0,0,.4); }
-  footer { text-align: center; padding: 24px var(--gutter); font-size: .78rem; color: var(--tinta-suave); }
-
-  .barra { position: fixed; left: 12px; right: 12px; bottom: 12px; z-index: 10; background: var(--creme); border: 1.5px solid var(--bordo); border-radius: 999px; padding: 8px 8px 8px 22px; display: flex; justify-content: space-between; align-items: center; gap: 12px; transform: translateY(140%); transition: transform .3s; box-shadow: var(--sombra); max-width: 620px; margin-inline: auto; }
-  .barra.visivel { transform: none; }
-  .barra p { font-size: .85rem; line-height: 1.25; color: var(--tinta-suave); }
-  .barra p b { color: var(--bordo); }
-  .barra .botao { padding: 11px 18px; flex: none; }
+  .final .dados { margin-top: 22px; font-size: .86rem; display: flex; gap: 6px 22px; justify-content: center; flex-wrap: wrap; color: #eee6da; }
+  footer { text-align: center; padding: 22px var(--gutter); font-size: .74rem; color: var(--tinta-suave); background: var(--creme); }
 
   /* PLAYER */
-  .fundo-video { position: fixed; inset: 0; z-index: 50; background: rgba(15,25,35,.86); display: grid; place-items: center; opacity: 0; visibility: hidden; transition: opacity .25s, visibility .25s; padding: 60px 16px 16px; }
+  .fundo-video { position: fixed; inset: 0; z-index: 50; background: rgba(15,20,18,.88); display: grid; place-items: center; opacity: 0; visibility: hidden; transition: opacity .25s, visibility .25s; padding: 60px 16px 16px; }
   .fundo-video.aberto { opacity: 1; visibility: visible; }
   .card-player { position: relative; width: min(92vw, calc((100vh - 110px) * 9 / 16), 420px); }
   .moldura { position: relative; aspect-ratio: 9/16; background: #111; border-radius: 12px; overflow: hidden; }
   .moldura iframe { position: absolute; left: 0; top: -60px; width: 100%; height: calc(100% + 120px); border: 0; pointer-events: none; }
   .toque { position: absolute; inset: 0; z-index: 2; border: 0; background: transparent; width: 100%; }
-  .toque .icone { position: absolute; top: 50%; left: 50%; width: 72px; height: 72px; margin: -36px 0 0 -36px; border-radius: 50%; background: var(--sol); display: grid; place-items: center; opacity: 0; transition: opacity .25s; }
-  .toque .icone svg { width: 22px; height: 22px; margin-left: 4px; fill: var(--bordo); }
+  .toque .icone { position: absolute; top: 50%; left: 50%; width: 72px; height: 72px; margin: -36px 0 0 -36px; border-radius: 50%; background: var(--creme); display: grid; place-items: center; opacity: 0; transition: opacity .25s; }
+  .toque .icone svg { width: 22px; height: 22px; margin-left: 4px; fill: var(--verde); }
   .moldura.pausado .icone { opacity: 1; }
   .som { position: absolute; z-index: 3; left: 12px; bottom: 12px; padding: 8px 14px; border-radius: 999px; border: 1px solid rgba(255,255,255,.6); background: rgba(0,0,0,.5); color: #fff; font-size: .78rem; font-weight: 600; }
-  .fechar { position: absolute; top: -50px; right: 0; width: 40px; height: 40px; border-radius: 50%; border: 0; background: var(--sol); color: var(--bordo); font-size: 1.3rem; line-height: 1; }
+  .fechar { position: absolute; top: -50px; right: 0; width: 40px; height: 40px; border-radius: 50%; border: 0; background: var(--creme); color: var(--tinta); font-size: 1.3rem; line-height: 1; }
 
   @media (max-width: 960px) {
-    .momentos { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-    .pacotes { grid-template-columns: 1fr; }
-    .pacote:nth-child(2) { transform: none; }
     .passos { grid-template-columns: repeat(3, minmax(0, 1fr)); }
-    .avulsos { grid-template-columns: 1fr; }
     .condicoes { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-    .etapas { grid-template-columns: 1fr; max-width: 520px; margin-inline: auto; }
+    .pacotes { grid-template-columns: 1fr; max-width: 520px; margin-inline: auto; }
+    .modelos { grid-template-columns: 1fr; max-width: 360px; margin-inline: auto; }
+    .post { max-width: 100%; }
+    .etapas { grid-template-columns: 1fr; max-width: 460px; margin-inline: auto; }
+    .clipe { height: auto !important; width: 100%; }
   }
   @media (max-width: 760px) {
-    .topo .wrap { grid-template-columns: 1fr auto; }
-    .menu.esq { display: none; }
-    .menu.dir a:not(.pill-topo) { display: none; }
-    .selo-logo { width: 78px; height: 78px; margin-bottom: -26px; justify-self: start; }
-    .selo-logo b { font-size: 1.45rem; }
-    .postal { grid-template-columns: 1fr; transform: rotate(-1.5deg); }
-    .postal-texto { border-left: 0; padding-left: 0; border-top: 1.5px solid rgba(110,15,30,.18); padding-top: 16px; }
-    .selos { position: absolute; right: 0; top: -70px; }
-    .icones { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-    .sobre, .pessoas { grid-template-columns: 1fr; }
-    .listras { order: -1; }
-    .polaroids { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-    .case { grid-template-columns: 1fr; }
-    .case .video { max-width: 220px; margin: 0 auto; }
-    .meus-videos { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .tela-cheia { min-height: 0; padding: calc(var(--nav) + 36px) 0 56px; }
+    .capa.tela-cheia { padding-top: calc(var(--nav) + 20px); }
+    .links a:not(.botao) { display: none; }
+    .marca span { display: none; }
+    .capa-grid, .sobre-grid, .exp-grid, .prova-grid, .vozes-grid { grid-template-columns: 1fr; }
+    .capa-fotos { order: -1; width: min(300px, 80%); }
+    .arco { max-height: none; }
+    .postal-mini { width: 140px; left: -40px; bottom: 16px; }
+    .carimbo { width: 84px; height: 84px; right: -24px; }
+    .retrato { max-width: 340px; }
+    .retrato img { max-height: none; }
+    .publico { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .galeria { grid-template-columns: repeat(2, minmax(0, 1fr)); grid-template-rows: none; height: auto; }
+    .galeria figure { aspect-ratio: 4/5; }
+    .galeria figure.grande { grid-column: span 2; grid-row: auto; aspect-ratio: 1; }
+    .dupla { height: 420px; }
+    .momentos { grid-template-columns: 1fr; }
+    .prova-grid .video-btn { max-width: 230px; margin: 0 auto; }
+    .tela-video { max-height: none; }
+    .numeros { grid-template-columns: repeat(2, minmax(0, 1fr)); }
     .passos { grid-template-columns: 1fr 1fr; }
-    .depoimentos { grid-auto-columns: 88%; }
-    .balao { right: -8px; }
-  }
-  @media (max-width: 440px) {
-    .momentos, .condicoes { grid-template-columns: 1fr; }
-    .case-numeros { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-    .barra p { font-size: .76rem; }
+    .condicoes { grid-template-columns: 1fr; }
   }
 </style>
 </head>
 <body>
 
-<header class="topo">
+<nav class="nav" aria-label="Principal">
   <div class="wrap">
-    <nav class="menu esq" aria-label="Seções"><a href="#olhar">O meu olhar</a><a href="#funil">Os vídeos</a></nav>
-    <a class="selo-logo" href="#topo" aria-label="Início"><span><b>UGC<br>Travel</b><small>Yasmin Caetano</small></span></a>
-    <nav class="menu dir" aria-label="Contratar"><a href="#parceria">Parceria</a><a class="pill-topo" id="zapTopo" href="https://wa.me/5581989857308" target="_blank" rel="noopener">Falar comigo</a></nav>
+    <a class="marca" href="#topo"><b>Yasmin Caetano</b><span>UGC Travel</span></a>
+    <div class="links">
+      <a href="#olhar">Olhar</a>
+      <a href="#funil">Vídeos</a>
+      <a href="#carrosseis">Carrosséis</a>
+      <a href="#parceria">Parceria</a>
+      <a class="botao" id="zapNav" href="https://wa.me/5581989857308" target="_blank" rel="noopener">Falar comigo</a>
+    </div>
+  </div>
+</nav>
+
+<header class="capa tela-cheia" id="topo">
+  <div class="wrap capa-grid">
+    <div>
+      <p class="cap"><b>nº 01</b> UGC pra hotelaria</p>
+      <h1>O hóspede reserva o que <em>consegue sentir</em>.</h1>
+      <p class="lead">Vídeos, fotos e carrosséis que mostram como é estar na sua hospedagem: a chegada, o café, a piscina, o fim de tarde. Pro perfil, pro site e pros anúncios de vocês.</p>
+      <div class="acoes">
+        <a class="botao" href="#funil">Ver o que eu crio</a>
+        <a class="botao linha" href="#parceria">Formatos de parceria</a>
+      </div>
+      <div class="capa-numeros">
+        <div><strong>+39</strong><span>marcas atendidas</span></div>
+        <div><strong>70,9 mil</strong><span>views num único vídeo</span></div>
+        <div><strong>R$ 0,10</strong><span>por visita ao perfil em anúncio</span></div>
+      </div>
+    </div>
+    <div class="capa-fotos">
+      <img class="arco" src="img/capa-arco.webp" alt="Yasmin em Ponta Negra ao entardecer, com o Morro do Careca ao fundo">
+      <figure class="postal-mini" style="margin:0"><img src="img/hotel-quad.webp" alt="Yasmin na piscina de um hotel"><p>com amor, de Natal</p></figure>
+      <svg class="carimbo" viewBox="0 0 100 100" aria-hidden="true"><defs><path id="circ" d="M50 50 m-36 0 a36 36 0 1 1 72 0 a36 36 0 1 1 -72 0"/></defs><circle cx="50" cy="50" r="45" fill="none" stroke="#5a0e18" stroke-width="1.6"/><circle cx="50" cy="50" r="29" fill="none" stroke="#5a0e18" stroke-width="1.2"/><text font-family="Plus Jakarta Sans, sans-serif" font-size="9" font-weight="700" letter-spacing="2.6" fill="#5a0e18"><textPath href="#circ">NATAL · RIO GRANDE DO NORTE ·</textPath></text><path d="M33 50 q8.5 -7 17 0 t17 0 M33 58 q8.5 -7 17 0 t17 0" fill="none" stroke="#5a0e18" stroke-width="1.6"/></svg>
+    </div>
   </div>
 </header>
-
-<section class="capa" id="topo">
-  <picture>
-    <source media="(max-width: 760px)" srcset="img/fundo-capa-cel.webp">
-    <img src="img/fundo-capa.webp" alt="" aria-hidden="true">
-  </picture>
-  <div class="wrap">
-    <article class="postal">
-      <div class="postal-foto">
-        <img src="img/capa.webp" alt="Yasmin em Ponta Negra ao entardecer, com o Morro do Careca ao fundo">
-        <span class="assinatura">Natal</span>
-      </div>
-      <div class="postal-texto">
-        <div class="selos" aria-hidden="true">
-          <svg class="carimbo" viewBox="0 0 100 100"><defs><path id="circ" d="M50 50 m-36 0 a36 36 0 1 1 72 0 a36 36 0 1 1 -72 0"/></defs><circle cx="50" cy="50" r="44" fill="none" stroke="#6e0f1e" stroke-width="2" opacity=".55"/><circle cx="50" cy="50" r="30" fill="none" stroke="#6e0f1e" stroke-width="1.5" opacity=".55"/><text font-family="Plus Jakarta Sans, sans-serif" font-size="9.5" font-weight="800" letter-spacing="2.5" fill="#6e0f1e" opacity=".6"><textPath href="#circ">NATAL · RIO GRANDE DO NORTE ·</textPath></text><path d="M30 52 q10 -8 20 0 t20 0" fill="none" stroke="#6e0f1e" stroke-width="2" opacity=".5"/><path d="M30 60 q10 -8 20 0 t20 0" fill="none" stroke="#6e0f1e" stroke-width="2" opacity=".5"/></svg>
-          <svg viewBox="0 0 74 88"><rect x="2" y="2" width="70" height="84" rx="2" fill="#f7f2ea" stroke="#6e0f1e" stroke-width="2" stroke-dasharray="4 3"/><rect x="9" y="9" width="56" height="70" fill="#c5d6dc"/><circle cx="48" cy="26" r="9" fill="#d9b26f"/><path d="M9 62 q14 -10 28 0 t28 0 v17 H9z" fill="#113f54"/><path d="M27 66 c0 -14 2 -24 6 -32" stroke="#6b4e44" stroke-width="2.5" fill="none"/><path d="M33 34 c-8 -2 -14 2 -16 6 c6 -3 11 -3 16 -6z M33 34 c6 -6 13 -6 17 -3 c-6 0 -11 1 -17 3z M33 34 c-2 -7 -8 -10 -13 -10 c5 3 9 6 13 10z M33 34 c3 -7 9 -9 13 -8 c-5 2 -9 4 -13 8z" fill="#2d3823"/></svg>
-        </div>
-        <div>
-          <h1>O hóspede reserva o que <span>consegue sentir.</span></h1>
-          <p class="linhas">UGC pra hotéis, pousadas e chalés</p>
-        </div>
-        <p class="sub">Vídeos e fotos que mostram como é estar na sua hospedagem: a chegada, o café, a piscina, o fim de tarde.</p>
-        <div class="acoes">
-          <a class="botao" href="#funil">Ver os vídeos</a>
-          <a class="botao contorno" href="#parceria">Parceria</a>
-        </div>
-      </div>
-    </article>
-  </div>
-</section>
-
-<main>
-<section class="explore centro" id="explore">
-  <div class="wrap">
-    <h2>Comece por aqui</h2>
-    <p class="sub-titulo">Tudo o que a sua hospedagem precisa saber</p>
-    <ul class="icones">
-      <li><a href="#olhar"><svg viewBox="0 0 60 60" aria-hidden="true"><rect x="8" y="18" width="44" height="30" rx="6" fill="#f7f2ea" stroke="#3a1a14" stroke-width="2.5"/><rect x="21" y="12" width="18" height="8" rx="2" fill="#b0643f" stroke="#3a1a14" stroke-width="2.5"/><circle cx="30" cy="33" r="9" fill="#c5d6dc" stroke="#3a1a14" stroke-width="2.5"/><circle cx="44" cy="25" r="2" fill="#3a1a14"/></svg>O meu olhar</a></li>
-      <li><a href="#funil"><svg viewBox="0 0 60 60" aria-hidden="true"><rect x="17" y="6" width="26" height="48" rx="6" fill="#f7f2ea" stroke="#3a1a14" stroke-width="2.5"/><path d="M26 23 l11 7 -11 7z" fill="#b0643f" stroke="#3a1a14" stroke-width="2" stroke-linejoin="round"/><line x1="26" y1="48" x2="34" y2="48" stroke="#3a1a14" stroke-width="2.5" stroke-linecap="round"/></svg>Os vídeos</a></li>
-      <li><a href="#pessoas"><svg viewBox="0 0 60 60" aria-hidden="true"><circle cx="22" cy="22" r="8" fill="#c9b49a" stroke="#3a1a14" stroke-width="2.5"/><circle cx="40" cy="24" r="7" fill="#c5d6dc" stroke="#3a1a14" stroke-width="2.5"/><path d="M8 50 c0 -10 6 -16 14 -16 s14 6 14 16z" fill="#f7f2ea" stroke="#3a1a14" stroke-width="2.5"/><path d="M30 50 c1 -9 5 -14 10 -14 s12 5 12 14z" fill="#d9b26f" stroke="#3a1a14" stroke-width="2.5"/></svg>Quem aparece</a></li>
-      <li><a href="#registro"><svg viewBox="0 0 60 60" aria-hidden="true"><circle cx="30" cy="30" r="11" fill="#f7f2ea" stroke="#3a1a14" stroke-width="2.5"/><g stroke="#b0643f" stroke-width="3" stroke-linecap="round"><line x1="30" y1="6" x2="30" y2="13"/><line x1="30" y1="47" x2="30" y2="54"/><line x1="6" y1="30" x2="13" y2="30"/><line x1="47" y1="30" x2="54" y2="30"/><line x1="13" y1="13" x2="18" y2="18"/><line x1="42" y1="42" x2="47" y2="47"/><line x1="47" y1="13" x2="42" y2="18"/><line x1="18" y1="42" x2="13" y2="47"/></g></svg>O que registro</a></li>
-      <li><a href="#prova"><svg viewBox="0 0 60 60" aria-hidden="true"><path d="M10 46 h40" stroke="#3a1a14" stroke-width="2.5" stroke-linecap="round"/><rect x="14" y="30" width="8" height="16" fill="#c5d6dc" stroke="#3a1a14" stroke-width="2.5"/><rect x="26" y="22" width="8" height="24" fill="#d9b26f" stroke="#3a1a14" stroke-width="2.5"/><rect x="38" y="12" width="8" height="34" fill="#b0643f" stroke="#3a1a14" stroke-width="2.5"/></svg>Resultados</a></li>
-      <li><a href="#parceria"><svg viewBox="0 0 60 60" aria-hidden="true"><path d="M8 18 h44 v8 a5 5 0 0 0 0 10 v8 H8 v-8 a5 5 0 0 0 0 -10z" fill="#f7f2ea" stroke="#3a1a14" stroke-width="2.5" stroke-linejoin="round"/><line x1="38" y1="20" x2="38" y2="42" stroke="#b0643f" stroke-width="2.5" stroke-dasharray="3 3"/><path d="M16 27 h14 M16 34 h10" stroke="#3a1a14" stroke-width="2.5" stroke-linecap="round"/></svg>Parceria</a></li>
-      <li><a href="#processo"><svg viewBox="0 0 60 60" aria-hidden="true"><path d="M30 54 s-16 -15 -16 -28 a16 16 0 0 1 32 0 c0 13 -16 28 -16 28z" fill="#b0643f" stroke="#3a1a14" stroke-width="2.5"/><circle cx="30" cy="26" r="6" fill="#f7f2ea" stroke="#3a1a14" stroke-width="2.5"/></svg>Como funciona</a></li>
-      <li><a href="#contato"><svg viewBox="0 0 60 60" aria-hidden="true"><path d="M10 14 h40 a4 4 0 0 1 4 4 v20 a4 4 0 0 1 -4 4 H26 l-10 8 v-8 h-6 a4 4 0 0 1 -4 -4 V18 a4 4 0 0 1 4 -4z" fill="#c5d6dc" stroke="#3a1a14" stroke-width="2.5" stroke-linejoin="round"/><circle cx="22" cy="28" r="2.5" fill="#3a1a14"/><circle cx="30" cy="28" r="2.5" fill="#3a1a14"/><circle cx="38" cy="28" r="2.5" fill="#3a1a14"/></svg>WhatsApp</a></li>
-    </ul>
-    <div class="numeros">
-      <div><strong>+39</strong><span>marcas atendidas</span></div>
-      <div><strong>70,9 mil</strong><span>views num único vídeo</span></div>
-      <div><strong>R$ 0,10</strong><span>por visita ao perfil, em anúncio</span></div>
-    </div>
-  </div>
-</section>
-
-<section class="sobre" id="sobre">
-  <div class="sobre-texto">
-    <h2>Prazer, Yasmin</h2>
-    <p class="sub-titulo">Nordestina, com o litoral no quintal</p>
-    <p class="lead">Sou criadora UGC e influenciadora, baseada em Natal há mais de 8 anos. Já criei pra mais de 39 marcas, de Garnier e Dove a SHEIN, Amazon e Mercado Livre.</p>
-    <p class="lead">Na hotelaria, o meu trabalho é mostrar não só onde o hóspede vai ficar, mas <b>como ele vai se sentir ali</b>: com estética que valoriza o espaço, roteiro que vende sem parecer anúncio e um olhar de quem conhece o destino.</p>
-    <div class="vivencias"><span>Natal · RN</span><span>Pipa · Gostoso · Genipabu</span><span>Estudante de Nutrição</span><span>Maquiadora artística</span><span>@caetyas_</span></div>
-  </div>
-  <div class="listras">
-    <figure class="foto-presa">
-      <svg class="clipe" viewBox="0 0 22 60" aria-hidden="true"><path d="M6 52 V12 a5 5 0 0 1 10 0 v36 a3 3 0 0 1 -6 0 V16" fill="none" stroke="#8a8f99" stroke-width="2.5" stroke-linecap="round"/></svg>
-      <svg class="folha" viewBox="0 0 80 110" aria-hidden="true"><path d="M40 104 C40 70 42 40 50 8" stroke="#2d3823" stroke-width="3" fill="none"/><g fill="#2d3823"><path d="M42 80 c-14 -2 -24 -10 -28 -18 c12 2 22 8 28 18z"/><path d="M44 62 c12 -4 22 -2 28 4 c-10 2 -20 0 -28 -4z"/><path d="M45 46 c-12 -4 -20 -12 -22 -20 c10 4 18 10 22 20z"/><path d="M48 30 c10 -6 18 -6 24 -2 c-8 4 -16 4 -24 2z"/></g></svg>
-      <img src="img/eu-jardim.webp" alt="Yasmin sentada à mesa num jardim tropical com piscina ao fundo">
-      <figcaption>oi, eu sou a Yasmin!</figcaption>
-    </figure>
-  </div>
-</section>
-
 <div class="faixa" aria-hidden="true"><div class="trilho" id="trilho"></div></div>
 
-<section id="olhar" class="centro">
-  <div class="wrap">
-    <h2>O meu olhar</h2>
-    <p class="sub-titulo">Fotos minhas, nada aqui é referência</p>
-    <p class="lead">Hotéis, praias e passeios por onde passei. É esse olhar que eu levo pra sua hospedagem.</p>
-    <div class="polaroids" id="mood"></div>
-  </div>
-</section>
-
-<section class="funil centro" id="funil">
-  <div class="wrap">
-    <h2>Cada vídeo tem uma função</h2>
-    <p class="sub-titulo">Do "eu quero estar aí" ao "vou reservar"</p>
-    <p class="lead">A mesma estadia vira conteúdo pra cada etapa da reserva, pro orgânico e pro tráfego pago.</p>
-    <div class="etapas" id="funilCards" style="text-align:left"></div>
-    <p class="aviso-ref">As imagens marcadas como referência são de vídeos de outros criadores. Estão aqui só pra mostrar a linguagem de cada etapa.</p>
-  </div>
-</section>
-
-<section class="pessoas" id="pessoas">
-  <div class="pessoas-foto">
-    <figure class="moldura-arredondada" style="margin:0">
-      <img src="img/areia.webp" alt="Yasmin de vestido branco num deck de frente pro mar">
-      <span class="balao">depende da vibe!</span>
-    </figure>
-  </div>
-  <div class="pessoas-texto">
-    <h2>O seu hóspede precisa se ver na tela</h2>
-    <p class="sub-titulo">Quem vai comigo depende da vibe do lugar</p>
-    <p class="lead">Não levo ninguém só pra segurar a câmera. Quem vai comigo entra na cena porque combina com o público de vocês: <b>se a hospedagem é romântica, vou com o meu namorado</b>; se é pra família, a cena é de família; se é de amigas, vou com amigas.</p>
-    <div class="tipos">
-      <div class="tipo"><svg viewBox="0 0 46 46" aria-hidden="true"><circle cx="23" cy="23" r="21" fill="#c9b49a"/><path d="M23 33 s-10 -6 -10 -13 a5 5 0 0 1 10 -2 a5 5 0 0 1 10 2 c0 7 -10 13 -10 13z" fill="#6e0f1e"/></svg><div><b>Casal</b><p>Pousadas românticas, chalés e suítes com banheira. Clima de escapada.</p></div></div>
-      <div class="tipo"><svg viewBox="0 0 46 46" aria-hidden="true"><circle cx="23" cy="23" r="21" fill="#d9b26f"/><circle cx="17" cy="19" r="4" fill="#6e0f1e"/><circle cx="29" cy="19" r="4" fill="#6e0f1e"/><circle cx="23" cy="27" r="3" fill="#6e0f1e"/><path d="M11 36 c1 -6 4 -9 6 -9 s5 3 6 9z M23 36 c1 -6 4 -9 6 -9 s5 3 6 9z" fill="#6e0f1e"/></svg><div><b>Família</b><p>Resorts e hotéis com estrutura pra criança. Quem tem filho quer ver filho se divertindo.</p></div></div>
-      <div class="tipo"><svg viewBox="0 0 46 46" aria-hidden="true"><circle cx="23" cy="23" r="21" fill="#c5d6dc"/><path d="M14 30 l4 -14 4 14z M24 30 l4 -14 4 14z" fill="#6e0f1e"/><path d="M12 32 h22" stroke="#6e0f1e" stroke-width="2.5" stroke-linecap="round"/></svg><div><b>Amigas</b><p>Hotéis de praia, day use e roteiros. Leve, divertido e com muita foto.</p></div></div>
-    </div>
-  </div>
-</section>
-
-<section class="registro centro" id="registro">
-  <div class="wrap">
-    <h2>Eu vivo a experiência completa</h2>
-    <p class="sub-titulo">E registro tudo</p>
-    <p class="lead">Por isso o ideal é viver tudo o que vocês oferecem: as diárias, as refeições e as experiências do local.</p>
-    <div class="momentos" id="momentos" style="text-align:left"></div>
-    <p class="nota">o que eu não vivo, eu não consigo mostrar ☀</p>
-  </div>
-</section>
-
-<section id="prova">
-  <div class="wrap">
-    <div class="centro">
-      <h2>Antes da hotelaria, já existia performance</h2>
-      <p class="sub-titulo">Toque pra assistir aqui mesmo</p>
-    </div>
-    <div class="case">
-      <button type="button" class="video" data-video="GMK9yJPUJbk" aria-label="Assistir ao vídeo do Bombado">
-        <span class="tela"><img src="https://i.ytimg.com/vi/GMK9yJPUJbk/oardefault.jpg" alt="" data-fallback="GMK9yJPUJbk"><span class="play"><svg viewBox="0 0 24 24"><path d="M6 4l14 8-14 8z"/></svg></span></span>
-      </button>
-      <div>
-        <span class="etiqueta">Case · Bombado · tráfego pago</span>
-        <h3>Uma visita que virou anúncio</h3>
-        <p>Em vez de apresentar o cardápio, mostrei ambiente, comida e experiência com cara de visita real. É a mesma lógica de um vídeo de hospedagem: o lugar dentro de uma vivência.</p>
-        <div class="case-numeros">
-          <div><strong>70.900</strong><span>visualizações</span></div>
-          <div><strong>33.505</strong><span>pessoas alcançadas</span></div>
-          <div><strong>2.281</strong><span>interações</span></div>
-          <div><strong>1.891</strong><span>novos seguidores</span></div>
-          <div><strong>R$ 0,10</strong><span>por visita ao perfil</span></div>
-          <div><strong>R$ 359</strong><span>investidos</span></div>
-        </div>
+<main>
+<section class="sobre tela-cheia" id="sobre">
+  <div class="wrap sobre-grid">
+    <figure class="retrato" style="margin:0"><img src="img/eu-jardim.webp" alt="Yasmin sentada à mesa num jardim tropical com piscina ao fundo"><span class="mao">prazer, Yasmin</span></figure>
+    <div>
+      <p class="cap"><b>nº 02</b> Quem cria</p>
+      <h2>Olhar de maquiadora, <em>roteiro de estrategista</em>.</h2>
+      <p class="lead">Sou criadora UGC e influenciadora, nordestina e baseada em Natal há mais de 8 anos. Já criei pra mais de 39 marcas, de Garnier e Dove a SHEIN, Amazon e Mercado Livre.</p>
+      <p class="lead">Na hotelaria, o meu trabalho é mostrar não só onde o hóspede vai ficar, mas <b>como ele vai se sentir ali</b>. E transformar isso em conteúdo que vende diária.</p>
+      <div class="tags"><span>Natal · Pipa · São Miguel do Gostoso · Genipabu</span><span>Estudante de Nutrição</span><span>Maquiadora artística</span></div>
+      <div class="publico">
+        <div><strong>86,5%</strong><span>do meu público no Instagram são mulheres</span></div>
+        <div><strong>58%</strong><span>têm entre 18 e 34 anos</span></div>
+        <div><strong>86%</strong><span>estão no Brasil</span></div>
+        <div><strong>4,6M</strong><span>curtidas no TikTok</span></div>
       </div>
+      <p class="fonte">Painéis do Instagram e do TikTok @caetyas_, outubro de 2026.</p>
     </div>
-    <div class="meus-videos" id="videos"></div>
   </div>
 </section>
 
-<section class="parceria" id="parceria">
+<section class="olhar tela-cheia" id="olhar">
   <div class="wrap">
-    <div class="centro">
-      <h2>Formatos de parceria</h2>
-      <p class="sub-titulo">Escolham o que faz sentido pra vocês</p>
-      <p class="lead">A hospedagem cobre a experiência que eu vou mostrar. O investimento é pelo conteúdo: <b>no mínimo 3 vídeos por estadia</b>, pra cada vinda render material de verdade pra vocês.</p>
+    <div class="cabeca">
+      <div><p class="cap"><b>nº 03</b> O meu olhar</p><h2>Lugares vistos do jeito que <em>dá vontade de ir</em>.</h2></div>
+      <p class="lead">Fotos minhas, de hotéis, praias e passeios. Nada aqui é referência: é o olhar que eu levo pra sua hospedagem.</p>
+    </div>
+    <div class="galeria" id="galeria"></div>
+  </div>
+</section>
+
+<section class="funil tela-cheia" id="funil">
+  <div class="wrap">
+    <div class="cabeca">
+      <div><p class="cap"><b>nº 04</b> Os vídeos</p><h2>Cada vídeo tem uma <em>função na reserva</em>.</h2></div>
+      <p class="lead">Do "eu quero estar aí" até o "vou reservar". A mesma estadia vira conteúdo pra cada etapa, no orgânico e no tráfego pago.</p>
+    </div>
+    <div class="etapas" id="etapas"></div>
+    <p class="aviso">Os vídeos marcados como referência são trechos de outros criadores, aqui só pra mostrar a linguagem de cada etapa.</p>
+  </div>
+</section>
+
+<section class="carrosseis tela-cheia" id="carrosseis">
+  <div class="wrap">
+    <div class="cabeca">
+      <div><p class="cap"><b>nº 05</b> Carrosséis estratégicos</p><h2>Conteúdo que é <em>salvo pra próxima viagem</em>.</h2></div>
+      <p class="lead">Além dos vídeos, eu monto carrosséis com as fotos da estadia. São modelos pensados pra salvamento e compartilhamento. Arraste pro lado.</p>
+    </div>
+    <div class="modelos" id="modelos"></div>
+  </div>
+</section>
+
+<section class="experiencia tela-cheia" id="experiencia">
+  <div class="wrap exp-grid">
+    <div class="dupla" aria-hidden="true"><img src="img/lagoa.webp" alt=""><img src="img/varanda.webp" alt=""></div>
+    <div>
+      <p class="cap"><b>nº 06</b> O que eu registro</p>
+      <h2>Eu vivo a experiência completa. <em>E registro tudo</em>.</h2>
+      <p class="lead">Só consigo mostrar o que eu vivo. Por isso o ideal é ter acesso a tudo o que vocês oferecem: diárias, refeições e experiências.</p>
+      <div class="momentos" id="momentos"></div>
+      <p class="vibe"><b>Quem vai comigo depende da vibe do lugar.</b> Não levo ninguém só pra segurar a câmera: quem vai entra na cena porque combina com o público de vocês. Se a hospedagem é romântica, vou com o meu namorado; se é pra família, a cena é de família.</p>
+    </div>
+  </div>
+</section>
+
+<section class="prova tela-cheia" id="prova">
+  <div class="wrap prova-grid">
+    <button type="button" class="video-btn" data-video="GMK9yJPUJbk" aria-label="Assistir ao vídeo do case">
+      <span class="tela-video"><img src="https://i.ytimg.com/vi/GMK9yJPUJbk/oardefault.jpg" alt="" data-fallback="GMK9yJPUJbk"><span class="play"><svg viewBox="0 0 24 24"><path d="M6 4l14 8-14 8z"/></svg></span></span>
+    </button>
+    <div>
+      <p class="cap"><b>nº 07</b> Resultado real · tráfego pago</p>
+      <h2>Uma visita que virou <em>anúncio</em>.</h2>
+      <p class="lead">Pra um bar em Natal, em vez de apresentar o cardápio, mostrei ambiente, comida e experiência com cara de visita real. É a mesma lógica de um vídeo de hospedagem: o lugar dentro de uma vivência. Toque no vídeo pra assistir.</p>
+      <div class="numeros">
+        <div><strong>70.900</strong><span>visualizações</span></div>
+        <div><strong>33.505</strong><span>pessoas alcançadas</span></div>
+        <div><strong>2.281</strong><span>interações</span></div>
+        <div><strong>1.891</strong><span>novos seguidores</span></div>
+        <div><strong>R$ 0,10</strong><span>por visita ao perfil</span></div>
+        <div><strong>R$ 359</strong><span>investidos</span></div>
+      </div>
+      <p class="marcas-linha">Também já criei pra <b id="marcas"></b>.</p>
+    </div>
+  </div>
+</section>
+
+<section class="parceria tela-cheia" id="parceria">
+  <div class="wrap">
+    <div class="cabeca">
+      <div><p class="cap"><b>nº 08</b> Formatos de parceria</p><h2>Uma estadia, <em>conteúdo pra meses</em>.</h2></div>
+      <p class="lead">A hospedagem cobre a experiência que eu vou mostrar. O investimento é pelo conteúdo: <b>no mínimo 3 vídeos por estadia</b>, pra cada vinda render de verdade.</p>
     </div>
     <div class="pacotes" id="pacotes"></div>
-    <div class="avulsos">
-      <b>Adicionais</b>
-      <div class="avulso"><span>Vídeo extra<small>roteiro, gravação e edição</small></span><strong>R$ 300</strong></div>
-      <div class="avulso"><span>Variação de gancho<small>mesmo vídeo, abertura nova</small></span><strong>R$ 50</strong></div>
-      <div class="avulso"><span>+ 10 fotos editadas<small>feed, site e plataformas</small></span><strong>R$ 150</strong></div>
-    </div>
-    <div class="maior">
-      <div><h3>Resort ou hotel maior?</h3><p>Mais estrutura pede mais conteúdo: a gente monta uma proposta sob medida, com mais dias de gravação e mais cenas.</p></div>
-      <a class="botao branco" id="zapValor" href="https://wa.me/5581989857308" target="_blank" rel="noopener">Montar minha proposta</a>
-    </div>
-    <div class="condicoes">
-      <div><b>A estadia</b><p>O ideal é a experiência completa: diárias, refeições e o que o local oferece. Eu só mostro o que vivo.</p></div>
-      <div><b>Prazo</b><p>Arquivos em até 7 dias depois da estadia.</p></div>
-      <div><b>Ajustes</b><p>1 rodada inclusa por vídeo.</p></div>
-      <div><b>Uso de imagem</b><p>Vitalício nas suas redes e site. Anúncio pelo prazo do pacote.</p></div>
-      <div><b>Pagamento</b><p>50% pra fechar e 50% na entrega.</p></div>
-      <div><b>Stories</b><p>Bônus: stories no meu perfil durante a estadia.</p></div>
-      <div><b>Collab</b><p>Post em collab no meu perfil sem custo adicional, se vocês quiserem.</p></div>
+    <div class="extras"><b>Adicionais</b><span>Vídeo extra <strong>R$ 300</strong></span><span>Variação de gancho <strong>R$ 50</strong></span><span>+10 fotos <strong>R$ 150</strong></span><span>Carrossel extra <strong>R$ 120</strong></span></div>
+    <div class="gratis">
+      <p><b>Quer ver antes de fechar?</b>Me manda o @ da sua hospedagem que eu monto uma ideia de roteiro pra vocês, sem compromisso.</p>
+      <a class="botao" id="zapRoteiro" href="https://wa.me/5581989857308" target="_blank" rel="noopener">Quero um roteiro</a>
     </div>
   </div>
 </section>
 
-<section class="processo" id="processo">
+<section class="processo tela-cheia" id="processo">
   <div class="wrap">
-    <div class="centro">
-      <h2>Como funciona</h2>
-      <p class="sub-titulo">Um processo fixo, sem surpresa</p>
+    <div class="cabeca">
+      <div><p class="cap"><b>nº 09</b> Como funciona</p><h2>Um processo fixo, <em>sem surpresa</em>.</h2></div>
     </div>
     <ol class="passos">
-      <li><b>Conversa</b><p>Entendo o público, os diferenciais e o objetivo.</p></li>
-      <li><b>Roteiro</b><p>Ideias e ganchos pra vocês aprovarem antes da viagem.</p></li>
-      <li><b>Estadia</b><p>Gravo vivendo a experiência, do check-in ao check-out.</p></li>
+      <li><b>Conversa</b><p>Entendo o público, os diferenciais e o objetivo de vocês.</p></li>
+      <li><b>Roteiro</b><p>Ideias, ganchos e lista de cenas pra aprovarem antes da viagem.</p></li>
+      <li><b>Estadia</b><p>Gravo vivendo a experiência, do check-in ao check-out, nas datas que vocês escolherem.</p></li>
       <li><b>Edição</b><p>Cor, cortes, legendas e música no ritmo de cada vídeo.</p></li>
-      <li><b>Entrega</b><p>Pasta no Drive, sempre no mesmo padrão.</p></li>
+      <li><b>Entrega</b><p>Pasta no Drive: vídeos com e sem legenda, fotos e carrosséis.</p></li>
     </ol>
-    <div class="pasta"><b>Na pasta vai:</b><span>Roteiro aprovado</span><span>Vídeos com legenda</span><span>Vídeos sem legenda, pra anúncio</span><span>Fotos editadas</span></div>
+    <div class="condicoes">
+      <div><b>A estadia</b><p>O ideal é a experiência completa: diárias, refeições e o que o local oferece.</p></div>
+      <div><b>Prazo</b><p>Arquivos em até 7 dias depois da estadia.</p></div>
+      <div><b>Ajustes</b><p>1 rodada inclusa por vídeo.</p></div>
+      <div><b>Uso de imagem</b><p>Vitalício nas redes e no site. Anúncio pelo prazo do pacote.</p></div>
+      <div><b>Pagamento</b><p>50% pra fechar e 50% na entrega.</p></div>
+      <div><b>Collab e stories</b><p>Stories durante a estadia e post em collab, sem custo, se vocês quiserem.</p></div>
+    </div>
   </div>
 </section>
 
-<section id="depoimentos">
-  <div class="wrap">
-    <h2>O que as marcas falam</h2>
-    <p class="sub-titulo">Quem já criou comigo</p>
-    <div class="depos-topo"><div class="setas"><button class="seta-car" id="depAnt" type="button" aria-label="Depoimentos anteriores">←</button><button class="seta-car" id="depProx" type="button" aria-label="Mais depoimentos">→</button></div></div>
-    <ul class="depoimentos" id="listaDep" tabindex="0" aria-label="Depoimentos de marcas, role pro lado pra ver mais"></ul>
-    <div class="faq">
-      <details><summary>Preciso que você poste no seu perfil?</summary><p>Não. UGC é conteúdo pra hospedagem usar nos próprios canais. Os stories durante a estadia e o post em collab são bônus, se vocês quiserem.</p></details>
-      <details><summary>Quem vai com você?</summary><p>Depende da vibe da hospedagem. Em lugar romântico vou com o meu namorado, em hotel de família a cena é de família, e assim por diante. A gente combina antes, junto com o roteiro.</p></details>
-      <details><summary>Quem escolhe as datas?</summary><p>Vocês. Eu me adapto ao calendário da hospedagem.</p></details>
-      <details><summary>Vocês podem escolher o que aparece?</summary><p>Sim. O roteiro é aprovado antes da viagem, e se tiver um diferencial que vocês querem destacar (spa, restaurante, vista), ele entra como protagonista.</p></details>
-      <details><summary>Atende fora de Natal?</summary><p>Sim. Natal e o litoral potiguar ficam perto, e pra outros destinos a gente combina o deslocamento.</p></details>
-      <details><summary>Por que no mínimo 3 vídeos?</summary><p>Porque uma estadia rende muito mais do que um vídeo. Com 3, vocês têm uma peça pra cada etapa da reserva (desejo, confiança e decisão) e conseguem testar o que funciona melhor em anúncio.</p></details>
-      <details><summary>E se for um Airbnb ou chalé pequeno?</summary><p>Funciona do mesmo jeito: menos estrutura pra mostrar, mais foco em clima, detalhe e experiência.</p></details>
+<section class="vozes tela-cheia" id="vozes">
+  <div class="wrap vozes-grid">
+    <div>
+      <p class="cap"><b>nº 10</b> Quem já criou comigo</p>
+      <div class="depo" id="depo" aria-live="polite"></div>
+      <div class="depo-nav"><button type="button" id="depAnt" aria-label="Depoimento anterior">←</button><button type="button" id="depProx" aria-label="Próximo depoimento">→</button><span id="depNum"></span></div>
+    </div>
+    <div>
+      <p class="cap">Perguntas frequentes</p>
+      <div class="faq">
+        <details><summary>Preciso que você poste no seu perfil?</summary><p>Não. UGC é conteúdo pra hospedagem usar nos próprios canais. Stories durante a estadia e post em collab são bônus, se vocês quiserem.</p></details>
+        <details><summary>Quem escolhe as datas?</summary><p>Vocês. Eu me adapto ao calendário da hospedagem.</p></details>
+        <details><summary>Quem vai com você?</summary><p>Depende da vibe do lugar. Em hospedagem romântica vou com o meu namorado; em hotel de família, a cena é de família. A gente combina junto com o roteiro.</p></details>
+        <details><summary>Por que no mínimo 3 vídeos?</summary><p>Uma estadia rende muito mais que um vídeo. Com 3, vocês têm uma peça pra cada etapa da reserva e conseguem testar o que funciona melhor em anúncio.</p></details>
+        <details><summary>Vocês podem escolher o que aparece?</summary><p>Sim. O roteiro é aprovado antes, e o diferencial que vocês querem destacar (spa, restaurante, vista) entra como protagonista.</p></details>
+        <details><summary>Atende fora de Natal?</summary><p>Sim. O litoral potiguar fica perto, e pra outros destinos a gente combina o deslocamento.</p></details>
+      </div>
     </div>
   </div>
 </section>
 </main>
 
-<section class="final" id="contato">
+<section class="final tela-cheia" id="contato">
   <picture>
     <source media="(max-width: 760px)" srcset="img/fundo-fim-cel.webp">
     <img src="img/fundo-fim.webp" alt="" aria-hidden="true">
   </picture>
   <div class="wrap">
-    <p class="sub-titulo">Vamos criar?</p>
-    <h2>Uma experiência que o seu hóspede queira viver</h2>
+    <p class="cap">Vamos criar?</p>
+    <h2>Uma experiência que o seu hóspede <em>queira viver</em>.</h2>
+    <p class="lead">Me conta sobre a sua hospedagem. Eu respondo com ideias de roteiro e o formato que faz mais sentido pra vocês.</p>
     <div class="acoes">
-      <a class="botao branco" id="zap" href="https://wa.me/5581989857308" target="_blank" rel="noopener">Chamar no WhatsApp</a>
-      <a class="botao branco" href="https://instagram.com/caetyas_" target="_blank" rel="noopener">@caetyas_</a>
+      <a class="botao claro" id="zap" href="https://wa.me/5581989857308" target="_blank" rel="noopener">Chamar no WhatsApp</a>
+      <a class="botao linha-clara" href="https://instagram.com/caetyas_" target="_blank" rel="noopener">@caetyas_</a>
     </div>
-    <div class="dados"><span>WhatsApp (81) 98985-7308</span><span>vityasbusiness@gmail.com</span></div>
+    <div class="dados"><span>(81) 98985-7308</span><span>vityasbusiness@gmail.com</span></div>
   </div>
 </section>
 
-<footer>Yasmin Caetano · UGC Travel · Natal RN · Imagens marcadas como referência são de outros criadores.</footer>
-
-<div class="barra" id="barra">
-  <p><b>UGC Travel</b><br>Parcerias abertas pra hotéis e pousadas</p>
-  <a class="botao" id="zapBarra" href="https://wa.me/5581989857308" target="_blank" rel="noopener">Falar comigo</a>
-</div>
+<footer>Yasmin Caetano · UGC Travel · Natal RN · Vídeos marcados como referência são de outros criadores.</footer>
 
 <div class="fundo-video" id="fundoVideo" aria-hidden="true">
   <div class="card-player" role="dialog" aria-modal="true" aria-label="Vídeo">
@@ -589,124 +551,141 @@
   /* ====== SEUS DADOS (edite aqui) ====== */
   const WHATSAPP = "5581989857308";
   const MSG = "Oi, Yasmin! Vi sua proposta de UGC Travel e quero conversar sobre uma parceria pra nossa hospedagem.";
+  const MSG_ROTEIRO = "Oi, Yasmin! Quero uma ideia de roteiro pra nossa hospedagem. Nosso @ é: ";
 
-  const FAIXA = ["Sempre com sol", "Pé na areia", "Dá vontade de ir", "Do check-in ao pôr do sol", "Feito em Natal"];
+  const FAIXA = ["Pé na areia", "Do check-in ao pôr do sol", "Conteúdo que vende diária", "Feito em Natal", "Desejo, confiança e decisão"];
+  const MARCAS = "Garnier, Dove, L'Oréal, SHEIN, Amazon, Mercado Livre, Acer, Gocase e Domidona";
 
-  // Fotos minhas (pasta img). legenda = bilhetinho escrito à mão.
-  const MOOD = [
-    { src: "hotel", legenda: "hotel", alt: "Yasmin sentada na borda da piscina de um hotel" },
-    { src: "lazer", legenda: "área de lazer", alt: "Piscina com palmeira e o prédio do hotel ao fundo" },
-    { src: "areia", legenda: "pé na areia", alt: "Yasmin de vestido branco num deck de frente pro mar" },
-    { src: "passeio", legenda: "passeio", alt: "Yasmin diante de um cajueiro gigante" },
-    { src: "destino", legenda: "destino", alt: "Praia com o Morro do Careca e céu azul" },
-    { src: "litoral", legenda: "litoral", alt: "Yasmin caminhando numa praia de areia branca" },
-    { src: "viagem", legenda: "viagem", alt: "Yasmin em frente ao Museu do Amanhã, no Rio" },
-    { src: "tarde", legenda: "fim de tarde", alt: "Pôr do sol na praia com prédios ao fundo" }
+  // Galeria: a primeira fica grande.
+  const GALERIA = [
+    ["hotel", "hotel", "Yasmin sentada na borda da piscina de um hotel"],
+    ["areia", "pé na areia", "Yasmin de vestido branco num deck de frente pro mar"],
+    ["lazer", "área de lazer", "Piscina com palmeira e o prédio do hotel ao fundo"],
+    ["passeio", "passeio", "Yasmin diante de um cajueiro gigante"],
+    ["litoral", "litoral", "Yasmin caminhando numa praia de areia branca"],
+    ["destino", "destino", "Praia com o Morro do Careca e céu azul"],
+    ["tarde", "fim de tarde", "Pôr do sol na praia com prédios ao fundo"]
   ];
 
-  // As 3 etapas. refs = imagens de referência (vídeos de outros criadores).
-  const FUNIL = [
-    { etapa: "Desejo", formato: "Sensorial · sem fala · 20–30s", gancho: "POV: você finalmente tirou um dia pra não fazer absolutamente nada.", obj: "Fazer o público se imaginar dentro da hospedagem.", sensacao: "eu quero estar aí",
-      refs: [["ref-des1", "Mulher de chapéu numa banheira no meio da mata"], ["ref-des2", "Mulher relaxando numa banheira ao ar livre"], ["ref-des3", "Mulher num chalé de madeira com escada"]] },
-    { etapa: "Confiança", formato: "Tour narrado · 30–60s", gancho: "Antes de reservar essa pousada, olha esses 3 detalhes.", obj: "Responder às dúvidas antes da reserva, com detalhes reais.", sensacao: "é tudo isso mesmo",
-      refs: [["ref-con1", "Mulher na varanda olhando a vista da baía"], ["ref-con2", "Casal cozinhando numa casa de temporada"], ["ref-con3", "Mulher numa banheira de imersão no jardim"]] },
-    { etapa: "Decisão", formato: "UGC Ad · 15–30s · 3 ganchos", gancho: "Me explica como esse lugar existe a 30 minutos de Natal.", obj: "Transformar atenção em reserva, com benefício, preço e chamada.", sensacao: "vou reservar",
-      refs: [["ref-dec1", "Vídeo em lista mostrando a casa equipada"], ["ref-dec4", "Casal de roupão com o preço da diária na tela"], ["ref-dec3", "Prato regional com o preço na tela"]] }
+  // Etapas do funil com os vídeos de referência (pasta vid).
+  const ETAPAS = [
+    { nome: "Desejo", formato: "Sensorial · 20–30s", gancho: "POV: você finalmente tirou um dia pra não fazer absolutamente nada.", obj: "Faz o público se imaginar dentro da hospedagem.", clipes: ["desejo-1", "desejo-2"] },
+    { nome: "Confiança", formato: "Tour narrado · 30–60s", gancho: "Antes de reservar essa pousada, olha esses 3 detalhes.", obj: "Responde às dúvidas antes da reserva, com detalhes reais.", clipes: ["confianca-1", "confianca-2"] },
+    { nome: "Decisão", formato: "UGC Ad · 15–30s", gancho: "Me explica como esse lugar existe a 30 minutos de Natal.", obj: "Transforma atenção em reserva: benefício, preço e chamada.", clipes: ["decisao-1", "decisao-2"] }
+  ];
+
+  // Modelos de carrossel. Cada slide: foto (img + legenda) ou texto.
+  const CARROSSEIS = [
+    { etapa: "Decisão", titulo: "5 motivos pra se hospedar aqui", desc: "Lista com os diferenciais. O formato mais salvo por quem está escolhendo onde ficar.",
+      slides: [
+        { img: "hotel-quad", sobre: "Natal · RN", txt: "5 motivos pra <em>escolher</em> essa pousada" },
+        { n: "01", t: "Piscina com vista", p: "O café da manhã é servido de frente pra ela.", cor: "" },
+        { img: "lazer-quad", sobre: "02", txt: "Área de lazer <em>pra família toda</em>" },
+        { n: "05", t: "Salva pra sua próxima viagem", p: "Reservas pelo link do perfil.", cor: "verde" }
+      ] },
+    { etapa: "Desejo", titulo: "Roteiro de 48h saindo do hotel", desc: "Conecta a hospedagem ao destino. Funciona pra atrair quem ainda está decidindo a viagem.",
+      slides: [
+        { img: "destino-quad", sobre: "Roteiro", txt: "48h em Natal <em>saindo do hotel</em>" },
+        { img: "lagoa-quad", sobre: "Dia 1 · manhã", txt: "Lagoa e coqueiral a 20 min" },
+        { img: "tarde-quad", sobre: "Dia 1 · fim de tarde", txt: "Pôr do sol na orla" },
+        { n: "48h", t: "E pra voltar? O hotel.", p: "Café, piscina e descanso pro dia 2.", cor: "azul" }
+      ] },
+    { etapa: "Confiança", titulo: "O que está incluso na diária", desc: "Quebra a objeção do preço mostrando tudo o que o hóspede recebe.",
+      slides: [
+        { img: "areia-quad", sobre: "Antes de reservar", txt: "Tudo o que <em>vem incluso</em> na diária" },
+        { n: "✓", t: "Na diária", list: ["Café da manhã completo", "Piscina e espreguiçadeiras", "Wi-fi e estacionamento", "Toalhas de praia"], cor: "" },
+        { img: "drink-quad", sobre: "Detalhe", txt: "Drink de boas-vindas <em>na chegada</em>" },
+        { n: "R$", t: "Vale cada real?", p: "Comenta que eu te respondo.", cor: "verde" }
+      ] }
   ];
 
   const MOMENTOS = [
-    ["Chegada", "Recepção, primeira impressão, o \"uau\" da porta do quarto.", "chave"],
-    ["Quarto", "Cama, banheiro, vista da janela e os detalhes da decoração.", "cama"],
-    ["Café da manhã", "A mesa posta, os sabores da casa, o ritual sem pressa.", "cafe"],
-    ["Almoço e jantar", "Restaurante, drinks e pratos que viram motivo de viagem.", "drink"],
-    ["Lazer", "Piscina, spa, redário, áreas comuns e o que tem pra fazer.", "boia"],
-    ["Experiências", "Passeios, atividades e o que só existe aí.", "barco"],
-    ["Destino", "A praia, a cidade e o que fica perto da hospedagem.", "palmeira"],
-    ["Fim de tarde", "Pôr do sol, luz dourada e a noite no hotel.", "sol"]
-  ];
-
-  // Meus vídeos com vibe praia (código do YouTube). Deixe vazio pra esconder a fileira.
-  const VIDEOS = [
-    // { id: "CODIGO", titulo: "Marca · produto", uso: "Na hospedagem: piscina" },
+    ["Chegada", "Recepção e o primeiro “uau”."], ["Quarto", "Cama, banheiro, vista e decoração."],
+    ["Café da manhã", "A mesa posta e o ritual sem pressa."], ["Refeições", "Restaurante, drinks e pratos da casa."],
+    ["Lazer", "Piscina, spa e áreas comuns."], ["Experiências", "Passeios e o que só existe aí."],
+    ["Destino", "A praia e o que fica perto."], ["Fim de tarde", "Pôr do sol e a noite no hotel."]
   ];
 
   // Todos os pacotes incluem a hospedagem completa (diárias + refeições + experiências).
   const PACOTES = [
-    { selo: "Orgânico", nome: "Presença", pra: "Pro perfil, site e plataformas de reserva.", itens: ["3 vídeos orgânicos (Reels / TikTok)", "15 fotos editadas", "Uso vitalício nas redes e no site", "Bônus: stories no @caetyas_ na estadia"], preco: "R$ 900", nota: "+ hospedagem completa" },
-    { selo: "Recomendado · tráfego pago", nome: "Funil completo", pra: "Pra quem quer vender diária com anúncio.", itens: ["3 vídeos estratégicos: desejo, confiança e decisão", "3 ganchos em cada vídeo (9 criativos pra testar)", "15 fotos editadas", "Uso em anúncio por 90 dias", "Bônus: stories no @caetyas_ na estadia"], preco: "R$ 1.390", nota: "+ hospedagem completa" },
-    { selo: "Orgânico + tráfego pago", nome: "Temporada", pra: "Conteúdo pra meses, no perfil e nos anúncios.", itens: ["3 vídeos orgânicos", "3 vídeos de funil com 3 ganchos cada", "25 fotos editadas", "Uso em anúncio por 6 meses", "Bônus: stories no @caetyas_ na estadia"], preco: "R$ 2.190", nota: "+ hospedagem completa" }
+    { selo: "Orgânico", nome: "Presença", pra: "Pro perfil, site e plataformas de reserva.", itens: ["3 vídeos orgânicos", "1 carrossel estratégico", "15 fotos editadas", "Uso vitalício nas redes e no site"], preco: "R$ 900", nota: "+ hospedagem completa" },
+    { selo: "Recomendado · tráfego pago", nome: "Funil completo", pra: "Pra quem quer vender diária com anúncio.", itens: ["3 vídeos: desejo, confiança e decisão", "3 ganchos em cada (9 criativos pra testar)", "1 carrossel estratégico", "15 fotos editadas", "Uso em anúncio por 90 dias"], preco: "R$ 1.390", nota: "+ hospedagem completa", destaque: true },
+    { selo: "Orgânico + tráfego pago", nome: "Temporada", pra: "Conteúdo pra meses, no perfil e nos anúncios.", itens: ["3 vídeos orgânicos", "3 vídeos de funil com 3 ganchos cada", "2 carrosséis estratégicos", "25 fotos editadas", "Uso em anúncio por 6 meses"], preco: "R$ 2.190", nota: "+ hospedagem completa" }
   ];
 
   const DEPOIMENTOS = [
     { texto: "Foi muito positivo. O vídeo ficou exatamente como eu gostaria. Trazer a pegada família, seu roteiro foi muito bem escrito, apresentou a fachada, mostrou detalhes, falou de pontos positivos.", nome: "Camarão na Telha", nicho: "Gastronomia" },
-    { texto: "Era um vídeo desse mesmo que estava imaginando, ficou muito bom de verdade. Até a qualidade do brilho ficou top. Esse vídeo vai ser um dos que vão bombar mesmo no patrocínio.", nome: "Bombado", nicho: "Gastronomia" },
+    { texto: "Era um vídeo desse mesmo que estava imaginando, ficou muito bom de verdade. Esse vídeo vai ser um dos que vão bombar mesmo no patrocínio.", nome: "Bombado", nicho: "Gastronomia" },
     { texto: "Ótima construção do roteiro, com uma abordagem natural e criativa. Adoramos os takes externos! O conteúdo ficou natural, dinâmico e super alinhado ao briefing.", nome: "Domidona", nicho: "Moda" },
     { texto: "Gratidão pelo registro, somos gratos por tanto carinho em mostrar nossa loja e nossos produtos! E parabéns pela estética do vídeo, ficou incrível.", nome: "Cookitos", nicho: "Gastronomia" },
-    { texto: "Passando pra agradecer o trabalho, muito bom, gostei de verdade. Gosto dessas coisas não tão enfeitadas, mas também com um toquezinho de capricho.", nome: "Matutos", nicho: "Gastronomia" },
-    { texto: "Oi Yasmin, bom dia. Ficou muito bom, gostei demais. Espero estender nossa parceria com conteúdos futuros. Parabéns pelo seu trabalho!", nome: "DeliCookies", nicho: "Gastronomia" }
+    { texto: "Gosto dessas coisas não tão enfeitadas, mas também com um toquezinho de capricho.", nome: "Matutos", nicho: "Gastronomia" }
   ];
   /* ====== fim dos dados ====== */
 
   const $ = s => document.querySelector(s);
   const esc = s => String(s).replace(/[&<>"']/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
-  const playSvg = '<svg viewBox="0 0 24 24"><path d="M6 4l14 8-14 8z"/></svg>';
-  const zap = `https://wa.me/${WHATSAPP}?text=${encodeURIComponent(MSG)}`;
-  ["#zap", "#zapBarra", "#zapValor", "#zapTopo"].forEach(s => { const a = $(s); if (a) a.href = zap; });
-  const iconeZap = document.querySelector('.icones a[href="#contato"]');
-  if (iconeZap) { iconeZap.href = zap; iconeZap.target = "_blank"; iconeZap.rel = "noopener"; }
+  const emOk = s => esc(s).replace(/&lt;em&gt;/g, "<em>").replace(/&lt;\/em&gt;/g, "</em>");
+  const zap = m => `https://wa.me/${WHATSAPP}?text=${encodeURIComponent(m)}`;
+  ["#zap", "#zapNav"].forEach(s => $(s).href = zap(MSG));
+  $("#zapRoteiro").href = zap(MSG_ROTEIRO);
 
-  $("#trilho").innerHTML = [...FAIXA, ...FAIXA, ...FAIXA, ...FAIXA].map(t => `<span>${esc(t)}</span>`).join("");
+  $("#trilho").innerHTML = Array(4).fill(FAIXA).flat().map(t => `<span>${esc(t)}</span>`).join("");
+  $("#marcas").textContent = MARCAS;
 
-  $("#mood").innerHTML = MOOD.map(m => `<figure><span class="fita" aria-hidden="true"></span><img src="img/${esc(m.src)}.webp" alt="${esc(m.alt)}" loading="lazy"><figcaption>${esc(m.legenda)}</figcaption></figure>`).join("");
+  $("#galeria").innerHTML = GALERIA.map((g, i) => `<figure${i === 0 ? ' class="grande"' : ""}><img src="img/${esc(g[0])}.webp" alt="${esc(g[2])}" loading="lazy"><figcaption>${esc(g[1])}</figcaption></figure>`).join("");
 
-  $("#funilCards").innerHTML = FUNIL.map((f, i) => `<article class="etapa">
-    <div class="etapa-topo"><span class="etapa-nome">${esc(f.etapa)}</span><span class="etapa-num">0${i + 1}</span></div>
-    <span class="formato">${esc(f.formato)}</span>
-    <div class="refs">${f.refs.map(r => `<figure><img src="img/${esc(r[0])}.webp" alt="Referência: ${esc(r[1])}" loading="lazy"><span class="ref-tag">referência</span></figure>`).join("")}</div>
-    <q>${esc(f.gancho)}</q>
-    <p class="obj"><b>Objetivo</b>${esc(f.obj)}</p>
-    <p class="nota">${esc(f.sensacao)}</p>
-  </article>`).join("");
+  $("#etapas").innerHTML = ETAPAS.map((e, i) => `<article class="etapa">
+    <div class="etapa-topo"><i>0${i + 1}</i><b>${esc(e.nome)}</b><span>${esc(e.formato)}</span></div>
+    <div class="clipes">${e.clipes.map(c => `<div class="clipe"><video src="vid/${esc(c)}.mp4" poster="vid/${esc(c)}.jpg" muted loop playsinline preload="none" aria-label="Vídeo de referência da etapa ${esc(e.nome)}"></video><span class="ref">referência</span></div>`).join("")}</div>
+    <q>${esc(e.gancho)}</q><p>${esc(e.obj)}</p></article>`).join("");
+  // Os vídeos tocam sozinhos quando aparecem na tela
+  const vids = document.querySelectorAll(".clipe video");
+  if ("IntersectionObserver" in window) {
+    const io = new IntersectionObserver(es => es.forEach(en => { if (en.isIntersecting) { en.target.play().catch(() => {}); } else { en.target.pause(); } }), { threshold: .3 });
+    vids.forEach(v => io.observe(v));
+  }
 
-  const ICONES = {
-    chave: '<circle cx="14" cy="20" r="8" fill="#d9b26f" stroke="#3a1a14" stroke-width="2.2"/><path d="M21 20 h15 v6 M30 20 v5" stroke="#3a1a14" stroke-width="2.2" fill="none" stroke-linecap="round"/>',
-    cama: '<rect x="4" y="18" width="32" height="12" rx="3" fill="#c5d6dc" stroke="#3a1a14" stroke-width="2.2"/><rect x="7" y="13" width="10" height="6" rx="2" fill="#f7f2ea" stroke="#3a1a14" stroke-width="2.2"/><path d="M6 30 v4 M34 30 v4" stroke="#3a1a14" stroke-width="2.2" stroke-linecap="round"/>',
-    cafe: '<path d="M8 16 h20 v8 a8 8 0 0 1 -8 8 h-4 a8 8 0 0 1 -8 -8z" fill="#c9b49a" stroke="#3a1a14" stroke-width="2.2"/><path d="M28 18 a4 4 0 0 1 0 8" fill="none" stroke="#3a1a14" stroke-width="2.2"/><path d="M14 6 q2 3 0 6 M20 6 q2 3 0 6" stroke="#b0643f" stroke-width="2" fill="none" stroke-linecap="round"/>',
-    drink: '<path d="M8 8 h24 l-12 14z" fill="#d9b26f" stroke="#3a1a14" stroke-width="2.2" stroke-linejoin="round"/><path d="M20 22 v10 M14 34 h12" stroke="#3a1a14" stroke-width="2.2" stroke-linecap="round"/><circle cx="28" cy="8" r="3.5" fill="#b0643f"/>',
-    boia: '<circle cx="20" cy="20" r="14" fill="#b0643f" stroke="#3a1a14" stroke-width="2.2"/><circle cx="20" cy="20" r="6" fill="#fbf5ea" stroke="#3a1a14" stroke-width="2.2"/><path d="M20 6 v8 M20 26 v8 M6 20 h8 M26 20 h8" stroke="#f7f2ea" stroke-width="3.5"/>',
-    barco: '<path d="M6 26 h28 l-4 7 H10z" fill="#c5d6dc" stroke="#3a1a14" stroke-width="2.2" stroke-linejoin="round"/><path d="M20 24 V6 l10 15z" fill="#f7f2ea" stroke="#3a1a14" stroke-width="2.2" stroke-linejoin="round"/>',
-    palmeira: '<path d="M20 36 c0 -10 1 -18 3 -24" stroke="#6b4e44" stroke-width="2.6" fill="none"/><path d="M23 12 c-7 -3 -14 0 -16 5 c6 -3 11 -3 16 -5z M23 12 c5 -6 12 -6 15 -2 c-6 0 -10 0 -15 2z M23 12 c-1 -6 -6 -9 -11 -9 c4 3 8 5 11 9z" fill="#2d3823"/><path d="M8 36 h24" stroke="#d9b26f" stroke-width="3" stroke-linecap="round"/>',
-    sol: '<path d="M4 28 h32" stroke="#113f54" stroke-width="2.2" stroke-linecap="round"/><path d="M10 28 a10 10 0 0 1 20 0z" fill="#b0643f" stroke="#3a1a14" stroke-width="2.2"/><path d="M8 33 h24 M13 37 h14" stroke="#113f54" stroke-width="2.2" stroke-linecap="round"/>'
+  const slideHtml = s => s.img
+    ? `<div class="slide"><img src="img/${esc(s.img)}.webp" alt="" loading="lazy"><span class="vela"></span><div class="txt"><small>${esc(s.sobre)}</small><b>${emOk(s.txt)}</b></div></div>`
+    : `<div class="slide texto ${esc(s.cor || "")}"><span class="n">${esc(s.n)}</span><b>${esc(s.t)}</b>${s.p ? `<p>${esc(s.p)}</p>` : ""}${s.list ? `<ul>${s.list.map(l => `<li>${esc(l)}</li>`).join("")}</ul>` : ""}</div>`;
+  $("#modelos").innerHTML = CARROSSEIS.map((c, i) => `<article class="modelo">
+    <div class="post"><div class="post-topo"><i></i>sua.pousada<small>1/${c.slides.length}</small></div>
+      <div class="slides" data-i="${i}">${c.slides.map(slideHtml).join("")}</div>
+      <button type="button" class="seta-post ant" aria-label="Slide anterior">‹</button><button type="button" class="seta-post prox" aria-label="Próximo slide">›</button>
+      <div class="pontos">${c.slides.map((_, j) => `<i${j === 0 ? ' class="on"' : ""}></i>`).join("")}</div></div>
+    <span class="etiq">${esc(c.etapa)}</span><h3>${esc(c.titulo)}</h3><p class="desc">${esc(c.desc)}</p></article>`).join("");
+  document.querySelectorAll(".post").forEach(post => {
+    const tr = post.querySelector(".slides"), pts = post.querySelectorAll(".pontos i"), cont = post.querySelector(".post-topo small");
+    const atual = () => Math.round(tr.scrollLeft / tr.clientWidth);
+    const marca = () => { const a = atual(); pts.forEach((p, j) => p.classList.toggle("on", j === a)); cont.textContent = `${a + 1}/${pts.length}`; };
+    tr.addEventListener("scroll", marca, { passive: true });
+    post.querySelector(".prox").addEventListener("click", () => tr.scrollTo({ left: Math.min(atual() + 1, pts.length - 1) * tr.clientWidth, behavior: "smooth" }));
+    post.querySelector(".ant").addEventListener("click", () => tr.scrollTo({ left: Math.max(atual() - 1, 0) * tr.clientWidth, behavior: "smooth" }));
+  });
+
+  $("#momentos").innerHTML = MOMENTOS.map((m, i) => `<div><i>0${i + 1}</i><b>${esc(m[0])}</b><p>${esc(m[1])}</p></div>`).join("");
+
+  $("#pacotes").innerHTML = PACOTES.map(p => `<article class="pacote${p.destaque ? " destaque" : ""}">
+    <span class="selo">${esc(p.selo)}</span><h3>${esc(p.nome)}</h3><p class="pra">${esc(p.pra)}</p>
+    <ul>${p.itens.map(i => `<li>${esc(i)}</li>`).join("")}</ul>
+    <div class="preco">${esc(p.preco)}<small>${esc(p.nota)}</small></div></article>`).join("");
+
+  let dep = 0;
+  const mostraDep = () => {
+    const d = DEPOIMENTOS[dep];
+    $("#depo").innerHTML = `<blockquote>${esc(d.texto)}</blockquote><cite><b>${esc(d.nome)}</b> · ${esc(d.nicho)}</cite>`;
+    $("#depNum").textContent = `${dep + 1} de ${DEPOIMENTOS.length}`;
   };
-  $("#momentos").innerHTML = MOMENTOS.map(m => `<div class="momento"><svg viewBox="0 0 40 40" aria-hidden="true">${ICONES[m[2]]}</svg><b>${esc(m[0])}</b><p>${esc(m[1])}</p></div>`).join("");
+  $("#depAnt").addEventListener("click", () => { dep = (dep - 1 + DEPOIMENTOS.length) % DEPOIMENTOS.length; mostraDep(); });
+  $("#depProx").addEventListener("click", () => { dep = (dep + 1) % DEPOIMENTOS.length; mostraDep(); });
+  mostraDep();
 
-  if (VIDEOS.length) {
-    $("#videos").innerHTML = VIDEOS.map(v => `<button type="button" class="video" data-video="${esc(v.id)}" aria-label="Assistir: ${esc(v.titulo)}">
-      <span class="tela"><img src="https://i.ytimg.com/vi/${esc(v.id)}/oardefault.jpg" alt="" loading="lazy" data-fallback="${esc(v.id)}"><span class="play">${playSvg}</span></span>
-      <b>${esc(v.titulo)}</b><small>${esc(v.uso)}</small></button>`).join("");
-  } else { $("#videos").remove(); }
   document.querySelectorAll("img[data-fallback]").forEach(img => img.addEventListener("error", () => {
     if (!img.dataset.f) { img.dataset.f = 1; img.src = `https://i.ytimg.com/vi/${img.dataset.fallback}/hqdefault.jpg`; }
   }));
 
-  $("#pacotes").innerHTML = PACOTES.map(p => `<article class="pacote">
-    <span class="selo-p">${esc(p.selo)}</span><h3>${esc(p.nome)}</h3><p class="pra">${esc(p.pra)}</p>
-    <ul>${p.itens.map(i => `<li>${esc(i)}</li>`).join("")}</ul>
-    <div class="preco">${esc(p.preco)}<small>${esc(p.nota)}</small></div></article>`).join("");
-
-  const listaDep = $("#listaDep");
-  listaDep.innerHTML = DEPOIMENTOS.map(d => `<li><figure class="depoimento"><blockquote>${esc(d.texto)}</blockquote><figcaption><b>${esc(d.nome)}</b><span>${esc(d.nicho)}</span></figcaption></figure></li>`).join("");
-  const atualizaSetas = () => { const fim = listaDep.scrollWidth - listaDep.clientWidth; $("#depAnt").disabled = listaDep.scrollLeft <= 2; $("#depProx").disabled = listaDep.scrollLeft >= fim - 2; };
-  const passo = () => (listaDep.querySelector("li") || { offsetWidth: 300 }).offsetWidth + 22;
-  $("#depAnt").addEventListener("click", () => listaDep.scrollBy({ left: -passo(), behavior: "smooth" }));
-  $("#depProx").addEventListener("click", () => listaDep.scrollBy({ left: passo(), behavior: "smooth" }));
-  listaDep.addEventListener("scroll", atualizaSetas, { passive: true });
-  window.addEventListener("resize", atualizaSetas); atualizaSetas();
-
-  const barra = $("#barra");
-  new IntersectionObserver(([en]) => barra.classList.toggle("visivel", !en.isIntersecting)).observe($("#topo"));
-
-  // Player na própria página
+  // Player do YouTube na própria página
+  const playSvg = '<svg viewBox="0 0 24 24"><path d="M6 4l14 8-14 8z"/></svg>';
   const fundo = $("#fundoVideo"), moldura = $("#moldura");
   const toqueCel = window.matchMedia("(pointer: coarse)").matches;
   const player = { el: null, tocando: false, mudo: false };
@@ -722,14 +701,8 @@
       <button type="button" class="som" id="som">${player.mudo ? "Ativar som" : "Tirar som"}</button>`;
     player.el = moldura.querySelector("iframe");
     moldura.classList.remove("pausado");
-    $("#toque").addEventListener("click", () => {
-      player.tocando = !player.tocando; comando(player.tocando ? "playVideo" : "pauseVideo");
-      moldura.classList.toggle("pausado", !player.tocando);
-    });
-    $("#som").addEventListener("click", e => {
-      player.mudo = !player.mudo; comando(player.mudo ? "mute" : "unMute");
-      e.currentTarget.textContent = player.mudo ? "Ativar som" : "Tirar som";
-    });
+    $("#toque").addEventListener("click", () => { player.tocando = !player.tocando; comando(player.tocando ? "playVideo" : "pauseVideo"); moldura.classList.toggle("pausado", !player.tocando); });
+    $("#som").addEventListener("click", e => { player.mudo = !player.mudo; comando(player.mudo ? "mute" : "unMute"); e.currentTarget.textContent = player.mudo ? "Ativar som" : "Tirar som"; });
     fundo.classList.add("aberto"); fundo.setAttribute("aria-hidden", "false");
     $("#fecharVideo").focus();
   }
