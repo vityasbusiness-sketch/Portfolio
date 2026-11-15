@@ -84,7 +84,7 @@
   .menu a:hover { color: var(--laranja); }
   .menu.dir { justify-content: flex-end; align-items: center; }
   .selo-logo { width: 96px; height: 96px; border-radius: 50%; background: var(--sol); display: grid; place-items: center; text-align: center; text-decoration: none; box-shadow: inset 0 0 0 3px var(--creme), inset 0 0 0 5px var(--bordo); margin-bottom: -34px; transform: rotate(-6deg); }
-  .selo-logo b { font-family: var(--mao); font-size: 1.75rem; line-height: .82; color: var(--bordo); display: block; }
+  .selo-logo b { font-family: var(--mao); font-size: 1.85rem; line-height: .85; color: var(--bordo); display: block; text-align: center; }
   .selo-logo small { font-size: .5rem; font-weight: 800; letter-spacing: .18em; text-transform: uppercase; color: var(--mar); display: block; margin-top: 4px; }
   .pill-topo { border: 1.5px solid var(--bordo); border-radius: 999px; padding: 8px 16px; font-family: var(--sans); font-size: .72rem; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; }
 
@@ -166,7 +166,7 @@
   .refs video { width: 100%; height: 100%; object-fit: cover; }
   .ref-play { position: absolute; inset: 0; border: 0; background: transparent; width: 100%; padding: 0; }
   .ref-play span { position: absolute; left: 50%; top: 50%; width: 34px; height: 34px; margin: -17px 0 0 -17px; border-radius: 50%; background: rgba(247,242,234,.9); color: var(--bordo); font-size: .62rem; display: grid; place-items: center; opacity: 0; transition: opacity .2s; }
-  .refs figure.pausado .ref-play span { opacity: 1; }
+  .refs figure:not(.tocando) .ref-play span { opacity: 1; width: 40px; height: 40px; margin: -20px 0 0 -20px; font-size: .8rem; }
   .refs figure:hover .ref-play span { opacity: 1; }
   .ref-som { position: absolute; right: 5px; bottom: 5px; width: 28px; height: 28px; border-radius: 50%; border: 0; background: rgba(0,0,0,.55); color: #fff; font-size: .78rem; display: grid; place-items: center; padding: 0; z-index: 1; }
   .ref-aviso { font-size: .7rem; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: var(--laranja); margin-top: -2px; }
@@ -374,7 +374,7 @@
 <header class="topo">
   <div class="wrap">
     <nav class="menu esq" aria-label="Seções"><a href="#prova">Resultados</a><a href="#meus">Meus vídeos</a><a href="#funil">Pra vocês</a></nav>
-    <a class="selo-logo" href="#topo" aria-label="Início"><span><b>UGC<br>Travel</b><small>Yasmin Caetano</small></span></a>
+    <a class="selo-logo" href="#topo" aria-label="UGC Travel, início"><b>UGC<br>Travel</b></a>
     <nav class="menu dir" aria-label="Contratar"><a href="#parceria">Parceria</a><a class="pill-topo" id="zapTopo" href="https://wa.me/5581989857308" target="_blank" rel="noopener">Falar comigo</a></nav>
   </div>
 </header>
@@ -661,12 +661,13 @@
   // Meus vídeos com vibe praia. A página procura pelo título no YouTube, na ordem abaixo.
   // Se um não aparecer, troque a regra pelo código do vídeo: { id: "CODIGO", nome: "Néctar" }.
   const MEUS_VIDEOS = [
-    { nome: "Néctar", busca: /n[eé]ctar/i },
-    { nome: "Domidona · Storytelling", busca: /domidona/i, e: /storytelling/i },
-    { nome: "Domidona · Review", busca: /domidona/i, e: /review/i },
-    { nome: "Saint-Germain", busca: /saint.?germain/i },
-    { nome: "Ollie", busca: /oll?ie\b|\boli\b/i },
-    { nome: "CBSKIN", busca: /cb.?skin/i }
+    // arquivo: o vídeo em mp4 na pasta vid/meus. Com arquivo, ele toca aqui mesmo, sem YouTube.
+    { nome: "Néctar", busca: /n[eé]ctar/i, arquivo: "" },
+    { nome: "Domidona", busca: /domidona/i, e: /storytelling/i, arquivo: "" },
+    { nome: "Saint-Germain", busca: /saint.?germain/i, arquivo: "" },
+    { nome: "Domidona", busca: /domidona/i, e: /review/i, arquivo: "" },
+    { nome: "Ollie", busca: /oll?ie\b|\boli\b/i, arquivo: "" },
+    { nome: "CBSKIN", busca: /cb.?skin/i, arquivo: "" }
   ];
   const CANDIDATOS = ["mwWG5L3VRW4","pp8ShpId7lo","AJQwc90nzIU","_MeV-KUkeiY","6c9-RoJucfc","pvpWG6x2ucA","ZzVcJfGI3fE","5MUp_H9r6lk","s5OEB6FtKxg","w6-MqP7ZRr4","mYr7VDvsxYo","4-GFwHONjUY","7Qa5xWTfAuo","-HWZykwyN9c","SpHDfJ-BWOk","BsOCinxvmbw","S1xfDL7h_Tw","V66_PzR_T10","Xj8rqOkqexE","HPbxUy2ie8Y","xZuFjGpek0M","6jdHd0K3b_4","3forMuneVmo","hcnZV7lxfaI","eQKGJGUUxA8","54a_MPOI124","I4llRk5BCdw"];
 
@@ -703,8 +704,8 @@
   $("#funilCards").innerHTML = FUNIL.map((f, i) => `<article class="etapa">
     <div class="etapa-topo"><span class="etapa-nome">${esc(f.etapa)}</span><span class="etapa-num">0${i + 1}</span></div>
     <span class="formato">${esc(f.formato)}</span>
-    <p class="ref-aviso">Referências de outros criadores · toque pra pausar</p>
-    <div class="refs">${f.refs.map(r => `<figure><video src="vid/${esc(r)}.mp4" poster="vid/${esc(r)}.jpg" autoplay muted loop playsinline preload="auto" aria-label="Vídeo de referência da etapa ${esc(f.etapa)}"></video><span class="ref-tag">referência</span><button type="button" class="ref-play" aria-label="Pausar"><span>❚❚</span></button><button type="button" class="ref-som" aria-label="Ativar som">🔇</button></figure>`).join("")}</div>
+    <p class="ref-aviso">Referências de outros criadores · toque pra assistir</p>
+    <div class="refs">${f.refs.map(r => `<figure><video src="vid/${esc(r)}.mp4" poster="vid/${esc(r)}.jpg" loop playsinline preload="metadata" aria-label="Vídeo de referência da etapa ${esc(f.etapa)}"></video><span class="ref-tag">referência</span><button type="button" class="ref-play" aria-label="Tocar"><span>▶</span></button><button type="button" class="ref-som" aria-label="Tirar som">🔊</button></figure>`).join("")}</div>
     <q>${esc(f.gancho)}</q>
     <p class="obj"><b>Objetivo</b>${esc(f.obj)}</p>
   </article>`).join("");
@@ -713,15 +714,15 @@
   // Controles dos vídeos de referência: tocar/pausar e som (um com som por vez)
   document.querySelectorAll(".refs figure").forEach(fig => {
     const v = fig.querySelector("video"), pl = fig.querySelector(".ref-play"), som = fig.querySelector(".ref-som");
+    v.addEventListener("play", () => { fig.classList.add("tocando"); pl.setAttribute("aria-label", "Pausar"); pl.firstChild.textContent = "❚❚"; });
+    v.addEventListener("pause", () => { fig.classList.remove("tocando"); pl.setAttribute("aria-label", "Tocar"); pl.firstChild.textContent = "▶"; });
     pl.addEventListener("click", () => {
-      if (v.paused) { v.play(); fig.classList.remove("pausado"); pl.setAttribute("aria-label", "Pausar"); pl.firstChild.textContent = "❚❚"; }
-      else { v.pause(); fig.classList.add("pausado"); pl.setAttribute("aria-label", "Tocar"); pl.firstChild.textContent = "▶"; }
+      if (v.paused) { document.querySelectorAll(".refs video").forEach(o => { if (o !== v) o.pause(); }); v.play(); }
+      else v.pause();
     });
     som.addEventListener("click", () => {
-      const ligar = v.muted;
-      document.querySelectorAll(".refs video").forEach(o => { o.muted = true; });
-      document.querySelectorAll(".ref-som").forEach(b => { b.textContent = "🔇"; b.setAttribute("aria-label", "Ativar som"); });
-      if (ligar) { v.muted = false; v.play(); fig.classList.remove("pausado"); som.textContent = "🔊"; som.setAttribute("aria-label", "Tirar som"); }
+      v.muted = !v.muted;
+      som.textContent = v.muted ? "🔇" : "🔊"; som.setAttribute("aria-label", v.muted ? "Ativar som" : "Tirar som");
     });
   });
 
@@ -746,12 +747,12 @@
   Promise.all(CANDIDATOS.map(titulo)).then(lista => {
     const usados = new Set();
     const achados = MEUS_VIDEOS.map(m => {
-      if (m.id) return { id: m.id, nome: m.nome };
+      if (m.id) return { id: m.id, nome: m.nome, arquivo: m.arquivo };
       const v = lista.find(x => !usados.has(x.id) && m.busca.test(x.t) && (!m.e || m.e.test(x.t)));
-      if (!v) return null; usados.add(v.id); return { id: v.id, nome: m.nome };
+      if (!v) return null; usados.add(v.id); return { id: v.id, nome: m.nome, arquivo: m.arquivo };
     }).filter(Boolean);
     if (!achados.length) { $("#videos").remove(); return; }
-    $("#videos").innerHTML = achados.map(v => `<button type="button" class="video" data-video="${esc(v.id)}" aria-label="Assistir: ${esc(v.nome)}">
+    $("#videos").innerHTML = achados.map(v => `<button type="button" class="video" ${v.arquivo ? `data-arquivo="vid/meus/${esc(v.arquivo)}"` : `data-video="${esc(v.id)}"`} aria-label="Assistir: ${esc(v.nome)}">
       <span class="tela"><img src="https://i.ytimg.com/vi/${esc(v.id)}/oardefault.jpg" alt="" loading="lazy" data-fallback="${esc(v.id)}"><span class="play">${playSvg}</span></span>
       <b>${esc(v.nome)}</b></button>`).join("");
     ligaFallback($("#videos"));
@@ -781,6 +782,13 @@
   const player = { el: null, tocando: false, mudo: false };
   let focoAntes = null;
   const comando = f => player.el && player.el.contentWindow && player.el.contentWindow.postMessage(JSON.stringify({ event: "command", func: f, args: [] }), "*");
+  function abreArquivo(src) {
+    focoAntes = document.activeElement;
+    moldura.innerHTML = `<video src="${esc(src)}" controls autoplay playsinline style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;background:#111"></video>`;
+    fundo.classList.add("aberto"); fundo.setAttribute("aria-hidden", "false");
+    $("#fecharVideo").focus();
+  }
+  document.addEventListener("click", e => { const a = e.target.closest("[data-arquivo]"); if (a) abreArquivo(a.dataset.arquivo); });
   function abreVideo(id) {
     focoAntes = document.activeElement;
     Object.assign(player, { tocando: true, mudo: toqueCel });
