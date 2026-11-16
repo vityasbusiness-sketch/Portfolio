@@ -101,7 +101,7 @@
 
   /* ===== 1. CAPA: a foto ocupa metade da tela, inteira ===== */
   .capa { padding: 0; min-height: 100vh; min-height: 100svh; display: flex; flex-direction: column; }
-  .capa-grid { flex: 1; display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); align-items: stretch; }
+  .capa-grid { flex: 1; display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(0, .9fr); align-items: stretch; }
   .capa-texto { align-self: center; padding: calc(var(--topo) + 30px) clamp(24px, 5vw, 72px) 30px max(var(--gutter), calc((100vw - var(--largura)) / 2)); }
   .capa h1 { font-size: clamp(3.2rem, 7.4vw, 6.4rem); line-height: .92; }
   .capa h1 em { display: block; }
@@ -112,7 +112,7 @@
   .numeros-capa strong { display: block; font-family: var(--titulo); font-weight: 600; font-size: 1.8rem; color: var(--azul-escuro); line-height: 1; }
   .numeros-capa span { font-size: .8rem; color: var(--tinta-suave); }
   .capa-foto { position: relative; margin: 0; min-height: 520px; }
-  .capa-foto img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 50% 35%; border-radius: 0 0 0 48px; }
+  .capa-foto img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 55% 38%; border-radius: 0 0 0 48px; }
   .plaquinha { position: absolute; left: -30px; bottom: 70px; background: linear-gradient(180deg, #c99364, var(--madeira)); color: #fff8ec; font-family: var(--mao); font-weight: 700; font-size: 1.8rem; line-height: 1; padding: 12px 20px; border-radius: 8px; transform: rotate(-8deg); box-shadow: 0 10px 18px -8px rgba(0,0,0,.45), inset 0 -3px 0 rgba(0,0,0,.15); }
   .plaquinha::before, .plaquinha::after { content: ""; position: absolute; top: -26px; width: 2px; height: 26px; background: #7b5434; }
   .plaquinha::before { left: 22px; } .plaquinha::after { right: 22px; }
@@ -183,7 +183,7 @@
   .mini b { font-family: var(--titulo); font-weight: 500; font-size: 1.6rem; color: var(--bordo); }
   .mini small { font-size: .85rem; color: var(--tinta-suave); }
   .trio-seta { align-self: center; color: var(--coral); font-size: 1.4rem; font-weight: 800; }
-  .etapa-grid { display: grid; grid-template-columns: minmax(0, 1.15fr) minmax(0, .85fr); gap: clamp(28px, 5vw, 64px); align-items: center; }
+  .etapa-grid { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: clamp(28px, 5vw, 64px); align-items: center; }
   .etapa-sec .prato h2 { margin-top: 2px; }
   .refs-grandes { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 14px; width: 100%; max-width: calc((100vh - 220px) * 1.72); justify-self: center; }
   .ref { position: relative; aspect-ratio: 9/16; border: 5px solid var(--branco); padding: 0; border-radius: 20px; overflow: hidden; background: var(--azul); box-shadow: var(--sombra); transition: transform .25s; }
@@ -217,6 +217,22 @@
   .argumentos div { background: var(--branco); border-radius: var(--raio); padding: 16px 20px; }
   .argumentos h3 { font-size: 1.25rem; }
   .argumentos p { font-size: .92rem; color: var(--tinta-suave); margin-top: 4px; }
+
+  .play { position: absolute; left: 50%; top: 50%; width: 62px; height: 62px; margin: -31px 0 0 -31px; border-radius: 50%; background: var(--amarelo); display: grid; place-items: center; box-shadow: 0 6px 16px rgba(0,0,0,.3); transition: transform .2s; pointer-events: none; }
+  .play::after { content: ""; position: absolute; inset: -8px; border-radius: 50%; border: 2px solid rgba(247,197,72,.7); animation: pulsa 1.8s ease-out infinite; }
+  @keyframes pulsa { from { transform: scale(.85); opacity: 1; } to { transform: scale(1.35); opacity: 0; } }
+  .play svg { width: 22px; height: 22px; margin-left: 4px; fill: var(--bordo); }
+  button:hover > .play, button:hover .play { transform: scale(1.1); }
+  .toque-aviso { position: absolute; left: 50%; bottom: 14px; transform: translateX(-50%); background: rgba(0,0,0,.55); color: #fff; font-size: .72rem; font-weight: 800; padding: 4px 10px; border-radius: 999px; white-space: nowrap; pointer-events: none; }
+  /* carrossel das referências */
+  .carrossel { position: relative; min-width: 0; }
+  .refs-grandes { display: flex; gap: 16px; overflow-x: auto; scroll-snap-type: x mandatory; scrollbar-width: none; padding: 10px 4px 14px; max-width: none; }
+  .refs-grandes::-webkit-scrollbar { display: none; }
+  .refs-grandes .ref { flex: 0 0 auto; height: min(600px, calc(100vh - 230px)); min-height: 380px; aspect-ratio: 9/16; scroll-snap-align: center; transform: none !important; }
+  .car-nav { display: flex; align-items: center; justify-content: center; gap: 14px; margin-top: 6px; }
+  .car-nav button { width: 46px; height: 46px; border-radius: 50%; border: 0; background: var(--coral); color: #fff; font-size: 1.2rem; font-weight: 800; box-shadow: 0 4px 0 #c9523f; }
+  .car-nav button:disabled { opacity: .35; }
+  .car-nav span { font-weight: 800; color: var(--bordo); min-width: 54px; text-align: center; }
   .filtros { display: flex; gap: 8px; flex-wrap: wrap; justify-content: center; margin-top: 30px; }
   .filtro { border: 2px solid var(--azul); background: transparent; color: var(--azul-escuro); border-radius: 999px; padding: 8px 18px; font-weight: 800; font-size: .9rem; }
   .filtro[aria-pressed="true"] { background: var(--azul); color: #fff; }
@@ -342,6 +358,7 @@
   }
   @media (max-width: 960px) {
     .etapa-grid { grid-template-columns: 1fr; }
+    .refs-grandes .ref { height: auto; width: 72vw; min-height: 0; }
     .vaza-lista, .valor-grid { grid-template-columns: 1fr; }
     .trio { flex-direction: column; }
     .trio-seta { transform: rotate(90deg); }
@@ -488,7 +505,7 @@
         <p class="sem"><b>Se faltar:</b> o anúncio só alcança quem já conhece vocês, e os hóspedes novos param de chegar.</p>
       </div>
     </article>
-    <div class="refs-grandes"><button type="button" class="ref" data-arquivo="vid/desejo-1.mp4" aria-label="Assistir referência 1 de Desejo"><img src="vid/desejo-1.jpg" alt="" loading="lazy"><span class="tag-ref">referência</span><span class="play"><svg viewBox="0 0 24 24"><path d="M6 4l14 8-14 8z"/></svg></span></button><button type="button" class="ref" data-arquivo="vid/desejo-2.mp4" aria-label="Assistir referência 2 de Desejo"><img src="vid/desejo-2.jpg" alt="" loading="lazy"><span class="tag-ref">referência</span><span class="play"><svg viewBox="0 0 24 24"><path d="M6 4l14 8-14 8z"/></svg></span></button><button type="button" class="ref" data-arquivo="vid/desejo-3.mp4" aria-label="Assistir referência 3 de Desejo"><img src="vid/desejo-3.jpg" alt="" loading="lazy"><span class="tag-ref">referência</span><span class="play"><svg viewBox="0 0 24 24"><path d="M6 4l14 8-14 8z"/></svg></span></button></div>
+    <div class="carrossel"><div class="refs-grandes"><button type="button" class="ref" data-arquivo="vid/desejo-1.mp4" aria-label="Assistir referência 1 de Desejo"><img src="vid/desejo-1.jpg" alt="" loading="lazy"><span class="tag-ref">referência</span><span class="toque-aviso">toque pra assistir</span><span class="play"><svg viewBox="0 0 24 24"><path d="M6 4l14 8-14 8z"/></svg></span></button><button type="button" class="ref" data-arquivo="vid/desejo-2.mp4" aria-label="Assistir referência 2 de Desejo"><img src="vid/desejo-2.jpg" alt="" loading="lazy"><span class="tag-ref">referência</span><span class="toque-aviso">toque pra assistir</span><span class="play"><svg viewBox="0 0 24 24"><path d="M6 4l14 8-14 8z"/></svg></span></button><button type="button" class="ref" data-arquivo="vid/desejo-3.mp4" aria-label="Assistir referência 3 de Desejo"><img src="vid/desejo-3.jpg" alt="" loading="lazy"><span class="tag-ref">referência</span><span class="toque-aviso">toque pra assistir</span><span class="play"><svg viewBox="0 0 24 24"><path d="M6 4l14 8-14 8z"/></svg></span></button></div><div class="car-nav"><button type="button" class="car-ant" aria-label="Vídeo anterior">←</button><span class="car-cont">1 de 3</span><button type="button" class="car-prox" aria-label="Próximo vídeo">→</button></div></div>
   </div>
 </section>
 
@@ -505,7 +522,7 @@
         <p class="sem"><b>Se faltar:</b> a pessoa sente vontade, mas compara com a concorrente e escolhe quem parece mais seguro.</p>
       </div>
     </article>
-    <div class="refs-grandes"><button type="button" class="ref" data-arquivo="vid/confianca-1.mp4" aria-label="Assistir referência 1 de Confiança"><img src="vid/confianca-1.jpg" alt="" loading="lazy"><span class="tag-ref">referência</span><span class="play"><svg viewBox="0 0 24 24"><path d="M6 4l14 8-14 8z"/></svg></span></button><button type="button" class="ref" data-arquivo="vid/confianca-2.mp4" aria-label="Assistir referência 2 de Confiança"><img src="vid/confianca-2.jpg" alt="" loading="lazy"><span class="tag-ref">referência</span><span class="play"><svg viewBox="0 0 24 24"><path d="M6 4l14 8-14 8z"/></svg></span></button><button type="button" class="ref" data-arquivo="vid/confianca-3.mp4" aria-label="Assistir referência 3 de Confiança"><img src="vid/confianca-3.jpg" alt="" loading="lazy"><span class="tag-ref">referência</span><span class="play"><svg viewBox="0 0 24 24"><path d="M6 4l14 8-14 8z"/></svg></span></button></div>
+    <div class="carrossel"><div class="refs-grandes"><button type="button" class="ref" data-arquivo="vid/confianca-1.mp4" aria-label="Assistir referência 1 de Confiança"><img src="vid/confianca-1.jpg" alt="" loading="lazy"><span class="tag-ref">referência</span><span class="toque-aviso">toque pra assistir</span><span class="play"><svg viewBox="0 0 24 24"><path d="M6 4l14 8-14 8z"/></svg></span></button><button type="button" class="ref" data-arquivo="vid/confianca-2.mp4" aria-label="Assistir referência 2 de Confiança"><img src="vid/confianca-2.jpg" alt="" loading="lazy"><span class="tag-ref">referência</span><span class="toque-aviso">toque pra assistir</span><span class="play"><svg viewBox="0 0 24 24"><path d="M6 4l14 8-14 8z"/></svg></span></button><button type="button" class="ref" data-arquivo="vid/confianca-3.mp4" aria-label="Assistir referência 3 de Confiança"><img src="vid/confianca-3.jpg" alt="" loading="lazy"><span class="tag-ref">referência</span><span class="toque-aviso">toque pra assistir</span><span class="play"><svg viewBox="0 0 24 24"><path d="M6 4l14 8-14 8z"/></svg></span></button></div><div class="car-nav"><button type="button" class="car-ant" aria-label="Vídeo anterior">←</button><span class="car-cont">1 de 3</span><button type="button" class="car-prox" aria-label="Próximo vídeo">→</button></div></div>
   </div>
 </section>
 
@@ -522,7 +539,7 @@
         <p class="sem"><b>Se faltar:</b> vocês geram vontade e confiança, mas a reserva fica pra “um dia” e vai pra quem pediu primeiro.</p>
       </div>
     </article>
-    <div class="refs-grandes"><button type="button" class="ref" data-arquivo="vid/decisao-1.mp4" aria-label="Assistir referência 1 de Decisão"><img src="vid/decisao-1.jpg" alt="" loading="lazy"><span class="tag-ref">referência</span><span class="play"><svg viewBox="0 0 24 24"><path d="M6 4l14 8-14 8z"/></svg></span></button><button type="button" class="ref" data-arquivo="vid/decisao-2.mp4" aria-label="Assistir referência 2 de Decisão"><img src="vid/decisao-2.jpg" alt="" loading="lazy"><span class="tag-ref">referência</span><span class="play"><svg viewBox="0 0 24 24"><path d="M6 4l14 8-14 8z"/></svg></span></button><button type="button" class="ref" data-arquivo="vid/decisao-3.mp4" aria-label="Assistir referência 3 de Decisão"><img src="vid/decisao-3.jpg" alt="" loading="lazy"><span class="tag-ref">referência</span><span class="play"><svg viewBox="0 0 24 24"><path d="M6 4l14 8-14 8z"/></svg></span></button></div>
+    <div class="carrossel"><div class="refs-grandes"><button type="button" class="ref" data-arquivo="vid/decisao-1.mp4" aria-label="Assistir referência 1 de Decisão"><img src="vid/decisao-1.jpg" alt="" loading="lazy"><span class="tag-ref">referência</span><span class="toque-aviso">toque pra assistir</span><span class="play"><svg viewBox="0 0 24 24"><path d="M6 4l14 8-14 8z"/></svg></span></button><button type="button" class="ref" data-arquivo="vid/decisao-2.mp4" aria-label="Assistir referência 2 de Decisão"><img src="vid/decisao-2.jpg" alt="" loading="lazy"><span class="tag-ref">referência</span><span class="toque-aviso">toque pra assistir</span><span class="play"><svg viewBox="0 0 24 24"><path d="M6 4l14 8-14 8z"/></svg></span></button><button type="button" class="ref" data-arquivo="vid/decisao-3.mp4" aria-label="Assistir referência 3 de Decisão"><img src="vid/decisao-3.jpg" alt="" loading="lazy"><span class="tag-ref">referência</span><span class="toque-aviso">toque pra assistir</span><span class="play"><svg viewBox="0 0 24 24"><path d="M6 4l14 8-14 8z"/></svg></span></button></div><div class="car-nav"><button type="button" class="car-ant" aria-label="Vídeo anterior">←</button><span class="car-cont">1 de 3</span><button type="button" class="car-prox" aria-label="Próximo vídeo">→</button></div></div>
   </div>
 </section>
 
@@ -732,6 +749,17 @@
 
   $("#trilho").innerHTML = [...MARCAS, ...MARCAS].map(m => `<span>${esc(m)}</span>`).join("");
 
+
+  // Carrossel das referências
+  document.querySelectorAll(".carrossel").forEach(c => {
+    const tr = c.querySelector(".refs-grandes"), refs = tr.querySelectorAll(".ref"), ant = c.querySelector(".car-ant"), prox = c.querySelector(".car-prox"), cont = c.querySelector(".car-cont");
+    const passo = () => refs[0].offsetWidth + 16;
+    const atual = () => Math.round(tr.scrollLeft / passo());
+    const marca = () => { const fim = tr.scrollWidth - tr.clientWidth; const a = tr.scrollLeft >= fim - 4 ? refs.length - 1 : atual(); cont.textContent = `${a + 1} de ${refs.length}`; ant.disabled = tr.scrollLeft <= 4; prox.disabled = tr.scrollLeft >= fim - 4; };
+    ant.addEventListener("click", () => tr.scrollBy({ left: -passo(), behavior: "smooth" }));
+    prox.addEventListener("click", () => tr.scrollBy({ left: passo(), behavior: "smooth" }));
+    tr.addEventListener("scroll", marca, { passive: true }); addEventListener("resize", marca); marca();
+  });
   // Serviços, pacotes, números, depoimentos
   $("#servicosLista").innerHTML = SERVICOS.map((s, i) => `<div class="servico"><span class="n">0${i + 1}</span><h3>${esc(s[0])}</h3><p>${esc(s[1])}</p></div>`).join("");
   $("#pacotesLista").innerHTML = PACOTES.map(p => `<article class="pacote${p.destaque ? " destaque-p" : ""}">
