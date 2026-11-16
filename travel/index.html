@@ -112,7 +112,7 @@
   .numeros-capa strong { display: block; font-family: var(--titulo); font-weight: 600; font-size: 1.8rem; color: var(--azul-escuro); line-height: 1; }
   .numeros-capa span { font-size: .8rem; color: var(--tinta-suave); }
   .capa-foto { position: relative; margin: 0; min-height: 520px; }
-  .capa-foto img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 50% 40%; border-radius: 0 0 0 48px; }
+  .capa-foto img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 50% 35%; border-radius: 0 0 0 48px; }
   .plaquinha { position: absolute; left: -30px; bottom: 70px; background: linear-gradient(180deg, #c99364, var(--madeira)); color: #fff8ec; font-family: var(--mao); font-weight: 700; font-size: 1.8rem; line-height: 1; padding: 12px 20px; border-radius: 8px; transform: rotate(-8deg); box-shadow: 0 10px 18px -8px rgba(0,0,0,.45), inset 0 -3px 0 rgba(0,0,0,.15); }
   .plaquinha::before, .plaquinha::after { content: ""; position: absolute; top: -26px; width: 2px; height: 26px; background: #7b5434; }
   .plaquinha::before { left: 22px; } .plaquinha::after { right: 22px; }
@@ -183,13 +183,40 @@
   .mini b { font-family: var(--titulo); font-weight: 500; font-size: 1.6rem; color: var(--bordo); }
   .mini small { font-size: .85rem; color: var(--tinta-suave); }
   .trio-seta { align-self: center; color: var(--coral); font-size: 1.4rem; font-weight: 800; }
-  .etapa-grid { display: grid; grid-template-columns: minmax(0, .85fr) minmax(0, 1.15fr); gap: clamp(28px, 5vw, 64px); align-items: center; }
+  .etapa-grid { display: grid; grid-template-columns: minmax(0, 1.15fr) minmax(0, .85fr); gap: clamp(28px, 5vw, 64px); align-items: center; }
   .etapa-sec .prato h2 { margin-top: 2px; }
-  .refs-grandes { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 14px; width: 100%; max-width: calc((100vh - 150px) * 1.72); justify-self: center; }
+  .refs-grandes { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 14px; width: 100%; max-width: calc((100vh - 220px) * 1.72); justify-self: center; }
   .ref { position: relative; aspect-ratio: 9/16; border: 5px solid var(--branco); padding: 0; border-radius: 20px; overflow: hidden; background: var(--azul); box-shadow: var(--sombra); transition: transform .25s; }
   .ref:nth-child(2) { transform: translateY(18px); }
   .ref:hover { transform: translateY(-4px) rotate(-1deg); }
   .ref img { width: 100%; height: 100%; object-fit: cover; }
+
+  .vaza { margin: 26px auto 0; max-width: 900px; background: var(--branco); border-radius: var(--raio); padding: 18px 22px; text-align: left; box-shadow: var(--sombra); }
+  .vaza-tit { font-family: var(--titulo); font-size: 1.25rem; color: var(--bordo); margin-bottom: 10px; }
+  .vaza-lista { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 14px; font-size: .9rem; color: var(--tinta-suave); }
+  .vaza-lista b { color: var(--coral); }
+  .estrat { display: grid; gap: 12px; font-size: .92rem; color: var(--tinta-suave); line-height: 1.5; }
+  .estrat .objetivo { font-size: 1.05rem; color: var(--tinta); font-weight: 600; }
+  .estrat h4 { margin: 0 0 4px; font-size: .68rem; font-weight: 800; letter-spacing: .14em; text-transform: uppercase; color: var(--coral); }
+  .estrat ul { margin: 0; padding: 0; list-style: none; display: grid; gap: 4px; }
+  .estrat li { padding-left: 20px; position: relative; }
+  .estrat li::before { content: "☀"; position: absolute; left: 0; color: var(--amarelo); }
+  .estrat .sem { background: var(--coral-claro); border-radius: 12px; padding: 8px 12px; color: var(--tinta); font-size: .88rem; }
+  .estrat .sem b { color: var(--coral); }
+  .valor-grid { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: clamp(24px, 4vw, 50px); align-items: center; margin-top: 30px; }
+  .nota-fiscal { background: #fffdf8; border-radius: 6px; padding: 24px 24px 20px; box-shadow: var(--sombra); position: relative; transform: rotate(-1deg); }
+  .nf-tit { font-family: var(--mao); font-size: 1.7rem; color: var(--azul-escuro); line-height: 1; margin-bottom: 10px; }
+  .nota-fiscal ul { list-style: none; margin: 0; padding: 0; }
+  .nota-fiscal li { display: flex; justify-content: space-between; gap: 14px; padding: 8px 0; border-bottom: 1.5px dashed var(--linha); font-size: .92rem; }
+  .nota-fiscal li b { white-space: nowrap; color: var(--tinta); }
+  .nf-total, .nf-agora { display: flex; justify-content: space-between; align-items: baseline; margin-top: 12px; }
+  .nf-total { color: var(--tinta-suave); font-size: .95rem; }
+  .nf-agora span { font-weight: 800; color: var(--bordo); }
+  .nf-agora b { font-family: var(--mao); font-size: 2.6rem; color: var(--coral); line-height: 1; }
+  .argumentos { display: grid; gap: 14px; }
+  .argumentos div { background: var(--branco); border-radius: var(--raio); padding: 16px 20px; }
+  .argumentos h3 { font-size: 1.25rem; }
+  .argumentos p { font-size: .92rem; color: var(--tinta-suave); margin-top: 4px; }
   .filtros { display: flex; gap: 8px; flex-wrap: wrap; justify-content: center; margin-top: 30px; }
   .filtro { border: 2px solid var(--azul); background: transparent; color: var(--azul-escuro); border-radius: 999px; padding: 8px 18px; font-weight: 800; font-size: .9rem; }
   .filtro[aria-pressed="true"] { background: var(--azul); color: #fff; }
@@ -315,6 +342,7 @@
   }
   @media (max-width: 960px) {
     .etapa-grid { grid-template-columns: 1fr; }
+    .vaza-lista, .valor-grid { grid-template-columns: 1fr; }
     .trio { flex-direction: column; }
     .trio-seta { transform: rotate(90deg); }
     .cardapio, .pacotes, .servicos { grid-template-columns: 1fr; max-width: 560px; margin-inline: auto; }
@@ -408,7 +436,7 @@
 </section>
 
 <!-- ============ 3. CONTEÚDOS DE DESTAQUE ============ -->
-<section class="destaques tela" id="destaques">
+<section class="destaques tela" id="destaques" style="background:var(--azul-claro)">
   <div class="wrap">
     <div class="centro"><p class="chapeu">Feitos por mim</p><h2>Conteúdos de <em>destaque</em></h2></div>
     <!-- Os destaques vêm da lista DESTAQUES no script: o link do vídeo é o "id" (código do YouTube); a capa sai dele sozinha. -->
@@ -424,7 +452,7 @@
 </section>
 
 <!-- ============ 4. TRABALHOS (estratégia + galeria por etapa) ============ -->
-<section class="tela centro" id="trabalhos">
+<section class="tela centro" id="trabalhos" style="background:var(--amarelo-claro)">
   <div class="wrap">
     <p class="chapeu">Cada vídeo tem uma função</p>
     <h2>O cardápio de <em>uma estadia</em></h2>
@@ -436,7 +464,14 @@
       <span class="trio-seta" aria-hidden="true">→</span>
       <a class="mini" href="#etapa-decisao"><span class="mini-n">03</span><b>Decisão</b><small>converter quem quer ir</small></a>
     </div>
-    <p class="junto">☀ No pacote <b>Funil completo</b>, os 3 trabalham juntos: os anúncios de confiança e decisão aparecem pra quem já assistiu ao de desejo.</p>
+    <div class="vaza">
+      <p class="vaza-tit">Os 3 se completam. Se faltar um, o funil vaza:</p>
+      <div class="vaza-lista">
+        <p><b>Sem Desejo,</b> ninguém novo descobre vocês: o anúncio só fala com quem já conhece.</p>
+        <p><b>Sem Confiança,</b> a pessoa sente vontade, compara com a concorrente e escolhe quem parece mais seguro.</p>
+        <p><b>Sem Decisão,</b> a reserva fica pra "um dia" e vai pra quem pediu primeiro.</p>
+      </div>
+    </div>
   </div>
 </section>
 
@@ -446,7 +481,12 @@
       <div class="prato-topo"><span class="etapa">01 · Atrair</span></div>
       <h2>Desejo</h2>
       <q>POV: você finalmente tirou um dia pra não fazer nada.</q>
-      <div class="ficha"><p><b>Pra quem:</b> Quem ainda não conhece vocês.</p><p><b>Roteiro:</b> Chegada sem fala → luz, água e café → nome e cidade.</p><p><b>Onde roda:</b> Reels, TikTok e anúncio de alcance.</p><p><b>O que medir:</b> Alcance e novos seguidores.</p></div>
+      <div class="estrat">
+        <p class="objetivo">Fazer quem nunca ouviu falar de vocês parar de rolar a tela e se imaginar aí.</p>
+        <div><h4>Por que funciona</h4><p>Ninguém escolhe uma viagem pela razão primeiro: a pessoa sente vontade e só depois procura motivos. Esse vídeo vende a sensação, não a estrutura.</p></div>
+        <div><h4>O que tem nesse vídeo</h4><ul><li>Câmera em primeira pessoa (POV): quem assiste se sente dentro da cena</li><li>Sons reais: água, passos, xícara, mar</li><li>Ritmo calmo e luz bonita, sem falar de preço</li><li>Momentos que todo mundo quer viver: acordar sem pressa, café na varanda, pôr do sol</li></ul></div>
+        <p class="sem"><b>Se faltar:</b> o anúncio só alcança quem já conhece vocês, e os hóspedes novos param de chegar.</p>
+      </div>
     </article>
     <div class="refs-grandes"><button type="button" class="ref" data-arquivo="vid/desejo-1.mp4" aria-label="Assistir referência 1 de Desejo"><img src="vid/desejo-1.jpg" alt="" loading="lazy"><span class="tag-ref">referência</span><span class="play"><svg viewBox="0 0 24 24"><path d="M6 4l14 8-14 8z"/></svg></span></button><button type="button" class="ref" data-arquivo="vid/desejo-2.mp4" aria-label="Assistir referência 2 de Desejo"><img src="vid/desejo-2.jpg" alt="" loading="lazy"><span class="tag-ref">referência</span><span class="play"><svg viewBox="0 0 24 24"><path d="M6 4l14 8-14 8z"/></svg></span></button><button type="button" class="ref" data-arquivo="vid/desejo-3.mp4" aria-label="Assistir referência 3 de Desejo"><img src="vid/desejo-3.jpg" alt="" loading="lazy"><span class="tag-ref">referência</span><span class="play"><svg viewBox="0 0 24 24"><path d="M6 4l14 8-14 8z"/></svg></span></button></div>
   </div>
@@ -458,19 +498,29 @@
       <div class="prato-topo"><span class="etapa">02 · Convencer</span></div>
       <h2>Confiança</h2>
       <q>Antes de reservar essa pousada, olha esses 3 detalhes.</q>
-      <div class="ficha"><p><b>Pra quem:</b> Quem está comparando opções.</p><p><b>Roteiro:</b> Dúvida real → tour que responde → o detalhe que surpreende.</p><p><b>Onde roda:</b> Reels narrado, destaques e remarketing.</p><p><b>O que medir:</b> Salvamentos e visitas ao perfil.</p></div>
+      <div class="estrat">
+        <p class="objetivo">Responder as dúvidas que fazem a pessoa fechar a aba e ir pra outra pousada, antes que ela pergunte.</p>
+        <div><h4>Por que funciona</h4><p>Quem já se interessou começa a desconfiar: “será que é tudo isso?”, “o quarto é igual à foto?”. Ver uma pessoa real mostrando tudo, sem cara de propaganda, derruba essa desconfiança.</p></div>
+        <div><h4>O que tem nesse vídeo</h4><ul><li>Uma dúvida real logo no começo: “é perto da praia?”</li><li>Tour mostrando o que a foto não mostra: banheiro, café, distâncias</li><li>Fala natural, de hóspede pra hóspede</li><li>Um detalhe que surpreende e faz a pessoa salvar e mandar pra alguém</li></ul></div>
+        <p class="sem"><b>Se faltar:</b> a pessoa sente vontade, mas compara com a concorrente e escolhe quem parece mais seguro.</p>
+      </div>
     </article>
     <div class="refs-grandes"><button type="button" class="ref" data-arquivo="vid/confianca-1.mp4" aria-label="Assistir referência 1 de Confiança"><img src="vid/confianca-1.jpg" alt="" loading="lazy"><span class="tag-ref">referência</span><span class="play"><svg viewBox="0 0 24 24"><path d="M6 4l14 8-14 8z"/></svg></span></button><button type="button" class="ref" data-arquivo="vid/confianca-2.mp4" aria-label="Assistir referência 2 de Confiança"><img src="vid/confianca-2.jpg" alt="" loading="lazy"><span class="tag-ref">referência</span><span class="play"><svg viewBox="0 0 24 24"><path d="M6 4l14 8-14 8z"/></svg></span></button><button type="button" class="ref" data-arquivo="vid/confianca-3.mp4" aria-label="Assistir referência 3 de Confiança"><img src="vid/confianca-3.jpg" alt="" loading="lazy"><span class="tag-ref">referência</span><span class="play"><svg viewBox="0 0 24 24"><path d="M6 4l14 8-14 8z"/></svg></span></button></div>
   </div>
 </section>
 
-<section class="etapa-sec tela" id="etapa-decisao" style="background:var(--amarelo-claro)">
+<section class="etapa-sec tela" id="etapa-decisao" style="background:var(--areia-2)">
   <div class="wrap etapa-grid">
     <article class="prato">
       <div class="prato-topo"><span class="etapa">03 · Converter</span></div>
       <h2>Decisão</h2>
       <q>Me explica como esse lugar existe a 30 min de Natal.</q>
-      <div class="ficha"><p><b>Pra quem:</b> Quem já quer ir e precisa de um motivo.</p><p><b>Roteiro:</b> Preço ou benefício → 3 motivos → “chama no direct”.</p><p><b>Onde roda:</b> Anúncio pra WhatsApp, site ou reserva.</p><p><b>O que medir:</b> Mensagens e reservas.</p></div>
+      <div class="estrat">
+        <p class="objetivo">Dar o empurrão final pra quem já quer ir e só precisa de um motivo pra reservar agora.</p>
+        <div><h4>Por que funciona</h4><p>Quem viu os outros vídeos não precisa ser convencido de novo. Precisa de clareza (quanto custa, o que inclui, como reservar) e de um motivo pra não deixar pra depois.</p></div>
+        <div><h4>O que tem nesse vídeo</h4><ul><li>Gancho direto com preço ou benefício</li><li>3 motivos rápidos, em lista</li><li>Prova: o que está incluso, avaliações, distância</li><li>Chamada clara: “chama no direct”, “últimas datas de dezembro”</li></ul></div>
+        <p class="sem"><b>Se faltar:</b> vocês geram vontade e confiança, mas a reserva fica pra “um dia” e vai pra quem pediu primeiro.</p>
+      </div>
     </article>
     <div class="refs-grandes"><button type="button" class="ref" data-arquivo="vid/decisao-1.mp4" aria-label="Assistir referência 1 de Decisão"><img src="vid/decisao-1.jpg" alt="" loading="lazy"><span class="tag-ref">referência</span><span class="play"><svg viewBox="0 0 24 24"><path d="M6 4l14 8-14 8z"/></svg></span></button><button type="button" class="ref" data-arquivo="vid/decisao-2.mp4" aria-label="Assistir referência 2 de Decisão"><img src="vid/decisao-2.jpg" alt="" loading="lazy"><span class="tag-ref">referência</span><span class="play"><svg viewBox="0 0 24 24"><path d="M6 4l14 8-14 8z"/></svg></span></button><button type="button" class="ref" data-arquivo="vid/decisao-3.mp4" aria-label="Assistir referência 3 de Decisão"><img src="vid/decisao-3.jpg" alt="" loading="lazy"><span class="tag-ref">referência</span><span class="play"><svg viewBox="0 0 24 24"><path d="M6 4l14 8-14 8z"/></svg></span></button></div>
   </div>
@@ -489,11 +539,37 @@
   </div>
 </section>
 
+<section class="tela" id="valor" style="background:var(--areia-2)">
+  <div class="wrap">
+    <div class="centro"><p class="chapeu">Antes do preço</p><h2>O que vocês levam <em>de uma estadia</em></h2></div>
+    <div class="valor-grid">
+      <div class="nota-fiscal">
+        <p class="nf-tit">Funil completo, item por item</p>
+        <ul>
+          <li><span>3 vídeos estratégicos, com roteiro e edição</span><b>R$ 900</b></li>
+          <li><span>6 ganchos extras (9 versões pra testar em anúncio)</span><b>R$ 300</b></li>
+          <li><span>15 fotos editadas pro site, Google e Booking</span><b>R$ 225</b></li>
+          <li><span>Planejamento do roteiro, aprovado antes de gravar</span><b>incluso</b></li>
+          <li><span>Direito de uso em anúncio por 90 dias</span><b>incluso</b></li>
+          <li><span>Stories no meu perfil durante a estadia</span><b>bônus</b></li>
+        </ul>
+        <p class="nf-total"><span>Valor normal</span><s>R$ 1.425</s></p>
+        <p class="nf-agora"><span>Condição de lançamento</span><b>R$ 970</b></p>
+      </div>
+      <div class="argumentos">
+        <div><h3>A hospedagem é o cenário, não o pagamento</h3><p>Sem viver o lugar, não tem o que mostrar. É como o produto que uma marca envia pro criador: ele vira o conteúdo. O investimento paga o roteiro, a gravação, a edição, as versões pra anúncio e o direito de usar.</p></div>
+        <div><h3>Quarto vazio não gera receita</h3><p>Uma diária numa data de menor ocupação vira conteúdo que continua vendendo por meses, no orgânico e nos anúncios.</p></div>
+        <div><h3>Faça a conta</h3><p>Quantas reservas a mais pagam o pacote? Depois disso, todo hóspede que chegar pelos vídeos é lucro.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
 <section class="pacotes-sec tela centro" id="pacotes">
   <div class="wrap">
     <p class="chapeu">Condição de lançamento</p>
     <h2>Pacotes por estadia</h2>
-    <p class="lead">A hospedagem cobre a experiência (diárias, refeições e o que o local oferece). O investimento é pelo conteúdo, com <b>no mínimo 3 vídeos por estadia</b>.</p>
+    <p class="lead">Valores pras <b>primeiras hospedagens parceiras</b>. Mínimo de 3 vídeos por estadia, com a hospedagem completa (diárias, refeições e o que o local oferece).</p>
     <div class="pacotes" id="pacotesLista"></div>
     <p class="extras"><b>Adicionais:</b> vídeo extra R$ 300 · variação de gancho R$ 50 · +10 fotos R$ 150</p>
     <div class="roteiro-gratis">
@@ -616,7 +692,7 @@
   // Pacotes. de = valor antigo riscado.
   const PACOTES = [
     { selo: "Orgânico", nome: "Presença", pra: "Pro perfil, site e plataformas de reserva.", itens: ["3 vídeos orgânicos", "15 fotos editadas", "Uso vitalício nas redes e no site"], de: "R$ 900", desconto: "-25%", preco: "R$ 675" },
-    { selo: "Recomendado · tráfego pago", nome: "Funil completo", pra: "Pra quem quer vender diária com anúncio.", itens: ["3 vídeos: desejo, confiança e decisão", "3 ganchos em cada (9 criativos)", "15 fotos editadas", "Uso em anúncio por 90 dias"], de: "R$ 1.390", desconto: "-30%", preco: "R$ 970", destaque: true },
+    { selo: "Recomendado · tráfego pago", nome: "Funil completo", pra: "Pra quem quer vender diária com anúncio.", itens: ["3 vídeos: desejo, confiança e decisão", "3 ganchos em cada (9 criativos)", "15 fotos editadas", "Uso em anúncio por 90 dias"], de: "R$ 1.425", desconto: "-32%", preco: "R$ 970", destaque: true },
     { selo: "Orgânico + tráfego pago", nome: "Temporada", pra: "Conteúdo pra meses.", itens: ["3 vídeos orgânicos", "3 vídeos de funil com 3 ganchos", "25 fotos editadas", "Uso em anúncio por 6 meses"], de: "R$ 2.190", desconto: "-30%", preco: "R$ 1.530" }
   ];
 
