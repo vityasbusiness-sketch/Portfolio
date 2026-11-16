@@ -289,7 +289,12 @@
   .depoimento figcaption b { display: block; color: var(--bordo); }
   .depoimento figcaption span { font-size: .85rem; color: var(--tinta-suave); }
   .lado-a-lado { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 30px; align-items: start; }
-  .lado-a-lado .depoimentos { grid-auto-columns: 100%; }
+  .lado-a-lado .depoimentos { grid-auto-columns: 84%; gap: 14px; }
+  .depos-col { min-width: 0; }
+  .depos-nav { display: flex; align-items: center; gap: 12px; margin-top: 14px; }
+  .depos-nav span { font-weight: 700; font-size: .85rem; color: var(--bordo); }
+  .depos-nav .depos-dica { font-family: var(--mao); font-weight: 700; font-size: 1.3rem; color: var(--laranja); margin-left: 6px; }
+  .seta-car:not(:disabled) { background: var(--bordo); color: var(--creme); }
   .faq { display: grid; gap: 8px; }
   .faq details { background: var(--areia); border-radius: 14px; padding: 0 18px; }
   .faq summary { cursor: pointer; padding: 16px 0; font-weight: 700; list-style: none; display: flex; justify-content: space-between; gap: 12px; }
@@ -320,7 +325,7 @@
   .fundo-video.aberto { opacity: 1; visibility: visible; }
   .card-player { position: relative; width: min(92vw, calc((100vh - 110px) * 9 / 16), 420px); }
   .moldura { position: relative; aspect-ratio: 9/16; background: #111; border-radius: 12px; overflow: hidden; }
-  .moldura iframe { position: absolute; left: 0; top: -60px; width: 100%; height: calc(100% + 120px); border: 0; pointer-events: none; }
+  .moldura iframe { position: absolute; left: -16%; top: -4%; width: 132%; height: 132%; border: 0; pointer-events: none; }
   .toque { position: absolute; inset: 0; z-index: 2; border: 0; background: transparent; width: 100%; }
   .toque .icone { position: absolute; top: 50%; left: 50%; width: 72px; height: 72px; margin: -36px 0 0 -36px; border-radius: 50%; background: var(--sol); display: grid; place-items: center; opacity: 0; transition: opacity .25s; }
   .toque .icone svg { width: 22px; height: 22px; margin-left: 4px; fill: var(--bordo); }
@@ -359,7 +364,7 @@
     .passos { grid-template-columns: 1fr 1fr; }
     .depoimentos { grid-auto-columns: 88%; }
     .lado-a-lado, .duas-caixas { grid-template-columns: 1fr; }
-    .lado-a-lado .depoimentos { grid-auto-columns: 92%; }
+    .lado-a-lado .depoimentos { grid-auto-columns: 86%; }
     .balao { right: -8px; }
   }
   @media (max-width: 440px) {
@@ -402,7 +407,7 @@
         <p class="sub">Vídeos e fotos que mostram como é estar na sua hospedagem: a chegada, o café, a piscina, o fim de tarde.</p>
         <div class="acoes">
           <a class="botao" href="#funil">Ver os vídeos</a>
-          <a class="botao contorno" href="#parceria">Parceria</a>
+          <a class="botao contorno" href="#roteiroGratis">Roteiro grátis</a>
         </div>
       </div>
     </article>
@@ -485,13 +490,16 @@
   <div class="wrap">
     <h2>O que as marcas falam</h2>
     <p class="sub-titulo">Quem já criou comigo</p>
-    <div class="depos-topo"><div class="setas"><button class="seta-car" id="depAnt" type="button" aria-label="Depoimentos anteriores">←</button><button class="seta-car" id="depProx" type="button" aria-label="Mais depoimentos">→</button></div></div>
     <div class="lado-a-lado">
+    <div class="depos-col">
     <ul class="depoimentos" id="listaDep" tabindex="0" aria-label="Depoimentos de marcas, role pro lado pra ver mais"></ul>
+    <div class="depos-nav"><button class="seta-car" id="depAnt" type="button" aria-label="Depoimento anterior">←</button><span id="depCont">1 de 6</span><button class="seta-car" id="depProx" type="button" aria-label="Próximo depoimento">→</button><span class="depos-dica">arraste pra ler mais</span></div>
+    </div>
     <div class="faq">
       <details><summary>Preciso que você poste no seu perfil?</summary><p>Não. UGC é conteúdo pra hospedagem usar nos próprios canais. Os stories durante a estadia e o post em collab são bônus, se vocês quiserem.</p></details>
       <details><summary>Quem vai com você?</summary><p>Depende da vibe da hospedagem. Em lugar romântico vou com o meu namorado, em hotel de família a cena é de família, e assim por diante. A gente combina antes, junto com o roteiro.</p></details>
-      <details><summary>Quem escolhe as datas?</summary><p>Vocês. Eu me adapto ao calendário da hospedagem.</p></details>
+      <details><summary>Quem escolhe as datas?</summary><p>Vocês. Eu me adapto ao calendário da hospedagem, inclusive pra preparar conteúdo antes da alta temporada ou de datas como Réveillon e Carnaval.</p></details>
+      <details><summary>Quantas diárias são necessárias?</summary><p>Em geral, 2 diárias dão conta de uma pousada. Hotéis e resorts com mais estrutura pedem 3. A gente define juntos no roteiro.</p></details>
       <details><summary>Vocês podem escolher o que aparece?</summary><p>Sim. O roteiro é aprovado antes da viagem, e se tiver um diferencial que vocês querem destacar (spa, restaurante, vista), ele entra como protagonista.</p></details>
       <details><summary>Atende fora de Natal?</summary><p>Sim. Natal e o litoral potiguar ficam perto, e pra outros destinos a gente combina o deslocamento.</p></details>
       <details><summary>Por que no mínimo 3 vídeos?</summary><p>Porque uma estadia rende muito mais do que um vídeo. Com 3, vocês têm uma peça pra cada etapa da reserva (desejo, confiança e decisão) e conseguem testar o que funciona melhor em anúncio.</p></details>
@@ -564,6 +572,9 @@
       <div><b>Uso de imagem</b><p>Vitalício nas suas redes e site. Anúncio pelo prazo do pacote.</p></div>
       <div><b>Pagamento</b><p>50% pra fechar e 50% na entrega.</p></div>
       <div><b>Stories e collab</b><p>Stories durante a estadia e post em collab no meu perfil, sem custo, se vocês quiserem.</p></div>
+      <div><b>Sem atrapalhar a operação</b><p>Combino horários com a equipe e gravo áreas comuns nos momentos de menor movimento.</p></div>
+      <div><b>Privacidade dos hóspedes</b><p>Ninguém aparece sem autorização. Hóspedes e funcionários só entram na cena se aceitarem.</p></div>
+      <div><b>Onde usar</b><p>Reels, TikTok, anúncios, site, Google, Booking e Airbnb.</p></div>
     </div>
     <div class="pasta"><b>Na pasta vai:</b><span>Roteiro aprovado</span><span>Vídeos com legenda</span><span>Vídeos sem legenda, pra anúncio</span><span>Fotos editadas</span></div>
   </div>
@@ -579,7 +590,7 @@
     <div class="pacotes" id="pacotes"></div>
     <p class="extras"><b>Adicionais</b><span>Vídeo extra <strong>R$ 300</strong></span><span>Variação de gancho <strong>R$ 50</strong></span><span>+10 fotos editadas <strong>R$ 150</strong></span></p>
     <div class="duas-caixas um">
-    <div class="maior" style="background:var(--oliva)">
+    <div class="maior" id="roteiroGratis" style="background:var(--oliva)">
       <div><h3>Quer ver antes de fechar?</h3><p>Me manda o @ da sua hospedagem que eu monto uma ideia de roteiro pra vocês, sem compromisso.</p></div>
       <a class="botao branco" id="zapRoteiro" href="https://wa.me/5581989857308" target="_blank" rel="noopener">Quero um roteiro</a>
     </div>
@@ -766,7 +777,7 @@
 
   const listaDep = $("#listaDep");
   listaDep.innerHTML = DEPOIMENTOS.map(d => `<li><figure class="depoimento"><blockquote>${esc(d.texto)}</blockquote><figcaption><b>${esc(d.nome)}</b><span>${esc(d.nicho)}</span></figcaption></figure></li>`).join("");
-  const atualizaSetas = () => { const fim = listaDep.scrollWidth - listaDep.clientWidth; $("#depAnt").disabled = listaDep.scrollLeft <= 2; $("#depProx").disabled = listaDep.scrollLeft >= fim - 2; };
+  const atualizaSetas = () => { const fim = listaDep.scrollWidth - listaDep.clientWidth; $("#depAnt").disabled = listaDep.scrollLeft <= 2; $("#depProx").disabled = listaDep.scrollLeft >= fim - 2; const n = listaDep.children.length, a = listaDep.scrollLeft >= fim - 2 ? n : Math.round(listaDep.scrollLeft / passo()) + 1; $("#depCont").textContent = `${a} de ${n}`; };
   const passo = () => (listaDep.querySelector("li") || { offsetWidth: 300 }).offsetWidth + 22;
   $("#depAnt").addEventListener("click", () => listaDep.scrollBy({ left: -passo(), behavior: "smooth" }));
   $("#depProx").addEventListener("click", () => listaDep.scrollBy({ left: passo(), behavior: "smooth" }));
