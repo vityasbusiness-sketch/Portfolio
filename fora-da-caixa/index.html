@@ -144,10 +144,11 @@ h2 em,h1 em{font-style:italic;color:var(--azul)}
 .tags{display:flex;flex-wrap:wrap;gap:6px}
 .tag{font-size:12px;font-weight:600;color:var(--azul);background:var(--azul2);padding:3px 10px;border-radius:999px}
 @keyframes surgir{from{opacity:0;transform:translateY(12px)}}
+.grupo{font-size:12px;font-weight:700;color:var(--tinta2);margin:18px 0 -26px}
 .atalhos{margin:20px 0 8px}
 .atalhos a{display:inline-flex;align-items:center;min-height:40px;padding:0 16px;border-radius:999px;border:1.5px solid rgba(20,17,13,.18);font:500 14px var(--sans);text-decoration:none;transition:.2s}
 .atalhos a:hover{border-color:var(--azul);color:var(--azul)}
-.plano{display:grid;grid-template-columns:.85fr 1.15fr;gap:clamp(20px,3vw,36px);background:#fff;border-radius:16px;box-shadow:var(--sombra);padding:clamp(18px,2.6vw,28px);margin-top:18px;scroll-margin-top:84px}
+.plano{display:grid;grid-template-columns:.85fr 1.15fr;gap:clamp(20px,3vw,36px);background:#fff;border-radius:16px;box-shadow:var(--sombra);padding:clamp(18px,2.6vw,28px);margin-top:18px;scroll-margin-top:84px;animation:surgir .4s ease both}
 .fotos{display:grid;grid-template-columns:1fr 1fr;gap:10px;align-content:start}
 .fotos.uma{grid-template-columns:1fr}
 .fotos figure{margin:0}
@@ -347,15 +348,15 @@ footer a:hover{color:var(--azul)}
     <p class="hint">Arraste pra girar e use dois dedos ou a rodinha do mouse pra aproximar.</p>
     <span id="tb" hidden></span>
 
-    <div class="revela" style="margin-top:48px">
+    <div class="revela intro-marca" style="margin-top:48px">
       <h3 class="sub" style="margin:0 0 6px">Onde a sua marca entra</h3>
-      <p class="lead">Cada cômodo tem um conceito, as categorias que entram e uma estratégia de 3 vídeos, um pra cada etapa do funil.</p>
+      <p class="lead">Escolha a área da casa que combina com o seu produto. Pra cada uma você vê como ela está hoje, as referências do que ela vai virar e a estratégia de 3 vídeos, um pra cada etapa do funil.</p>
     </div>
-    <nav class="filtros atalhos" id="atalhos" aria-label="Ir para o cômodo"></nav>
-    <div id="planosComodo"></div>
-    <h3 class="sub revela" id="casa-toda">Pela casa toda</h3>
-    <p class="lead" style="margin-top:-8px">Categorias que aparecem em vários episódios, do primeiro dia ao tour final.</p>
-    <div class="casa-grid" id="planosCasa"></div>
+    <p class="grupo">Por cômodo</p>
+    <div class="filtros" id="abasComodo" role="group" aria-label="Escolha o cômodo"></div>
+    <p class="grupo">Pela casa toda</p>
+    <div class="filtros" id="abasCasa" role="group" aria-label="Escolha a categoria"></div>
+    <div id="planoAtivo" aria-live="polite"></div>
   </div>
 </section>
 
@@ -489,9 +490,9 @@ const planos = [
     videos: [["Atrair", "Storytelling", "A primeira receita da cozinha nova.", "Criar desejo com a cena da primeira vez.", "cozinha que acolhe"],
              ["Conectar", "Demonstração", "Testei [seu produto] na rotina de quem cozinha todo dia.", "Mostrar funcionando e responder dúvidas de uso.", "funciona de verdade"],
              ["Converter", "Lo-fi / review", "O que eu compraria de novo pra cozinha nova.", "Converter com recomendação de amiga.", "vou levar esse"]] },
-  { id: "banheiro", fotos: [["../lar/img/m-ban3.webp","Referência: madeira e luz no espelho"],["../lar/img/m-ban5.webp","Referência: o detalhe que vira spa"]], tipo: "comodo", nome: "Banheiros", serie: "episódio dos banheiros", video: "pvpWG6x2ucA",
+  { id: "banheiro", fotos: [["img/banheiro-ref-1.webp","Referência: verde, madeira e nichos com luz"],["img/banheiro-ref-2.webp","Referência: bancada de madeira e espelho iluminado"]], tipo: "comodo", nome: "Banheiros", serie: "episódio dos banheiros", video: "pvpWG6x2ucA",
     conceito: "O banheiro como <em>o lugar mais calmo</em> da casa.",
-    cenario: "Dois banheiros compactos e brancos, um com janela pra lavanderia. Pequenos, organizados e com cara de spa.",
+    cenario: "Dois banheiros compactos e brancos, um com janela pra lavanderia. A ideia é levar o verde, a madeira e a luz quente das referências pra deixar os dois pequenos, organizados e com cara de spa.",
     marcas: ["Toalhas e tapetes", "Organizadores", "Aromas", "Skincare e banho", "Limpeza"],
     videos: [["Atrair", "Sensorial", "Meu banheiro virou o lugar mais calmo da casa.", "Parar o dedo pela estética e pela sensação.", "paz"],
              ["Conectar", "Problema × solução", "Banheiro pequeno: como eu fiz caber tudo.", "Resolver uma dor real com o produto.", "eu preciso disso"],
@@ -503,6 +504,13 @@ const planos = [
     videos: [["Atrair", "Storytelling", "A opinião que mais importa nessa casa é a delas.", "Criar conexão com os bichos como protagonistas.", "que fofas"],
              ["Conectar", "Demonstração + reação", "Montei [seu produto] e a Mel reagiu assim.", "Mostrar o produto e a reação em tempo real.", "ela aprovou"],
              ["Converter", "Review", "Uma semana depois: elas aprovaram mesmo?", "Converter com resultado real.", "quero pro meu"]] },
+  { id: "lavanderia", fotos: [["img/lavanderia-hoje.webp","Hoje: a lavanderia, só com o tanque"],["img/lavanderia-ref.webp","Referência: @jfc_interiors"]], tipo: "comodo", nome: "Lavanderia", serie: "episódio da lavanderia e rotina", video: "mwWG5L3VRW4",
+    conceito: "A lavanderia pequena que <em>funciona de verdade</em>.",
+    cenario: "Hoje é só um tanque e uma janela, e a roupa é lavada na mão. Entram armário, bancada, cestos e, quem sabe, a primeira máquina de lavar da casa, com madeira e luz quente como na referência.",
+    marcas: ["Máquina de lavar", "Cuidado com roupas", "Cestos e organização", "Varal e passadoria", "Limpeza"],
+    videos: [["Atrair", "Antes e depois", "Minha lavanderia era só um tanque.", "Prender com a transformação de um espaço esquecido.", "que diferença"],
+             ["Conectar", "Demonstração", "Lavei a roupa da semana com [seu produto] pela primeira vez.", "Mostrar o produto resolvendo a rotina real.", "facilita a vida"],
+             ["Converter", "Lo-fi de rotina", "A lavanderia que faz a roupa render, em 30 segundos.", "Converter mostrando praticidade no dia a dia.", "quero na minha casa"]] },
   { id: "decoracao", fotos: [["../lar/img/m-dec3.webp","Referência"]], tipo: "casa", nome: "Decoração e iluminação", serie: "sala, quartos, cozinha e banheiros", video: "SpHDfJ-BWOk",
     conceito: "Luz indireta é o que <em>transforma casa em lar</em>.",
     cenario: "O apê chega todo branco, com luz fria. Nada de luz branca: abajures, fitas de LED e luz quente em todos os cômodos, com quadros, espelhos e tapetes.",
@@ -510,10 +518,10 @@ const planos = [
     videos: [["Atrair", "Antes e depois", "Desliguei a luz branca da sala e nunca mais liguei.", "Parar o dedo com a mudança de atmosfera.", "que aconchego"],
              ["Conectar", "Demonstração", "3 jeitos de usar [seu produto] pra mudar o clima de um cômodo.", "Mostrar versatilidade e dar ideias de uso.", "quero testar em casa"],
              ["Converter", "Lo-fi", "A peça que mais mudou a casa nova.", "Converter com a escolha número um.", "essa é a peça"]] },
-  { id: "limpeza", fotos: [["img/lavanderia-hoje.webp","Hoje: a lavanderia"]], tipo: "casa", nome: "Limpeza e lavanderia", serie: "abertura da série e rotina", video: "mwWG5L3VRW4",
+  { id: "limpeza", fotos: [["../lar/img/m-lim1.webp","Referência"]], tipo: "casa", nome: "Limpeza", serie: "abertura da série e rotina", video: "mwWG5L3VRW4",
     conceito: "Antes de qualquer caixa, <em>a primeira faxina</em>.",
-    cenario: "O apê recém-reformado chega com poeira de obra. A limpeza abre a série e vira rotina, até na lavanderia compacta, onde a roupa é lavada no tanque.",
-    marcas: ["Multiuso e detergentes", "Panos e microfibra", "Vassouras e rodos", "Cuidado com roupas", "Aromatizantes"],
+    cenario: "O apê recém-reformado chega com poeira de obra. A limpeza abre a série e vira rotina em todos os cômodos.",
+    marcas: ["Multiuso e detergentes", "Panos e microfibra", "Vassouras e rodos", "Aromatizantes"],
     videos: [["Atrair", "Antes e depois", "Ninguém mostra como um apê chega antes da mudança.", "Prender com o choque do antes.", "que alívio"],
              ["Conectar", "Demonstração", "O kit de limpeza de quem acabou de se mudar.", "Mostrar o produto funcionando em várias superfícies.", "simples assim"],
              ["Converter", "Rotina lo-fi", "A faxina de domingo no apê novo, em 30 segundos.", "Converter mostrando praticidade.", "vou usar também"]] },
@@ -637,10 +645,16 @@ const casaHTML = p => `
       <a class="ref" href="${zap(p.nome)}" target="_blank" rel="noopener">Quero esse plano ↗</a>
     </div>
   </article>`;
-const comodos = planos.filter(p => p.tipo === "comodo");
-$("#atalhos").innerHTML = comodos.map(p => `<a href="#plano-${p.id}">${esc(p.nome)}</a>`).join("") + `<a href="#casa-toda">Pela casa toda</a>`;
-$("#planosComodo").innerHTML = comodos.map(planoHTML).join("");
-$("#planosCasa").innerHTML = planos.filter(p => p.tipo === "casa").map(casaHTML).join("");
+const aba = p => `<button aria-pressed="false" data-p="${p.id}">${esc(p.nome)}</button>`;
+$("#abasComodo").innerHTML = planos.filter(p => p.tipo === "comodo").map(aba).join("");
+$("#abasCasa").innerHTML = planos.filter(p => p.tipo === "casa").map(aba).join("");
+const abrirPlano = id => {
+  const p = planos.find(x => x.id === id); if (!p) return;
+  document.querySelectorAll("[data-p]").forEach(b => b.setAttribute("aria-pressed", b.dataset.p === id));
+  $("#planoAtivo").innerHTML = planoHTML(p).replace('class="plano revela"', 'class="plano"');
+};
+document.querySelectorAll("#abasComodo,#abasCasa").forEach(g => g.addEventListener("click", e => { const b = e.target.closest("button"); if (b) abrirPlano(b.dataset.p); }));
+abrirPlano("quarto");
 
 $("#servGrid").innerHTML = servicos.map((s, i) => `<article class="serv revela"><span class="n">${String(i + 1).padStart(2, "0")}</span><h3>${esc(s.titulo)}</h3><p>${esc(s.descricao)}</p></article>`).join("");
 $("#termosGrid").innerHTML = termos.map(t => `<div><b>${esc(t.titulo)}</b><span>${esc(t.texto)}</span></div>`).join("");
