@@ -153,6 +153,8 @@ h2 em,h1 em{font-style:italic;color:var(--azul)}
 .fotos figure{margin:0}
 .fotos img{width:100%;aspect-ratio:3/4;object-fit:cover;border-radius:10px;background:var(--creme2)}
 .fotos.uma img{aspect-ratio:4/3}
+.fotos.tres figure:first-child{grid-column:1/-1}
+.fotos.tres figure:first-child img{aspect-ratio:16/9}
 .fotos figcaption{font-size:12px;font-weight:600;color:var(--tinta2);margin-top:6px}
 .plano .rotulo{font-size:12px;font-weight:700;color:var(--laranja)}
 .plano h3.conceito{font-size:clamp(22px,2.4vw,28px);margin:4px 0 8px}
@@ -466,16 +468,16 @@ const episodios = [
 // fotos: [caminho, legenda] (a primeira é o cômodo hoje, a segunda a referência). videos: [etapa, formato, gancho, objetivo, o que o público sente]
 // [seu produto] é trocado pelo nome do produto no roteiro final.
 const planos = [
-  { id: "quarto", fotos: [["img/quarto-hoje.webp","Hoje: um dos quartos do apê novo"],["../lar/img/m-qua1.webp","Referência: cimento, ripado e luz baixa"]], tipo: "comodo", nome: "Meu quarto", serie: "episódios do quarto e tour final", video: "mYr7VDvsxYo",
+  { id: "quarto", fotos: [["img/quarto-hoje.webp","Hoje: um quarto do apê novo, ainda vazio"],["img/quarto-ref-cama.webp","Referência: cimento queimado, ripado e LED atrás da cama"],["img/quarto-ref-tv.webp","Referência: TV com rack suspenso e luz indireta"]], tipo: "comodo", nome: "Meu quarto", serie: "episódios do quarto e tour final", video: "mYr7VDvsxYo",
     conceito: "O quarto que já existe, <em>ganhando a minha cara</em>.",
-    cenario: "Cama, guarda-roupa e mesa já vêm comigo. Entram a parede de cimento queimado, o ripado com LED atrás da cabeceira, a roupa de cama e a luz baixa pra virar o meu canto.",
+    cenario: "Cama, guarda-roupa e mesa já vêm comigo. Entram a parede de cimento queimado, o ripado com prateleira e LED atrás da cabeceira, a TV com rack suspenso, a roupa de cama e a luz baixa pra virar o meu canto.",
     marcas: ["Tintas e revestimentos", "Painéis ripados", "Cama e enxoval", "Iluminação", "Decoração", "Aromas"],
     videos: [["Atrair", "Antes e depois", "Meu quarto tinha tudo, menos cara de meu.", "Prender com a transformação.", "agora sim"],
              ["Conectar", "Processo e demonstração", "Apliquei [seu produto] no meu quarto sozinha. Deu certo?", "Mostrar o produto funcionando e o passo a passo real.", "eu consigo fazer isso"],
              ["Converter", "Review", "Valeu a pena trocar [seu produto] do meu quarto?", "Converter com um veredito honesto.", "valeu cada detalhe"]] },
-  { id: "sala", fotos: [["img/sala-ref.webp","Referência: a sala que a gente quer"],["../lar/img/m-sala5.webp","Referência: TV e luz indireta"]], tipo: "comodo", nome: "Sala", serie: "episódios da sala e tour final", video: "xZuFjGpek0M",
+  { id: "sala", fotos: [["img/sala-ref.webp","Referência: parede de destaque atrás do sofá"],["img/sala-ref-tv.webp","Referência: painel ripado com a TV"]], tipo: "comodo", nome: "Sala", serie: "episódios da sala e tour final", video: "xZuFjGpek0M",
     conceito: "Os móveis fazem a casa. O aconchego <em>faz o lar</em>.",
-    cenario: "A sala nova é menor que a antiga. Sofá e rack já existem, então a virada vem da parede de destaque, do tapete, da mesa de centro, das almofadas e da luz indireta.",
+    cenario: "A sala nova é menor que a antiga. Sofá, rack e painel ripado já existem, então a virada vem da parede de destaque, do tapete, da mesa de centro, das almofadas e da luz indireta. As referências vão ser ajustadas às paredes do apê depois da mudança.",
     marcas: ["Revestimentos e papel de parede", "Tapetes", "Iluminação", "Quadros", "Mantas e almofadas", "Móveis compactos"],
     videos: [["Atrair", "Storytelling + antes e depois", "Minha sala nova é menor. E agora?", "Parar o dedo com um problema que muita gente tem.", "e agora?"],
              ["Conectar", "Review com critério", "O que eu olhei antes de escolher [seu produto] pra sala nova.", "Gerar confiança mostrando o critério da escolha.", "ela pensou nisso por mim"],
@@ -611,7 +613,7 @@ $("#epsGrid").innerHTML = episodios.map(e => `<li><b>${esc(e.tag)}</b><h3>${esc(
 const zap = nome => `https://wa.me/5581989857308?text=${encodeURIComponent("Oi, Yasmin! Vi o plano de " + nome + " da série Fora da caixa e quero conversar sobre a minha marca.")}`;
 const planoHTML = p => `
   <article class="plano revela" id="plano-${p.id}">
-    <div class="fotos${p.fotos.length < 2 ? " uma" : ""}">${p.fotos.map(([src, leg]) => `<figure><img src="${esc(src)}" alt="${esc(leg)}" loading="lazy"><figcaption>${esc(leg)}</figcaption></figure>`).join("")}</div>
+    <div class="fotos${p.fotos.length < 2 ? " uma" : p.fotos.length > 2 ? " tres" : ""}">${p.fotos.map(([src, leg]) => `<figure><img src="${esc(src)}" alt="${esc(leg)}" loading="lazy"><figcaption>${esc(leg)}</figcaption></figure>`).join("")}</div>
     <div>
       <span class="rotulo">${esc(p.nome)}</span>
       <h3 class="conceito">${p.conceito}</h3>
